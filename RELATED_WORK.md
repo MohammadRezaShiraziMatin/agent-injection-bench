@@ -1,6 +1,6 @@
 # Related work mapping (base papers)
 
-Pointers only. Citations do **not** claim that this scaffold reproduces their coverage, numbers, or threat models. This repo publishes **no** ASR/utility rates.
+Pointers only. Citations do **not** claim that this scaffold reproduces their coverage, numbers, or threat models. This repo publishes **no** ASR/utility rates. Structured reading notes: [`READING_NOTES.md`](READING_NOTES.md).
 
 ## 1. Greshake et al. 2023 — indirect prompt injection threat model
 

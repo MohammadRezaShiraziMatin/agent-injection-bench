@@ -31,6 +31,7 @@ Paste-ready Cursor eval prompt: [`CURSOR_PROMPT_RUN_EVAL.md`](CURSOR_PROMPT_RUN_
 Freeze snapshot: [`STATUS.md`](STATUS.md). Methods/limitations paste: [`METHODS_SNIPPET.md`](METHODS_SNIPPET.md).
 ADAPTI-GUARD positioning (no defense code): [`ADAPTI_GUARD_BRIDGE.md`](ADAPTI_GUARD_BRIDGE.md).
 Base-paper mapping: [`RELATED_WORK.md`](RELATED_WORK.md).
+Structured reading notes: [`READING_NOTES.md`](READING_NOTES.md).
 
 ### Explicit: no published ASR/utility yet
 
