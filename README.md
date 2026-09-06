@@ -26,6 +26,8 @@ There are **no published ASR or utility numbers here**. The data directory holds
 6. **Only after** real non-error traces exist: `python scripts/score_asr.py --traces-dir results/traces` and `python scripts/score_utility.py --traces-dir results/traces`
 
 Step-by-step copy-paste: [`RUNBOOK.md`](RUNBOOK.md).
+Daily/weekly lock: [`CHECKLIST.md`](CHECKLIST.md).
+Paste-ready Cursor eval prompt: [`CURSOR_PROMPT_RUN_EVAL.md`](CURSOR_PROMPT_RUN_EVAL.md).
 
 ### Explicit: no published ASR/utility yet
 
