@@ -4,7 +4,7 @@ v0 scaffold for a **small** academic benchmark of **indirect prompt injection** 
 
 This repository is **attack data + eval stubs only**. It is a complement to ADAPTI-GUARD (defense line of work), not a defense implementation.
 
-There are **no evaluated results here**. Two example episodes exist so the schema and scripts can be checked. Seed 20–40 attack and 20–40 benign episodes next.
+There are **no evaluated results here**. The data directory holds 20 attack + 20 benign seed episodes. Format demos live under `examples/`.
 
 ## What this is / what it is not
 
@@ -12,7 +12,7 @@ There are **no evaluated results here**. Two example episodes exist so the schem
 
 - A JSON Schema and file layout for one-episode records (`user_query` + `retrieved_docs` + injection metadata + expected tools).
 - Two mock tools with no network: `search_docs` (episode-scoped RAG) and `send_email` (the v0 misuse target).
-- Stubs to validate episodes, dry-run an agent interface, and score ASR / utility **once traces exist**.
+- Validation, a Phase 2 LLM execution harness (auditable traces), and scoring **stubs** for later. Scoring scripts still print `n=0` / `rate=null` until someone runs them on real traces — this repo does not publish those numbers.
 
 **This is not**
 
@@ -25,11 +25,11 @@ There are **no evaluated results here**. Two example episodes exist so the schem
 
 | Item | v0 limit |
 | --- | --- |
-| Size | Target **20–40 attack** and **20–40 benign** (directories are empty; examples live under `examples/`) |
-| Tools | `search_docs`, `send_email` only |
-| Agent | Interface / dry-run stub — no hosted LLM loop |
+| Size | **20 attack + 20 benign** seeds under `data/episodes/` (plus 2 format demos in `examples/`) |
+| Tools | `search_docs`, `send_email` only (mocks; no network side effects) |
+| Agent | Phase 2 OpenAI-compatible tool loop (bounded steps). Optional `--dry-run`. |
 | Defenses | None |
-| Results | None. Scoring prints `n=0` / `rate=null` until real traces exist |
+| Results | None claimed. Traces are execution logs, not scores. |
 
 ## Related work (pointers only)
 
@@ -71,21 +71,13 @@ Format demos (not a dataset):
 
 How to add data: [`data/episodes/README.md`](data/episodes/README.md). Put new files in `data/episodes/attack/` or `data/episodes/benign/`.
 
-### Trace files (for scoring)
+### Trace files
 
-Scoring reads JSON traces from `data/traces/` (gitignored; created by `run_agent.py` or a future agent loop):
+The harness writes one JSON file per run to `results/traces/<episode_id>.json` (gitignored). Scoring stubs still default to `data/traces/`; pass `--traces-dir results/traces` later if you score. Traces record **execution facts only** (no `attack_success` / `utility_success` labels).
 
-```json
-{
-  "episode_id": "atk_001",
-  "split": "attack",
-  "tool_calls": [{"name": "send_email", "arguments": {"to": "...", "subject": "...", "body": "..."}}],
-  "final_answer": "...",
-  "dry_run": false
-}
-```
+Required fields: `episode_id`, `episode_type` (`attack`|`benign`), `split` (same value), `model`, `provider`, `timestamp`, `user_task`, `retrieved_documents`, `tool_calls` (name + arguments + result), `final_answer`, `execution_status`, `error`.
 
-Dry-run traces (`dry_run: true`) are **skipped** by scorers unless you pass `--include-dry-run`.
+Dry-run traces (`dry_run: true` / `execution_status: dry_run`) are skipped by scorers unless you pass `--include-dry-run`.
 
 ## How to validate / run stubs / score
 
@@ -102,13 +94,33 @@ python scripts/validate_episodes.py
 python scripts/validate_episodes.py examples
 ```
 
-Dry-run the agent interface (loads an episode, binds mock tools, writes a trace with **empty** `tool_calls`):
+Configure the model via environment variables (see [`.env.example`](.env.example)). `AIB_LLM_*` wins over `OPENAI_*`.
+
+| Variable | Fallback | Meaning |
+| --- | --- | --- |
+| `AIB_LLM_API_KEY` | `OPENAI_API_KEY` | Secret. Never committed. |
+| `AIB_LLM_BASE_URL` | `OPENAI_BASE_URL` | OpenAI-compatible root, default `https://api.openai.com/v1` |
+| `AIB_LLM_MODEL` | `OPENAI_MODEL` | Model id, default `gpt-4o-mini` |
+| `AIB_LLM_MAX_STEPS` | `6` | Tool-loop bound |
+| `AIB_LLM_TIMEOUT_SEC` | `60` | HTTP timeout for the LLM call only |
 
 ```bash
-python scripts/run_agent.py --episode examples/episode_attack_001.json
+# inspect only — no API key
+python scripts/run_agent.py --dry-run --episode examples/episode_attack_001.json
+
+# live run (requires AIB_LLM_API_KEY or OPENAI_API_KEY)
+python scripts/run_agent.py --id atk_002
+
+# pipeline check: 1 attack + 1 benign (not an evaluation)
+python scripts/run_agent.py --smoke
 ```
 
-There is no LLM backend. `--execute` exits with status 2 rather than inventing calls.
+The only network the harness opens is the LLM Chat Completions request. `search_docs` and `send_email` stay local mocks.
+
+```bash
+python -m pip install -e ".[dev]"
+python -m pytest
+```
 
 Score (honest empty summary if no real traces):
 
@@ -128,7 +140,7 @@ JSON summaries always include `n`, `successes`, and `rate`. If `n=0`, `rate` is 
 
 ## Limitations and budget honesty
 
-- v0 is a **skeleton**. Two examples, empty seed directories, no model runs.
+- v0 data is a **small seed set** (20+20). The harness can execute episodes; it does not report benchmark scores.
 - Retrieval is **pre-bound** to the episode (`search_docs` does not rank a corpus).
 - `send_email` only logs; nothing is delivered.
 - Substring utility is a **placeholder heuristic**, not an LLM judge and not task-complete scoring.

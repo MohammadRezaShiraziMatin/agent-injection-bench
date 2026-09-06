@@ -11,6 +11,7 @@ SCHEMA_PATH = ROOT / "schema" / "episode.schema.json"
 EXAMPLES_DIR = ROOT / "examples"
 EPISODES_DIR = ROOT / "data" / "episodes"
 TRACES_DIR = ROOT / "data" / "traces"
+RESULTS_TRACES_DIR = ROOT / "results" / "traces"
 
 
 def load_json(path: Path) -> Any:

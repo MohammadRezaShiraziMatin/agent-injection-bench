@@ -12,3 +12,5 @@ build/
 .mypy_cache/
 data/traces/*.json
 !data/traces/.gitkeep
+results/traces/*.json
+!results/traces/.gitkeep
