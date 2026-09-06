@@ -29,6 +29,7 @@ Step-by-step copy-paste: [`RUNBOOK.md`](RUNBOOK.md).
 Daily/weekly lock: [`CHECKLIST.md`](CHECKLIST.md).
 Paste-ready Cursor eval prompt: [`CURSOR_PROMPT_RUN_EVAL.md`](CURSOR_PROMPT_RUN_EVAL.md).
 Freeze snapshot: [`STATUS.md`](STATUS.md). Methods/limitations paste: [`METHODS_SNIPPET.md`](METHODS_SNIPPET.md).
+ADAPTI-GUARD positioning (no defense code): [`ADAPTI_GUARD_BRIDGE.md`](ADAPTI_GUARD_BRIDGE.md).
 
 ### Explicit: no published ASR/utility yet
 
