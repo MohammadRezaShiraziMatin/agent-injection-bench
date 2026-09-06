@@ -1,6 +1,6 @@
 # Episodes
 
-Seed attack and benign JSON files here. v0 target: **20–40 attack** and **20–40 benign**. First seed batch: `atk_002`–`atk_006` and `ben_002`–`ben_006` (format demos `atk_001` / `ben_001` stay under `examples/`).
+Seed attack and benign JSON files here. v0 target: **20–40 attack** and **20–40 benign**. Current data batch: `atk_002`–`atk_021` and `ben_002`–`ben_021` (20 + 20). Format demos `atk_001` / `ben_001` stay under `examples/`.
 
 ## Layout
 
