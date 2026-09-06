@@ -30,6 +30,7 @@ Daily/weekly lock: [`CHECKLIST.md`](CHECKLIST.md).
 Paste-ready Cursor eval prompt: [`CURSOR_PROMPT_RUN_EVAL.md`](CURSOR_PROMPT_RUN_EVAL.md).
 Freeze snapshot: [`STATUS.md`](STATUS.md). Methods/limitations paste: [`METHODS_SNIPPET.md`](METHODS_SNIPPET.md).
 ADAPTI-GUARD positioning (no defense code): [`ADAPTI_GUARD_BRIDGE.md`](ADAPTI_GUARD_BRIDGE.md).
+Base-paper mapping: [`RELATED_WORK.md`](RELATED_WORK.md).
 
 ### Explicit: no published ASR/utility yet
 
