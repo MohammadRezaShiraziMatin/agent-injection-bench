@@ -32,6 +32,7 @@ Freeze snapshot: [`STATUS.md`](STATUS.md). Methods/limitations paste: [`METHODS_
 ADAPTI-GUARD positioning (no defense code): [`ADAPTI_GUARD_BRIDGE.md`](ADAPTI_GUARD_BRIDGE.md).
 Base-paper mapping: [`RELATED_WORK.md`](RELATED_WORK.md).
 Structured reading notes: [`READING_NOTES.md`](READING_NOTES.md).
+Paper drafts: [`PAPER_RELATED_WORK_DRAFT.md`](PAPER_RELATED_WORK_DRAFT.md), [`PAPER_INTRO_SNIPPET.md`](PAPER_INTRO_SNIPPET.md).
 
 ### Explicit: no published ASR/utility yet
 
