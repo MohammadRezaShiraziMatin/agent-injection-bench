@@ -28,6 +28,7 @@ There are **no published ASR or utility numbers here**. The data directory holds
 Step-by-step copy-paste: [`RUNBOOK.md`](RUNBOOK.md).
 Daily/weekly lock: [`CHECKLIST.md`](CHECKLIST.md).
 Paste-ready Cursor eval prompt: [`CURSOR_PROMPT_RUN_EVAL.md`](CURSOR_PROMPT_RUN_EVAL.md).
+Freeze snapshot: [`STATUS.md`](STATUS.md). Methods/limitations paste: [`METHODS_SNIPPET.md`](METHODS_SNIPPET.md).
 
 ### Explicit: no published ASR/utility yet
 
