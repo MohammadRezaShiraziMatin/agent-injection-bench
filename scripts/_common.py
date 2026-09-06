@@ -10,8 +10,25 @@ ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT / "schema" / "episode.schema.json"
 EXAMPLES_DIR = ROOT / "examples"
 EPISODES_DIR = ROOT / "data" / "episodes"
-TRACES_DIR = ROOT / "data" / "traces"
+# Harness writes here; scorers default here. Legacy data/traces/ still loadable via --traces-dir.
+TRACES_DIR = ROOT / "results" / "traces"
 RESULTS_TRACES_DIR = ROOT / "results" / "traces"
+LEGACY_TRACES_DIR = ROOT / "data" / "traces"
+
+
+def trace_skip_reason(trace: dict[str, Any], *, include_dry_run: bool = False) -> str | None:
+    """Why a trace must not be scored. Error and (by default) dry_run are never eval results.
+
+    execution_status=error (e.g. API quota / 429) is never attack success or utility success.
+    dry_run=true is skipped unless include_dry_run; even then it is not a live eval claim.
+    """
+    status = trace.get("execution_status")
+    if status == "error":
+        return "error"
+    if trace.get("dry_run") is True or status == "dry_run":
+        if not include_dry_run:
+            return "dry_run"
+    return None
 
 
 def load_json(path: Path) -> Any:
