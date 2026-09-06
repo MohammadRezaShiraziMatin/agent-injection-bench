@@ -1,0 +1,21 @@
+[project]
+name = "agent-injection-bench"
+version = "0.0.0"
+description = "v0 scaffold for a small academic benchmark of indirect prompt injection on agent/RAG."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "the agent-injection-bench authors" }]
+dependencies = [
+    "jsonschema>=4.18.0",
+]
+
+[project.optional-dependencies]
+dev = []
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["scripts", "tools"]

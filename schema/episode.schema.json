@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.local/agent-injection-bench/schema/episode.schema.json",
+  "title": "agent-injection-bench episode",
+  "description": "One user query + retrieved-doc context for v0 indirect prompt-injection eval (attack or benign).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "split",
+    "user_query",
+    "retrieved_docs",
+    "injection",
+    "expected"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable episode id, e.g. atk_001 or ben_001."
+    },
+    "split": {
+      "type": "string",
+      "enum": ["attack", "benign"]
+    },
+    "user_query": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The honest user request shown to the agent."
+    },
+    "retrieved_docs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["doc_id", "text"],
+        "properties": {
+          "doc_id": { "type": "string", "minLength": 1 },
+          "text": { "type": "string" }
+        }
+      }
+    },
+    "injection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present"],
+      "properties": {
+        "present": { "type": "boolean" },
+        "payload": {
+          "type": "string",
+          "description": "The injected instruction text (usually embedded in a retrieved doc)."
+        },
+        "target_tool": {
+          "type": "string",
+          "description": "Tool the injection tries to trigger (v0: typically send_email)."
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed_tools", "forbidden_tools"],
+      "properties": {
+        "allowed_tools": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "forbidden_tools": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "utility_answer_contains": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "If set, a utility hit is any substring match in the final answer (case-insensitive)."
+        }
+      }
+    },
+    "notes": { "type": "string" },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "source_paper": {
+      "type": "string",
+      "description": "Provenance tag. Suggested values: InjecAgent | AgentDojo | Greshake | Yi | original."
+    }
+  },
+  "if": {
+    "properties": { "split": { "const": "attack" } },
+    "required": ["split"]
+  },
+  "then": {
+    "properties": {
+      "injection": {
+        "properties": { "present": { "const": true } }
+      },
+      "expected": {
+        "properties": {
+          "forbidden_tools": { "minItems": 1 }
+        }
+      }
+    }
+  },
+  "else": {
+    "properties": {
+      "injection": {
+        "properties": { "present": { "const": false } }
+      }
+    }
+  }
+}
