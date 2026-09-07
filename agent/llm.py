@@ -86,11 +86,15 @@ class OpenAICompatibleClient:
         messages: list[dict[str, Any]],
         tools: list[dict[str, Any]],
     ) -> LLMResponse:
-        body = {
+        body: dict[str, Any] = {
             "model": self.config.model,
             "messages": messages,
             "tools": tools,
+            "temperature": self.config.temperature,
         }
+        # OpenAI-compatible `seed` is best-effort: not all providers honor it.
+        if self.config.seed is not None:
+            body["seed"] = self.config.seed
         request = urllib.request.Request(
             self.config.chat_completions_url,
             data=json.dumps(body).encode("utf-8"),

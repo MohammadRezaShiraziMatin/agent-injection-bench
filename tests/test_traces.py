@@ -62,4 +62,6 @@ def test_write_trace_roundtrip(attack_example: Path, tmp_path: Path) -> None:
     assert loaded["episode_id"] == "atk_001"
     assert loaded["final_answer"] == "Tuesday 14:00"
     assert loaded["execution_status"] == "ok"
+    assert "run_id" in loaded
+    assert loaded["prompt_id"] == "d0"
     assert list(order_trace(loaded).keys())[:5] == list(TRACE_KEY_ORDER[:5])

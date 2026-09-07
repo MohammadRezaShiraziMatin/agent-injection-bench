@@ -11,6 +11,7 @@ DEFAULT_BASE_URL = "https://api.openai.com/v1"
 DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_MAX_STEPS = 6
 DEFAULT_TIMEOUT_SEC = 60.0
+DEFAULT_TEMPERATURE = 0.0
 
 
 def _first_env(*names: str) -> str | None:
@@ -49,18 +50,22 @@ class LLMConfig:
     max_steps: int = DEFAULT_MAX_STEPS
     timeout_sec: float = DEFAULT_TIMEOUT_SEC
     provider: str = "openai_compatible"
+    temperature: float = DEFAULT_TEMPERATURE
+    seed: int | None = None
 
     @property
     def chat_completions_url(self) -> str:
         return self.base_url.rstrip("/") + "/chat/completions"
 
-    def masked(self) -> dict[str, str | int | float]:
+    def masked(self) -> dict[str, str | int | float | None]:
         """Public metadata safe to write into a trace (no API key)."""
         return {
             "provider": self.provider,
             "model": self.model,
             "base_url": self.base_url,
             "max_steps": self.max_steps,
+            "temperature": self.temperature,
+            "seed": self.seed,
         }
 
 
@@ -77,14 +82,20 @@ def config_from_env(*, require_key: bool = True) -> LLMConfig:
     model = _first_env("AIB_LLM_MODEL", "OPENAI_MODEL") or DEFAULT_MODEL
     max_steps_raw = _first_env("AIB_LLM_MAX_STEPS")
     timeout_raw = _first_env("AIB_LLM_TIMEOUT_SEC")
+    temp_raw = _first_env("AIB_LLM_TEMPERATURE")
+    seed_raw = _first_env("AIB_LLM_SEED")
     max_steps = int(max_steps_raw) if max_steps_raw else DEFAULT_MAX_STEPS
     timeout_sec = float(timeout_raw) if timeout_raw else DEFAULT_TIMEOUT_SEC
+    temperature = float(temp_raw) if temp_raw is not None else DEFAULT_TEMPERATURE
+    seed = int(seed_raw) if seed_raw is not None else None
     return LLMConfig(
         api_key=api_key,
         base_url=base_url.rstrip("/"),
         model=model,
         max_steps=max(1, max_steps),
         timeout_sec=timeout_sec,
+        temperature=temperature,
+        seed=seed,
     )
 
 

@@ -2,19 +2,31 @@
 
 from __future__ import annotations
 
+import subprocess
+import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from scripts._common import RESULTS_TRACES_DIR, dump_json
 
+MANIFESTS_DIR = Path(__file__).resolve().parents[1] / "results" / "manifests"
+
+# Canonical execution_status values for v0 (see QUALITY_TABLE_V0.md).
+EXECUTION_STATUSES = frozenset({"ok", "max_steps", "error", "dry_run"})
+
 TRACE_KEY_ORDER = (
+    "run_id",
     "episode_id",
     "episode_type",
     "split",
+    "prompt_id",
+    "defense_condition",
     "model",
     "provider",
     "base_url",
+    "temperature",
+    "seed",
     "timestamp",
     "user_task",
     "retrieved_documents",
@@ -33,6 +45,29 @@ def utc_timestamp(now: datetime | None = None) -> str:
     if moment.tzinfo is None:
         moment = moment.replace(tzinfo=timezone.utc)
     return moment.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def make_run_id(*, model: str = "", episode_id: str = "") -> str:
+    """Stable-enough run id: utc stamp + model + episode + short uuid."""
+    stamp = utc_timestamp().replace(":", "").replace("-", "")
+    model_slug = "".join(ch if ch.isalnum() or ch in "-_" else "-" for ch in (model or "model"))[:40]
+    ep = "".join(ch if ch.isalnum() or ch in "-_" else "-" for ch in (episode_id or "ep"))[:40]
+    short = uuid.uuid4().hex[:8]
+    return f"{stamp}_{model_slug}_{ep}_{short}"
+
+
+def git_head(repo_root: Path | None = None) -> str | None:
+    root = repo_root or Path(__file__).resolve().parents[1]
+    try:
+        out = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"],
+            cwd=root,
+            stderr=subprocess.DEVNULL,
+            text=True,
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return out.strip() or None
 
 
 def document_refs(episode: dict[str, Any]) -> list[dict[str, str]]:
@@ -58,15 +93,27 @@ def empty_trace(
     max_steps: int,
     timestamp: str | None = None,
     dry_run: bool = False,
+    run_id: str | None = None,
+    prompt_id: str = "d0",
+    defense_condition: str = "d0",
+    temperature: float | None = None,
+    seed: int | None = None,
 ) -> dict[str, Any]:
     split = str(episode.get("split") or "")
+    episode_id = episode.get("id")
     return {
-        "episode_id": episode.get("id"),
+        "run_id": run_id
+        or make_run_id(model=model, episode_id=str(episode_id or "unknown")),
+        "episode_id": episode_id,
         "episode_type": split,
         "split": split,
+        "prompt_id": prompt_id,
+        "defense_condition": defense_condition,
         "model": model,
         "provider": provider,
         "base_url": base_url,
+        "temperature": temperature,
+        "seed": seed,
         "timestamp": timestamp or utc_timestamp(),
         "user_task": episode.get("user_query"),
         "retrieved_documents": document_refs(episode),
@@ -97,3 +144,44 @@ def write_trace(trace: dict[str, Any], path: Path) -> Path:
 def default_trace_path(episode_id: str, out_dir: Path | None = None) -> Path:
     directory = out_dir or RESULTS_TRACES_DIR
     return directory / f"{episode_id}.json"
+
+
+def write_manifest(
+    run_id: str,
+    *,
+    episode_ids: list[str],
+    model: str,
+    temperature: float | None,
+    seed: int | None,
+    prompt_id: str = "d0",
+    defense_condition: str = "d0",
+    statuses: list[str] | None = None,
+    traces_dir: str | None = None,
+    note: str | None = None,
+    out_dir: Path | None = None,
+) -> Path:
+    """Write results/manifests/<run_id>.json — run metadata only, not ASR."""
+    directory = out_dir or MANIFESTS_DIR
+    directory.mkdir(parents=True, exist_ok=True)
+    # Avoid path separators in filename
+    safe = "".join(ch if ch.isalnum() or ch in "-_." else "_" for ch in run_id)
+    path = directory / f"{safe}.json"
+    payload = {
+        "run_id": run_id,
+        "episode_ids": episode_ids,
+        "model": model,
+        "temperature": temperature,
+        "seed": seed,
+        "prompt_id": prompt_id,
+        "defense_condition": defense_condition,
+        "git_head": git_head(),
+        "statuses": statuses or [],
+        "traces_dir": traces_dir,
+        "note": note
+        or (
+            "Manifest only. Not ASR/utility. D0 = undefended baseline. "
+            "Do not treat execution_status=error as attack success."
+        ),
+    }
+    dump_json(path, payload)
+    return path
