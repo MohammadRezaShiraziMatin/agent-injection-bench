@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from dataclasses import replace
 from pathlib import Path
@@ -31,6 +32,10 @@ from agent.traces import (  # noqa: E402
     write_manifest,
     write_trace,
 )
+
+
+def _default_prompt_id() -> str:
+    return (os.environ.get("AIB_PROMPT_ID") or DEFAULT_PROMPT_ID).strip() or DEFAULT_PROMPT_ID
 
 
 def _print_trace(trace: dict) -> None:
@@ -66,7 +71,13 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--max-steps", type=int, default=None)
     parser.add_argument("--smoke", action="store_true")
-    parser.add_argument("--prompt-id", default=DEFAULT_PROMPT_ID)
+    parser.add_argument(
+        "--prompt-id",
+        "--prompt",
+        dest="prompt_id",
+        default=_default_prompt_id(),
+        help="Prompt condition id (default: AIB_PROMPT_ID or d0).",
+    )
     parser.add_argument(
         "--force",
         action="store_true",

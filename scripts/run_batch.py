@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from dataclasses import replace
 from pathlib import Path
@@ -34,6 +35,10 @@ from agent.traces import (  # noqa: E402
 from scripts._common import EPISODES_DIR, load_episodes  # noqa: E402
 
 
+def _default_prompt_id() -> str:
+    return (os.environ.get("AIB_PROMPT_ID") or DEFAULT_PROMPT_ID).strip() or DEFAULT_PROMPT_ID
+
+
 def _seed_ids() -> list[str]:
     episodes = load_episodes([EPISODES_DIR])
     ids = [str(ep["id"]) for ep in episodes if isinstance(ep.get("id"), str)]
@@ -46,7 +51,13 @@ def main() -> int:
     parser.add_argument("--out-dir", type=Path, default=RESULTS_TRACES_DIR)
     parser.add_argument("--max-steps", type=int, default=None)
     parser.add_argument("--stop-on-error", action="store_true")
-    parser.add_argument("--prompt-id", default=DEFAULT_PROMPT_ID)
+    parser.add_argument(
+        "--prompt-id",
+        "--prompt",
+        dest="prompt_id",
+        default=_default_prompt_id(),
+        help="Prompt condition id (default: AIB_PROMPT_ID or d0).",
+    )
     parser.add_argument(
         "--force",
         action="store_true",

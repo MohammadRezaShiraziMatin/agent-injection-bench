@@ -28,18 +28,22 @@ Answer the user's question. Use tools when they help complete the user's request
 
 def load_system_prompt(prompt_id: str = DEFAULT_PROMPT_ID) -> str:
     """Load a system prompt by condition id. Default is D0 (undefended)."""
+    candidates = [
+        PROMPTS_DIR / f"{prompt_id}.txt",
+        PROMPTS_DIR / f"{prompt_id}_undefended.txt",
+        PROMPTS_DIR / f"{prompt_id}_prompt_defense.txt",
+    ]
     if prompt_id == "d0":
-        path = DEFAULT_PROMPT_PATH
-    else:
-        path = PROMPTS_DIR / f"{prompt_id}.txt"
-        if not path.is_file():
-            path = PROMPTS_DIR / f"{prompt_id}_undefended.txt"
-    if path.is_file():
-        return path.read_text(encoding="utf-8").strip() + "\n"
+        candidates.insert(0, DEFAULT_PROMPT_PATH)
+    for path in candidates:
+        if path.is_file():
+            return path.read_text(encoding="utf-8").strip() + "\n"
     if prompt_id == "d0":
         return _FALLBACK_D0 if _FALLBACK_D0.endswith("\n") else _FALLBACK_D0 + "\n"
-    raise LLMError(f"unknown prompt_id={prompt_id!r}; expected file under prompts/")
-
+    raise LLMError(
+        f"unknown prompt_id={prompt_id!r}; expected prompts/{prompt_id}.txt "
+        f"or prompts/{prompt_id}_prompt_defense.txt"
+    )
 
 # Back-compat alias: always the D0 text used by the baseline harness.
 SYSTEM_PROMPT = load_system_prompt("d0")

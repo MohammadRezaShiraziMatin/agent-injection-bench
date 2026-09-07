@@ -225,6 +225,7 @@ def write_manifest(
     note: str | None = None,
     out_dir: Path | None = None,
     force: bool = False,
+    repeat: int | None = None,
 ) -> Path:
     """Write results/manifests/<run_id>.json — run metadata only, not ASR."""
     directory = out_dir or MANIFESTS_DIR
@@ -245,6 +246,7 @@ def write_manifest(
         "seed": seed,
         "prompt_id": prompt_id,
         "defense_condition": defense_condition,
+        "repeat": repeat,
         "dataset_fingerprint": dataset_fingerprint(episode_ids),
         "dataset_version": dataset_version(),
         "timestamp": timestamp or utc_timestamp(),
