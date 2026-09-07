@@ -14,5 +14,6 @@ results/traces/**
 !results/traces/.gitkeep
 results/manifests/*.json
 !results/manifests/.gitkeep
+results/phase_a_summary.json
 data/traces/*.json
 !data/traces/.gitkeep

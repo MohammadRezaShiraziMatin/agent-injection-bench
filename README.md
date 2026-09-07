@@ -35,6 +35,8 @@ Structured reading notes: [`READING_NOTES.md`](READING_NOTES.md).
 Paper drafts: [`PAPER_RELATED_WORK_DRAFT.md`](PAPER_RELATED_WORK_DRAFT.md), [`PAPER_INTRO_SNIPPET.md`](PAPER_INTRO_SNIPPET.md).
 P0 roadmap: [`ROADMAP_P0.md`](ROADMAP_P0.md). What is/isn't measured: [`QUALITY_TABLE_V0.md`](QUALITY_TABLE_V0.md).
 Defense ladder (D0–D2): [`BASELINES.md`](BASELINES.md). ASR levels: [`docs/ASR_LEVELS.md`](docs/ASR_LEVELS.md).
+Phase A pilot close-out: [`PHASE_A.md`](PHASE_A.md), [`scripts/phase_a_pilot.sh`](scripts/phase_a_pilot.sh), [`GITHUB_TAG_V0_1.md`](GITHUB_TAG_V0_1.md).
+Desktop Phase A prompt: [`CURSOR_PROMPT_PHASE_A_DESKTOP.md`](CURSOR_PROMPT_PHASE_A_DESKTOP.md).
 
 ### D0 = undefended measurement baseline
 
