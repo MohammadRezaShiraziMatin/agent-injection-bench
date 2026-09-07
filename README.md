@@ -37,6 +37,7 @@ P0 roadmap: [`ROADMAP_P0.md`](ROADMAP_P0.md). What is/isn't measured: [`QUALITY_
 Defense ladder (D0–D2): [`BASELINES.md`](BASELINES.md). ASR levels: [`docs/ASR_LEVELS.md`](docs/ASR_LEVELS.md).
 Phase A pilot close-out: [`PHASE_A.md`](PHASE_A.md), [`scripts/phase_a_pilot.sh`](scripts/phase_a_pilot.sh), [`GITHUB_TAG_V0_1.md`](GITHUB_TAG_V0_1.md).
 Desktop Phase A prompt: [`CURSOR_PROMPT_PHASE_A_DESKTOP.md`](CURSOR_PROMPT_PHASE_A_DESKTOP.md).
+Phase B eval layer: [`PHASE_B.md`](PHASE_B.md), [`TAXONOMY.md`](TAXONOMY.md), [`QA_REPORT.md`](QA_REPORT.md).
 
 ### D0 = undefended measurement baseline
 

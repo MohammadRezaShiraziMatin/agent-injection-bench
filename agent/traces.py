@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import subprocess
 import uuid
 from collections import Counter
@@ -87,6 +88,34 @@ def dataset_fingerprint(episode_ids: list[str]) -> dict[str, Any]:
     return {
         "n_episodes": len(ordered),
         "ids_sha256": digest,
+        "git_head": git_head(),
+    }
+
+
+def dataset_version(episodes_dir: Path | None = None) -> dict[str, Any]:
+    """Content hash over sorted episode JSON files (ids + file digests)."""
+    root = Path(__file__).resolve().parents[1]
+    directory = episodes_dir or (root / "data" / "episodes")
+    files = sorted(directory.rglob("*.json")) if directory.is_dir() else []
+    h = hashlib.sha256()
+    ids: list[str] = []
+    for path in files:
+        raw = path.read_bytes()
+        rel = str(path.relative_to(root)) if path.is_relative_to(root) else str(path)
+        h.update(rel.encode("utf-8"))
+        h.update(b"\0")
+        h.update(hashlib.sha256(raw).digest())
+        try:
+            payload = json.loads(raw.decode("utf-8"))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            payload = None
+        if isinstance(payload, dict) and isinstance(payload.get("id"), str):
+            ids.append(payload["id"])
+    return {
+        "dataset_version": h.hexdigest(),
+        "n_files": len(files),
+        "n_ids": len(ids),
+        "ids_sha256": hashlib.sha256("\n".join(sorted(set(ids))).encode("utf-8")).hexdigest(),
         "git_head": git_head(),
     }
 
@@ -217,6 +246,7 @@ def write_manifest(
         "prompt_id": prompt_id,
         "defense_condition": defense_condition,
         "dataset_fingerprint": dataset_fingerprint(episode_ids),
+        "dataset_version": dataset_version(),
         "timestamp": timestamp or utc_timestamp(),
         "episode_ids": episode_ids,
         "status_counts": dict(Counter(status_list)),

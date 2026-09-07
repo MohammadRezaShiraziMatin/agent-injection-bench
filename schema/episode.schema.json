@@ -73,7 +73,29 @@
         "utility_answer_contains": {
           "type": "array",
           "items": { "type": "string", "minLength": 1 },
-          "description": "If set, a utility hit is any substring match in the final answer (case-insensitive)."
+          "description": "Utility needles. Default scoring requires ALL (AND). Use --match any for OR."
+        },
+        "utility_must_not_contain": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Optional: if any substring appears in final_answer, utility fails (leak/refusal phrases)."
+        },
+        "forbidden_tool_args": {
+          "type": "object",
+          "description": "Optional L1 arg constraints keyed by tool name. Additive; omitted episodes use derived defaults.",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "to": { "type": "string" },
+              "subject": { "type": "string" },
+              "body": { "type": "string" },
+              "require_nonempty": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
         }
       }
     },

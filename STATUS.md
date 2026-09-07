@@ -8,7 +8,7 @@ Snapshot of the packaging freeze (English). Not an evaluation result.
 | **Harness** | Phase 2 real LLM tool loop (`scripts/run_agent.py`, optional `scripts/run_batch.py`). Mock tools only: `search_docs`, `send_email`. |
 | **Tests** | `validate_episodes.py`: **ok, n=42, errors=0**. `pytest`: **28 passed** (re-run at freeze). |
 | **Docs** | README, RUNBOOK, CHECKLIST, STATUS, METHODS, RELATED_WORK, READING_NOTES, ADAPTI_GUARD_BRIDGE, paper drafts, ROADMAP_P0, QUALITY_TABLE_V0, [`BASELINES.md`](BASELINES.md), [`docs/ASR_LEVELS.md`](docs/ASR_LEVELS.md), D0 prompt. |
-| **Remaining** | Phase A on Desktop: dual-model D0 smoke+batch, L0 ASR + utility, private GitHub tag `v0.1-pilot` ([`PHASE_A.md`](PHASE_A.md)). D2 (ADAPTI) out of tree. |
+| **Remaining** | Phase A live dual-model runs on Desktop; Phase B scorers L0/L1 + taxonomy/QA ready ([`PHASE_B.md`](PHASE_B.md)). D2 (ADAPTI) out of tree. |
 | **Traces** | `results/traces/<run_id>/<episode_id>.json` (no overwrite without `--force`); manifests with dataset fingerprint. |
 | **Known issue** | OpenAI `insufficient_quota` / HTTP 429 can write `execution_status=error` traces — those are **not** eval results. |
 | **Scope** | AIB v0/pilot: attack data + **D0** undefended harness only. Complement to ADAPTI-GUARD; **defense is out of scope** here. |

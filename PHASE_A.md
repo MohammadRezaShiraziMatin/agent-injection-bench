@@ -41,6 +41,10 @@ Notes:
   - pilot / not publication-ready; no defense results; ADAPTI is D2 external
 ```
 
+## Phase A note
+
+Phase A closes packaging + dual-model D0 runs. **Phase B** adds research-grade scoring/taxonomy/QA on the same 20+20 seed ([`PHASE_B.md`](PHASE_B.md)) without expanding N or adding defenses.
+
 ## Non-goals
 
 - No dataset growth  
