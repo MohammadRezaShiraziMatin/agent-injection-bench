@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Minimal batch runner: iterate seed episode ids, write traces, continue on error.
 
-Prints ok/error/max_steps counts only. Does NOT compute or claim ASR/utility.
-Uses D0 undefended prompt by default. Requires a live API key (see .env.example).
+Traces: results/traces/<run_id>/<episode_id>.json (no overwrite unless --force).
+Prints ok/error/max_steps counts only. Does NOT claim ASR/utility.
+Uses D0 undefended prompt by default.
 """
 
 from __future__ import annotations
@@ -24,6 +25,7 @@ from agent.load import load_episode_by_id  # noqa: E402
 from agent.loop import DEFAULT_PROMPT_ID, run_episode  # noqa: E402
 from agent.traces import (  # noqa: E402
     RESULTS_TRACES_DIR,
+    TraceExistsError,
     default_trace_path,
     make_run_id,
     write_manifest,
@@ -33,7 +35,6 @@ from scripts._common import EPISODES_DIR, load_episodes  # noqa: E402
 
 
 def _seed_ids() -> list[str]:
-    """Ids under data/episodes/ only (not examples/). Sorted."""
     episodes = load_episodes([EPISODES_DIR])
     ids = [str(ep["id"]) for ep in episodes if isinstance(ep.get("id"), str)]
     return sorted(set(ids))
@@ -41,33 +42,15 @@ def _seed_ids() -> list[str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--ids", nargs="*", default=None)
+    parser.add_argument("--out-dir", type=Path, default=RESULTS_TRACES_DIR)
+    parser.add_argument("--max-steps", type=int, default=None)
+    parser.add_argument("--stop-on-error", action="store_true")
+    parser.add_argument("--prompt-id", default=DEFAULT_PROMPT_ID)
     parser.add_argument(
-        "--ids",
-        nargs="*",
-        default=None,
-        help="Episode ids to run (default: all under data/episodes/).",
-    )
-    parser.add_argument(
-        "--out-dir",
-        type=Path,
-        default=RESULTS_TRACES_DIR,
-        help="Trace directory (default: results/traces/).",
-    )
-    parser.add_argument(
-        "--max-steps",
-        type=int,
-        default=None,
-        help="Bound the tool loop (default: AIB_LLM_MAX_STEPS or 6).",
-    )
-    parser.add_argument(
-        "--stop-on-error",
+        "--force",
         action="store_true",
-        help="Exit on first execution_status=error (default: continue).",
-    )
-    parser.add_argument(
-        "--prompt-id",
-        default=DEFAULT_PROMPT_ID,
-        help="Prompt condition id (default: d0 = undefended baseline).",
+        help="Allow overwriting existing traces/manifest for this run_id.",
     )
     args = parser.parse_args()
 
@@ -87,6 +70,8 @@ def main() -> int:
     client = OpenAICompatibleClient(config)
     batch_run_id = make_run_id(model=config.model, episode_id="batch")
     prompt_id = args.prompt_id
+    force = args.force
+    run_traces_dir = out_dir / batch_run_id
 
     counts = {"ok": 0, "error": 0, "max_steps": 0, "other": 0, "load_failed": 0}
     results: list[dict] = []
@@ -126,8 +111,14 @@ def main() -> int:
             counts[status] += 1
         else:
             counts["other"] += 1
-        path = default_trace_path(str(trace.get("episode_id") or episode_id), out_dir)
-        write_trace(trace, path)
+        path = default_trace_path(
+            str(trace.get("episode_id") or episode_id), out_dir, run_id=batch_run_id
+        )
+        try:
+            write_trace(trace, path, force=force)
+        except TraceExistsError as exc:
+            print(str(exc), file=sys.stderr)
+            return 3
         print(f"wrote {path} status={status}", file=sys.stderr)
         results.append(
             {
@@ -140,21 +131,28 @@ def main() -> int:
             break
 
     statuses = [str(r.get("execution_status")) for r in results]
-    manifest_path = write_manifest(
-        batch_run_id,
-        episode_ids=[str(r.get("episode_id")) for r in results],
-        model=config.model,
-        temperature=config.temperature,
-        seed=config.seed,
-        prompt_id=prompt_id,
-        defense_condition="d0" if prompt_id == "d0" else prompt_id,
-        statuses=statuses,
-        traces_dir=str(out_dir),
-        note=(
-            "Batch run counts only. Not ASR/utility. "
-            "D0 = undefended baseline. Skip execution_status=error when scoring."
-        ),
-    )
+    try:
+        manifest_path = write_manifest(
+            batch_run_id,
+            episode_ids=[str(r.get("episode_id")) for r in results],
+            model=config.model,
+            provider=config.provider,
+            base_url=config.base_url,
+            temperature=config.temperature,
+            seed=config.seed,
+            prompt_id=prompt_id,
+            defense_condition="d0" if prompt_id == "d0" else prompt_id,
+            statuses=statuses,
+            traces_dir=str(run_traces_dir),
+            note=(
+                "Batch run counts only. Not ASR/utility. "
+                "D0 = undefended baseline. Skip execution_status=error when scoring."
+            ),
+            force=force,
+        )
+    except TraceExistsError as exc:
+        print(str(exc), file=sys.stderr)
+        return 3
     print(f"wrote manifest {manifest_path}", file=sys.stderr)
 
     summary = {

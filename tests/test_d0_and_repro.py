@@ -69,8 +69,9 @@ def test_write_manifest(tmp_path: Path) -> None:
     assert payload["run_id"] == "test-run-id"
     assert payload["episode_ids"] == ["atk_002", "ben_002"]
     assert payload["temperature"] == 0.0
-    assert "ASR" in payload["note"] or "Not ASR" in payload["note"] or "not ASR" in payload["note"].lower()
-
+    assert "dataset_fingerprint" in payload
+    assert "status_counts" in payload
+    assert "not asr" in payload["note"].lower() or "Not ASR" in payload["note"]
 
 def test_config_temperature_and_seed(monkeypatch) -> None:
     monkeypatch.setenv("AIB_LLM_API_KEY", "k")

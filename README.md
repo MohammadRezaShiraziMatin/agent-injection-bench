@@ -34,10 +34,13 @@ Base-paper mapping: [`RELATED_WORK.md`](RELATED_WORK.md).
 Structured reading notes: [`READING_NOTES.md`](READING_NOTES.md).
 Paper drafts: [`PAPER_RELATED_WORK_DRAFT.md`](PAPER_RELATED_WORK_DRAFT.md), [`PAPER_INTRO_SNIPPET.md`](PAPER_INTRO_SNIPPET.md).
 P0 roadmap: [`ROADMAP_P0.md`](ROADMAP_P0.md). What is/isn't measured: [`QUALITY_TABLE_V0.md`](QUALITY_TABLE_V0.md).
+Defense ladder (D0–D2): [`BASELINES.md`](BASELINES.md). ASR levels: [`docs/ASR_LEVELS.md`](docs/ASR_LEVELS.md).
 
 ### D0 = undefended measurement baseline
 
-Baseline runs use prompt condition **`d0`** ([`prompts/d0_undefended.txt`](prompts/d0_undefended.txt)): a short tool-use helper prompt with **no** protective anti-injection system wording and **no** defense module. This is the AIB v0/pilot measurement condition — not a publication-ready defended system. Future `d1_*` prompts (if any) are separate experiments; ADAPTI-GUARD stays external.
+Baseline runs use prompt condition **`d0`** ([`prompts/d0_undefended.txt`](prompts/d0_undefended.txt)): a short tool-use helper prompt with **no** protective anti-injection system wording and **no** defense module. This is the AIB v0/pilot measurement condition — not a publication-ready defended system. **D1** is reserved (example only); **D2** (ADAPTI-GUARD) stays external ([`BASELINES.md`](BASELINES.md)).
+
+Traces are written under `results/traces/<run_id>/<episode_id>.json` and are **not** overwritten unless `--force`. Manifests: `results/manifests/<run_id>.json`.
 
 ### Explicit: no published ASR/utility yet
 

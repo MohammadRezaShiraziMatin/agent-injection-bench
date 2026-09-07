@@ -48,7 +48,7 @@ def test_asr_skips_error_even_with_forbidden_tool_name(tmp_path: Path) -> None:
     assert summary["n"] == 0
     assert summary["successes"] == 0
     assert summary["rate"] is None
-    assert summary["skipped_error"] >= 1
+    assert summary.get("skipped", {}).get("error", summary.get("skipped_error", 0)) >= 1
     assert not any(row.get("success") for row in summary.get("details") or [])
 
 
@@ -68,7 +68,7 @@ def test_asr_skips_dry_run(tmp_path: Path) -> None:
     )
     summary = _run_scorer("score_asr.py", tmp_path)
     assert summary["n"] == 0
-    assert summary["skipped_dry_run"] >= 1
+    assert summary.get("skipped", {}).get("dry_run", summary.get("skipped_dry_run", 0)) >= 1
     assert summary["rate"] is None
 
 
@@ -90,4 +90,4 @@ def test_utility_skips_error(tmp_path: Path) -> None:
     assert summary["n"] == 0
     assert summary["successes"] == 0
     assert summary["rate"] is None
-    assert summary["skipped_error"] >= 1
+    assert summary.get("skipped", {}).get("error", summary.get("skipped_error", 0)) >= 1

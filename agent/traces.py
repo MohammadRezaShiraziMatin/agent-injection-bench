@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import hashlib
 import subprocess
 import uuid
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -40,11 +42,19 @@ TRACE_KEY_ORDER = (
 )
 
 
+class TraceExistsError(FileExistsError):
+    """Refuse to overwrite an existing trace unless force=True."""
+
+
 def utc_timestamp(now: datetime | None = None) -> str:
     moment = now or datetime.now(timezone.utc)
     if moment.tzinfo is None:
         moment = moment.replace(tzinfo=timezone.utc)
     return moment.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def safe_run_id(run_id: str) -> str:
+    return "".join(ch if ch.isalnum() or ch in "-_." else "_" for ch in run_id)
 
 
 def make_run_id(*, model: str = "", episode_id: str = "") -> str:
@@ -68,6 +78,17 @@ def git_head(repo_root: Path | None = None) -> str | None:
     except (OSError, subprocess.CalledProcessError):
         return None
     return out.strip() or None
+
+
+def dataset_fingerprint(episode_ids: list[str]) -> dict[str, Any]:
+    """Count + hash of sorted episode ids (+ git HEAD when available)."""
+    ordered = sorted({eid for eid in episode_ids if eid})
+    digest = hashlib.sha256("\n".join(ordered).encode("utf-8")).hexdigest()
+    return {
+        "n_episodes": len(ordered),
+        "ids_sha256": digest,
+        "git_head": git_head(),
+    }
 
 
 def document_refs(episode: dict[str, Any]) -> list[dict[str, str]]:
@@ -135,14 +156,26 @@ def order_trace(trace: dict[str, Any]) -> dict[str, Any]:
     return ordered
 
 
-def write_trace(trace: dict[str, Any], path: Path) -> Path:
+def write_trace(trace: dict[str, Any], path: Path, *, force: bool = False) -> Path:
+    if path.exists() and not force:
+        raise TraceExistsError(
+            f"trace already exists: {path} (pass force=True / --force to overwrite)"
+        )
     payload = order_trace(trace)
     dump_json(path, payload)
     return path
 
 
-def default_trace_path(episode_id: str, out_dir: Path | None = None) -> Path:
+def default_trace_path(
+    episode_id: str,
+    out_dir: Path | None = None,
+    *,
+    run_id: str | None = None,
+) -> Path:
+    """Default: results/traces/<run_id>/<episode_id>.json when run_id is set."""
     directory = out_dir or RESULTS_TRACES_DIR
+    if run_id:
+        directory = directory / safe_run_id(run_id)
     return directory / f"{episode_id}.json"
 
 
@@ -155,28 +188,41 @@ def write_manifest(
     seed: int | None,
     prompt_id: str = "d0",
     defense_condition: str = "d0",
+    provider: str | None = None,
+    base_url: str | None = None,
     statuses: list[str] | None = None,
     traces_dir: str | None = None,
+    timestamp: str | None = None,
     note: str | None = None,
     out_dir: Path | None = None,
+    force: bool = False,
 ) -> Path:
     """Write results/manifests/<run_id>.json — run metadata only, not ASR."""
     directory = out_dir or MANIFESTS_DIR
     directory.mkdir(parents=True, exist_ok=True)
-    # Avoid path separators in filename
-    safe = "".join(ch if ch.isalnum() or ch in "-_." else "_" for ch in run_id)
+    safe = safe_run_id(run_id)
     path = directory / f"{safe}.json"
+    if path.exists() and not force:
+        raise TraceExistsError(
+            f"manifest already exists: {path} (pass force=True / --force to overwrite)"
+        )
+    status_list = list(statuses or [])
     payload = {
         "run_id": run_id,
-        "episode_ids": episode_ids,
         "model": model,
+        "provider": provider,
+        "base_url": base_url,
         "temperature": temperature,
         "seed": seed,
         "prompt_id": prompt_id,
         "defense_condition": defense_condition,
-        "git_head": git_head(),
-        "statuses": statuses or [],
+        "dataset_fingerprint": dataset_fingerprint(episode_ids),
+        "timestamp": timestamp or utc_timestamp(),
+        "episode_ids": episode_ids,
+        "status_counts": dict(Counter(status_list)),
+        "statuses": status_list,
         "traces_dir": traces_dir,
+        "git_head": git_head(),
         "note": note
         or (
             "Manifest only. Not ASR/utility. D0 = undefended baseline. "

@@ -10,7 +10,7 @@ dist/
 build/
 .pytest_cache/
 .mypy_cache/
-results/traces/*.json
+results/traces/**
 !results/traces/.gitkeep
 results/manifests/*.json
 !results/manifests/.gitkeep

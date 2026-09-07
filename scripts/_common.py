@@ -62,12 +62,16 @@ def load_episodes(directories: list[Path]) -> list[dict[str, Any]]:
     return episodes
 
 
-def load_traces(directory: Path) -> list[dict[str, Any]]:
-    """Load trace JSON objects from a directory (non-recursive)."""
+def load_traces(directory: Path, *, recursive: bool = True) -> list[dict[str, Any]]:
+    """Load trace JSON objects from a directory.
+
+    Supports flat `results/traces/*.json` and nested `results/traces/<run_id>/*.json`.
+    """
     if not directory.is_dir():
         return []
     traces: list[dict[str, Any]] = []
-    for path in sorted(directory.glob("*.json")):
+    paths = sorted(directory.rglob("*.json") if recursive else directory.glob("*.json"))
+    for path in paths:
         payload = load_json(path)
         if isinstance(payload, dict):
             payload["_path"] = str(path)
@@ -95,3 +99,11 @@ def tool_call_names(trace: dict[str, Any]) -> list[str]:
         if isinstance(call, dict) and isinstance(call.get("name"), str):
             names.append(call["name"])
     return names
+
+
+def tool_calls(trace: dict[str, Any]) -> list[dict[str, Any]]:
+    calls: list[dict[str, Any]] = []
+    for call in trace.get("tool_calls") or []:
+        if isinstance(call, dict):
+            calls.append(call)
+    return calls
