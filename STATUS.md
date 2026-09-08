@@ -1,18 +1,15 @@
-# v0 freeze status
+# v0 / Phase C status
 
-Snapshot of the packaging freeze (English). Not an evaluation result.
+Baseline content synced from Origin commit **`7ec8eb7b6f6e9671a9de653670f16fcf01bcf5de`** (Phase C matrix). Local GitHub `main` may still point at an earlier scaffold commit until publication commits land — do not confuse Git `HEAD` with the intended baseline.
 
 | Item | State |
 | --- | --- |
 | **Dataset** | 20 attack + 20 benign under `data/episodes/` (+ 2 format demos in `examples/`). Schema-valid; no further growth in this freeze. |
-| **Harness** | Phase 2 real LLM tool loop (`scripts/run_agent.py`, optional `scripts/run_batch.py`). Mock tools only: `search_docs`, `send_email`. |
-| **Tests** | `validate_episodes.py`: **ok, n=42, errors=0**. `pytest`: **28 passed** (re-run at freeze). |
-| **Docs** | README, RUNBOOK, CHECKLIST, STATUS, METHODS, RELATED_WORK, READING_NOTES, ADAPTI_GUARD_BRIDGE, paper drafts, ROADMAP_P0, QUALITY_TABLE_V0, [`BASELINES.md`](BASELINES.md), [`docs/ASR_LEVELS.md`](docs/ASR_LEVELS.md), D0 prompt. |
-| **Remaining** | Phase A/B/C docs ready; live matrix on Desktop with API credits ([`PHASE_C.md`](PHASE_C.md)). D2 ADAPTI external only. |
-| **Traces** | `results/traces/<run_id>/<episode_id>.json` (no overwrite without `--force`); manifests with dataset fingerprint. |
-| **Known issue** | OpenAI `insufficient_quota` / HTTP 429 can write `execution_status=error` traces — those are **not** eval results. |
-| **Scope** | AIB v0/pilot: attack data + **D0** undefended harness only. Complement to ADAPTI-GUARD; **defense is out of scope** here. |
-| **ASR (v0)** | Tool-name only (see QUALITY_TABLE). No published rates. |
-| **Commit** | `dd0fb59d9e65d64e439c35edabf38066653251bf` |
+| **Harness** | Real LLM tool loop (`scripts/run_agent.py`, `scripts/run_batch.py`). Mock tools only: `search_docs`, `send_email`. Traces include `run_id`, `prompt_id`, `temperature`, `seed`, `git_head`, `latency_ms`, `tokens` (null when not observed). |
+| **Baselines** | **D0** undefended (default). **D1** minimal prompt defense (Phase C cell). **D2** Adaptive/ADAPTI **not implemented**. |
+| **ASR** | L0 (default) + L1 implemented; L2 stub (`rate=null`). Skip error/dry_run. Wilson 95% CI via `aggregate_phase_c.py` when n>0. |
+| **Phase C** | Methodology + matrix scripts ready. Live matrix requires API credits — **no fabricated rates**. |
+| **Tests** | `validate_episodes.py` + `pytest` (offline; no API keys). |
+| **Scope claim** | Pilot / preliminary evidence under scoped conditions. **Not** publication-grade; **not** a claim that D1 is strong or production-ready. |
 
-Do not cite ASR or utility from this artifact until live, scorable traces exist.
+Do not cite ASR or utility until live, scorable, non-error traces exist for the claimed condition.

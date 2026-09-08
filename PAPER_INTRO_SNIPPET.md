@@ -6,7 +6,7 @@
 
 ## Intro paragraph
 
-Large language model agents that retrieve documents and call tools can be steered by **indirect prompt injection**: malicious instructions embedded in untrusted retrieved content rather than in the user’s request. Measuring that failure mode requires fixed tasks, a clear misuse criterion (e.g., calling a restricted tool), and traces that can be scored without conflating API errors with attack success. We release **agent-injection-bench**, a small academic seed and undefended harness for this setting, positioned as a measurement complement to separate defense work (ADAPTI-GUARD), not as a large benchmark or a defense evaluation.
+Large language model agents that retrieve documents and call tools can be steered by **indirect prompt injection**: malicious instructions embedded in untrusted retrieved content rather than in the user’s request. Measuring that failure mode requires fixed tasks, a clear misuse criterion (e.g., calling a restricted tool), and traces that can be scored without conflating API errors with attack success. We release **agent-injection-bench**, a small academic seed and measurement harness (D0 undefended baseline; optional minimal D1 prompt condition for pilot matrices), positioned as a complement to separate defense work (ADAPTI-GUARD / D2 external), not as a large benchmark or a strong-defense evaluation.
 
 ## Contributions
 
