@@ -24,6 +24,8 @@ class LLMResponse:
     content: str | None
     tool_calls: list[ToolCallRequest] = field(default_factory=list)
     raw: dict[str, Any] | None = None
+    # Provider-reported usage only. Never estimate.
+    usage: dict[str, int] | None = None
 
 
 class LLMClient(Protocol):
@@ -33,6 +35,25 @@ class LLMClient(Protocol):
         tools: list[dict[str, Any]],
     ) -> LLMResponse:
         """One chat-completions turn."""
+
+
+def extract_usage(payload: dict[str, Any] | None) -> dict[str, int] | None:
+    """Return provider usage ints when present; else None (do not invent)."""
+    if not isinstance(payload, dict):
+        return None
+    usage = payload.get("usage")
+    if not isinstance(usage, dict):
+        return None
+    out: dict[str, int] = {}
+    for key in ("prompt_tokens", "completion_tokens", "total_tokens"):
+        val = usage.get(key)
+        if isinstance(val, bool):
+            continue
+        if isinstance(val, int):
+            out[key] = val
+        elif isinstance(val, float) and val.is_integer():
+            out[key] = int(val)
+    return out or None
 
 
 def _parse_arguments(raw: Any) -> dict[str, Any]:
@@ -71,7 +92,12 @@ def parse_chat_completion(payload: dict[str, Any]) -> LLMResponse:
         tool_calls.append(
             ToolCallRequest(id=call_id, name=name, arguments=_parse_arguments(fn.get("arguments")))
         )
-    return LLMResponse(content=content, tool_calls=tool_calls, raw=payload)
+    return LLMResponse(
+        content=content,
+        tool_calls=tool_calls,
+        raw=payload,
+        usage=extract_usage(payload),
+    )
 
 
 class OpenAICompatibleClient:

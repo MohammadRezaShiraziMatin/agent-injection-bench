@@ -23,6 +23,7 @@ TRACE_KEY_ORDER = (
     "episode_id",
     "episode_type",
     "split",
+    "episode",
     "prompt_id",
     "defense_condition",
     "model",
@@ -31,15 +32,19 @@ TRACE_KEY_ORDER = (
     "temperature",
     "seed",
     "timestamp",
+    "git_head",
     "user_task",
     "retrieved_documents",
     "tool_calls",
     "final_answer",
     "execution_status",
+    "status",
     "error",
     "steps",
     "max_steps",
     "dry_run",
+    "latency_ms",
+    "tokens",
 )
 
 
@@ -148,15 +153,20 @@ def empty_trace(
     defense_condition: str = "d0",
     temperature: float | None = None,
     seed: int | None = None,
+    git_head_value: str | None = None,
+    latency_ms: float | None = None,
+    tokens: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     split = str(episode.get("split") or "")
     episode_id = episode.get("id")
+    status = "ok"
     return {
         "run_id": run_id
         or make_run_id(model=model, episode_id=str(episode_id or "unknown")),
         "episode_id": episode_id,
         "episode_type": split,
         "split": split,
+        "episode": episode_id,
         "prompt_id": prompt_id,
         "defense_condition": defense_condition,
         "model": model,
@@ -165,15 +175,23 @@ def empty_trace(
         "temperature": temperature,
         "seed": seed,
         "timestamp": timestamp or utc_timestamp(),
+        # Actual HEAD when available; never invent a commit.
+        "git_head": git_head_value if git_head_value is not None else git_head(),
         "user_task": episode.get("user_query"),
         "retrieved_documents": document_refs(episode),
         "tool_calls": [],
         "final_answer": "",
-        "execution_status": "ok",
+        "execution_status": status,
+        # Alias for consumers that expect `status` (mirrors execution_status).
+        "status": status,
         "error": None,
         "steps": 0,
         "max_steps": max_steps,
         "dry_run": dry_run,
+        # Measured wall time when observable; otherwise null (never estimate).
+        "latency_ms": latency_ms,
+        # Provider usage when observable; otherwise null (never estimate).
+        "tokens": tokens,
     }
 
 

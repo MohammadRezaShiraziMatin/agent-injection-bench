@@ -1,4 +1,4 @@
-"""Phase 2 execution harness. No defenses. No evaluation metrics."""
+"""Execution harness. D0 default; optional D1 prompt condition. No Adaptive/D2. No eval labels in traces."""
 
 from agent.config import LLMConfig
 from agent.errors import EpisodeLoadError, LLMError

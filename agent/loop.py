@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import time
 from pathlib import Path
 from typing import Any
 
@@ -9,7 +10,7 @@ from agent.config import LLMConfig
 from agent.errors import LLMError
 from agent.llm import LLMClient, LLMResponse, ToolCallRequest
 from agent.tools import TOOL_SCHEMAS, bind_search, dispatch_tool, result_to_content
-from agent.traces import empty_trace, make_run_id
+from agent.traces import empty_trace, git_head, make_run_id
 from tools.mock_send_email import reset_log
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -44,6 +45,7 @@ def load_system_prompt(prompt_id: str = DEFAULT_PROMPT_ID) -> str:
         f"unknown prompt_id={prompt_id!r}; expected prompts/{prompt_id}.txt "
         f"or prompts/{prompt_id}_prompt_defense.txt"
     )
+
 
 # Back-compat alias: always the D0 text used by the baseline harness.
 SYSTEM_PROMPT = load_system_prompt("d0")
@@ -89,6 +91,25 @@ def _args_as_string(call: ToolCallRequest) -> str:
     return json.dumps(call.arguments, ensure_ascii=False)
 
 
+def _accumulate_usage(
+    totals: dict[str, int] | None,
+    usage: dict[str, int] | None,
+) -> dict[str, int] | None:
+    """Sum provider usage dicts. Returns None if nothing observable."""
+    if not usage:
+        return totals
+    out = dict(totals or {})
+    for key, val in usage.items():
+        if isinstance(val, int):
+            out[key] = int(out.get(key, 0)) + val
+    return out or None
+
+
+def _set_status(trace: dict[str, Any], status: str) -> None:
+    trace["execution_status"] = status
+    trace["status"] = status
+
+
 def run_episode(
     episode: dict[str, Any],
     *,
@@ -109,6 +130,7 @@ def run_episode(
     seed = config.seed if config else None
     resolved_run_id = run_id or make_run_id(model=model, episode_id=str(episode.get("id") or "unknown"))
     system_prompt = load_system_prompt(prompt_id)
+    head = git_head()
 
     trace = empty_trace(
         episode,
@@ -122,10 +144,13 @@ def run_episode(
         defense_condition="d0" if prompt_id == "d0" else prompt_id,
         temperature=temperature,
         seed=seed,
+        git_head_value=head,
+        latency_ms=None,
+        tokens=None,
     )
 
     if dry_run:
-        trace["execution_status"] = "dry_run"
+        _set_status(trace, "dry_run")
         trace["final_answer"] = (
             "dry-run: no LLM was called; no tool_calls were issued. "
             "This is not an evaluation result."
@@ -141,10 +166,13 @@ def run_episode(
         {"role": "user", "content": build_user_message(episode)},
     ]
 
+    usage_totals: dict[str, int] | None = None
+    t0 = time.perf_counter()
     try:
         for step in range(1, steps_limit + 1):
             trace["steps"] = step
             response = client.complete(messages, TOOL_SCHEMAS)
+            usage_totals = _accumulate_usage(usage_totals, getattr(response, "usage", None))
             if response.tool_calls:
                 messages.append(_assistant_message(response))
                 for call in response.tool_calls:
@@ -166,22 +194,26 @@ def run_episode(
                         }
                     )
                 if step == steps_limit:
-                    trace["execution_status"] = "max_steps"
+                    _set_status(trace, "max_steps")
                     trace["final_answer"] = response.content or ""
-                    return trace
+                    break
                 continue
 
-            trace["execution_status"] = "ok"
+            _set_status(trace, "ok")
             trace["final_answer"] = response.content or ""
-            return trace
-
-        trace["execution_status"] = "max_steps"
-        return trace
+            break
+        else:
+            _set_status(trace, "max_steps")
     except LLMError as exc:
-        trace["execution_status"] = "error"
+        _set_status(trace, "error")
         trace["error"] = {"type": "LLMError", "message": str(exc)}
-        return trace
     except Exception as exc:  # noqa: BLE001 — record unexpected failures in the trace
-        trace["execution_status"] = "error"
+        _set_status(trace, "error")
         trace["error"] = {"type": type(exc).__name__, "message": str(exc)}
-        return trace
+    finally:
+        trace["latency_ms"] = round((time.perf_counter() - t0) * 1000.0, 3)
+        if usage_totals:
+            trace["tokens"] = {**usage_totals, "source": "provider"}
+        else:
+            trace["tokens"] = None
+    return trace
