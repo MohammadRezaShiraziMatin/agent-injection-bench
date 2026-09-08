@@ -1,15 +1,67 @@
-agent-tools/
-.cursor/
+# Python
 __pycache__/
 *.py[cod]
-.venv/
-venv/
-.env
-*.egg-info/
-dist/
-build/
+*.pyo
 .pytest_cache/
 .mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.cursor/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs
+*.log
+logs/
+
+# Runtime / generated
+runs/
+outputs/
+artifacts/
+tmp/
+temp/
+cache/
+*.tmp
+agent-tools/
+
+# Model / HF caches (never track weights)
+.cache/
+.huggingface/
+huggingface/
+hf_cache/
+models/
+checkpoints/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Run artifacts (keep .gitkeep placeholders)
 results/traces/**
 !results/traces/.gitkeep
 results/manifests/*.json
