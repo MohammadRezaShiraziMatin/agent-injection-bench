@@ -2,6 +2,8 @@
 
 Operator checklist for the **first live LLM pilot** on the frozen v0 bench (20 attack + 20 benign twins, offline mock tools only). This is **not** a defense evaluation and **not** ADAPTI-GUARD.
 
+**Before live runs:** complete human sign-off in [LIVE_EVAL_GATE.md](./LIVE_EVAL_GATE.md). **Claims:** [CLAIMS_MAP.md](./CLAIMS_MAP.md). **Overview:** [START_HERE.md](./START_HERE.md).
+
 ## Scope reminder
 
 | In scope | Out of scope |

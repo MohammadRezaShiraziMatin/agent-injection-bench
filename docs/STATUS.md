@@ -1,7 +1,10 @@
 # Status
 
-**v0 scaffold:** complete (data + harness + scorers + tests).  
-**Evaluation numbers:** none — no traces scored; do not invent ASR/utility.
+**Entry:** [START_HERE.md](./START_HERE.md)
+
+**v0 scaffold:** complete (data + harness + scorers + tests + Phase A runbook + D2 bridge docs).  
+**Live Phase A pilot:** not completed on main until 40 live traces are archived and scored.  
+**Evaluation numbers:** none published — no full live traces scored; do not invent ASR/utility ([CLAIMS_MAP.md](./CLAIMS_MAP.md)).
 
 | Area | State |
 |------|--------|

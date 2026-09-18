@@ -1,6 +1,8 @@
 # Runbook
 
-For the **Phase A live pilot** (install → validate → dry-run → key → batch → score), use **[PHASE_A_PILOT.md](./PHASE_A_PILOT.md)**.
+**Overview and offline verify (API=0):** [START_HERE.md](./START_HERE.md).
+
+For the **Phase A live pilot** (install → validate → dry-run → gate → key → batch → score), use **[PHASE_A_PILOT.md](./PHASE_A_PILOT.md)** and **[LIVE_EVAL_GATE.md](./LIVE_EVAL_GATE.md)**.
 
 ## Environment
 
