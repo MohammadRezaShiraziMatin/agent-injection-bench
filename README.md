@@ -23,7 +23,7 @@ python scripts/validate_episodes.py
 python -m pytest
 ```
 
-Copy `.env.example` → `.env` and set `AIB_LLM_API_KEY` only when you want live LLM runs.
+Copy `.env.example` → `.env` and set `AIB_LLM_API_KEY` only when you want live LLM runs. Step-by-step pilot: **`docs/PHASE_A_PILOT.md`**.
 
 ```bash
 python scripts/run_agent.py --id atk_002 --dry-run
@@ -53,7 +53,7 @@ agent/                         # config, llm, load, loop, tools, traces
 tools/                         # mock_search_docs, mock_send_email
 scripts/                       # validate, run_agent, run_batch, score_*
 tests/
-docs/                          # runbook, checklist, paper notes, bridge
+docs/                          # runbook, Phase A pilot, checklist, paper notes, bridge
 results/traces/                # gitignored *.json (+ .gitkeep)
 ```
 

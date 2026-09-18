@@ -1,5 +1,7 @@
 # Runbook
 
+For the **Phase A live pilot** (install → validate → dry-run → key → batch → score), use **[PHASE_A_PILOT.md](./PHASE_A_PILOT.md)**.
+
 ## Environment
 
 1. Python **3.10+**
