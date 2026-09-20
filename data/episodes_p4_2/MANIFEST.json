@@ -1,0 +1,2024 @@
+{
+  "attack_count": 100,
+  "benign_count": 100,
+  "dataset_version": "P4.2",
+  "digest_sha256": "416264027c5e1f57a2a77f8ca31009f1b6ce399eddc1792a3dc8737ec75e74b3",
+  "episode_count": 200,
+  "episodes": [
+    {
+      "byte_size": 2326,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_001",
+      "filename": "attack/atk_p42_001.json",
+      "pair_id": "p42_001",
+      "role": "attack",
+      "sha256": "75de33d3b8f957ccdc275986a537a0977f5c97802dcc3c8e43a70a7ff1638c97"
+    },
+    {
+      "byte_size": 2334,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_002",
+      "filename": "attack/atk_p42_002.json",
+      "pair_id": "p42_002",
+      "role": "attack",
+      "sha256": "0841f5426a738048396e6e87e0a0883fd01af68afaed7fd68e8cdb4d6c9a8564"
+    },
+    {
+      "byte_size": 2308,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_003",
+      "filename": "attack/atk_p42_003.json",
+      "pair_id": "p42_003",
+      "role": "attack",
+      "sha256": "7056b74617096fee7e649b5ed4d97222ef72948e8b95ecfb7efb242c812e9a6d"
+    },
+    {
+      "byte_size": 2330,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_004",
+      "filename": "attack/atk_p42_004.json",
+      "pair_id": "p42_004",
+      "role": "attack",
+      "sha256": "be0d01bee95d966c010bb5412589638b662cd335767488abc02f6fdd5bdc7557"
+    },
+    {
+      "byte_size": 2315,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_005",
+      "filename": "attack/atk_p42_005.json",
+      "pair_id": "p42_005",
+      "role": "attack",
+      "sha256": "eedb4a4fbf58fcba9261eb884e0e9b858ab97fdfa1af174f84421f8c4101df83"
+    },
+    {
+      "byte_size": 2346,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_006",
+      "filename": "attack/atk_p42_006.json",
+      "pair_id": "p42_006",
+      "role": "attack",
+      "sha256": "fc4f18f1a1f744177670f10fb38024c9c079a157526f3061a731240fe823a0e4"
+    },
+    {
+      "byte_size": 2291,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_007",
+      "filename": "attack/atk_p42_007.json",
+      "pair_id": "p42_007",
+      "role": "attack",
+      "sha256": "f87a0cd88803bb3360cd5bfbf1736487cb95689c5afece3b415c0eed47304d66"
+    },
+    {
+      "byte_size": 2321,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_008",
+      "filename": "attack/atk_p42_008.json",
+      "pair_id": "p42_008",
+      "role": "attack",
+      "sha256": "7cdcd8dd196cc922ff26f7fcf7498a6d45fbf201326341aa8c9c0c4c1312051e"
+    },
+    {
+      "byte_size": 2304,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_009",
+      "filename": "attack/atk_p42_009.json",
+      "pair_id": "p42_009",
+      "role": "attack",
+      "sha256": "eacc8742eac8cd4503484720a0d8c4b5411b495d7343742bb5b1c42e35c99171"
+    },
+    {
+      "byte_size": 2309,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_010",
+      "filename": "attack/atk_p42_010.json",
+      "pair_id": "p42_010",
+      "role": "attack",
+      "sha256": "7c5a5095a00ff6eea9e50232c3490cd59cd2dc25a4d7584822bdb325579b4318"
+    },
+    {
+      "byte_size": 2171,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_011",
+      "filename": "attack/atk_p42_011.json",
+      "pair_id": "p42_011",
+      "role": "attack",
+      "sha256": "76684c83bb16497a10b6a1c8060fc0e241a6fbf8938e112b02f28251f9f876a7"
+    },
+    {
+      "byte_size": 2198,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_012",
+      "filename": "attack/atk_p42_012.json",
+      "pair_id": "p42_012",
+      "role": "attack",
+      "sha256": "2b2b5296bd0d538f15a961bf48135e8713bb29470c93e3dfdee5af591f65a589"
+    },
+    {
+      "byte_size": 2196,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_013",
+      "filename": "attack/atk_p42_013.json",
+      "pair_id": "p42_013",
+      "role": "attack",
+      "sha256": "37c2f8177d4178975d4fc838f89dc3baf649c5fa8433ab34020e55a848173c09"
+    },
+    {
+      "byte_size": 2206,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_014",
+      "filename": "attack/atk_p42_014.json",
+      "pair_id": "p42_014",
+      "role": "attack",
+      "sha256": "12b0c8b3d370656664d332475f1e032b79d8e8e7ba5f9bece1bc50b2a5039ce1"
+    },
+    {
+      "byte_size": 2203,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_015",
+      "filename": "attack/atk_p42_015.json",
+      "pair_id": "p42_015",
+      "role": "attack",
+      "sha256": "b7579ff9ea3c693ec69ffe41abbf58821dbfbf46a263f0ad085a58e6cd4da81f"
+    },
+    {
+      "byte_size": 2233,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_016",
+      "filename": "attack/atk_p42_016.json",
+      "pair_id": "p42_016",
+      "role": "attack",
+      "sha256": "48dc0b39e2633206c6e0dad9a88c8ae721d297945ba0a44de14d1a91694a2340"
+    },
+    {
+      "byte_size": 2214,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_017",
+      "filename": "attack/atk_p42_017.json",
+      "pair_id": "p42_017",
+      "role": "attack",
+      "sha256": "bc30a00c94851dbd57b15f1138a9e104de4d29163dd7d977819cec78735565cd"
+    },
+    {
+      "byte_size": 2204,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_018",
+      "filename": "attack/atk_p42_018.json",
+      "pair_id": "p42_018",
+      "role": "attack",
+      "sha256": "88e2659554ee5a6434ee80a052da4ca74f3aa6718c37aebeea3820c11faccc7b"
+    },
+    {
+      "byte_size": 2194,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_019",
+      "filename": "attack/atk_p42_019.json",
+      "pair_id": "p42_019",
+      "role": "attack",
+      "sha256": "ff80e48e35ef10fb6072b9f3609f75cb572868f20fcbae7fb13ced129c1dca12"
+    },
+    {
+      "byte_size": 2171,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_020",
+      "filename": "attack/atk_p42_020.json",
+      "pair_id": "p42_020",
+      "role": "attack",
+      "sha256": "44c7e0941d0aa37db18927863eb43f6b8b2c3d32823feed6aa2098363cfbcaed"
+    },
+    {
+      "byte_size": 2202,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_021",
+      "filename": "attack/atk_p42_021.json",
+      "pair_id": "p42_021",
+      "role": "attack",
+      "sha256": "0c07e55706192026c31eb44d144b356744712de708ff9a53f6bb1160c665aad5"
+    },
+    {
+      "byte_size": 2227,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_022",
+      "filename": "attack/atk_p42_022.json",
+      "pair_id": "p42_022",
+      "role": "attack",
+      "sha256": "f4ed9217f15a85e2182c509152c89a02c7bee5767d1175f418641635fd1326a9"
+    },
+    {
+      "byte_size": 2166,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_023",
+      "filename": "attack/atk_p42_023.json",
+      "pair_id": "p42_023",
+      "role": "attack",
+      "sha256": "95c09207769432ca0eac18e8096bbde6dde2ad152c08d369fff20785a4ea3d2b"
+    },
+    {
+      "byte_size": 2206,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_024",
+      "filename": "attack/atk_p42_024.json",
+      "pair_id": "p42_024",
+      "role": "attack",
+      "sha256": "1901ba87f71a7d5d14ae3b922a5e698af02458dffaae942aceb4bc3397d7459d"
+    },
+    {
+      "byte_size": 2192,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_025",
+      "filename": "attack/atk_p42_025.json",
+      "pair_id": "p42_025",
+      "role": "attack",
+      "sha256": "2db201c30af0c2e2466e2c2132c03758cd5edc6f221075213aff7656dafaf778"
+    },
+    {
+      "byte_size": 2180,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_026",
+      "filename": "attack/atk_p42_026.json",
+      "pair_id": "p42_026",
+      "role": "attack",
+      "sha256": "816208094d6573ce8d29981330b917861a05babe458071b43c696cb2669fd453"
+    },
+    {
+      "byte_size": 2194,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_027",
+      "filename": "attack/atk_p42_027.json",
+      "pair_id": "p42_027",
+      "role": "attack",
+      "sha256": "810d1b594534524ac5cbe6e47ee1b8c713ff32bcdaf5eab350f11752b5c323a6"
+    },
+    {
+      "byte_size": 2204,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_028",
+      "filename": "attack/atk_p42_028.json",
+      "pair_id": "p42_028",
+      "role": "attack",
+      "sha256": "1c37fe5ddd1255f032e1020c9158fb398ef35185ebcc02d2d0fef99aa56c255b"
+    },
+    {
+      "byte_size": 2188,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_029",
+      "filename": "attack/atk_p42_029.json",
+      "pair_id": "p42_029",
+      "role": "attack",
+      "sha256": "abdc50a4ffd8ce52297eda7f3f17cee8f74a559c86a42118fa2a714ad156f180"
+    },
+    {
+      "byte_size": 2216,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_030",
+      "filename": "attack/atk_p42_030.json",
+      "pair_id": "p42_030",
+      "role": "attack",
+      "sha256": "910613728e81ba374dd357a34e0b26fed32500dcacd8b42c08435bcb189f3bb0"
+    },
+    {
+      "byte_size": 2202,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_031",
+      "filename": "attack/atk_p42_031.json",
+      "pair_id": "p42_031",
+      "role": "attack",
+      "sha256": "3946f5e47fc25c51ba12eb0f60aca25d142f1b864acb99af4bf2d2138b220d38"
+    },
+    {
+      "byte_size": 2205,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_032",
+      "filename": "attack/atk_p42_032.json",
+      "pair_id": "p42_032",
+      "role": "attack",
+      "sha256": "a0e642c2fb9002e44a76fd38753d48b35cfdff6f3b797caaca4b86259bf5884c"
+    },
+    {
+      "byte_size": 2185,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_033",
+      "filename": "attack/atk_p42_033.json",
+      "pair_id": "p42_033",
+      "role": "attack",
+      "sha256": "58b26b878e87c910a6f9b1478c71cd7bda11c8ec892eabe70b21a03c9f4c7604"
+    },
+    {
+      "byte_size": 2219,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_034",
+      "filename": "attack/atk_p42_034.json",
+      "pair_id": "p42_034",
+      "role": "attack",
+      "sha256": "11e5aabdf9da124f333b83279a3771e686928c00042717a2e126ef8ca6a56bb0"
+    },
+    {
+      "byte_size": 2271,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_035",
+      "filename": "attack/atk_p42_035.json",
+      "pair_id": "p42_035",
+      "role": "attack",
+      "sha256": "e05219ffd621d2378e97d78bde6f37b489868af574ff00101df9b8fbfe01239e"
+    },
+    {
+      "byte_size": 2285,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_036",
+      "filename": "attack/atk_p42_036.json",
+      "pair_id": "p42_036",
+      "role": "attack",
+      "sha256": "3e2f787200b9894cc74d50e911059a49718684ceb5102cbcc2dba0900a6619ad"
+    },
+    {
+      "byte_size": 2288,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_037",
+      "filename": "attack/atk_p42_037.json",
+      "pair_id": "p42_037",
+      "role": "attack",
+      "sha256": "5936bffdb6c0d65345bfae94caffcd7398a4912c19512bba35f51300620bd861"
+    },
+    {
+      "byte_size": 2270,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_038",
+      "filename": "attack/atk_p42_038.json",
+      "pair_id": "p42_038",
+      "role": "attack",
+      "sha256": "84ab1400a6bb7e22b71837ee36bdc40ab6f2a4c00764a2222ef93d0d3bb68916"
+    },
+    {
+      "byte_size": 2287,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_039",
+      "filename": "attack/atk_p42_039.json",
+      "pair_id": "p42_039",
+      "role": "attack",
+      "sha256": "46127b9a87939eeb91f8501724a9a82f2c9f91f3eb39f02d15d0ab83d729c138"
+    },
+    {
+      "byte_size": 2246,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_040",
+      "filename": "attack/atk_p42_040.json",
+      "pair_id": "p42_040",
+      "role": "attack",
+      "sha256": "7e9809bba912eaa80f29bdeb17cef9c9ad8d1eb601aa01e1bb5d4e900f2b1255"
+    },
+    {
+      "byte_size": 2258,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_041",
+      "filename": "attack/atk_p42_041.json",
+      "pair_id": "p42_041",
+      "role": "attack",
+      "sha256": "698c9c977c26a2b90277f3d95b0fcad6c0cf52a3205fa92883ae6cd26fdabcff"
+    },
+    {
+      "byte_size": 2266,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_042",
+      "filename": "attack/atk_p42_042.json",
+      "pair_id": "p42_042",
+      "role": "attack",
+      "sha256": "d77d32554207aa6131f6f6c3da5f31f59b5c14847f114c1c35b6d695c436ec87"
+    },
+    {
+      "byte_size": 2283,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_043",
+      "filename": "attack/atk_p42_043.json",
+      "pair_id": "p42_043",
+      "role": "attack",
+      "sha256": "7b0e8341af1c7d8e68314f6248d7d7688992d5f8efa70d1e8f59981ec3ac0b41"
+    },
+    {
+      "byte_size": 2293,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_044",
+      "filename": "attack/atk_p42_044.json",
+      "pair_id": "p42_044",
+      "role": "attack",
+      "sha256": "cab7461228a7b91e9d4cdb9b08232e5523c993effa2365f43183e04b31366700"
+    },
+    {
+      "byte_size": 2320,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_045",
+      "filename": "attack/atk_p42_045.json",
+      "pair_id": "p42_045",
+      "role": "attack",
+      "sha256": "8e7c3500c7992bf157cebd73fcdf4a4b9837ad401948fc478c379710b644154a"
+    },
+    {
+      "byte_size": 2305,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_046",
+      "filename": "attack/atk_p42_046.json",
+      "pair_id": "p42_046",
+      "role": "attack",
+      "sha256": "4eb3ae71db9c7d3e9b5a50269591789fa2015436e9e45369ec6a89630c016546"
+    },
+    {
+      "byte_size": 2324,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_047",
+      "filename": "attack/atk_p42_047.json",
+      "pair_id": "p42_047",
+      "role": "attack",
+      "sha256": "fb18f8a417c822e3d87142864f2fd1552f18c68d1ffe81f11f55ea36d760e1ef"
+    },
+    {
+      "byte_size": 2339,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_048",
+      "filename": "attack/atk_p42_048.json",
+      "pair_id": "p42_048",
+      "role": "attack",
+      "sha256": "83142ceee63d1e48c7444855160bff4b93e771a8f07dd63371b93ed5695aa670"
+    },
+    {
+      "byte_size": 2338,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_049",
+      "filename": "attack/atk_p42_049.json",
+      "pair_id": "p42_049",
+      "role": "attack",
+      "sha256": "f8d1c2d2a0c36aff0ca7804141b22ca7cc451e3314fc1b3a7bace2cf805e5e5c"
+    },
+    {
+      "byte_size": 2320,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_050",
+      "filename": "attack/atk_p42_050.json",
+      "pair_id": "p42_050",
+      "role": "attack",
+      "sha256": "30b1a43092d34ac50aca0039942929bb777cad0554d7d18f8e665d392a0455d9"
+    },
+    {
+      "byte_size": 2343,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_051",
+      "filename": "attack/atk_p42_051.json",
+      "pair_id": "p42_051",
+      "role": "attack",
+      "sha256": "172386b3e753c74d962c02f5608741c52df4c37646bd537e7ca67b7f0511e686"
+    },
+    {
+      "byte_size": 2309,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_052",
+      "filename": "attack/atk_p42_052.json",
+      "pair_id": "p42_052",
+      "role": "attack",
+      "sha256": "7fe7c78904fef78994fd407d33e29bf5723bcc71c128bcfdc22895c764ee9152"
+    },
+    {
+      "byte_size": 2306,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_053",
+      "filename": "attack/atk_p42_053.json",
+      "pair_id": "p42_053",
+      "role": "attack",
+      "sha256": "8c2bae3aeed92c30051e45365620ca6aaa449be25ef633b6e89aa5f44ef90c6c"
+    },
+    {
+      "byte_size": 2356,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_054",
+      "filename": "attack/atk_p42_054.json",
+      "pair_id": "p42_054",
+      "role": "attack",
+      "sha256": "a5fa177adb6af741a37177a74f8e3dec038ddef4036232fe222d4cb556f5ff3e"
+    },
+    {
+      "byte_size": 2311,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_055",
+      "filename": "attack/atk_p42_055.json",
+      "pair_id": "p42_055",
+      "role": "attack",
+      "sha256": "d96c8a7b16e5cc879cfe5c14a4825ae89f01d1342a8a672f0daea7482b247f24"
+    },
+    {
+      "byte_size": 2334,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_056",
+      "filename": "attack/atk_p42_056.json",
+      "pair_id": "p42_056",
+      "role": "attack",
+      "sha256": "e574b219844a1539e3ac56a5180fce2fb66a9593ee185b525e148d650c74ad55"
+    },
+    {
+      "byte_size": 2350,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_057",
+      "filename": "attack/atk_p42_057.json",
+      "pair_id": "p42_057",
+      "role": "attack",
+      "sha256": "3ee3bcb17d6872bfea1168848f6f10401c366dc160e863b57b4f45b41c145ea3"
+    },
+    {
+      "byte_size": 2316,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_058",
+      "filename": "attack/atk_p42_058.json",
+      "pair_id": "p42_058",
+      "role": "attack",
+      "sha256": "b263dd2d10bab5bd269a256e163c4f09dd9d96b4f75a348e4ab044c9feabc603"
+    },
+    {
+      "byte_size": 2638,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_059",
+      "filename": "attack/atk_p42_059.json",
+      "pair_id": "p42_059",
+      "role": "attack",
+      "sha256": "3894ac348c1404eed1cf3608dee5868b8bf2a7ce4466cd04f02300c56339ca2d"
+    },
+    {
+      "byte_size": 2667,
+      "dataset_partition": "development",
+      "episode_id": "atk_p42_060",
+      "filename": "attack/atk_p42_060.json",
+      "pair_id": "p42_060",
+      "role": "attack",
+      "sha256": "3029e46e3ee663184bad1f6aabc2c7eca8ebdb338f3a02f0615da48c7b71992a"
+    },
+    {
+      "byte_size": 2636,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_061",
+      "filename": "attack/atk_p42_061.json",
+      "pair_id": "p42_061",
+      "role": "attack",
+      "sha256": "4f18ba1783e78dea52d15d56c08ade274dd10f4aa5bbaa83f4f29d159362fe3b"
+    },
+    {
+      "byte_size": 2660,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_062",
+      "filename": "attack/atk_p42_062.json",
+      "pair_id": "p42_062",
+      "role": "attack",
+      "sha256": "ce83ad5a0ce7b9521464ea53f954d02c711bd2a0532abd0ed54cf2caee7f3d54"
+    },
+    {
+      "byte_size": 2663,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_063",
+      "filename": "attack/atk_p42_063.json",
+      "pair_id": "p42_063",
+      "role": "attack",
+      "sha256": "ddf40aeec8b3627c24b59bb6e484814e7ef23a3e1cea030d5947c127cfd0553f"
+    },
+    {
+      "byte_size": 2673,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_064",
+      "filename": "attack/atk_p42_064.json",
+      "pair_id": "p42_064",
+      "role": "attack",
+      "sha256": "901b9133157ad0b7fa5e984f105651ad5197bfa1744fd278bede45fae5522c21"
+    },
+    {
+      "byte_size": 2987,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_065",
+      "filename": "attack/atk_p42_065.json",
+      "pair_id": "p42_065",
+      "role": "attack",
+      "sha256": "a79f6119020bd5a80753b8aa5564ba7e3c8b697ee36688958c56b1aedca0b477"
+    },
+    {
+      "byte_size": 2906,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_066",
+      "filename": "attack/atk_p42_066.json",
+      "pair_id": "p42_066",
+      "role": "attack",
+      "sha256": "401a2bd2112fb78714bb7849c0918bcc0f67589c8cd851aa6d9c8f90c47f7c7d"
+    },
+    {
+      "byte_size": 2942,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_067",
+      "filename": "attack/atk_p42_067.json",
+      "pair_id": "p42_067",
+      "role": "attack",
+      "sha256": "5a94ceef1ed81bd759ecb42d8a5bbc51e5742412e9f1f5494acc0503fc23dd8c"
+    },
+    {
+      "byte_size": 2936,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_068",
+      "filename": "attack/atk_p42_068.json",
+      "pair_id": "p42_068",
+      "role": "attack",
+      "sha256": "5c84db2f59a667a09e1e2b0fca53ca1afe11f226dd2360d3d51dff99644c7d32"
+    },
+    {
+      "byte_size": 2913,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_069",
+      "filename": "attack/atk_p42_069.json",
+      "pair_id": "p42_069",
+      "role": "attack",
+      "sha256": "f9e33617a1dcc442fb2f2019f0d2ba2cdff1d63068699a2bf58f25180f6b5962"
+    },
+    {
+      "byte_size": 2965,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_070",
+      "filename": "attack/atk_p42_070.json",
+      "pair_id": "p42_070",
+      "role": "attack",
+      "sha256": "f0b0d0063e78da259eaa8661894fc8f261c5ef7aef3f69e51983ab5af9288580"
+    },
+    {
+      "byte_size": 2738,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_071",
+      "filename": "attack/atk_p42_071.json",
+      "pair_id": "p42_071",
+      "role": "attack",
+      "sha256": "f88b99fa38e4b3d9c1dfd493299c482573df81e31b2928197af2bd96bc04097b"
+    },
+    {
+      "byte_size": 2549,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_072",
+      "filename": "attack/atk_p42_072.json",
+      "pair_id": "p42_072",
+      "role": "attack",
+      "sha256": "5403575d86545065790bd604300c0bd454c2c301af9b9b13a631e8dcfdfb1638"
+    },
+    {
+      "byte_size": 2773,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_073",
+      "filename": "attack/atk_p42_073.json",
+      "pair_id": "p42_073",
+      "role": "attack",
+      "sha256": "ed2713e8470b81582aab8b5f3a7487beaf114cd5889f8b4c52489f9cb8e77e8d"
+    },
+    {
+      "byte_size": 2566,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_074",
+      "filename": "attack/atk_p42_074.json",
+      "pair_id": "p42_074",
+      "role": "attack",
+      "sha256": "66bb391644b02f90ce9f590d6fc1a25a235eb70df966fda4a2917fadad4e0a97"
+    },
+    {
+      "byte_size": 2759,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_075",
+      "filename": "attack/atk_p42_075.json",
+      "pair_id": "p42_075",
+      "role": "attack",
+      "sha256": "9ec44c777b8823f9ef7fc44cb789675ee624a4f8e99ed5e24338e740298d20a5"
+    },
+    {
+      "byte_size": 2592,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_076",
+      "filename": "attack/atk_p42_076.json",
+      "pair_id": "p42_076",
+      "role": "attack",
+      "sha256": "79250487c624112f2d8b5b0bae6d443d118dda6d41282b130f4c373a6ea5ba8f"
+    },
+    {
+      "byte_size": 2750,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_077",
+      "filename": "attack/atk_p42_077.json",
+      "pair_id": "p42_077",
+      "role": "attack",
+      "sha256": "6b91e3e6b8b36ee28023dc89f5de91953d711f54da6eda90e56f52c88cee0924"
+    },
+    {
+      "byte_size": 2570,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_078",
+      "filename": "attack/atk_p42_078.json",
+      "pair_id": "p42_078",
+      "role": "attack",
+      "sha256": "91b51533622db1b79d04f8cf62ce82604efdaee9809774211eb03f76b6e9a8d1"
+    },
+    {
+      "byte_size": 2759,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_079",
+      "filename": "attack/atk_p42_079.json",
+      "pair_id": "p42_079",
+      "role": "attack",
+      "sha256": "6f671f346bc0c6a2f9a966fcb18bb27ac5dfb040ab4c177121a850cf9da305db"
+    },
+    {
+      "byte_size": 2541,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p42_080",
+      "filename": "attack/atk_p42_080.json",
+      "pair_id": "p42_080",
+      "role": "attack",
+      "sha256": "2cdb6ea39394f6524a6de8f218162607793f4432c54d06e1af3f9e0229a9ff06"
+    },
+    {
+      "byte_size": 2779,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_081",
+      "filename": "attack/atk_p42_081.json",
+      "pair_id": "p42_081",
+      "role": "attack",
+      "sha256": "a47f01f291bbe93085507d7ee21e03d3340334b17e6eaa45ed90a1b49fd132dc"
+    },
+    {
+      "byte_size": 2555,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_082",
+      "filename": "attack/atk_p42_082.json",
+      "pair_id": "p42_082",
+      "role": "attack",
+      "sha256": "e84206b2d800da0a555697c74a1e9bd9c5474ac8164397929ebf8db88a6192fd"
+    },
+    {
+      "byte_size": 2383,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_083",
+      "filename": "attack/atk_p42_083.json",
+      "pair_id": "p42_083",
+      "role": "attack",
+      "sha256": "8a29776051639b5124ba47c81f9f5edb41bf56715a44233f3a52ba08a8db8679"
+    },
+    {
+      "byte_size": 2395,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_084",
+      "filename": "attack/atk_p42_084.json",
+      "pair_id": "p42_084",
+      "role": "attack",
+      "sha256": "008387c4644e9dd67a10e7540f45dfff691ac7f35bf1b2ffc3f2528caa06bbdd"
+    },
+    {
+      "byte_size": 2376,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_085",
+      "filename": "attack/atk_p42_085.json",
+      "pair_id": "p42_085",
+      "role": "attack",
+      "sha256": "8e773e91845aa7b449364536ad8001c089c70675635ed84d63450450b08e6237"
+    },
+    {
+      "byte_size": 2387,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_086",
+      "filename": "attack/atk_p42_086.json",
+      "pair_id": "p42_086",
+      "role": "attack",
+      "sha256": "2de94073a146cd455a045783a1fd8578a6ac5d43f9c6b9c7f9411cf4286d5bbf"
+    },
+    {
+      "byte_size": 2370,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_087",
+      "filename": "attack/atk_p42_087.json",
+      "pair_id": "p42_087",
+      "role": "attack",
+      "sha256": "69b0ef3e45fba811948ea89c1113ad526dd68de28f3e50f9ed3978ac21c89ee5"
+    },
+    {
+      "byte_size": 2372,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_088",
+      "filename": "attack/atk_p42_088.json",
+      "pair_id": "p42_088",
+      "role": "attack",
+      "sha256": "f7a70a00466ba8e04bbc263753d17fb323b28ec7720262051bfabf966975d9fb"
+    },
+    {
+      "byte_size": 2377,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_089",
+      "filename": "attack/atk_p42_089.json",
+      "pair_id": "p42_089",
+      "role": "attack",
+      "sha256": "3fecc06623171c462be07e0752c7d5e0af981b26b6dcfdfb57430421f904d4e6"
+    },
+    {
+      "byte_size": 2378,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_090",
+      "filename": "attack/atk_p42_090.json",
+      "pair_id": "p42_090",
+      "role": "attack",
+      "sha256": "07fcdd43f66e8bacc3efaa2dd557b6562bcbe18eeade81d85e7427e80d4615bd"
+    },
+    {
+      "byte_size": 2386,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_091",
+      "filename": "attack/atk_p42_091.json",
+      "pair_id": "p42_091",
+      "role": "attack",
+      "sha256": "7cfec7455fbe87166c9011115526b4bed49f47e6a57d1759fecca05dd7cc14b2"
+    },
+    {
+      "byte_size": 2379,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_092",
+      "filename": "attack/atk_p42_092.json",
+      "pair_id": "p42_092",
+      "role": "attack",
+      "sha256": "358de3d84be9c228f9693bd450dec2d90e79f3d225c105bae021ce40a2cb8c18"
+    },
+    {
+      "byte_size": 2504,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_093",
+      "filename": "attack/atk_p42_093.json",
+      "pair_id": "p42_093",
+      "role": "attack",
+      "sha256": "5ea85fa8febbc40a0edeb82a713c6d62a5d0747ef2afe243fe8d2633c8eecc68"
+    },
+    {
+      "byte_size": 2504,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_094",
+      "filename": "attack/atk_p42_094.json",
+      "pair_id": "p42_094",
+      "role": "attack",
+      "sha256": "90952760f519068377ba56edba88ba96e64aeda47a16706e8c79c94965ec9bff"
+    },
+    {
+      "byte_size": 2504,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_095",
+      "filename": "attack/atk_p42_095.json",
+      "pair_id": "p42_095",
+      "role": "attack",
+      "sha256": "e6ff4ad0c8f5ff8a861c9dcab4f0bb4879412672bfa65b39f0b927411f722410"
+    },
+    {
+      "byte_size": 2504,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_096",
+      "filename": "attack/atk_p42_096.json",
+      "pair_id": "p42_096",
+      "role": "attack",
+      "sha256": "bf61f46464d3079bd3a573a7874ab4e48fe1a016b5583166cdaef982b8d870c6"
+    },
+    {
+      "byte_size": 2878,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_097",
+      "filename": "attack/atk_p42_097.json",
+      "pair_id": "p42_097",
+      "role": "attack",
+      "sha256": "7886b98d1893c4b7c9a97dc6542d374dc5a36868e49ac217d3835c65e944719d"
+    },
+    {
+      "byte_size": 2878,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_098",
+      "filename": "attack/atk_p42_098.json",
+      "pair_id": "p42_098",
+      "role": "attack",
+      "sha256": "d4db71025cd27d3254931c2b4d040512e28493aa76839fbc25981535adcdf208"
+    },
+    {
+      "byte_size": 2878,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_099",
+      "filename": "attack/atk_p42_099.json",
+      "pair_id": "p42_099",
+      "role": "attack",
+      "sha256": "cfe3695fd1f91cf7c1e5e7cdfd9210551269e4b64601fcdd4c4cd1341091df93"
+    },
+    {
+      "byte_size": 2878,
+      "dataset_partition": "test",
+      "episode_id": "atk_p42_100",
+      "filename": "attack/atk_p42_100.json",
+      "pair_id": "p42_100",
+      "role": "attack",
+      "sha256": "daed754f959e5c9570ba2736d23f6db5b02f13955e41295d94b0614b6dd65f4d"
+    },
+    {
+      "byte_size": 2048,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_001",
+      "filename": "benign/ben_p42_001.json",
+      "pair_id": "p42_001",
+      "role": "benign",
+      "sha256": "4a2d5ea4a83269d25c53b995e24c7eb2de4488abc840319f1fb03fcfc76396ec"
+    },
+    {
+      "byte_size": 2010,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_002",
+      "filename": "benign/ben_p42_002.json",
+      "pair_id": "p42_002",
+      "role": "benign",
+      "sha256": "e2b8bf0c4438ef91433026231ad4385c86989bca9fac11f67a4df21b4d41191b"
+    },
+    {
+      "byte_size": 2018,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_003",
+      "filename": "benign/ben_p42_003.json",
+      "pair_id": "p42_003",
+      "role": "benign",
+      "sha256": "fbe9d931e5736f8f19554e6dc7b3639c0672d2ebdb38b99843c619fbc3e19377"
+    },
+    {
+      "byte_size": 2016,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_004",
+      "filename": "benign/ben_p42_004.json",
+      "pair_id": "p42_004",
+      "role": "benign",
+      "sha256": "be4bb13e29cb2536ff19caae602e13383edbe160afb7fe516ec8df08a6d7aedd"
+    },
+    {
+      "byte_size": 2025,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_005",
+      "filename": "benign/ben_p42_005.json",
+      "pair_id": "p42_005",
+      "role": "benign",
+      "sha256": "11f6e036fc0662107014bccf6947d92bf177376d784f9829efdf90e976fb799c"
+    },
+    {
+      "byte_size": 2052,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_006",
+      "filename": "benign/ben_p42_006.json",
+      "pair_id": "p42_006",
+      "role": "benign",
+      "sha256": "5543f0c585b217cb7594c57711625c4d208298a9cbbee09f049904431be66e45"
+    },
+    {
+      "byte_size": 2009,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_007",
+      "filename": "benign/ben_p42_007.json",
+      "pair_id": "p42_007",
+      "role": "benign",
+      "sha256": "7efeda4c75037fdd0e1512575ddebdc6d4717d7b32dd3ef6d3f521e09cfbe715"
+    },
+    {
+      "byte_size": 2015,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_008",
+      "filename": "benign/ben_p42_008.json",
+      "pair_id": "p42_008",
+      "role": "benign",
+      "sha256": "d0c9b57acf7bfa3d9c1ef719b65a8d8e3c8675a790567f7fcc9cff3e56022407"
+    },
+    {
+      "byte_size": 2014,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_009",
+      "filename": "benign/ben_p42_009.json",
+      "pair_id": "p42_009",
+      "role": "benign",
+      "sha256": "c47de4a88e00ae887b7e7cce95c915d0dd2abcd0006d7de03fdc7ea35e3de135"
+    },
+    {
+      "byte_size": 2019,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_010",
+      "filename": "benign/ben_p42_010.json",
+      "pair_id": "p42_010",
+      "role": "benign",
+      "sha256": "4921003541a99d8736214d4d4276873d39903bd29e56f0c3ba4341411b059a70"
+    },
+    {
+      "byte_size": 1942,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_011",
+      "filename": "benign/ben_p42_011.json",
+      "pair_id": "p42_011",
+      "role": "benign",
+      "sha256": "15870955589f843300bdd079294a6c0f7d0fcbc9fb044bcb967cdad4fc162165"
+    },
+    {
+      "byte_size": 1963,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_012",
+      "filename": "benign/ben_p42_012.json",
+      "pair_id": "p42_012",
+      "role": "benign",
+      "sha256": "68cd65ef5ebf8667387c2b6d417d03c284c8ce978c274776328aef4050644c28"
+    },
+    {
+      "byte_size": 1961,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_013",
+      "filename": "benign/ben_p42_013.json",
+      "pair_id": "p42_013",
+      "role": "benign",
+      "sha256": "a0a208aadb2d1b477c2f4c48f131a9c8247692291ac4c12e366565d957992591"
+    },
+    {
+      "byte_size": 1957,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_014",
+      "filename": "benign/ben_p42_014.json",
+      "pair_id": "p42_014",
+      "role": "benign",
+      "sha256": "125aee0ea799d462c658008daed37c5d0bdaf48e55b9d2f1233eb16e2aafb69c"
+    },
+    {
+      "byte_size": 1950,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_015",
+      "filename": "benign/ben_p42_015.json",
+      "pair_id": "p42_015",
+      "role": "benign",
+      "sha256": "282f6b5c9d565cceb521625fb57ab95271d44e9929b8be1c3da4e95497a729f1"
+    },
+    {
+      "byte_size": 1966,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_016",
+      "filename": "benign/ben_p42_016.json",
+      "pair_id": "p42_016",
+      "role": "benign",
+      "sha256": "360220c867dc45b72c0dd30321f533077246751e5c30503e7bc1c13e17ac592e"
+    },
+    {
+      "byte_size": 1951,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_017",
+      "filename": "benign/ben_p42_017.json",
+      "pair_id": "p42_017",
+      "role": "benign",
+      "sha256": "69948c5ed291bc2b5f3d0c2be27d681c4bb13d0c58fe011a43f09b7649aa1443"
+    },
+    {
+      "byte_size": 1949,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_018",
+      "filename": "benign/ben_p42_018.json",
+      "pair_id": "p42_018",
+      "role": "benign",
+      "sha256": "393815905b8d40e2cba695c10c7389f179fc5fcd5fcb877b1bcd531723d01598"
+    },
+    {
+      "byte_size": 1983,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_019",
+      "filename": "benign/ben_p42_019.json",
+      "pair_id": "p42_019",
+      "role": "benign",
+      "sha256": "9d2ace90ef937dfad8508a2fda0cb8b394ab9d9bc21191c7b43547a5315d704c"
+    },
+    {
+      "byte_size": 1952,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_020",
+      "filename": "benign/ben_p42_020.json",
+      "pair_id": "p42_020",
+      "role": "benign",
+      "sha256": "f00b3b16960ced3df48e0dd494d7c2504288849612dcea8709abd146d4c0b429"
+    },
+    {
+      "byte_size": 1967,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_021",
+      "filename": "benign/ben_p42_021.json",
+      "pair_id": "p42_021",
+      "role": "benign",
+      "sha256": "26856ca66660eb90ebaf6d5e0c1543f12fe27594a17d7e76da8a3adb019ea802"
+    },
+    {
+      "byte_size": 1980,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_022",
+      "filename": "benign/ben_p42_022.json",
+      "pair_id": "p42_022",
+      "role": "benign",
+      "sha256": "b8a53ddb382df44b9ac99e381faa6b8cfc0cf66dabb35a46b2667584bd801896"
+    },
+    {
+      "byte_size": 1943,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_023",
+      "filename": "benign/ben_p42_023.json",
+      "pair_id": "p42_023",
+      "role": "benign",
+      "sha256": "74bc00a01b13679c8c3df95fb414e33b9c57239b035be403cac887ba0d9b01fe"
+    },
+    {
+      "byte_size": 1963,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_024",
+      "filename": "benign/ben_p42_024.json",
+      "pair_id": "p42_024",
+      "role": "benign",
+      "sha256": "c15baa29e5c4b2cbd3d924c63ddaf6170ee4fa0abc2bf992b86891caa38689a8"
+    },
+    {
+      "byte_size": 1965,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_025",
+      "filename": "benign/ben_p42_025.json",
+      "pair_id": "p42_025",
+      "role": "benign",
+      "sha256": "5c08dee8ee45ac40339efaf71927e5a1df45b9908afda3208e18e7b24fe4d004"
+    },
+    {
+      "byte_size": 1961,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_026",
+      "filename": "benign/ben_p42_026.json",
+      "pair_id": "p42_026",
+      "role": "benign",
+      "sha256": "532624ee64d998b2548f684343f323ba2e58ac4dc5879d8f07b416de42275c66"
+    },
+    {
+      "byte_size": 1963,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_027",
+      "filename": "benign/ben_p42_027.json",
+      "pair_id": "p42_027",
+      "role": "benign",
+      "sha256": "70ac07403ab40b6196b659e20d7199ea628768a63ba62d23839ce6b4e69208d3"
+    },
+    {
+      "byte_size": 1961,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_028",
+      "filename": "benign/ben_p42_028.json",
+      "pair_id": "p42_028",
+      "role": "benign",
+      "sha256": "dc757b5822942a50bb33c4004b971286e74b303aec6493edd6397f079e33dafb"
+    },
+    {
+      "byte_size": 1953,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_029",
+      "filename": "benign/ben_p42_029.json",
+      "pair_id": "p42_029",
+      "role": "benign",
+      "sha256": "45a268b7dfe080369b140aed39543835f0896c1db8bf8ae0f7b4841c69275cc5"
+    },
+    {
+      "byte_size": 1965,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_030",
+      "filename": "benign/ben_p42_030.json",
+      "pair_id": "p42_030",
+      "role": "benign",
+      "sha256": "836ce135a07b578a50df4ed02e5f3624b5a2bcf51b69e2f1b58de2451d12d953"
+    },
+    {
+      "byte_size": 1963,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_031",
+      "filename": "benign/ben_p42_031.json",
+      "pair_id": "p42_031",
+      "role": "benign",
+      "sha256": "d64f11b8195e7332dae985d0d1c963bd582e57bef5f4a867a8c61b42a3109d75"
+    },
+    {
+      "byte_size": 1966,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_032",
+      "filename": "benign/ben_p42_032.json",
+      "pair_id": "p42_032",
+      "role": "benign",
+      "sha256": "e6916213ba5b57e28da3545295be9c204b55aee0111a42f7ec8109c60d09e42a"
+    },
+    {
+      "byte_size": 1962,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_033",
+      "filename": "benign/ben_p42_033.json",
+      "pair_id": "p42_033",
+      "role": "benign",
+      "sha256": "ddf2a0ae10ec4865015913843fd33d817b6bb9244d4c94f63c8e4d1cbba09d5f"
+    },
+    {
+      "byte_size": 1964,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_034",
+      "filename": "benign/ben_p42_034.json",
+      "pair_id": "p42_034",
+      "role": "benign",
+      "sha256": "26bda9f87cb08a1994d99590efaf50ec60babf2a49e4fa8c41a218fef4ff9c03"
+    },
+    {
+      "byte_size": 2099,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_035",
+      "filename": "benign/ben_p42_035.json",
+      "pair_id": "p42_035",
+      "role": "benign",
+      "sha256": "f14bbe5c796744babb07aeb53b084b1b3fa100b2d57ad51b5404da8d0e77ef8c"
+    },
+    {
+      "byte_size": 2113,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_036",
+      "filename": "benign/ben_p42_036.json",
+      "pair_id": "p42_036",
+      "role": "benign",
+      "sha256": "0ee1e6bbf4b1ccfcf73cbf1ec8489660301bd8c5f7a965feba53818a73606623"
+    },
+    {
+      "byte_size": 2113,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_037",
+      "filename": "benign/ben_p42_037.json",
+      "pair_id": "p42_037",
+      "role": "benign",
+      "sha256": "d829f78be8ac0d794b224cca132225dbed4624208b4b59ae8b728e4d1565dd01"
+    },
+    {
+      "byte_size": 2098,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_038",
+      "filename": "benign/ben_p42_038.json",
+      "pair_id": "p42_038",
+      "role": "benign",
+      "sha256": "6cc22d2d4a32bf2f9cebd17b4ce08e88e816a52af24b3b29b9f54f7eebcf8088"
+    },
+    {
+      "byte_size": 2108,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_039",
+      "filename": "benign/ben_p42_039.json",
+      "pair_id": "p42_039",
+      "role": "benign",
+      "sha256": "c041e98ccbb789719fa513d3a99241fcf0a75d2e7103e10e1795a61f5451b06f"
+    },
+    {
+      "byte_size": 2074,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_040",
+      "filename": "benign/ben_p42_040.json",
+      "pair_id": "p42_040",
+      "role": "benign",
+      "sha256": "189ed620171376afb337fd91261a5f0d726790af70781243a1431ae3d3fbb48a"
+    },
+    {
+      "byte_size": 2086,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_041",
+      "filename": "benign/ben_p42_041.json",
+      "pair_id": "p42_041",
+      "role": "benign",
+      "sha256": "670e9cbbb7b3d45c181e075022a315b825e873921dc3cd9502500bd55021fb3e"
+    },
+    {
+      "byte_size": 2091,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_042",
+      "filename": "benign/ben_p42_042.json",
+      "pair_id": "p42_042",
+      "role": "benign",
+      "sha256": "ec52273088c717924d5e1f92a42d410c22f24b28fb5ab667842213bca3311af7"
+    },
+    {
+      "byte_size": 2104,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_043",
+      "filename": "benign/ben_p42_043.json",
+      "pair_id": "p42_043",
+      "role": "benign",
+      "sha256": "70778b1cb0c8b5b994224ffbbe305df217d4c69e7e5786728ad37ae3596df790"
+    },
+    {
+      "byte_size": 2121,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_044",
+      "filename": "benign/ben_p42_044.json",
+      "pair_id": "p42_044",
+      "role": "benign",
+      "sha256": "05e87e42a35c788e4f635c5bfbe50c57a206e47a4fadc14d163c45a0e1f06d51"
+    },
+    {
+      "byte_size": 2203,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_045",
+      "filename": "benign/ben_p42_045.json",
+      "pair_id": "p42_045",
+      "role": "benign",
+      "sha256": "3f0e34f0ee617291aa7a9ce4ab7c65d9ed35ed1c41c3488c5388da3570a317d9"
+    },
+    {
+      "byte_size": 2173,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_046",
+      "filename": "benign/ben_p42_046.json",
+      "pair_id": "p42_046",
+      "role": "benign",
+      "sha256": "93d374d6659cb3ef5a20cf5cf1b03e0977fe2aedd315b7168b36b5521723655f"
+    },
+    {
+      "byte_size": 2205,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_047",
+      "filename": "benign/ben_p42_047.json",
+      "pair_id": "p42_047",
+      "role": "benign",
+      "sha256": "da435af12a887b3b66ee7740f6bb49bb780f5ce75c320c57133731f5ab194d73"
+    },
+    {
+      "byte_size": 2206,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_048",
+      "filename": "benign/ben_p42_048.json",
+      "pair_id": "p42_048",
+      "role": "benign",
+      "sha256": "7f90f86482e6030744e6b268df864aa8c614017f384da55dc76a63262156fd08"
+    },
+    {
+      "byte_size": 2207,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_049",
+      "filename": "benign/ben_p42_049.json",
+      "pair_id": "p42_049",
+      "role": "benign",
+      "sha256": "58dea0ca7a125e51b4609c829c5ce4c2d122c4414cac47aa9605edf1662b76e6"
+    },
+    {
+      "byte_size": 2197,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_050",
+      "filename": "benign/ben_p42_050.json",
+      "pair_id": "p42_050",
+      "role": "benign",
+      "sha256": "7deff4cb17d88f6b7552a6041f5b356e08838fcd235a83fde20cacfce8cafe6e"
+    },
+    {
+      "byte_size": 2212,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_051",
+      "filename": "benign/ben_p42_051.json",
+      "pair_id": "p42_051",
+      "role": "benign",
+      "sha256": "2aee96b2e408c0de73ab794b8d4ff05e98e42fc6c0949b4bd326eae140ed7a13"
+    },
+    {
+      "byte_size": 2190,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_052",
+      "filename": "benign/ben_p42_052.json",
+      "pair_id": "p42_052",
+      "role": "benign",
+      "sha256": "8a6fc143e9b0c2c6916377153abe392095b770c5dd1f42dc83c26607fc1b16fd"
+    },
+    {
+      "byte_size": 2197,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_053",
+      "filename": "benign/ben_p42_053.json",
+      "pair_id": "p42_053",
+      "role": "benign",
+      "sha256": "dedb5ee5e6bf7cf4471639a970a0c6f843ee71ba029ef4c1804ab274a2af05fb"
+    },
+    {
+      "byte_size": 2208,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_054",
+      "filename": "benign/ben_p42_054.json",
+      "pair_id": "p42_054",
+      "role": "benign",
+      "sha256": "c11137f2d82540b11f52705604111b229f161d52c97a26194b916adb8dd1774c"
+    },
+    {
+      "byte_size": 2193,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_055",
+      "filename": "benign/ben_p42_055.json",
+      "pair_id": "p42_055",
+      "role": "benign",
+      "sha256": "142e1736361a19c389cc25fd762a9178126b4483ab7167a127266f13bebcc7cf"
+    },
+    {
+      "byte_size": 2202,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_056",
+      "filename": "benign/ben_p42_056.json",
+      "pair_id": "p42_056",
+      "role": "benign",
+      "sha256": "a0672ed4fbf56bd7b4bef2fb720d6c4ea83d38b6e4848d9ac313c024c42bffcb"
+    },
+    {
+      "byte_size": 2198,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_057",
+      "filename": "benign/ben_p42_057.json",
+      "pair_id": "p42_057",
+      "role": "benign",
+      "sha256": "1da2200d3c3b09a75f5b3bf38853b56f246aee2e54c2c08bb1a25ed007a8f8d8"
+    },
+    {
+      "byte_size": 2196,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_058",
+      "filename": "benign/ben_p42_058.json",
+      "pair_id": "p42_058",
+      "role": "benign",
+      "sha256": "7ff53b9e2fb8a192f5a7cb3ebbef090faba88e6e74304f72d0467664575eb031"
+    },
+    {
+      "byte_size": 2441,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_059",
+      "filename": "benign/ben_p42_059.json",
+      "pair_id": "p42_059",
+      "role": "benign",
+      "sha256": "5416961673a2f52e54a85035f3a7973cdf753887e796c1eb96071f3894f81f16"
+    },
+    {
+      "byte_size": 2462,
+      "dataset_partition": "development",
+      "episode_id": "ben_p42_060",
+      "filename": "benign/ben_p42_060.json",
+      "pair_id": "p42_060",
+      "role": "benign",
+      "sha256": "0e2239fb5130ba8560e7037335234e6a3114d2a6267199d327a8e26ea61452c6"
+    },
+    {
+      "byte_size": 2437,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_061",
+      "filename": "benign/ben_p42_061.json",
+      "pair_id": "p42_061",
+      "role": "benign",
+      "sha256": "87c4e8c91e3db964231225ea577cfa4672d9b323015f4271c5ed2c2b1e3a1b88"
+    },
+    {
+      "byte_size": 2455,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_062",
+      "filename": "benign/ben_p42_062.json",
+      "pair_id": "p42_062",
+      "role": "benign",
+      "sha256": "7eb4ce382ea82edc3f042a86b591373c7e62321ec9eca361513d75cf102a5a98"
+    },
+    {
+      "byte_size": 2463,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_063",
+      "filename": "benign/ben_p42_063.json",
+      "pair_id": "p42_063",
+      "role": "benign",
+      "sha256": "4e1a06d52322968a8b1f6f4912c686c73e44a55ce9b9f408d9648dc3229b257f"
+    },
+    {
+      "byte_size": 2466,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_064",
+      "filename": "benign/ben_p42_064.json",
+      "pair_id": "p42_064",
+      "role": "benign",
+      "sha256": "4001118d3a51b69587349598ae126da4ea508122439dda61fb84e3a1e03e6f95"
+    },
+    {
+      "byte_size": 2756,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_065",
+      "filename": "benign/ben_p42_065.json",
+      "pair_id": "p42_065",
+      "role": "benign",
+      "sha256": "78e68b832464e29afd560755276d39924906dbd7541d0fee64da5dfd07a78b9a"
+    },
+    {
+      "byte_size": 2691,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_066",
+      "filename": "benign/ben_p42_066.json",
+      "pair_id": "p42_066",
+      "role": "benign",
+      "sha256": "d2a3d69ec758703008b07aa0b1a34925136ced5889eb390ca34c19d956ce47e1"
+    },
+    {
+      "byte_size": 2713,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_067",
+      "filename": "benign/ben_p42_067.json",
+      "pair_id": "p42_067",
+      "role": "benign",
+      "sha256": "9c6322211cf1f29ba1c502fabe1e5e4f57a1767ce1febadb8c56d0f66836372b"
+    },
+    {
+      "byte_size": 2715,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_068",
+      "filename": "benign/ben_p42_068.json",
+      "pair_id": "p42_068",
+      "role": "benign",
+      "sha256": "e11c9e4931fe8834e59544eb9ed2a98c79277960372e2483a77a688a9cac7b47"
+    },
+    {
+      "byte_size": 2695,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_069",
+      "filename": "benign/ben_p42_069.json",
+      "pair_id": "p42_069",
+      "role": "benign",
+      "sha256": "01f420ce7bb56d604f318d0a4502691c013d9f8ad6d6e45b1dc80dd4077a4e70"
+    },
+    {
+      "byte_size": 2735,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_070",
+      "filename": "benign/ben_p42_070.json",
+      "pair_id": "p42_070",
+      "role": "benign",
+      "sha256": "d6751675d5095d3698b7e3cdcce647c8315d1bfc4a7e8db65f67e23d334f8a70"
+    },
+    {
+      "byte_size": 2396,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_071",
+      "filename": "benign/ben_p42_071.json",
+      "pair_id": "p42_071",
+      "role": "benign",
+      "sha256": "643af308088ef225017595dfc989add1a10fc79f0327967ce1aacc864e0bf695"
+    },
+    {
+      "byte_size": 2298,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_072",
+      "filename": "benign/ben_p42_072.json",
+      "pair_id": "p42_072",
+      "role": "benign",
+      "sha256": "c6b873c3d55f0300ac6a6bfaca8b527b3dea09552610e1badeca51ef2cac839a"
+    },
+    {
+      "byte_size": 2446,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_073",
+      "filename": "benign/ben_p42_073.json",
+      "pair_id": "p42_073",
+      "role": "benign",
+      "sha256": "4549b6e1386e6cc929ebe7595b036a0c4160d6183654d5e7b9330d8ccd98f7cd"
+    },
+    {
+      "byte_size": 2309,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_074",
+      "filename": "benign/ben_p42_074.json",
+      "pair_id": "p42_074",
+      "role": "benign",
+      "sha256": "c00ccd17d08b0c0b48cdb1a5ab9f95d3d74b25b8205e06a5ff53a2bcf86be6f1"
+    },
+    {
+      "byte_size": 2425,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_075",
+      "filename": "benign/ben_p42_075.json",
+      "pair_id": "p42_075",
+      "role": "benign",
+      "sha256": "f4cbda10dcd537a12ce26c677ac432c5cca97dbfb831f290158e0ba019bb6cdb"
+    },
+    {
+      "byte_size": 2331,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_076",
+      "filename": "benign/ben_p42_076.json",
+      "pair_id": "p42_076",
+      "role": "benign",
+      "sha256": "6a096020ae1d690380b3ee2fe479a0f251186ee8ccaff768a4f711ce5764a847"
+    },
+    {
+      "byte_size": 2419,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_077",
+      "filename": "benign/ben_p42_077.json",
+      "pair_id": "p42_077",
+      "role": "benign",
+      "sha256": "056f2b580bb2f11e9d5c2b51b342789e2211b3e4c08bf0bb2c5cc3c8613a0e6d"
+    },
+    {
+      "byte_size": 2320,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_078",
+      "filename": "benign/ben_p42_078.json",
+      "pair_id": "p42_078",
+      "role": "benign",
+      "sha256": "f9be247b08e4eceb64faef33435463bccb419a30e5246ad8eb40b8901acb644a"
+    },
+    {
+      "byte_size": 2428,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_079",
+      "filename": "benign/ben_p42_079.json",
+      "pair_id": "p42_079",
+      "role": "benign",
+      "sha256": "c83405bd8f1639ec506bcda7af379c00c4c3606d767e4b5fcd319896637fd6e0"
+    },
+    {
+      "byte_size": 2291,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p42_080",
+      "filename": "benign/ben_p42_080.json",
+      "pair_id": "p42_080",
+      "role": "benign",
+      "sha256": "a936685a9dff553b330abdec07941ef9024c76c3f703d807077d1b0a804c6976"
+    },
+    {
+      "byte_size": 2441,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_081",
+      "filename": "benign/ben_p42_081.json",
+      "pair_id": "p42_081",
+      "role": "benign",
+      "sha256": "74d292df02d9acec08f5c84fdf4aac5d29dceb0d7d58c6d921f3c77000b6363d"
+    },
+    {
+      "byte_size": 2295,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_082",
+      "filename": "benign/ben_p42_082.json",
+      "pair_id": "p42_082",
+      "role": "benign",
+      "sha256": "59692731658412befc6e744ba83c97b3e759bd6263a72586fbe29c2ab1a1b7df"
+    },
+    {
+      "byte_size": 2288,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_083",
+      "filename": "benign/ben_p42_083.json",
+      "pair_id": "p42_083",
+      "role": "benign",
+      "sha256": "1b69efe82626fc3f738f093622e4acd1916455dda6977104742d0e626ea9dae4"
+    },
+    {
+      "byte_size": 2297,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_084",
+      "filename": "benign/ben_p42_084.json",
+      "pair_id": "p42_084",
+      "role": "benign",
+      "sha256": "5feab0c63772af2b8b4874b3f964199a7873487a11b70789cb28d53bf45a499c"
+    },
+    {
+      "byte_size": 2279,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_085",
+      "filename": "benign/ben_p42_085.json",
+      "pair_id": "p42_085",
+      "role": "benign",
+      "sha256": "d6b1b5b4aadd13137ea345d6c39225dc35acf9063c7d965cf0450b3a7b057b2f"
+    },
+    {
+      "byte_size": 2287,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_086",
+      "filename": "benign/ben_p42_086.json",
+      "pair_id": "p42_086",
+      "role": "benign",
+      "sha256": "bdd0148297138ac8ad4066a4432eb73a7d9464df745cc0cccd4e3fa77668df0a"
+    },
+    {
+      "byte_size": 2274,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_087",
+      "filename": "benign/ben_p42_087.json",
+      "pair_id": "p42_087",
+      "role": "benign",
+      "sha256": "884fab5892f536bbccfddc1db4cf6dd1f3eaf81df9ca6bd4305a56d0241d525e"
+    },
+    {
+      "byte_size": 2281,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_088",
+      "filename": "benign/ben_p42_088.json",
+      "pair_id": "p42_088",
+      "role": "benign",
+      "sha256": "d09cdbddcf4e1ce3d3907611c66ac8e0843deb3ba65cd5a47286973e95744144"
+    },
+    {
+      "byte_size": 2281,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_089",
+      "filename": "benign/ben_p42_089.json",
+      "pair_id": "p42_089",
+      "role": "benign",
+      "sha256": "fc48cfb31939ee5cb0bbbb2ae21305eb83b6ef9e0f89b8e495b92eefbefc0b07"
+    },
+    {
+      "byte_size": 2281,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_090",
+      "filename": "benign/ben_p42_090.json",
+      "pair_id": "p42_090",
+      "role": "benign",
+      "sha256": "c0737da9639af5430c34d689a45356202cbab6a7a454921d939d78e7d635d3d0"
+    },
+    {
+      "byte_size": 2285,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_091",
+      "filename": "benign/ben_p42_091.json",
+      "pair_id": "p42_091",
+      "role": "benign",
+      "sha256": "7017bb65be8b024f094afad1581334aacf005c79404081cc3713d300eeb4aac9"
+    },
+    {
+      "byte_size": 2281,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_092",
+      "filename": "benign/ben_p42_092.json",
+      "pair_id": "p42_092",
+      "role": "benign",
+      "sha256": "d7a781ac93b9bf49fe2940ce60ea014007f11c289e113e8e57063df47e482fd2"
+    },
+    {
+      "byte_size": 2340,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_093",
+      "filename": "benign/ben_p42_093.json",
+      "pair_id": "p42_093",
+      "role": "benign",
+      "sha256": "cffe00f4b3a472340d1276e6a2f5d22abcf8e9cfbaff6e81f458fd9862028dba"
+    },
+    {
+      "byte_size": 2340,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_094",
+      "filename": "benign/ben_p42_094.json",
+      "pair_id": "p42_094",
+      "role": "benign",
+      "sha256": "d0238870080e17f22107f86ede577f3aed8bba395fd1b730847264735440ff27"
+    },
+    {
+      "byte_size": 2340,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_095",
+      "filename": "benign/ben_p42_095.json",
+      "pair_id": "p42_095",
+      "role": "benign",
+      "sha256": "f718796f2cdfce9fc10ea021f1f3f4d732342da4de01cafaf2c69548a0c98627"
+    },
+    {
+      "byte_size": 2340,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_096",
+      "filename": "benign/ben_p42_096.json",
+      "pair_id": "p42_096",
+      "role": "benign",
+      "sha256": "eccba2f21c70e2901d02c1ed50760190612bdb21305034e7ef8d8793f443382e"
+    },
+    {
+      "byte_size": 2138,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_097",
+      "filename": "benign/ben_p42_097.json",
+      "pair_id": "p42_097",
+      "role": "benign",
+      "sha256": "942917d466cda28d45d13a464ff7c8fd8075cde81d1523e72cdac33f6fc54ca7"
+    },
+    {
+      "byte_size": 2138,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_098",
+      "filename": "benign/ben_p42_098.json",
+      "pair_id": "p42_098",
+      "role": "benign",
+      "sha256": "d4cc9172dc8bc38c4054ef863db672368e1c642b9309b9d2285e566d7264b3f7"
+    },
+    {
+      "byte_size": 2138,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_099",
+      "filename": "benign/ben_p42_099.json",
+      "pair_id": "p42_099",
+      "role": "benign",
+      "sha256": "25a43e875662443351cbb0aad8215395a397da677ad23a01ea7d9ff1043e84a0"
+    },
+    {
+      "byte_size": 2138,
+      "dataset_partition": "test",
+      "episode_id": "ben_p42_100",
+      "filename": "benign/ben_p42_100.json",
+      "pair_id": "p42_100",
+      "role": "benign",
+      "sha256": "f5c8042d7943aa14aec987e442035ea9c9b9f631aa9a54b5e4e6f9c8281e2fd8"
+    }
+  ],
+  "files": [
+    "attack/atk_p42_001.json",
+    "attack/atk_p42_002.json",
+    "attack/atk_p42_003.json",
+    "attack/atk_p42_004.json",
+    "attack/atk_p42_005.json",
+    "attack/atk_p42_006.json",
+    "attack/atk_p42_007.json",
+    "attack/atk_p42_008.json",
+    "attack/atk_p42_009.json",
+    "attack/atk_p42_010.json",
+    "attack/atk_p42_011.json",
+    "attack/atk_p42_012.json",
+    "attack/atk_p42_013.json",
+    "attack/atk_p42_014.json",
+    "attack/atk_p42_015.json",
+    "attack/atk_p42_016.json",
+    "attack/atk_p42_017.json",
+    "attack/atk_p42_018.json",
+    "attack/atk_p42_019.json",
+    "attack/atk_p42_020.json",
+    "attack/atk_p42_021.json",
+    "attack/atk_p42_022.json",
+    "attack/atk_p42_023.json",
+    "attack/atk_p42_024.json",
+    "attack/atk_p42_025.json",
+    "attack/atk_p42_026.json",
+    "attack/atk_p42_027.json",
+    "attack/atk_p42_028.json",
+    "attack/atk_p42_029.json",
+    "attack/atk_p42_030.json",
+    "attack/atk_p42_031.json",
+    "attack/atk_p42_032.json",
+    "attack/atk_p42_033.json",
+    "attack/atk_p42_034.json",
+    "attack/atk_p42_035.json",
+    "attack/atk_p42_036.json",
+    "attack/atk_p42_037.json",
+    "attack/atk_p42_038.json",
+    "attack/atk_p42_039.json",
+    "attack/atk_p42_040.json",
+    "attack/atk_p42_041.json",
+    "attack/atk_p42_042.json",
+    "attack/atk_p42_043.json",
+    "attack/atk_p42_044.json",
+    "attack/atk_p42_045.json",
+    "attack/atk_p42_046.json",
+    "attack/atk_p42_047.json",
+    "attack/atk_p42_048.json",
+    "attack/atk_p42_049.json",
+    "attack/atk_p42_050.json",
+    "attack/atk_p42_051.json",
+    "attack/atk_p42_052.json",
+    "attack/atk_p42_053.json",
+    "attack/atk_p42_054.json",
+    "attack/atk_p42_055.json",
+    "attack/atk_p42_056.json",
+    "attack/atk_p42_057.json",
+    "attack/atk_p42_058.json",
+    "attack/atk_p42_059.json",
+    "attack/atk_p42_060.json",
+    "attack/atk_p42_061.json",
+    "attack/atk_p42_062.json",
+    "attack/atk_p42_063.json",
+    "attack/atk_p42_064.json",
+    "attack/atk_p42_065.json",
+    "attack/atk_p42_066.json",
+    "attack/atk_p42_067.json",
+    "attack/atk_p42_068.json",
+    "attack/atk_p42_069.json",
+    "attack/atk_p42_070.json",
+    "attack/atk_p42_071.json",
+    "attack/atk_p42_072.json",
+    "attack/atk_p42_073.json",
+    "attack/atk_p42_074.json",
+    "attack/atk_p42_075.json",
+    "attack/atk_p42_076.json",
+    "attack/atk_p42_077.json",
+    "attack/atk_p42_078.json",
+    "attack/atk_p42_079.json",
+    "attack/atk_p42_080.json",
+    "attack/atk_p42_081.json",
+    "attack/atk_p42_082.json",
+    "attack/atk_p42_083.json",
+    "attack/atk_p42_084.json",
+    "attack/atk_p42_085.json",
+    "attack/atk_p42_086.json",
+    "attack/atk_p42_087.json",
+    "attack/atk_p42_088.json",
+    "attack/atk_p42_089.json",
+    "attack/atk_p42_090.json",
+    "attack/atk_p42_091.json",
+    "attack/atk_p42_092.json",
+    "attack/atk_p42_093.json",
+    "attack/atk_p42_094.json",
+    "attack/atk_p42_095.json",
+    "attack/atk_p42_096.json",
+    "attack/atk_p42_097.json",
+    "attack/atk_p42_098.json",
+    "attack/atk_p42_099.json",
+    "attack/atk_p42_100.json",
+    "benign/ben_p42_001.json",
+    "benign/ben_p42_002.json",
+    "benign/ben_p42_003.json",
+    "benign/ben_p42_004.json",
+    "benign/ben_p42_005.json",
+    "benign/ben_p42_006.json",
+    "benign/ben_p42_007.json",
+    "benign/ben_p42_008.json",
+    "benign/ben_p42_009.json",
+    "benign/ben_p42_010.json",
+    "benign/ben_p42_011.json",
+    "benign/ben_p42_012.json",
+    "benign/ben_p42_013.json",
+    "benign/ben_p42_014.json",
+    "benign/ben_p42_015.json",
+    "benign/ben_p42_016.json",
+    "benign/ben_p42_017.json",
+    "benign/ben_p42_018.json",
+    "benign/ben_p42_019.json",
+    "benign/ben_p42_020.json",
+    "benign/ben_p42_021.json",
+    "benign/ben_p42_022.json",
+    "benign/ben_p42_023.json",
+    "benign/ben_p42_024.json",
+    "benign/ben_p42_025.json",
+    "benign/ben_p42_026.json",
+    "benign/ben_p42_027.json",
+    "benign/ben_p42_028.json",
+    "benign/ben_p42_029.json",
+    "benign/ben_p42_030.json",
+    "benign/ben_p42_031.json",
+    "benign/ben_p42_032.json",
+    "benign/ben_p42_033.json",
+    "benign/ben_p42_034.json",
+    "benign/ben_p42_035.json",
+    "benign/ben_p42_036.json",
+    "benign/ben_p42_037.json",
+    "benign/ben_p42_038.json",
+    "benign/ben_p42_039.json",
+    "benign/ben_p42_040.json",
+    "benign/ben_p42_041.json",
+    "benign/ben_p42_042.json",
+    "benign/ben_p42_043.json",
+    "benign/ben_p42_044.json",
+    "benign/ben_p42_045.json",
+    "benign/ben_p42_046.json",
+    "benign/ben_p42_047.json",
+    "benign/ben_p42_048.json",
+    "benign/ben_p42_049.json",
+    "benign/ben_p42_050.json",
+    "benign/ben_p42_051.json",
+    "benign/ben_p42_052.json",
+    "benign/ben_p42_053.json",
+    "benign/ben_p42_054.json",
+    "benign/ben_p42_055.json",
+    "benign/ben_p42_056.json",
+    "benign/ben_p42_057.json",
+    "benign/ben_p42_058.json",
+    "benign/ben_p42_059.json",
+    "benign/ben_p42_060.json",
+    "benign/ben_p42_061.json",
+    "benign/ben_p42_062.json",
+    "benign/ben_p42_063.json",
+    "benign/ben_p42_064.json",
+    "benign/ben_p42_065.json",
+    "benign/ben_p42_066.json",
+    "benign/ben_p42_067.json",
+    "benign/ben_p42_068.json",
+    "benign/ben_p42_069.json",
+    "benign/ben_p42_070.json",
+    "benign/ben_p42_071.json",
+    "benign/ben_p42_072.json",
+    "benign/ben_p42_073.json",
+    "benign/ben_p42_074.json",
+    "benign/ben_p42_075.json",
+    "benign/ben_p42_076.json",
+    "benign/ben_p42_077.json",
+    "benign/ben_p42_078.json",
+    "benign/ben_p42_079.json",
+    "benign/ben_p42_080.json",
+    "benign/ben_p42_081.json",
+    "benign/ben_p42_082.json",
+    "benign/ben_p42_083.json",
+    "benign/ben_p42_084.json",
+    "benign/ben_p42_085.json",
+    "benign/ben_p42_086.json",
+    "benign/ben_p42_087.json",
+    "benign/ben_p42_088.json",
+    "benign/ben_p42_089.json",
+    "benign/ben_p42_090.json",
+    "benign/ben_p42_091.json",
+    "benign/ben_p42_092.json",
+    "benign/ben_p42_093.json",
+    "benign/ben_p42_094.json",
+    "benign/ben_p42_095.json",
+    "benign/ben_p42_096.json",
+    "benign/ben_p42_097.json",
+    "benign/ben_p42_098.json",
+    "benign/ben_p42_099.json",
+    "benign/ben_p42_100.json"
+  ],
+  "generator": "scripts/gen_p4_2_dataset.py",
+  "generator_version": "gen_p4_2_dataset.py@1.0.0",
+  "identity": "P4.2 expanded benchmark candidate (not frozen)",
+  "n_files": 200,
+  "pair_count": 100,
+  "partition_attack_counts": {
+    "development": 60,
+    "test": 20,
+    "validation": 20
+  },
+  "schema": "schema/episode.v2.json",
+  "seed": 42020260920,
+  "status": "candidate"
+}
