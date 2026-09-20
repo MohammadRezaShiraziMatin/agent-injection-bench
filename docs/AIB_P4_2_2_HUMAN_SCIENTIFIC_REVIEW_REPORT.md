@@ -487,14 +487,26 @@ Re-validation: `qc_p4_2.py` **PASS**; `verify_p6_freeze.py` **PASS**; `pytest te
 
 **PASS** — protocol clear; read-only review complete.
 
-### Gate outcome (Batch 3 — full workflow including human recording)
+### Human decision recording (Batch 3)
 
-**BLOCKED — HUMAN INPUT REQUIRED** until 20 explicit per-episode verdicts are supplied (do not infer from `ACCEPT_CANDIDATE`).
+| Item | Value |
+|------|-------|
+| Scientific Review | **PASS** |
+| Human Decision Recording | **PASS** |
+| Episodes | **20/20** |
+| ACCEPT / REVISE / REJECT / UNCERTAIN | **20 / 0 / 0 / 0** |
+| HR audit | **112 → 132** (`batch3_human_decisions`) |
+| Dataset changed | **NO** |
+| Digest changed | **NO** |
 
-### Next gate (after Batch 3 human decisions recorded)
+### Gate outcome (Batch 3 — full workflow)
 
-Per `docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md`: **`batch_5_p2_p3`** (68 lower-risk executable episodes); `batch_4_remaining_p1` is empty if P1 coverage is complete above. Pairs **`p42_093`–`p42_100`** were adjudicated in **Batch 1** (uncertain cluster), not Batch 3.
+**PASS** — scientific review + explicit human ACCEPT for all 20 episodes.
+
+### Next gate (repository workflow; not executed here)
+
+Per `docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md` §Review batches: **`batch_5_p2_p3`** — 68 episodes (lower-risk executable); `batch_4_remaining_p1` empty when P1 batches above are complete. **`batch_1_uncertain`** (16 ep, incl. `p42_093`–`100`) and batches 2A–2D + Batch 3 are recorded in audit (**132** decisions); **68** episodes remain without audit-trail human decisions (the `batch_5_p2_p3` cohort per queue). Prerequisite before freeze: workflow cites **P4.2.3 Harness/Adapter Coverage** after human adjudication (`docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md` §Next gate).
 
 ---
 
-> Automated pre-review was performed by the benchmark agent. Human `human_decision` values are recorded in `artifacts/p4_2_2_hr_audit_trail.json` (**112** decisions through Batch 2D). Batch 3 (`p42_083`–`092`) awaits explicit human decision recording.
+> Automated pre-review was performed by the benchmark agent. Human `human_decision` values are recorded in `artifacts/p4_2_2_hr_audit_trail.json` (**132** decisions through Batch 3).
