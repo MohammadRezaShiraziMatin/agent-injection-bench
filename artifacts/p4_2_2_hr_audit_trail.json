@@ -1,0 +1,15 @@
+{
+  "decision_schema": {
+    "content_mutation": "optional before/after if episode edited in later phase",
+    "episode_id": "string",
+    "human_decision": "ACCEPT | REVISE | REJECT | UNCERTAIN",
+    "human_notes": "string",
+    "human_reviewer": "string",
+    "previous_automated_status": "string",
+    "review_date": "ISO-8601 date"
+  },
+  "decisions": [],
+  "human_review_performed": false,
+  "phase": "P4.2.2-HR",
+  "schema_version": "1.0"
+}
