@@ -1,0 +1,304 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://agent-injection-bench.local/schema/episode.v1.json",
+  "title": "AgentInjectionBenchEpisodeV1",
+  "description": "P4.1 candidate episode schema (additive; v0 schema unchanged).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "dataset_version",
+    "id",
+    "split",
+    "user_query",
+    "retrieved_docs",
+    "injection",
+    "expected",
+    "taxonomy",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "dataset_version": { "const": "P4.1" },
+    "id": {
+      "type": "string",
+      "pattern": "^(atk|ben)_p41_[0-9]{2}$"
+    },
+    "split": { "type": "string", "enum": ["attack", "benign"] },
+    "pair_id": {
+      "type": "string",
+      "pattern": "^p41_[0-9]{2}$"
+    },
+    "user_query": { "type": "string", "minLength": 1 },
+    "conversation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "content"],
+        "properties": {
+          "role": { "type": "string", "enum": ["user", "assistant"] },
+          "content": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "session_state": {
+      "type": "object",
+      "additionalProperties": { "type": ["string", "number", "boolean"] }
+    },
+    "memory_store": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["key", "value"],
+        "properties": {
+          "key": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    },
+    "cross_context": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["context_id", "label", "text"],
+        "properties": {
+          "context_id": { "type": "string" },
+          "label": { "type": "string" },
+          "text": { "type": "string" }
+        }
+      }
+    },
+    "tool_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["tool_name", "call_id", "output"],
+        "properties": {
+          "tool_name": { "type": "string" },
+          "call_id": { "type": "string" },
+          "output": { "type": "string" }
+        }
+      }
+    },
+    "retrieved_docs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["doc_id", "text"],
+        "properties": {
+          "doc_id": { "type": "string", "minLength": 1 },
+          "text": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "injection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present"],
+      "properties": {
+        "present": { "type": "boolean" },
+        "payload": { "type": "string" },
+        "target_tool": { "type": "string" },
+        "locus": { "type": "string" }
+      }
+    },
+    "taxonomy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family",
+        "technique",
+        "objective",
+        "source",
+        "target",
+        "path",
+        "interaction_type",
+        "horizon",
+        "context_type",
+        "tool",
+        "memory_state"
+      ],
+      "properties": {
+        "family": {
+          "type": "string",
+          "enum": [
+            "rag_document_injection",
+            "tool_output_injection",
+            "multi_turn_injection",
+            "cross_context_injection",
+            "state_dependent_injection",
+            "memory_poisoning"
+          ]
+        },
+        "technique": {
+          "type": "string",
+          "enum": [
+            "instruction_override",
+            "tool_hijack",
+            "data_disclosure",
+            "workflow_hijack",
+            "fake_authorization",
+            "urgency_social"
+          ]
+        },
+        "objective": {
+          "type": "string",
+          "enum": [
+            "unauthorized_tool_proposal",
+            "unauthorized_tool_execution",
+            "unauthorized_state_change",
+            "instruction_deviation",
+            "data_exfiltration",
+            "benign_control"
+          ]
+        },
+        "objective_note": { "type": "string" },
+        "source": {
+          "type": "string",
+          "enum": [
+            "retrieved_document",
+            "tool_output",
+            "prior_turn",
+            "auxiliary_context",
+            "session_state",
+            "memory_store"
+          ]
+        },
+        "target": {
+          "type": "string",
+          "enum": ["send_email", "search_docs", "agent_memory", "user_response"]
+        },
+        "path": {
+          "type": "string",
+          "enum": ["indirect", "direct_tool_channel", "cross_boundary", "state_gated"]
+        },
+        "interaction_type": {
+          "type": "string",
+          "enum": ["single_turn", "multi_turn"]
+        },
+        "horizon": { "type": "string", "enum": ["h0", "h1", "h2"] },
+        "context_type": {
+          "type": "string",
+          "enum": [
+            "campus_finance",
+            "campus_research",
+            "campus_it",
+            "campus_hr",
+            "campus_facilities",
+            "campus_compliance"
+          ]
+        },
+        "tool": { "type": "string", "enum": ["send_email", "search_docs", "none"] },
+        "memory_state": {
+          "type": "string",
+          "enum": ["none", "read", "write", "poisoned"]
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed_tools", "forbidden_tools", "success_criterion"],
+      "properties": {
+        "allowed_tools": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "forbidden_tools": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "utility_answer_contains": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "success_criterion": {
+          "type": "string",
+          "enum": ["S0", "S1", "S2", "S3", "S4"]
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type",
+        "source_reference",
+        "creation_method",
+        "human_authored",
+        "synthetic",
+        "adapted",
+        "reviewed",
+        "review_status",
+        "license",
+        "reconstruction"
+      ],
+      "properties": {
+        "source_type": { "type": "string", "enum": ["synthetic"] },
+        "source_reference": { "type": "string", "minLength": 1 },
+        "creation_method": {
+          "type": "string",
+          "enum": ["deterministic_generator_p4_1"]
+        },
+        "human_authored": { "const": false },
+        "synthetic": { "const": true },
+        "adapted": { "const": false },
+        "reviewed": { "const": false },
+        "review_status": { "const": "unreviewed" },
+        "license": { "type": "string", "enum": ["MIT"] },
+        "reconstruction": { "const": "P4.1" }
+      }
+    },
+    "notes": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "split": { "const": "attack" } }, "required": ["split"] },
+      "then": {
+        "required": ["pair_id"],
+        "properties": {
+          "injection": {
+            "required": ["present", "payload", "target_tool", "locus"]
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "split": { "const": "benign" } }, "required": ["split"] },
+      "then": {
+        "required": ["pair_id"],
+        "properties": {
+          "injection": {
+            "properties": { "present": { "const": false } }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "taxonomy": {
+            "type": "object",
+            "properties": { "family": { "const": "memory_poisoning" } },
+            "required": ["family"]
+          }
+        },
+        "required": ["taxonomy"]
+      },
+      "then": {
+        "properties": {
+          "taxonomy": {
+            "required": ["objective_note"],
+            "properties": { "objective": { "const": "unauthorized_state_change" } }
+          }
+        }
+      }
+    }
+  ]
+}
