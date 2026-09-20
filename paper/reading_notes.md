@@ -1,6 +1,6 @@
 # Reading notes — base IPI papers
 
-Structured notes for researchers packaging agent-injection-bench. Academic tone; **no** ASR/utility numbers from this repository. See also [`RELATED_WORK.md`](RELATED_WORK.md).
+Structured notes for researchers packaging agent-injection-bench. Academic tone; **no** ASR/utility numbers from this repository. See also [`related_work.md`](related_work.md).
 
 ---
 
@@ -32,7 +32,7 @@ Structured notes for researchers packaging agent-injection-bench. Academic tone;
 - **Mapping to agent-injection-bench:**
   - Reuses the conceptual split between measuring IPI under contaminated retrieval and tracking task utility.
   - Offline ASR/utility stubs mirror that separation at a minimal scale.
-  - Explicitly does **not** import Yi et al.’s defense methods into this tree ([`ADAPTI_GUARD_BRIDGE.md`](ADAPTI_GUARD_BRIDGE.md)).
+  - Explicitly does **not** import Yi et al.’s defense methods into this tree ([`../docs/ADAPTI_GUARD_BRIDGE.md`](../docs/ADAPTI_GUARD_BRIDGE.md)).
 - **What NOT to claim from our repo:** Do not claim we implement, evaluate, or match their defenses, dataset scale, or reported mitigation results; cite this repo only as a small undefended measurement scaffold.
 - **Paste-ready Related Work sentence:** Yi et al. (2023) benchmark indirect prompt injection and study defenses in tandem. agent-injection-bench borrows only the measurement orientation (contaminated context vs. utility) and leaves defense evaluation to separate work such as ADAPTI-GUARD.
 

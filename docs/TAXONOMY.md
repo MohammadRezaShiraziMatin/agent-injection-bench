@@ -1,7 +1,6 @@
-# Attack pattern taxonomy (Phase B)
+# Attack pattern taxonomy
 
-Canonical **pattern-family** tags for attack episodes. Each attack episode should include
-exactly one of these families in `tags` (plus optional domain tags).
+Canonical **pattern-family** tags for attack episodes. Each attack episode should include exactly one of these families in `tags` (plus optional domain tags).
 
 | Tag | Meaning |
 | --- | --- |
@@ -18,4 +17,4 @@ exactly one of these families in `tags` (plus optional domain tags).
 - Do not invent ASR rates by taxonomy until live non-error traces exist.
 - Benign twins need not carry attack-family tags.
 
-Report distribution: `python scripts/report_taxonomy.py`
+Report distribution: `python scripts/report_taxonomy.py` (distribution only; not ASR).

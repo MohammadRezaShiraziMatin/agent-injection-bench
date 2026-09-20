@@ -15,7 +15,7 @@ from scripts._common import RESULTS_TRACES_DIR, dump_json
 
 MANIFESTS_DIR = Path(__file__).resolve().parents[1] / "results" / "manifests"
 
-# Canonical execution_status values for v0 (see QUALITY_TABLE_V0.md).
+# Canonical execution_status values for v0 (see docs/BENCHMARK.md).
 EXECUTION_STATUSES = frozenset({"ok", "max_steps", "error", "dry_run"})
 
 TRACE_KEY_ORDER = (

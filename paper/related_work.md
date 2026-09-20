@@ -1,6 +1,6 @@
 # Related work mapping (base papers)
 
-Pointers only. Citations do **not** claim that this scaffold reproduces their coverage, numbers, or threat models. This repo publishes **no** ASR/utility rates. Structured reading notes: [`READING_NOTES.md`](READING_NOTES.md).
+Pointers only. Citations do **not** claim that this scaffold reproduces their coverage, numbers, or threat models. This repo publishes **no** ASR/utility rates. Structured reading notes: [`reading_notes.md`](reading_notes.md).
 
 ## 1. Greshake et al. 2023 — indirect prompt injection threat model
 
@@ -10,7 +10,7 @@ Pointers only. Citations do **not** claim that this scaffold reproduces their co
 
 ## 2. Yi et al. 2023 — IPI benchmark and defense
 
-[arXiv:2312.14197](https://arxiv.org/abs/2312.14197) (*Benchmarking and Defending Against Indirect Prompt Injection Attacks on Large Language Models*) combines **benchmarking** of IPI with **defense** proposals. Conceptually we reuse the idea that IPI should be measured under controlled retrieval/context contamination and that attack success should be separated from ordinary task utility. We do **not** port their defense stack, training recipes, or full evaluation suite into this repository. Runtime mitigation is intentionally left to the separate **ADAPTI-GUARD** line of work (see [`ADAPTI_GUARD_BRIDGE.md`](ADAPTI_GUARD_BRIDGE.md)), so this artifact stays measurement-first.
+[arXiv:2312.14197](https://arxiv.org/abs/2312.14197) (*Benchmarking and Defending Against Indirect Prompt Injection Attacks on Large Language Models*) combines **benchmarking** of IPI with **defense** proposals. Conceptually we reuse the idea that IPI should be measured under controlled retrieval/context contamination and that attack success should be separated from ordinary task utility. We do **not** port their defense stack, training recipes, or full evaluation suite into this repository. Runtime mitigation is intentionally left to the separate **ADAPTI-GUARD** line of work (see [`../docs/ADAPTI_GUARD_BRIDGE.md`](../docs/ADAPTI_GUARD_BRIDGE.md)), so this artifact stays measurement-first.
 
 - **Difference from this repo:** Yi et al. contribute both a broader IPI evaluation story and defenses; agent-injection-bench is attack data + undefended eval stubs only and must not be cited for defense results.
 

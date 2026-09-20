@@ -26,3 +26,5 @@ python scripts/validate_episodes.py
 ```
 
 Do not commit fabricated run traces or claimed ASR/utility numbers.
+
+Canonical dataset documentation: [`../../docs/DATASET.md`](../../docs/DATASET.md).

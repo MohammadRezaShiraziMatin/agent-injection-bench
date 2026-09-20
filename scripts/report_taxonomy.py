@@ -59,7 +59,7 @@ def main() -> int:
         "families": {f: counts.get(f, 0) for f in FAMILIES},
         "missing_family_tags": missing,
         "multiple_family_tags": multi,
-        "note": "Distribution only. Not ASR. See TAXONOMY.md.",
+        "note": "Distribution only. Not ASR. See docs/TAXONOMY.md.",
     }
     print(json.dumps(summary, indent=2))
     return 0 if not missing else 1
