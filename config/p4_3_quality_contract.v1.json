@@ -1,0 +1,85 @@
+{
+  "contract_id": "aib-p4.3-quality-contract-v1",
+  "applies_to": "P4.3_candidate_only",
+  "p4_2_frozen_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+  "p4_2_immutable": true,
+  "checks": [
+    {
+      "id": "Q1_schema",
+      "description": "All episodes validate against episode.v2.json (or successor schema version).",
+      "executor": "scripts/qc_p4_2.py",
+      "gate": "G1"
+    },
+    {
+      "id": "Q2_taxonomy",
+      "description": "Required attack families present; taxonomy enums valid; no silent taxonomy drift.",
+      "executor": "scripts/qc_p4_2.py",
+      "gate": "G2"
+    },
+    {
+      "id": "Q3_pairing",
+      "description": "100 attack / 100 benign / 100 pairs; benign injection absent; partition aligned.",
+      "executor": "scripts/qc_p4_2.py",
+      "gate": "G3"
+    },
+    {
+      "id": "Q4_dedup_acf",
+      "description": "Zero intra-dataset ACF collisions among attack episodes.",
+      "executor": "scripts/qc_p4_2.py",
+      "gate": "G4"
+    },
+    {
+      "id": "Q5_leakage",
+      "description": "No dev/validation/test ACF or payload leakage; no v0/P4.1 attack overlap.",
+      "executor": "scripts/qc_p4_2.py",
+      "gate": "G5"
+    },
+    {
+      "id": "Q6_provenance",
+      "description": "synthetic=true for programmatic episodes; generator seed/version recorded; no false real-world claims.",
+      "executor": "manual_review + scripts/qc_p4_2.py",
+      "gate": "G6"
+    },
+    {
+      "id": "Q7_executability_label",
+      "description": "execution.executability matches harness capability matrix; DNE not mislabeled EXECUTABLE.",
+      "executor": "scripts/measure_p4_2_harness_coverage.py",
+      "gate": "G7"
+    },
+    {
+      "id": "Q8_benign_controls",
+      "description": "Paired benign controls lack injection; utility expectations documented.",
+      "executor": "scripts/qc_p4_2.py",
+      "gate": "G8"
+    },
+    {
+      "id": "Q9_reproducibility",
+      "description": "Byte-identical regeneration from pinned generator seed/script.",
+      "executor": "scripts/qc_p4_2.py",
+      "gate": "G9"
+    },
+    {
+      "id": "Q10_human_adjudication",
+      "description": "HR package decision per episode; UNCERTAIN not silently accepted.",
+      "executor": "artifacts/p4_2_2_hr_audit_trail.json",
+      "gate": "G10"
+    },
+    {
+      "id": "Q11_near_duplicate_screen",
+      "description": "ACF + n-gram screen; flagged clusters require human ACCEPT/REVISE/REJECT.",
+      "executor": "scripts/semantic_dedup_p4_2.py",
+      "gate": "G11",
+      "threshold_ngram_jaccard": 0.88
+    },
+    {
+      "id": "Q12_p42_integrity",
+      "description": "Frozen P4.2 digest unchanged when P4.3 is additive.",
+      "executor": "scripts/verify_p4_2_freeze.py",
+      "gate": "G12"
+    }
+  ],
+  "embedding_semantic_dedup": {
+    "status": "not_implemented",
+    "recommendation": "Optional Phase P4.3+; requires explicit model choice and threshold adjudication before auto-reject."
+  }
+}
