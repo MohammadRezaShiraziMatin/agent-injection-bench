@@ -166,4 +166,26 @@ def test_hr_audit_trail_batch3_recorded():
     meta = audit.get("batch3_human_decisions")
     assert meta is not None
     assert meta["episode_count"] == 20
-    assert len(audit["decisions"]) == 132
+
+
+def test_hr_audit_trail_batch5_p2_p3_recorded():
+    audit = json.loads((ROOT / "artifacts" / "p4_2_2_hr_audit_trail.json").read_text(encoding="utf-8"))
+    manifest = json.loads((ROOT / "data" / "episodes_p4_2" / "MANIFEST.json").read_text(encoding="utf-8"))
+    assert manifest["digest_sha256"] == "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee"
+    by_id = {d["episode_id"]: d["human_decision"] for d in audit["decisions"]}
+    for i in range(1, 35):
+        assert by_id[f"atk_p42_{i:03d}"] == "ACCEPT"
+        assert by_id[f"ben_p42_{i:03d}"] == "ACCEPT"
+    batch5 = [
+        d
+        for d in audit["decisions"]
+        if int(d["episode_id"].split("_")[-1]) <= 34
+    ]
+    assert len(batch5) == 68
+    assert all(d.get("previous_automated_status") == "ACCEPT_CANDIDATE" for d in batch5)
+    assert all(d.get("human_reviewer") is None for d in batch5)
+    meta = audit.get("batch5_p2_p3_human_decisions")
+    assert meta is not None
+    assert meta["episode_count"] == 68
+    assert len(audit["decisions"]) == 200
+    assert len(by_id) == 200

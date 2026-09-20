@@ -597,10 +597,19 @@ No episodes in this scope use `REVISE`, `REJECT_CANDIDATE`, or `UNCERTAIN_HUMAN_
 
 **PASS** — all 68 episodes reviewed via existing matrix + episode evidence; no dataset mutation.
 
+### Human decision recording (`batch_5_p2_p3`)
+
+| Item | Value |
+|------|-------|
+| Human decisions | **68/68** `ACCEPT` (explicit human source) |
+| HR audit | **132 → 200** (`batch5_p2_p3_human_decisions`) |
+| Dataset / digest | Unchanged (`4b2e6f59…`) |
+| **P4.2.2 Human Decision Recording** | **COMPLETE** — **200/200** episodes in audit trail |
+
 ### Next gate (not executed here)
 
-**READY FOR `batch_5_p2_p3` HUMAN DECISION RECORDING** — 68 explicit verdicts (`ACCEPT` / `REVISE` / `REJECT` / `UNCERTAIN`) required. After **200/200** audit decisions: **P4.2.3 Harness/Adapter Coverage** per `docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md`.
+**P4.2.3 — Harness / Adapter Coverage** per `docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md` §Next gate.
 
 ---
 
-> Automated pre-review was performed by the benchmark agent. Human `human_decision` values are recorded in `artifacts/p4_2_2_hr_audit_trail.json` (**132** decisions through Batch 3). **`batch_5_p2_p3` (68 episodes) awaits human decision recording.**
+> Human `human_decision` values are recorded in `artifacts/p4_2_2_hr_audit_trail.json` (**200/200** decisions; P4.2.2 human adjudication complete).
