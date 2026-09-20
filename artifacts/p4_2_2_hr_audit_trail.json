@@ -657,6 +657,198 @@
       "human_reviewer": null,
       "previous_automated_status": "ACCEPT_CANDIDATE",
       "review_date": null
+    },
+    {
+      "episode_id": "atk_p42_059",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "ben_p42_059",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "atk_p42_060",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "ben_p42_060",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "atk_p42_061",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "ben_p42_061",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "atk_p42_062",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "ben_p42_062",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "atk_p42_063",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "ben_p42_063",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "atk_p42_064",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "ben_p42_064",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "atk_p42_065",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "ben_p42_065",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "atk_p42_066",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "ben_p42_066",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "atk_p42_067",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "ben_p42_067",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "atk_p42_068",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "ben_p42_068",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "atk_p42_069",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "ben_p42_069",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "atk_p42_070",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
+    },
+    {
+      "episode_id": "ben_p42_070",
+      "human_decision": "ACCEPT",
+      "human_notes": null,
+      "human_reviewer": null,
+      "previous_automated_status": "ACCEPT_CANDIDATE",
+      "review_date": null
     }
   ],
   "human_review_performed": true,
@@ -713,6 +905,25 @@
       "p42_058"
     ],
     "episode_count": 28,
+    "dataset_digest_at_recording": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee"
+  },
+  "batch2c_human_decisions": {
+    "phase": "P4.2.2-HR Batch 2C decision recording (multi_turn_injection)",
+    "pair_ids": [
+      "p42_059",
+      "p42_060",
+      "p42_061",
+      "p42_062",
+      "p42_063",
+      "p42_064",
+      "p42_065",
+      "p42_066",
+      "p42_067",
+      "p42_068",
+      "p42_069",
+      "p42_070"
+    ],
+    "episode_count": 24,
     "dataset_digest_at_recording": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee"
   }
 }
