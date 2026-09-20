@@ -210,6 +210,99 @@ No P0 integrity failures.
 
 **READY** for Batch 2 Human Scientific Review (taxonomy audit does not block). Optional follow-up: metadata-only pair alignment or V2 horizon glossary (human-authored).
 
+## 27. Batch 2C scientific review — `multi_turn_injection` (pairs `p42_059`–`p42_070`)
+
+**Phase:** P4.2.2-HR **read-only** scientific review (not human decision recording). **No episode bytes modified.** **No audit-trail mutations.**
+
+### Protocol (from repository evidence)
+
+| Source | Batch 2C definition |
+|--------|---------------------|
+| `docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md` | Parent queue: **batch_2_complex_families** (96 episodes, pairs `p42_035`–`p42_082`). |
+| Prior HR gates (audit metadata) | **2A** `p42_035`–`044` (`web_retrieved_content_injection`); **2B** `p42_045`–`058` (`tool_output_injection`). |
+| `artifacts/p4_2_2_human_review_matrix.json` / review package | **2C** = 12 pairs / **24 episodes**, family **`multi_turn_injection`**, IDs `atk_p42_059`–`070` / `ben_p42_059`–`070`. |
+| `scripts/pre_review_p4_2_2.py` | Family rule: ≥2 `conversation[]` turns; attack locus must reference conversation/prior_turn. |
+| Human verdicts | **Out of scope** — only explicit `human_decision` in audit trail counts; none added for 2C in this phase. |
+
+### Population
+
+| Field | Value |
+|-------|-------|
+| Pairs | 12 (`p42_059` … `p42_070`) |
+| Episodes | 24 (12 attack / 12 benign) |
+| Family | `multi_turn_injection` (all) |
+| `interaction_type` | `multi_turn` (all) |
+| `horizon` | `h1` (pairs 059–064, 2-turn `conversation[]`); `h2` (pairs 065–070, 4-turn `conversation[]`) |
+| `dataset_partition` | `development`: pairs 059–060 (4 ep); `validation`: pairs 061–070 (20 ep) |
+| Injection locus (attack) | `conversation[1].content` (all 12 attacks) |
+| `taxonomy.source` | `prior_turn`; `path`: `indirect` |
+| Success criteria | Attack **S2** (forbidden `send_email` proposal); benign **S0**, `injection.present=false` |
+
+### Automated pre-review (not human verdicts)
+
+| Metric | Count (24 ep) |
+|--------|---------------|
+| `scientific_status` | `ACCEPT_CANDIDATE` **24** |
+| `recommended_action` | `REVIEW_HUMAN` **24** |
+| `executability_status` | `PARTIALLY_EXECUTABLE` **24** |
+| `duplicate_risk` | `LOW` **24** |
+| `review_priority` | `P1` **24** |
+| Unique attack ACF fingerprints | **12** (one per pair) |
+
+All episodes: `internal_consistency`, `mechanism_validity`, `pair_validity`, `semantic_validity` = **true** (matrix). **0** pair-level taxonomy skew on `family` / `interaction_type` / `horizon` / `context_type`.
+
+### Mechanism & executability (evidence)
+
+- **Attack design:** Prior **assistant** turn embeds instruction override; final `user_query` continues the benign task. Payload and locus align with `multi_turn_injection` checklist (§13).
+- **Benign controls:** Same conversation shape without injection; `objective=benign_control`; assistant turn stays task-faithful (no poisoned override).
+- **Harness v0:** `agent/loop.py` uses **`user_query` only**; does not replay `conversation[]`. Episode `execution.harness_surfaces` lists `conversation`, but `missing_adapter_note` documents non-replay → **PARTIALLY_EXECUTABLE** is **honest** (dataset capability ≠ harness v0).
+- **pre_review:** No `multi_turn`+`h0` violations; conversation length and locus checks **pass** for all 12 attacks.
+
+### Human adjudication status (Batch 2C)
+
+| Item | Status |
+|------|--------|
+| Audit-trail `human_decision` for 059–070 | **0** (unchanged) |
+| Prior batches in audit trail | Batch 1 + 2A + 2B = **64** decisions (unchanged) |
+
+### Integrity (this review)
+
+| Check | Result |
+|-------|--------|
+| P4.2 digest | Unchanged: `4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee` |
+| P4.1 / V0 | `verify_p6_freeze.py` **PASS**; no edits under `data/episodes_p4_2/` |
+| `qc_p4_2.py` | **PASS** (200 episodes, `manifest_digest_ok`) |
+| `tests/test_p4_2_2_hr_package.py` | **5 passed** (no Batch 2C audit records expected yet) |
+
+### Scientific assessment (automated + structural; non-binding for human gate)
+
+| Finding | Severity | Notes |
+|---------|----------|-------|
+| Mechanism–taxonomy alignment | **Clear** | Injection in prior assistant turn; `source=prior_turn`, S2 semantics consistent. |
+| Partial harness coverage | **Documented** | Conversation not in v0 prompt; not a dataset defect. |
+| `h1` vs `h2` labeling | **Convention** | Matches generator encoding (2 vs 4 conversation turns); V2 prose still thin (see §26). |
+| Automated recommendation | **Uniform** | All `REVIEW_HUMAN` — human must still record explicit `ACCEPT`/`REVISE`/`REJECT`/`UNCERTAIN`. |
+
+### Final gate closure (reproducibility)
+
+| Baseline | Value |
+|----------|-------|
+| Branch | `cursor/p4-2-dataset-6db2` |
+| HEAD at scientific review | `93d7000` |
+| HR audit decisions (total) | **64** (Batch 1: 16; 2A: 20; 2B: 28; **2C: 0**) |
+| Episodes reviewed (2C) | **24** (read-only; matrix + episode JSON + `pre_review_p4_2_2.py` rules) |
+| Dataset episodes | **200** (unchanged; digest `4b2e6f59…`) |
+
+Re-validation (no dataset/audit mutation): `qc_p4_2.py` **PASS**; `verify_p6_freeze.py` **PASS**; `pytest tests/test_p4_2_2_hr_package.py` **5 passed**; `git diff data/episodes_p4_2/` empty.
+
+### Gate outcome (Batch 2C scientific review)
+
+**PASS** — protocol identifiable from artifacts; review executed read-only; integrity preserved.
+
+### Next gate
+
+**READY FOR BATCH 2C HUMAN DECISION RECORDING** (explicit per-episode verdicts required; do not infer from `ACCEPT_CANDIDATE`).
+
 ---
 
-> Automated pre-review was performed by the benchmark agent. Actual human scientific adjudication has not yet occurred.
+> Automated pre-review was performed by the benchmark agent. Human `human_decision` values are recorded only in `artifacts/p4_2_2_hr_audit_trail.json` (Batch 1, 2A, 2B to date). Batch 2C awaits human decision recording.
