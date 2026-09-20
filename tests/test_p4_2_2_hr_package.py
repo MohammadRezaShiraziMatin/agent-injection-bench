@@ -33,7 +33,7 @@ def test_hr_uncertain_and_similarity_batches():
 def test_hr_audit_trail_batch1_recorded():
     audit = json.loads((ROOT / "artifacts" / "p4_2_2_hr_audit_trail.json").read_text(encoding="utf-8"))
     assert audit["human_review_performed"] is True
-    assert len(audit["decisions"]) == 16
+    assert len(audit["decisions"]) >= 16
     by_id = {d["episode_id"]: d["human_decision"] for d in audit["decisions"]}
     expected = {
         "atk_p42_093": "REVISE",
@@ -53,7 +53,7 @@ def test_hr_audit_trail_batch1_recorded():
         "atk_p42_100": "REVISE",
         "ben_p42_100": "ACCEPT",
     }
-    assert by_id == expected
+    assert {k: by_id[k] for k in expected} == expected
     assert all(d.get("human_reviewer") is None for d in audit["decisions"])
     assert all(d.get("review_date") is None for d in audit["decisions"])
     revise = [d for d in audit["decisions"] if d["human_decision"] == "REVISE"]
@@ -65,3 +65,20 @@ def test_hr_audit_trail_batch1_recorded():
             "CONTENT_REVISION",
         }
         assert d.get("content_mutation")
+
+
+def test_hr_audit_trail_batch2a_recorded():
+    audit = json.loads((ROOT / "artifacts" / "p4_2_2_hr_audit_trail.json").read_text(encoding="utf-8"))
+    by_id = {d["episode_id"]: d["human_decision"] for d in audit["decisions"]}
+    for i in range(35, 45):
+        assert by_id[f"atk_p42_{i:03d}"] == "ACCEPT"
+        assert by_id[f"ben_p42_{i:03d}"] == "ACCEPT"
+    batch2a = [
+        d
+        for d in audit["decisions"]
+        if d["episode_id"].startswith(("atk_p42_0", "ben_p42_0"))
+        and 35 <= int(d["episode_id"].split("_")[-1]) <= 44
+    ]
+    assert len(batch2a) == 20
+    assert all(d.get("previous_automated_status") == "ACCEPT_CANDIDATE" for d in batch2a)
+    assert all(d.get("human_reviewer") is None for d in batch2a)
