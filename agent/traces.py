@@ -26,6 +26,8 @@ def build_trace(
     final_answer: str | None,
     status: str,
     error: str | None = None,
+    harness_execution: dict[str, Any] | None = None,
+    initial_messages: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     return {
         "episode_id": episode.get("id"),
@@ -37,6 +39,11 @@ def build_trace(
         "retrieved_docs": [
             {"doc_id": d.get("doc_id"), "text_len": len(d.get("text", ""))}
             for d in episode.get("retrieved_docs", [])
+        ],
+        "harness_execution": harness_execution,
+        "initial_messages_digest": [
+            {"role": m.get("role"), "content_len": len(str(m.get("content", "")))}
+            for m in (initial_messages or [])
         ],
         "tool_calls": tool_calls,
         "final_answer": final_answer,
