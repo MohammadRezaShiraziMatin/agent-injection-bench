@@ -507,6 +507,100 @@ Re-validation: `qc_p4_2.py` **PASS**; `verify_p6_freeze.py` **PASS**; `pytest te
 
 Per `docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md` §Review batches: **`batch_5_p2_p3`** — 68 episodes (lower-risk executable); `batch_4_remaining_p1` empty when P1 batches above are complete. **`batch_1_uncertain`** (16 ep, incl. `p42_093`–`100`) and batches 2A–2D + Batch 3 are recorded in audit (**132** decisions); **68** episodes remain without audit-trail human decisions (the `batch_5_p2_p3` cohort per queue). Prerequisite before freeze: workflow cites **P4.2.3 Harness/Adapter Coverage** after human adjudication (`docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md` §Next gate).
 
+## 30. Batch 5 (`batch_5_p2_p3`) scientific review — executable P2/P3 cohort (`p42_001`–`p42_034`)
+
+**Phase:** P4.2.2-HR **read-only** scientific review. **No episode bytes modified.** **No audit-trail mutations.** **No human `human_decision` recorded.**
+
+### Protocol (repository evidence)
+
+| Source | Definition |
+|--------|------------|
+| `docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md` §Review batches | **`batch_5_p2_p3`** — 68 episodes; “P2 / P3 lower-risk” executable cohort after P1 batches. |
+| `artifacts/p4_2_2_hr_review_queue.json` `batch_assignments` | Exactly **68** episode IDs assigned to `batch_5_p2_p3` (verified). |
+| `artifacts/p4_2_2_human_review_matrix.json` | Automated pre-review rows (not human verdicts). |
+| `scripts/pre_review_p4_2_2.py` / `scripts/qc_p4_2.py` | Deterministic schema, pairing, leakage, ACF, executability checks. |
+
+### Scope (verified)
+
+| Field | Value |
+|-------|-------|
+| Batch ID | `batch_5_p2_p3` |
+| Pairs | **34** (`p42_001` … `p42_034`) |
+| Episodes | **68** (`atk_p42_001`–`034`, `ben_p42_001`–`034`) |
+| Overlap with HR audit | **0** (all 68 await human decision recording) |
+| `dataset_partition` | `development` (all 68) |
+
+### Attack families (34 attacks)
+
+| Family | Attack count |
+|--------|-------------:|
+| `rag_document_injection` | 16 |
+| `direct_prompt_injection` | 10 |
+| `indirect_prompt_injection` | 8 |
+
+Injection surfaces align with harness-consumed fields for this cohort: primarily **`user_query`** and/or **`retrieved_docs`** (no `tool_results`, `conversation`, `memory_store`, `session_state`, or `cross_context` in this slice).
+
+### Automated / scientific pre-review summary (68 episodes)
+
+| Dimension | Distribution |
+|-----------|--------------|
+| `scientific_status` | `ACCEPT_CANDIDATE` **68** |
+| `recommended_action` | `KEEP` **68** (automated — not human ACCEPT) |
+| `review_priority` | `P2` **34**, `P3` **34** |
+| `executability_status` | `EXECUTABLE` **68** |
+| `duplicate_risk` | `LOW` **68** |
+| Success criteria | Attack **S2** × 34; benign **S0** × 34 |
+| Matrix flags | `internal_consistency`, `mechanism_validity`, `pair_validity`, `semantic_validity` = **true** (68/68) |
+
+No episodes in this scope use `REVISE`, `REJECT_CANDIDATE`, or `UNCERTAIN_HUMAN_REQUIRED` in the automated matrix.
+
+### Similarity & near-duplicate
+
+| Check | Result |
+|-------|--------|
+| Exact duplicate (QC) | **0** (global `qc_p4_2.py`) |
+| ACF duplicate (QC) | **0**; **34** unique attack ACF fingerprints in-batch |
+| P4.2.1 n-gram adjudication | **No** flagged attacks among `atk_p42_001`–`034` |
+| Interpretation | n-gram similarity flags elsewhere in P4.2 do not apply to this cohort; **similarity ≠ duplicate** |
+
+### Leakage
+
+`qc_p4_2.py`: **`leakage_ok: true`** (global). Per-episode: benign twins `injection.present=false`; no automated pair leakage flags in matrix for this scope.
+
+### Harness / executability
+
+`agent/loop.py` consumes **`user_query`** + **`retrieved_docs`** — matches primary injection loci for direct/indirect/RAG families in pairs 001–034 → **`EXECUTABLE`** classification is consistent with **current** harness capability (distinct from partial families in batches 2–3).
+
+### Human adjudication status
+
+| Item | Status |
+|------|--------|
+| Audit-trail decisions for 001–034 | **0** |
+| HR audit total | **132** (unchanged in this review) |
+| Ready for human recording? | **Yes** — pending **68** explicit per-episode verdicts (do not map `KEEP` or `ACCEPT_CANDIDATE` to human ACCEPT) |
+
+### Limitations (preserved)
+
+- Automated `ACCEPT_CANDIDATE` / `KEEP` ≠ human scientific acceptance.
+- P4.2 not frozen; P4.2.3 harness adapter coverage still required after full 200-episode human adjudication (workflow §Next gate).
+- Embedding-based semantic dedup: **not performed** (QC field `embedding_semantic_dedup: not_performed`).
+
+### Final gate closure (read-only review)
+
+| Baseline | Value |
+|----------|-------|
+| Branch / HEAD | `cursor/p4-2-dataset-6db2` / `2691f82` |
+| P4.2 digest | `4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee` (unchanged) |
+| Re-validation | `qc_p4_2.py` **PASS**; `verify_p6_freeze.py` **PASS**; `pytest tests/test_p4_2_2_hr_package.py` **8 passed** |
+
+### Gate outcome (Batch 5 scientific review)
+
+**PASS** — all 68 episodes reviewed via existing matrix + episode evidence; no dataset mutation.
+
+### Next gate (not executed here)
+
+**READY FOR `batch_5_p2_p3` HUMAN DECISION RECORDING** — 68 explicit verdicts (`ACCEPT` / `REVISE` / `REJECT` / `UNCERTAIN`) required. After **200/200** audit decisions: **P4.2.3 Harness/Adapter Coverage** per `docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md`.
+
 ---
 
-> Automated pre-review was performed by the benchmark agent. Human `human_decision` values are recorded in `artifacts/p4_2_2_hr_audit_trail.json` (**132** decisions through Batch 3).
+> Automated pre-review was performed by the benchmark agent. Human `human_decision` values are recorded in `artifacts/p4_2_2_hr_audit_trail.json` (**132** decisions through Batch 3). **`batch_5_p2_p3` (68 episodes) awaits human decision recording.**
