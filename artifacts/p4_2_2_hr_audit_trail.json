@@ -6,7 +6,8 @@
     "human_notes": "string",
     "human_reviewer": "string",
     "previous_automated_status": "string",
-    "review_date": "ISO-8601 date"
+    "review_date": "ISO-8601 date",
+    "revision_resolution": "P4.2.2-HR Batch 1 REVISE outcome (human_decision unchanged)"
   },
   "decisions": [
     {
@@ -15,7 +16,23 @@
       "human_notes": null,
       "human_reviewer": null,
       "previous_automated_status": "UNCERTAIN_HUMAN_REQUIRED",
-      "review_date": null
+      "review_date": null,
+      "revision_resolution": {
+        "revision_type": "METADATA_ONLY",
+        "content_changed": false,
+        "metadata_changed": true,
+        "fields_changed": [
+          "taxonomy.interaction_type",
+          "notes"
+        ],
+        "reason": "Mislabeled multi_turn without conversation[] or prior-turn replay; single user_query plus one inter_agent_message (h1 inter-agent hop retained).",
+        "episode_sha256_before": "5ea85fa8febbc40a0edeb82a713c6d62a5d0747ef2afe243fe8d2633c8eecc68",
+        "episode_sha256_after": "175781fa878098caa78ce92f71ddb5e40eb3959e2b864e1d8594a5d164602661"
+      },
+      "content_mutation": {
+        "episode_sha256_before": "5ea85fa8febbc40a0edeb82a713c6d62a5d0747ef2afe243fe8d2633c8eecc68",
+        "episode_sha256_after": "175781fa878098caa78ce92f71ddb5e40eb3959e2b864e1d8594a5d164602661"
+      }
     },
     {
       "episode_id": "ben_p42_093",
@@ -31,7 +48,23 @@
       "human_notes": null,
       "human_reviewer": null,
       "previous_automated_status": "UNCERTAIN_HUMAN_REQUIRED",
-      "review_date": null
+      "review_date": null,
+      "revision_resolution": {
+        "revision_type": "METADATA_ONLY",
+        "content_changed": false,
+        "metadata_changed": true,
+        "fields_changed": [
+          "taxonomy.interaction_type",
+          "notes"
+        ],
+        "reason": "Same as atk_p42_093: interaction_type aligned to single_turn for one-shot harness surface.",
+        "episode_sha256_before": "90952760f519068377ba56edba88ba96e64aeda47a16706e8c79c94965ec9bff",
+        "episode_sha256_after": "3a4b37a09af3108b0990075d73b053a95181e07b20206898e3b1f2cfffe5deaa"
+      },
+      "content_mutation": {
+        "episode_sha256_before": "90952760f519068377ba56edba88ba96e64aeda47a16706e8c79c94965ec9bff",
+        "episode_sha256_after": "3a4b37a09af3108b0990075d73b053a95181e07b20206898e3b1f2cfffe5deaa"
+      }
     },
     {
       "episode_id": "ben_p42_094",
@@ -47,7 +80,23 @@
       "human_notes": null,
       "human_reviewer": null,
       "previous_automated_status": "UNCERTAIN_HUMAN_REQUIRED",
-      "review_date": null
+      "review_date": null,
+      "revision_resolution": {
+        "revision_type": "METADATA_ONLY",
+        "content_changed": false,
+        "metadata_changed": true,
+        "fields_changed": [
+          "taxonomy.interaction_type",
+          "notes"
+        ],
+        "reason": "Same as atk_p42_093: interaction_type aligned to single_turn for one-shot harness surface.",
+        "episode_sha256_before": "e6ff4ad0c8f5ff8a861c9dcab4f0bb4879412672bfa65b39f0b927411f722410",
+        "episode_sha256_after": "03f71603cda19c40977d9c9bb7c45a3644e877220de349ae6c6e91f6a57a8e4a"
+      },
+      "content_mutation": {
+        "episode_sha256_before": "e6ff4ad0c8f5ff8a861c9dcab4f0bb4879412672bfa65b39f0b927411f722410",
+        "episode_sha256_after": "03f71603cda19c40977d9c9bb7c45a3644e877220de349ae6c6e91f6a57a8e4a"
+      }
     },
     {
       "episode_id": "ben_p42_095",
@@ -63,7 +112,23 @@
       "human_notes": null,
       "human_reviewer": null,
       "previous_automated_status": "UNCERTAIN_HUMAN_REQUIRED",
-      "review_date": null
+      "review_date": null,
+      "revision_resolution": {
+        "revision_type": "METADATA_ONLY",
+        "content_changed": false,
+        "metadata_changed": true,
+        "fields_changed": [
+          "taxonomy.interaction_type",
+          "notes"
+        ],
+        "reason": "Same as atk_p42_093: interaction_type aligned to single_turn for one-shot harness surface.",
+        "episode_sha256_before": "bf61f46464d3079bd3a573a7874ab4e48fe1a016b5583166cdaef982b8d870c6",
+        "episode_sha256_after": "38c07033b7fbe6309790fe788694ccdb8b0b24c18e1897f27295e8fe6b8e92e5"
+      },
+      "content_mutation": {
+        "episode_sha256_before": "bf61f46464d3079bd3a573a7874ab4e48fe1a016b5583166cdaef982b8d870c6",
+        "episode_sha256_after": "38c07033b7fbe6309790fe788694ccdb8b0b24c18e1897f27295e8fe6b8e92e5"
+      }
     },
     {
       "episode_id": "ben_p42_096",
@@ -79,7 +144,25 @@
       "human_notes": null,
       "human_reviewer": null,
       "previous_automated_status": "UNCERTAIN_HUMAN_REQUIRED",
-      "review_date": null
+      "review_date": null,
+      "revision_resolution": {
+        "revision_type": "CONTENT_REVISION",
+        "content_changed": true,
+        "metadata_changed": true,
+        "fields_changed": [
+          "taxonomy.interaction_type",
+          "notes",
+          "adaptive_trace",
+          "injection.payload"
+        ],
+        "reason": "interaction_type single_turn for harness turn; static adaptive_trace retained (horizon=ha). Normalized ad-p42-01 email token to match AD-P42-01 and retrieved_docs.",
+        "episode_sha256_before": "7886b98d1893c4b7c9a97dc6542d374dc5a36868e49ac217d3835c65e944719d",
+        "episode_sha256_after": "ae996254897d60a3fd24826d8623ee113e50992ce31f78f575491026683da5d7"
+      },
+      "content_mutation": {
+        "episode_sha256_before": "7886b98d1893c4b7c9a97dc6542d374dc5a36868e49ac217d3835c65e944719d",
+        "episode_sha256_after": "ae996254897d60a3fd24826d8623ee113e50992ce31f78f575491026683da5d7"
+      }
     },
     {
       "episode_id": "ben_p42_097",
@@ -95,7 +178,25 @@
       "human_notes": null,
       "human_reviewer": null,
       "previous_automated_status": "UNCERTAIN_HUMAN_REQUIRED",
-      "review_date": null
+      "review_date": null,
+      "revision_resolution": {
+        "revision_type": "CONTENT_REVISION",
+        "content_changed": true,
+        "metadata_changed": true,
+        "fields_changed": [
+          "taxonomy.interaction_type",
+          "notes",
+          "adaptive_trace",
+          "injection.payload"
+        ],
+        "reason": "Same adaptive resolution pattern; ad-p42-02 email padding aligned with AD-P42-02 identifiers.",
+        "episode_sha256_before": "d4db71025cd27d3254931c2b4d040512e28493aa76839fbc25981535adcdf208",
+        "episode_sha256_after": "8d784328fa780fe7da5713a830372ab8d9f31ec12c20bb6bbeb8c11d1d74045c"
+      },
+      "content_mutation": {
+        "episode_sha256_before": "d4db71025cd27d3254931c2b4d040512e28493aa76839fbc25981535adcdf208",
+        "episode_sha256_after": "8d784328fa780fe7da5713a830372ab8d9f31ec12c20bb6bbeb8c11d1d74045c"
+      }
     },
     {
       "episode_id": "ben_p42_098",
@@ -111,7 +212,25 @@
       "human_notes": null,
       "human_reviewer": null,
       "previous_automated_status": "UNCERTAIN_HUMAN_REQUIRED",
-      "review_date": null
+      "review_date": null,
+      "revision_resolution": {
+        "revision_type": "CONTENT_REVISION",
+        "content_changed": true,
+        "metadata_changed": true,
+        "fields_changed": [
+          "taxonomy.interaction_type",
+          "notes",
+          "adaptive_trace",
+          "injection.payload"
+        ],
+        "reason": "Same adaptive resolution pattern; ad-p42-03 email padding aligned with AD-P42-03 identifiers.",
+        "episode_sha256_before": "cfe3695fd1f91cf7c1e5e7cdfd9210551269e4b64601fcdd4c4cd1341091df93",
+        "episode_sha256_after": "3e55a3bb81f6597cb3c4a659ee89a609f7b95946fc86d4441baedb3b69314da9"
+      },
+      "content_mutation": {
+        "episode_sha256_before": "cfe3695fd1f91cf7c1e5e7cdfd9210551269e4b64601fcdd4c4cd1341091df93",
+        "episode_sha256_after": "3e55a3bb81f6597cb3c4a659ee89a609f7b95946fc86d4441baedb3b69314da9"
+      }
     },
     {
       "episode_id": "ben_p42_099",
@@ -127,7 +246,25 @@
       "human_notes": null,
       "human_reviewer": null,
       "previous_automated_status": "UNCERTAIN_HUMAN_REQUIRED",
-      "review_date": null
+      "review_date": null,
+      "revision_resolution": {
+        "revision_type": "CONTENT_REVISION",
+        "content_changed": true,
+        "metadata_changed": true,
+        "fields_changed": [
+          "taxonomy.interaction_type",
+          "notes",
+          "adaptive_trace",
+          "injection.payload"
+        ],
+        "reason": "Same adaptive resolution pattern; ad-p42-04 email padding aligned with AD-P42-04 identifiers.",
+        "episode_sha256_before": "daed754f959e5c9570ba2736d23f6db5b02f13955e41295d94b0614b6dd65f4d",
+        "episode_sha256_after": "67168884751d11f87116745d51c5dbfd61be302751595b4017969f177dbd579c"
+      },
+      "content_mutation": {
+        "episode_sha256_before": "daed754f959e5c9570ba2736d23f6db5b02f13955e41295d94b0614b6dd65f4d",
+        "episode_sha256_after": "67168884751d11f87116745d51c5dbfd61be302751595b4017969f177dbd579c"
+      }
     },
     {
       "episode_id": "ben_p42_100",
@@ -140,5 +277,20 @@
   ],
   "human_review_performed": true,
   "phase": "P4.2.2-HR",
-  "schema_version": "1.0"
+  "schema_version": "1.0",
+  "batch1_revise_resolution": {
+    "phase": "P4.2.2-HR Batch 1 REVISE resolution",
+    "dataset_digest_before": "416264027c5e1f57a2a77f8ca31009f1b6ce399eddc1792a3dc8737ec75e74b3",
+    "dataset_digest_after": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+    "episodes_revised": [
+      "atk_p42_093",
+      "atk_p42_094",
+      "atk_p42_095",
+      "atk_p42_096",
+      "atk_p42_097",
+      "atk_p42_098",
+      "atk_p42_099",
+      "atk_p42_100"
+    ]
+  }
 }

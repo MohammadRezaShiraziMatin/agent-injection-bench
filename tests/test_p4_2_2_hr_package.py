@@ -56,3 +56,12 @@ def test_hr_audit_trail_batch1_recorded():
     assert by_id == expected
     assert all(d.get("human_reviewer") is None for d in audit["decisions"])
     assert all(d.get("review_date") is None for d in audit["decisions"])
+    revise = [d for d in audit["decisions"] if d["human_decision"] == "REVISE"]
+    assert len(revise) == 8
+    for d in revise:
+        assert d.get("revision_resolution")
+        assert d["revision_resolution"]["revision_type"] in {
+            "METADATA_ONLY",
+            "CONTENT_REVISION",
+        }
+        assert d.get("content_mutation")
