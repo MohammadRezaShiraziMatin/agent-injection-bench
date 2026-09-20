@@ -402,10 +402,18 @@ Re-validation: `qc_p4_2.py` **PASS**; `verify_p6_freeze.py` **PASS**; `pytest te
 
 **PASS** — read-only review complete; integrity preserved.
 
+### Human decision recording (Batch 2D)
+
+| Item | Value |
+|------|-------|
+| Verdicts | **24/24** `ACCEPT` (explicit human source; not inferred from `ACCEPT_CANDIDATE`) |
+| HR audit | **88 → 112** (`batch2d_human_decisions` metadata) |
+| Dataset | Unchanged; digest `4b2e6f59…` |
+
 ### Next gate
 
-**READY FOR BATCH 2D HUMAN DECISION RECORDING** (24 explicit per-episode verdicts; do not infer from `ACCEPT_CANDIDATE`).
+**READY FOR `batch_3_similarity_confirmation`** per `docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md` (pairs `p42_083`–`p42_092`, 20 episodes).
 
 ---
 
-> Automated pre-review was performed by the benchmark agent. Human `human_decision` values are recorded in `artifacts/p4_2_2_hr_audit_trail.json` (Batch 1, 2A, 2B, 2C to date; **88** decisions). Batch 2D awaits human decision recording.
+> Automated pre-review was performed by the benchmark agent. Human `human_decision` values are recorded in `artifacts/p4_2_2_hr_audit_trail.json` (**112** decisions through Batch 2D; `batch_2_complex_families` human recording complete for pairs `p42_035`–`082`).
