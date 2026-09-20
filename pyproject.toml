@@ -14,13 +14,16 @@ dependencies = [
 dev = [
     "pytest>=8.0",
 ]
+d2 = [
+    "adapti-guard @ git+https://github.com/mohammadreza583/adapti-guard.git@c096b878e0733fda27150d0fb13d579e95579e5b",
+]
 
 [build-system]
 requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["scripts", "tools", "agent"]
+packages = ["scripts", "tools", "agent", "d2_bridge"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

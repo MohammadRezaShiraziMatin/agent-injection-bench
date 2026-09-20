@@ -1,0 +1,2 @@
+# D2 bridge: install in a dedicated venv alongside agent-injection-bench.
+adapti-guard @ git+https://github.com/mohammadreza583/adapti-guard.git@c096b878e0733fda27150d0fb13d579e95579e5b
