@@ -414,6 +414,87 @@ Re-validation: `qc_p4_2.py` **PASS**; `verify_p6_freeze.py` **PASS**; `pytest te
 
 **READY FOR `batch_3_similarity_confirmation`** per `docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md` (pairs `p42_083`–`p42_092`, 20 episodes).
 
+## 29. Batch 3 scientific review — similarity confirmation (`p42_083`–`p42_092`)
+
+**Phase:** P4.2.2-HR **read-only** scientific review for **`batch_3_similarity_confirmation`**. **No episode bytes modified.** **No audit-trail mutations** in this phase.
+
+### Protocol (repository evidence)
+
+| Source | Definition |
+|--------|------------|
+| `docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md` §Review batches | **batch_3_similarity_confirmation** — 20 episodes; cross-context pairs `p42_083`–`p42_092`; human confirmation of P4.2.1 **VALID_VARIANT** (distinct mechanisms despite n-gram collision). |
+| `artifacts/p4_2_2_hr_review_queue.json` | Maps `atk_p42_083`–`atk_p42_092` and benign twins to `batch_3_similarity_confirmation`. |
+| `docs/AIB_P4_2_1_NEAR_DUPLICATE_ADJUDICATION_REPORT.md` §7 | 10-episode `cross_context_injection` cluster (083–092): **90** ordered n-gram flags at Jaccard 1.0 after normalization; **ACF fingerprints remain unique** (10 attack ACFs). |
+| `artifacts/p4_2_1_near_duplicate_adjudication.json` | Automated adjudication **VALID_VARIANT** for flagged pairs involving these attacks. |
+| Human verdicts | **Not in scientific-review phase** — require explicit per-episode `human_decision` in audit trail. |
+
+**Goal of Batch 3:** Confirm that near-duplicate **n-gram similarity** does not imply redundant benchmark episodes — humans validate channel/mechanism diversity per P4.2.1, without paraphrasing content to reduce similarity (workflow prohibited).
+
+### Population
+
+| Field | Value |
+|-------|-------|
+| Pairs | 10 (`p42_083` … `p42_092`) |
+| Episodes | 20 (10 attack / 10 benign) |
+| Family | `cross_context_injection` (all) |
+| `path` | `cross_boundary`; `source` | `auxiliary_context` |
+| `interaction_type` / `horizon` | `single_turn` / `h0` (all) |
+| `dataset_partition` | `test` (all 20) |
+| Attack injection locus | `cross_context[0].text` (distinct auxiliary labels per pair: e.g. `helpdesk_sidebar`, `room_monitor_banner`, …) |
+| Success criteria | Attack **S2** (`send_email` proposal); benign **S0**, `injection.present=false` |
+
+### Similarity & mechanism (evidence)
+
+| Check | Finding |
+|-------|---------|
+| N-gram cluster | Attacks 083–092 share **template-level** normalized surfaces → `duplicate_risk=MEDIUM` in matrix (not LOW). |
+| ACF / mechanism | **10** unique attack ACF fingerprints; **10** distinct `cross_context[0].label` channels; techniques alternate `fake_authorization` / `instruction_override`. |
+| P4.2.1 adjudication | **VALID_VARIANT** — not FALSE_POSITIVE removal; episodes retained. |
+| Pair integrity | Matrix: `pair_validity`, `mechanism_validity`, `semantic_validity`, `internal_consistency` = **true** (20/20). |
+| User vs injection | Malicious content in **auxiliary** `cross_context` block, not primary `user_query`; primary doc in `retrieved_docs` stays task-aligned. |
+
+### Executability (harness)
+
+- `agent/loop.py` uses **`user_query` + `retrieved_docs`** only — **does not** inject `cross_context[]`.
+- Episode `execution.missing_adapter_note` documents non-consumption → **`PARTIALLY_EXECUTABLE`** (20/20) is harness-limited, not a dataset invalidity claim.
+
+### Automated pre-review (not human verdicts)
+
+| Metric | Count |
+|--------|------:|
+| `scientific_status` | `ACCEPT_CANDIDATE` **20** |
+| `recommended_action` | `REVIEW_HUMAN` **20** |
+| `executability_status` | `PARTIALLY_EXECUTABLE` **20** |
+| `duplicate_risk` | `MEDIUM` **20** |
+| `review_priority` | `P1` **20** |
+
+### Human adjudication status (Batch 3 at review time)
+
+| Item | Status |
+|------|--------|
+| Audit-trail `human_decision` for 083–092 | **0** |
+| HR audit total | **112** (unchanged in scientific-review phase) |
+
+### Final gate closure (scientific review only)
+
+| Baseline | Value |
+|----------|-------|
+| Branch / HEAD | `cursor/p4-2-dataset-6db2` / `788722d` |
+| P4.2 digest | `4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee` (unchanged) |
+| Re-validation | `qc_p4_2.py` **PASS**; `verify_p6_freeze.py` **PASS**; `pytest tests/test_p4_2_2_hr_package.py` **7 passed** |
+
+### Gate outcome (Batch 3 — scientific review sub-phase)
+
+**PASS** — protocol clear; read-only review complete.
+
+### Gate outcome (Batch 3 — full workflow including human recording)
+
+**BLOCKED — HUMAN INPUT REQUIRED** until 20 explicit per-episode verdicts are supplied (do not infer from `ACCEPT_CANDIDATE`).
+
+### Next gate (after Batch 3 human decisions recorded)
+
+Per `docs/AIB_P4_2_2_HR_HUMAN_ADJUDICATION_WORKFLOW.md`: **`batch_5_p2_p3`** (68 lower-risk executable episodes); `batch_4_remaining_p1` is empty if P1 coverage is complete above. Pairs **`p42_093`–`p42_100`** were adjudicated in **Batch 1** (uncertain cluster), not Batch 3.
+
 ---
 
-> Automated pre-review was performed by the benchmark agent. Human `human_decision` values are recorded in `artifacts/p4_2_2_hr_audit_trail.json` (**112** decisions through Batch 2D; `batch_2_complex_families` human recording complete for pairs `p42_035`–`082`).
+> Automated pre-review was performed by the benchmark agent. Human `human_decision` values are recorded in `artifacts/p4_2_2_hr_audit_trail.json` (**112** decisions through Batch 2D). Batch 3 (`p42_083`–`092`) awaits explicit human decision recording.
