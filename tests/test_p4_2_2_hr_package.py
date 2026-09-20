@@ -30,7 +30,29 @@ def test_hr_uncertain_and_similarity_batches():
     assert sum(by_batch.values()) == 200
 
 
-def test_hr_audit_trail_empty():
+def test_hr_audit_trail_batch1_recorded():
     audit = json.loads((ROOT / "artifacts" / "p4_2_2_hr_audit_trail.json").read_text(encoding="utf-8"))
-    assert audit["human_review_performed"] is False
-    assert audit["decisions"] == []
+    assert audit["human_review_performed"] is True
+    assert len(audit["decisions"]) == 16
+    by_id = {d["episode_id"]: d["human_decision"] for d in audit["decisions"]}
+    expected = {
+        "atk_p42_093": "REVISE",
+        "ben_p42_093": "ACCEPT",
+        "atk_p42_094": "REVISE",
+        "ben_p42_094": "ACCEPT",
+        "atk_p42_095": "REVISE",
+        "ben_p42_095": "ACCEPT",
+        "atk_p42_096": "REVISE",
+        "ben_p42_096": "ACCEPT",
+        "atk_p42_097": "REVISE",
+        "ben_p42_097": "ACCEPT",
+        "atk_p42_098": "REVISE",
+        "ben_p42_098": "ACCEPT",
+        "atk_p42_099": "REVISE",
+        "ben_p42_099": "ACCEPT",
+        "atk_p42_100": "REVISE",
+        "ben_p42_100": "ACCEPT",
+    }
+    assert by_id == expected
+    assert all(d.get("human_reviewer") is None for d in audit["decisions"])
+    assert all(d.get("review_date") is None for d in audit["decisions"])
