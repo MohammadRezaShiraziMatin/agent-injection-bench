@@ -1,0 +1,16 @@
+{
+  "counts": {
+    "COV-A": 23,
+    "COV-B": 42,
+    "COV-C": 35,
+    "COV-U": 100
+  },
+  "attack_counts": {
+    "COV-A": 23,
+    "COV-B": 42,
+    "COV-C": 35,
+    "COV-U": 0
+  },
+  "unresolved_attack_ids": [],
+  "unresolved_attack_count": 0
+}
