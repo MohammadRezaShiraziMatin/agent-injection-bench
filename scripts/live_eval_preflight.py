@@ -72,7 +72,13 @@ def run_preflight() -> dict:
 
 
 def main() -> int:
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dry-run", action="store_true", help="No live inference (always true today)")
+    args = parser.parse_args()
     report = run_preflight()
+    report["dry_run_flag"] = bool(args.dry_run)
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0 if report["preflight_ok"] else 1
 

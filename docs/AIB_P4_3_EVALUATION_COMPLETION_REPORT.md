@@ -81,8 +81,8 @@ Pre-work verification: `git diff -- data/episodes_p4_2/` empty; `verify_p4_3_int
 | **S3/S4** | Sandbox **execution trace** supported; **external S4 not claimable** in mock environment |
 | **Multi-Agent** | **`MULTI_AGENT_EXECUTION_SUPPORTED`** (minimal runtime); episode replay = **`INTER_AGENT_REPLAY_ONLY`** |
 | **Adaptive** | **`STATIC_ADAPTIVE_REPLAY`** + **`LIVE_ADAPTIVE`** (bounded, deterministic); episode JSON static traces unchanged |
-| **Model lock** | **`BLOCKED`** (no pinned target/judge snapshots + routing in gate) |
-| **Live evaluation** | **`BLOCKED`** (preflight fails; zero live calls) |
+| **Model lock** | **`LOCKED`** when env matches `config/p4_3_live_eval_gate.v1.json` (catalog fingerprints; weight revision UNVERIFIED) — see `docs/AIB_P7_4_MODEL_LOCK_REPORT.md` |
+| **Live evaluation** | **Preflight dry-run PASS** when lock PASS; **live inference not run** (`live_inference_allowed=false`) |
 | **Metrics** | `config/p4_3_evaluation_metrics.v1.json` (unchanged contract, consumed by preflight) |
 
 ---

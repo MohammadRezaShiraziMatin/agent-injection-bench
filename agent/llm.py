@@ -33,4 +33,18 @@ class LLMClient:
             kwargs["tools"] = tools
             if tool_choice is not None:
                 kwargs["tool_choice"] = tool_choice
+        if self.config.provider == "openrouter":
+            extra: dict[str, Any] = {}
+            order = list(self.config.provider_order)
+            if order:
+                extra["provider"] = {
+                    "order": order,
+                    "allow_fallbacks": self.config.allow_fallbacks,
+                }
+            elif self.config.openrouter_role:
+                from agent.model_lock import openrouter_provider_extra
+
+                extra.update(openrouter_provider_extra(self.config.openrouter_role))
+            if extra:
+                kwargs["extra_body"] = extra
         return self._client.chat.completions.create(**kwargs)
