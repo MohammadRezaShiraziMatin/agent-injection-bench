@@ -1,0 +1,24 @@
+{
+  "terminal.integrated.defaultProfile.windows": "WSL",
+  "terminal.integrated.profiles.windows": {
+    "WSL": {
+      "source": "WSL",
+      "icon": "terminal-linux"
+    },
+    "OpenClaw (WSL login shell)": {
+      "path": "C:\\Windows\\System32\\wsl.exe",
+      "args": ["-e", "bash", "-l"],
+      "icon": "terminal-linux"
+    }
+  },
+  "terminal.integrated.automationProfile.windows": {
+    "path": "C:\\Windows\\System32\\wsl.exe",
+    "args": ["-e", "bash", "-l"]
+  },
+  "terminal.integrated.env.linux": {
+    "PATH": "${env:HOME}/.openclaw/bin:${env:PATH}"
+  },
+  "terminal.integrated.env.osx": {
+    "PATH": "${env:HOME}/.openclaw/bin:${env:PATH}"
+  }
+}
