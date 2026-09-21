@@ -1,102 +1,71 @@
-# AIB P4.3 — Dataset Completion Report
-
-**Date:** 2026-09-20 (UTC)  
-**Branch:** `cursor/p4-2-dataset-6db2`
+# AIB P4.3 — Dataset Report (external gap closure)
 
 ```text
-P4.3 DATASET COMPLETION
+P4.3 EXTERNAL BENCHMARK GAP ANALYSIS
 
 Baseline HEAD:
-95295684b558d6e2d59161a64ab4e7f10f1ee0fe
+3e37818cbd4b75b185217b7b75f14c27a628a9f1
 
 Final HEAD:
-417a2c4d17e29d033fe63bb46f68de31e916c4f4
+(see git log after this commit)
 
-P4.2 frozen digest:
+P4.2 digest:
 4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee
 
 P4.2 mutated: NO
 
-P4.2 audit:
-Schema: PASS (qc_p4_2.py)
-Taxonomy: PASS (10/10 families)
-Pairing: PASS (100 pairs)
-Dedup: PASS (ACF); near-dup flags documented (adaptive clusters)
-Leakage: PASS
-Provenance: PASS (synthetic); episode review_status drift vs HR (P1)
-Executability: PASS labels; 172/16/12 EXEC/PARTIAL/DNE (harness p4.2.4)
-Benign controls: PASS (no benign injection)
-Reproducibility: PASS (byte-identical regen)
+External sources audited: 8 PRIMARY (+ 5 UNVERIFIED listed)
+Licenses verified: high-level (BIPIA component SA; no imports performed)
 
-Gaps:
-P0: none open
-P1: HR trail vs episode provenance.review_status; pair objective semantics documentation
-P2: S3/S4 not primary; 12 DNE + 16 PARTIAL harness surfaces
-P3: embedding dedup; rare objective cells
+AIB coverage (P4.2): 10 families; 100% S2 attacks; 0 S1 before P4.3 add-on
 
-P4.3 created: NO
+Confirmed gaps addressed in candidate:
+G5-001: S1 / user_response attacks (4 pairs)
 
-Human review (HR artifact):
-Accepted: 192
-Revise: 8 (metadata-only resolutions recorded)
+Confirmed gaps deferred:
+G9-001, G6-001, G6-002, G8-001, G4-001
+
+P4.3 created: YES
+
+New attacks: 4
+New benign: 4
+New pairs: 4
+New families: 0 (existing families reused)
+New surfaces: 0 (same harness surfaces)
+New objectives: instruction_deviation (attack primary)
+New horizons: 0 (h0/h1 only)
+
+External-derived: 0 (conceptual inspiration only)
+Synthetic: 8
+Adapted: 0
+Real-world: 0
+
+Exact duplicates vs P4.2: 0 (ACF)
+Near duplicates: not auto-screened (n=8); human review required
+Leakage vs P4.2: 0 (ACF cross-check)
+
+Human review:
+Accepted: 0
+Revise: 0
 Reject: 0
-Uncertain: 0 (resolved in P4.2.2 batches)
+Uncertain: 8 (queue)
 
-Exact duplicates: 0 (ACF)
-Near duplicates: 105 n-gram pairs flagged (≥0.88); not ACF duplicates
-Leakage: 0
-Schema errors: 0
+Reproducibility: PASS (byte-identical)
+Digest (P4.3): 3dcd436bb098b6bab601450659227fc686d9457b5052c3bb59d57766ae55be47
 
-Tests:
-pytest: 49 passed
-Generator reproducibility: PASS (qc embedded)
-Digest (P4.2): unchanged
+Tests: pytest (includes test_p4_3_candidate.py)
 
-P4.3 freeze readiness:
-NOT READY (no P4.3 candidate corpus)
-
-Files changed:
-docs/AIB_P4_3_DATASET_AUDIT.md
-docs/AIB_P4_3_DATASET_PLAN.md
-docs/AIB_P4_3_DATASET_REPORT.md
-config/p4_3_quality_contract.v1.json
-
-Files created:
-(same as above)
-
-Live LLM call: NO
+P4.2 integrity: PASS (verify_p4_2_freeze.py)
+Dataset mutation (P4.2): NO
+Live LLM: NO
 API key exposed: NO
-Dataset mutation: NO
-Push: NO
-PR: NO
-Release: NO
+Push / PR / Release: NO
+
+Freeze readiness: NOT READY
 
 Final status:
-AUDIT COMPLETE — P4.2 IMMUTABLE; P4.3 EPISODE GENERATION DEFERRED
+P4.3 ADDITIVE CANDIDATE — G5-001 ONLY — HR PENDING
 
 Next required action:
-Human authorization for a specific P4.3 goal (harness-first for DNE families) OR metadata-overlay design that does not rewrite frozen P4.2 bytes
+Complete human adjudication; define S1 scoring in evaluation protocol before live use
 ```
-
-## Statistical summary (P4.2)
-
-| Metric | Value |
-|--------|------:|
-| N total | 200 |
-| N attack | 100 |
-| N benign | 100 |
-| N pairs | 100 |
-
-Family distribution (attack): see `docs/AIB_P4_3_DATASET_AUDIT.md` Phase 1.
-
-Executability (harness p4.2.4): EXECUTABLE 172; PARTIALLY_EXECUTABLE 16; DESIGNED_NOT_EXECUTABLE 12.
-
-Provenance: 200/200 `synthetic=true`, seed `42020260920`, generator `gen_p4_2_dataset.py@1.0.0`.
-
-## Freeze decision
-
-```text
-NOT READY FOR FREEZE (P4.3)
-```
-
-P4.2 remains frozen at `aib-p4.2-frozen-v1.0`. No P4.3 candidate directory was created.

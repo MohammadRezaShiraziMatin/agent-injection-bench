@@ -1,0 +1,110 @@
+{
+  "attack_count": 4,
+  "benign_count": 4,
+  "dataset_version": "P4.3",
+  "digest_sha256": "3dcd436bb098b6bab601450659227fc686d9457b5052c3bb59d57766ae55be47",
+  "episode_count": 8,
+  "episodes": [
+    {
+      "byte_size": 2388,
+      "dataset_partition": "development",
+      "episode_id": "atk_p43_001",
+      "filename": "attack/atk_p43_001.json",
+      "pair_id": "p43_001",
+      "role": "attack",
+      "sha256": "44098b2ff359192d433d5be20aa03556651f1360542473845f2e82dbcf3a82df"
+    },
+    {
+      "byte_size": 2400,
+      "dataset_partition": "development",
+      "episode_id": "atk_p43_002",
+      "filename": "attack/atk_p43_002.json",
+      "pair_id": "p43_002",
+      "role": "attack",
+      "sha256": "d540db1aea41c4c0c59bdc3ea796d43551a3b51378d3b5bf1c1ae8126263c76e"
+    },
+    {
+      "byte_size": 2381,
+      "dataset_partition": "development",
+      "episode_id": "atk_p43_003",
+      "filename": "attack/atk_p43_003.json",
+      "pair_id": "p43_003",
+      "role": "attack",
+      "sha256": "f7e8fc838a199ac237ac4469b844e3fc2c4e4c1d814e4a1010a1ec49a4b02b7d"
+    },
+    {
+      "byte_size": 2338,
+      "dataset_partition": "development",
+      "episode_id": "atk_p43_004",
+      "filename": "attack/atk_p43_004.json",
+      "pair_id": "p43_004",
+      "role": "attack",
+      "sha256": "ac8b44688c7ee0f933f8424cee5791ea88b2f25c912edee5f27999c9d66d713b"
+    },
+    {
+      "byte_size": 2147,
+      "dataset_partition": "development",
+      "episode_id": "ben_p43_001",
+      "filename": "benign/ben_p43_001.json",
+      "pair_id": "p43_001",
+      "role": "benign",
+      "sha256": "e94b2fec04aa1ffd152668eb814d41c056df7c3c8bf0017e03fd052698bd4f4f"
+    },
+    {
+      "byte_size": 2156,
+      "dataset_partition": "development",
+      "episode_id": "ben_p43_002",
+      "filename": "benign/ben_p43_002.json",
+      "pair_id": "p43_002",
+      "role": "benign",
+      "sha256": "4c245e72def064574c5aa3b00c98e2dbf988ed95f84fe50b4d6185e45187e507"
+    },
+    {
+      "byte_size": 2160,
+      "dataset_partition": "development",
+      "episode_id": "ben_p43_003",
+      "filename": "benign/ben_p43_003.json",
+      "pair_id": "p43_003",
+      "role": "benign",
+      "sha256": "dc9c0f6dd0761d1c91ebb5210de8bfb1ddd2c148fa16264b01e1011fae66b641"
+    },
+    {
+      "byte_size": 2137,
+      "dataset_partition": "development",
+      "episode_id": "ben_p43_004",
+      "filename": "benign/ben_p43_004.json",
+      "pair_id": "p43_004",
+      "role": "benign",
+      "sha256": "0b13c3d8bab1f4eb48fde0fc9aa6f2700a06850505b03af7b9965557ce33fffb"
+    }
+  ],
+  "files": [
+    "attack/atk_p43_001.json",
+    "attack/atk_p43_002.json",
+    "attack/atk_p43_003.json",
+    "attack/atk_p43_004.json",
+    "benign/ben_p43_001.json",
+    "benign/ben_p43_002.json",
+    "benign/ben_p43_003.json",
+    "benign/ben_p43_004.json"
+  ],
+  "gap_manifest": "G5-S1_instruction_deviation_user_response",
+  "generator": "scripts/gen_p4_3_dataset.py",
+  "generator_version": "gen_p4_3_dataset.py@1.0.0",
+  "identity": "P4.3 additive gap-fill candidate (not frozen)",
+  "n_files": 8,
+  "pair_count": 4,
+  "parent_frozen_baseline": {
+    "dataset_version": "P4.2",
+    "digest_sha256": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+    "immutable": true
+  },
+  "partition_attack_counts": {
+    "development": 4,
+    "test": 0,
+    "validation": 0
+  },
+  "schema": "schema/episode.p43.v1.json",
+  "seed": 43020260921,
+  "status": "candidate"
+}
