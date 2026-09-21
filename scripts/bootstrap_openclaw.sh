@@ -70,6 +70,11 @@ sync_openrouter_from_env() {
   if [[ -z "${OPENROUTER_API_KEY:-}" ]]; then
     return 0
   fi
+  local rotate="${OPENROUTER_API_KEY_ROTATE:-0}"
+  if [[ "${rotate}" == "1" || "${rotate}" == "true" || "${rotate}" == "yes" ]]; then
+    bash "$(dirname "${BASH_SOURCE[0]}")/set_openrouter_api_key.sh" --force
+    return 0
+  fi
   if openclaw models auth list 2>/dev/null | grep -qi openrouter; then
     return 0
   fi
