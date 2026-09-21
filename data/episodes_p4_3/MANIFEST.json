@@ -2,80 +2,80 @@
   "attack_count": 4,
   "benign_count": 4,
   "dataset_version": "P4.3",
-  "digest_sha256": "3dcd436bb098b6bab601450659227fc686d9457b5052c3bb59d57766ae55be47",
+  "digest_sha256": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
   "episode_count": 8,
   "episodes": [
     {
-      "byte_size": 2388,
+      "byte_size": 2306,
       "dataset_partition": "development",
       "episode_id": "atk_p43_001",
       "filename": "attack/atk_p43_001.json",
       "pair_id": "p43_001",
       "role": "attack",
-      "sha256": "44098b2ff359192d433d5be20aa03556651f1360542473845f2e82dbcf3a82df"
+      "sha256": "8cffd9ccdfca3b0d7afe5f4b3aaece3467265b7ca5f59e11da2c7b43a27ca6f5"
     },
     {
-      "byte_size": 2400,
+      "byte_size": 2304,
       "dataset_partition": "development",
       "episode_id": "atk_p43_002",
       "filename": "attack/atk_p43_002.json",
       "pair_id": "p43_002",
       "role": "attack",
-      "sha256": "d540db1aea41c4c0c59bdc3ea796d43551a3b51378d3b5bf1c1ae8126263c76e"
+      "sha256": "57185b1f92bafc6ef5775814ceb2e9994ebc40cbeb19030e68c4750e344567d0"
     },
     {
-      "byte_size": 2381,
+      "byte_size": 2301,
       "dataset_partition": "development",
       "episode_id": "atk_p43_003",
       "filename": "attack/atk_p43_003.json",
       "pair_id": "p43_003",
       "role": "attack",
-      "sha256": "f7e8fc838a199ac237ac4469b844e3fc2c4e4c1d814e4a1010a1ec49a4b02b7d"
+      "sha256": "afc63b716f6d319de45c4ac1f791b3e80454687ac3a5db737fc679d32117de17"
     },
     {
-      "byte_size": 2338,
+      "byte_size": 2252,
       "dataset_partition": "development",
       "episode_id": "atk_p43_004",
       "filename": "attack/atk_p43_004.json",
       "pair_id": "p43_004",
       "role": "attack",
-      "sha256": "ac8b44688c7ee0f933f8424cee5791ea88b2f25c912edee5f27999c9d66d713b"
+      "sha256": "4fa97eecb1ec9b4c1234eeb49a0a7f3cc467f7340cdbbbdebadf2753b1a314d2"
     },
     {
-      "byte_size": 2147,
+      "byte_size": 2151,
       "dataset_partition": "development",
       "episode_id": "ben_p43_001",
       "filename": "benign/ben_p43_001.json",
       "pair_id": "p43_001",
       "role": "benign",
-      "sha256": "e94b2fec04aa1ffd152668eb814d41c056df7c3c8bf0017e03fd052698bd4f4f"
+      "sha256": "a99d2b0ee4df0359df53bc0eb3939d6c9b244a32a6bafcc393f4d71ca92cb929"
     },
     {
-      "byte_size": 2156,
+      "byte_size": 2160,
       "dataset_partition": "development",
       "episode_id": "ben_p43_002",
       "filename": "benign/ben_p43_002.json",
       "pair_id": "p43_002",
       "role": "benign",
-      "sha256": "4c245e72def064574c5aa3b00c98e2dbf988ed95f84fe50b4d6185e45187e507"
+      "sha256": "0b92c23b8f394d99b15b259cf8fc89cf5da45477ce82f5a5cb7b1ff558ee0c30"
     },
     {
-      "byte_size": 2160,
+      "byte_size": 2164,
       "dataset_partition": "development",
       "episode_id": "ben_p43_003",
       "filename": "benign/ben_p43_003.json",
       "pair_id": "p43_003",
       "role": "benign",
-      "sha256": "dc9c0f6dd0761d1c91ebb5210de8bfb1ddd2c148fa16264b01e1011fae66b641"
+      "sha256": "0e102d17a7cfa48e1f908f5043a4e98063a021906ee8445afba9cf0f385866b6"
     },
     {
-      "byte_size": 2137,
+      "byte_size": 2141,
       "dataset_partition": "development",
       "episode_id": "ben_p43_004",
       "filename": "benign/ben_p43_004.json",
       "pair_id": "p43_004",
       "role": "benign",
-      "sha256": "0b13c3d8bab1f4eb48fde0fc9aa6f2700a06850505b03af7b9965557ce33fffb"
+      "sha256": "8848f9d84aee2561fbb2eb6d8428838e9a60e9297597fb67ba8bfa1eb3896af3"
     }
   ],
   "files": [
@@ -90,7 +90,12 @@
   ],
   "gap_manifest": "G5-S1_instruction_deviation_user_response",
   "generator": "scripts/gen_p4_3_dataset.py",
-  "generator_version": "gen_p4_3_dataset.py@1.0.0",
+  "generator_version": "gen_p4_3_dataset.py@1.0.1",
+  "human_review": {
+    "audit_trail": "artifacts/p4_3_hr_audit_trail.json",
+    "completed": true,
+    "review_id": "p4.3-hr-1"
+  },
   "identity": "P4.3 additive gap-fill candidate (not frozen)",
   "n_files": 8,
   "pair_count": 4,
@@ -106,5 +111,5 @@
   },
   "schema": "schema/episode.p43.v1.json",
   "seed": 43020260921,
-  "status": "candidate"
+  "status": "candidate_human_reviewed"
 }

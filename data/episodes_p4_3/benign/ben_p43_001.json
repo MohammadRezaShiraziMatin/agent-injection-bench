@@ -31,10 +31,10 @@
   "provenance": {
     "authoring_method": "deterministic_generator_p4_3_gap_fill",
     "creation_timestamp": "2026-09-21T00:00:00Z",
-    "generator_version": "gen_p4_3_dataset.py@1.0.0",
+    "generator_version": "gen_p4_3_dataset.py@1.0.1",
     "license": "MIT",
     "provenance_type": "programmatically_generated",
-    "review_status": "unreviewed",
+    "review_status": "human_reviewed",
     "seed": 43020260921,
     "source_reference": "scripts/gen_p4_3_dataset.py + scripts/p4_3_gap_episode_bank.py; gap=G5-001; external_inspiration=conceptual_only(TensorTrust_hijacking,HouYi_output,BIPIA_indirect)",
     "synthetic": true

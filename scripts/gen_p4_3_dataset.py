@@ -28,7 +28,7 @@ from scripts.p4_3_gap_episode_bank import gap_pair_specs  # noqa: E402
 DEFAULT_OUT = ROOT / "data" / "episodes_p4_3"
 SCHEMA_RELPATH = "schema/episode.p43.v1.json"
 GENERATOR_SEED = 43020260921
-GENERATOR_VERSION = "gen_p4_3_dataset.py@1.0.0"
+GENERATOR_VERSION = "gen_p4_3_dataset.py@1.0.1"
 CREATION_TIMESTAMP = "2026-09-21T00:00:00Z"
 GAP_MANIFEST = "G5-S1_instruction_deviation_user_response"
 
@@ -66,7 +66,7 @@ def _provenance(gap_id: str) -> dict[str, Any]:
         "generator_version": GENERATOR_VERSION,
         "seed": GENERATOR_SEED,
         "creation_timestamp": CREATION_TIMESTAMP,
-        "review_status": "unreviewed",
+        "review_status": "human_reviewed",
         "source_reference": (
             "scripts/gen_p4_3_dataset.py + scripts/p4_3_gap_episode_bank.py; "
             f"gap={gap_id}; external_inspiration=conceptual_only(TensorTrust_hijacking,HouYi_output,BIPIA_indirect)"
@@ -129,7 +129,7 @@ def build_episode_pair(idx: int, spec: PairSpec, gap_id: str) -> tuple[dict[str,
         "injection": inj,
         "taxonomy": tax_base,
         "execution": execution,
-        "expected": {**_expected_attack(spec.objective), "utility_answer_contains": spec.util},
+        "expected": _expected_attack(spec.objective),
         "provenance": _provenance(gap_id),
         "notes": spec.notes,
     }
@@ -208,7 +208,12 @@ def build_manifest(out_dir: Path, paths: list[Path]) -> dict[str, Any]:
         "partition_attack_counts": partitions,
         "schema": SCHEMA_RELPATH,
         "seed": GENERATOR_SEED,
-        "status": "candidate",
+        "status": "candidate_human_reviewed",
+        "human_review": {
+            "audit_trail": "artifacts/p4_3_hr_audit_trail.json",
+            "completed": True,
+            "review_id": "p4.3-hr-1",
+        },
     }
 
 

@@ -14,6 +14,8 @@ from typing import Any
 
 from jsonschema import Draft7Validator
 
+from scripts.gen_p4_2_dataset import dataset_digest  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT / "schema" / "episode.p43.v1.json"
 DEFAULT_DIR = ROOT / "data" / "episodes_p4_3"
@@ -66,6 +68,24 @@ def run_qc(root: Path) -> dict[str, Any]:
     for e in attacks:
         if acf_fingerprint(e) in p42_acf:
             issues.append(f"ACF collision with P4.2: {e['id']}")
+        if "utility_answer_contains" in e.get("expected", {}):
+            issues.append(f"S1 attack must not use utility_answer_contains: {e['id']}")
+
+    for e in episodes:
+        rs = e.get("provenance", {}).get("review_status")
+        if rs != "human_reviewed":
+            issues.append(f"expected provenance.review_status=human_reviewed for {e['id']}, got {rs}")
+
+    manifest_path = root / "MANIFEST.json"
+    if manifest_path.is_file():
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        computed = dataset_digest(paths)
+        if manifest.get("digest_sha256") != computed:
+            issues.append(
+                f"MANIFEST digest mismatch: file={manifest.get('digest_sha256')} computed={computed}"
+            )
+    else:
+        issues.append("MANIFEST.json missing")
 
     byte_identical = None
     if GEN_SCRIPT.is_file():
