@@ -3,7 +3,7 @@
 # Does not print API keys or read secret values from config.
 set -euo pipefail
 
-export PATH="${HOME}/.openclaw/bin:${PATH}"
+export PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/.bin:${HOME}/.openclaw/bin:${PATH}"
 
 echo "== Environment =="
 echo "Host: $(uname -s)"
