@@ -51,7 +51,7 @@ PAGE = """<!DOCTYPE html>
     body {{ font-family: system-ui, sans-serif; max-width: 32rem; margin: 3rem auto; padding: 0 1rem; }}
     h1 {{ font-size: 1.25rem; }}
     label {{ display: block; margin: 1rem 0 0.35rem; }}
-    input[type=password] {{ width: 100%; padding: 0.5rem; box-sizing: border-box; }}
+    input[type=password], input[type=text] {{ width: 100%; padding: 0.65rem; font-size: 1rem; box-sizing: border-box; }}
     button {{ margin-top: 1rem; padding: 0.5rem 1rem; }}
     .msg {{ margin-top: 1rem; padding: 0.75rem; border-radius: 6px; }}
     .ok {{ background: #e8f5e9; }}
@@ -60,12 +60,12 @@ PAGE = """<!DOCTYPE html>
   </style>
 </head>
 <body>
-  <h1>کلید API OpenRouter</h1>
-  <p class="hint">فقط روی همین دستگاه (localhost) اجرا می‌شود. کلید در Git ذخیره نمی‌شود.</p>
+  <h1>کلید OpenRouter</h1>
+  <p class="hint">کلید را paste کنید و ذخیره بزنید. (یا فایل <code>.env.openclaw.local</code> + Task «Apply API key»)</p>
   {message}
   <form method="POST" action="/">
     <label for="api_key">API Key</label>
-    <input id="api_key" name="api_key" type="password" autocomplete="off" required autofocus />
+    <input id="api_key" name="api_key" type="text" autocomplete="off" required autofocus placeholder="sk-or-..." />
     <button type="submit">ذخیره در OpenClaw</button>
   </form>
 </body>

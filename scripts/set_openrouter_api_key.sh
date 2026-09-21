@@ -4,15 +4,18 @@ set -euo pipefail
 
 export PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/.bin:${HOME}/.openclaw/bin:${PATH}"
 
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# shellcheck disable=SC1091
+source "${repo_root}/scripts/load_openclaw_env.sh" 2>/dev/null || true
+
 usage() {
   cat <<'EOF'
 Usage: set_openrouter_api_key.sh [--force]
 
-Sets OpenRouter credentials for the default agent via OpenClaw auth store.
-
 Sources (first match wins):
-  1. OPENROUTER_API_KEY environment variable (e.g. Cursor Environment Secret)
-  2. Hidden prompt on a TTY
+  1. OPENROUTER_API_KEY environment variable
+  2. .env.openclaw.local in repo root (gitignored)
+  3. Hidden prompt on a TTY
 
 Options:
   --force   Remove existing openrouter:* profiles before saving the new key

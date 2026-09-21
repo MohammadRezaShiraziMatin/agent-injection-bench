@@ -87,6 +87,13 @@ ensure_model_default
 ensure_gateway_mode
 openclaw config set env.shellEnv.enabled true >/dev/null 2>&1 || true
 write_gateway_token_file
-sync_openrouter_from_env
+
+# shellcheck disable=SC1091
+source "$(dirname "${BASH_SOURCE[0]}")/load_openclaw_env.sh" 2>/dev/null || true
+if [[ -n "${OPENROUTER_API_KEY:-}" ]]; then
+  bash "$(dirname "${BASH_SOURCE[0]}")/set_openrouter_api_key.sh" --force
+else
+  sync_openrouter_from_env
+fi
 
 echo "OpenClaw bootstrap OK: $(openclaw --version 2>/dev/null || echo missing)"

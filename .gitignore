@@ -1,4 +1,5 @@
 .env
+.env.openclaw.local
 .venv/
 __pycache__/
 results/traces/*.json

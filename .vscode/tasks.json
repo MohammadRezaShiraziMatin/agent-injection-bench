@@ -2,6 +2,31 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "OpenClaw: Apply API key from .env.openclaw.local",
+      "type": "shell",
+      "windows": {
+        "command": "wsl.exe",
+        "args": [
+          "-e",
+          "bash",
+          "-lc",
+          "cd \"$(wslpath '${workspaceFolder}')\" && bash scripts/apply_openrouter_key.sh"
+        ]
+      },
+      "linux": {
+        "command": "bash",
+        "args": ["scripts/apply_openrouter_key.sh"],
+        "options": { "cwd": "${workspaceFolder}" }
+      },
+      "osx": {
+        "command": "bash",
+        "args": ["scripts/apply_openrouter_key.sh"],
+        "options": { "cwd": "${workspaceFolder}" }
+      },
+      "presentation": { "reveal": "always", "panel": "shared", "focus": true },
+      "problemMatcher": []
+    },
+    {
       "label": "OpenClaw: Enter OpenRouter API Key",
       "type": "shell",
       "windows": {
