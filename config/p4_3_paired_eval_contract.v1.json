@@ -68,5 +68,11 @@
     "requires_d2": true
   },
   "historical_d0_run_id": "p43-live-20260921-controlled",
-  "historical_d0_interpretation": "artifacts/p4_3_live_corrected_analysis.json"
+  "historical_d0_interpretation": "artifacts/p4_3_live_corrected_analysis.json",
+  "coverage_aware_interpretation": {
+    "protocol_doc": "docs/AIB_COVERAGE_AWARE_EVALUATION_PROTOCOL.md",
+    "calibration_experiment": "experiments/detector_coverage_gap_v1",
+    "p4_3_attack_coverage_class": "COV-C",
+    "rule": "Do not interpret D2 as defense effectiveness for COV-C episodes without coverage-stratified reporting"
+  }
 }
