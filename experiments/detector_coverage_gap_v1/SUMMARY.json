@@ -1,0 +1,12 @@
+{
+  "experiment_id": "detector_coverage_gap_v1",
+  "finished_at": "2026-09-21T10:59:04.727294+00:00",
+  "n_rows": 16,
+  "classifications": {
+    "atk_p43_001": "D1",
+    "atk_p43_002": "D1",
+    "atk_p43_003": "D1",
+    "atk_p43_004": "D1"
+  },
+  "diagnostic_only": true
+}
