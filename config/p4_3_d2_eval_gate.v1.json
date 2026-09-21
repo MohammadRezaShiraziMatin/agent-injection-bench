@@ -17,6 +17,13 @@
     "live_d2_approval_artifact": "artifacts/p4_3_d2_live_approval.json",
     "notes": "Set live_d2_inference_allowed true only after verify_d2_integration PASS and explicit approval artifact"
   },
+  "p4_2_primary_preflight": {
+    "dry_run_required_before_live": true,
+    "live_d2_inference_allowed": false,
+    "live_d2_approval_artifact": "artifacts/p4_2_d2_live_approval.json",
+    "paired_output_base": "results/p4_2_paired",
+    "notes": "P4.2 primary paired live: requires verify_p4_2_d2_live_approval PASS (scope + EXPLICIT + this flag true). Independent from preflight.live_d2_inference_allowed."
+  },
   "paired_output_base": "results/p4_3_paired",
   "inherits_model_lock": "config/p4_3_live_eval_gate.v1.json"
 }

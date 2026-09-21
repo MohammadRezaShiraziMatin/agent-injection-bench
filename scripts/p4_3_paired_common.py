@@ -9,6 +9,11 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 P43_ROOT = ROOT / "data" / "episodes_p4_3"
+P42_ROOT = ROOT / "data" / "episodes_p4_2"
+P42_PRIMARY_DESIGN_MANIFEST = ROOT / "artifacts" / "p4_2_primary_d0_d2_experiment" / "MANIFEST.json"
+P42_ELIGIBILITY_PATH = ROOT / "artifacts" / "p4_2_coverage_eligibility" / "ELIGIBILITY.json"
+P42_PAIRED_OUT_BASE = ROOT / "results" / "p4_2_paired"
+P42_FROZEN_DIGEST = "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee"
 
 
 def sha256_text(t: str) -> str:
@@ -25,11 +30,112 @@ def input_hash(episode: dict[str, Any]) -> str:
     return sha256_text(json.dumps(payload, sort_keys=True, ensure_ascii=False))
 
 
-def iter_episodes() -> list[dict[str, Any]]:
-    paths = sorted((P43_ROOT / "attack").glob("*.json")) + sorted(
-        (P43_ROOT / "benign").glob("*.json")
-    )
+def dataset_manifest_digest(dataset_root: Path) -> str:
+    manifest_path = dataset_root / "MANIFEST.json"
+    doc = json.loads(manifest_path.read_text(encoding="utf-8"))
+    return str(doc["digest_sha256"])
+
+
+def load_episode_by_id(dataset_root: Path, episode_id: str) -> dict[str, Any]:
+    split = "attack" if episode_id.startswith("atk_") else "benign"
+    path = dataset_root / split / f"{episode_id}.json"
+    if not path.is_file():
+        raise FileNotFoundError(f"episode not found: {episode_id} under {dataset_root}")
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def iter_episodes(
+    *,
+    dataset_root: Path | None = None,
+    episode_ids: list[str] | None = None,
+) -> list[dict[str, Any]]:
+    root = dataset_root or P43_ROOT
+    if episode_ids:
+        return [load_episode_by_id(root, eid) for eid in sorted(episode_ids)]
+    paths = sorted((root / "attack").glob("*.json")) + sorted((root / "benign").glob("*.json"))
     return [json.loads(p.read_text(encoding="utf-8")) for p in paths]
+
+
+def resolve_benign_pair_refs(
+    dataset_root: Path,
+    attack_episodes: list[dict[str, Any]],
+) -> list[dict[str, str]]:
+    """Outcome-independent benign pairing via episode.pair_id (dataset MANIFEST contract)."""
+    manifest = json.loads((dataset_root / "MANIFEST.json").read_text(encoding="utf-8"))
+    benign_by_pair = {
+        row["pair_id"]: row["episode_id"]
+        for row in manifest["episodes"]
+        if row.get("role") == "benign"
+    }
+    refs: list[dict[str, str]] = []
+    for atk in attack_episodes:
+        pair_id = atk.get("pair_id")
+        if not pair_id:
+            raise ValueError(f"missing pair_id on {atk.get('id')}")
+        ben_id = benign_by_pair.get(pair_id)
+        if not ben_id:
+            raise KeyError(f"no benign episode for pair_id={pair_id}")
+        refs.append(
+            {
+                "pair_id": pair_id,
+                "attack_episode_id": atk["id"],
+                "benign_episode_id": ben_id,
+            }
+        )
+    return refs
+
+
+def load_p42_primary_run_config() -> dict[str, Any]:
+    """Design-time P4.2 primary pool (9 attacks) from immutable experiment manifest."""
+    if not P42_PRIMARY_DESIGN_MANIFEST.is_file():
+        raise FileNotFoundError(P42_PRIMARY_DESIGN_MANIFEST)
+    design = json.loads(P42_PRIMARY_DESIGN_MANIFEST.read_text(encoding="utf-8"))
+    pool = design["primary_attack_pool"]
+    primary_attack_ids = [row["episode_id"] for row in pool["episodes"]]
+    if len(primary_attack_ids) != 9:
+        raise ValueError(f"primary pool must have 9 episodes, got {len(primary_attack_ids)}")
+    benign_scope = (design.get("benign_controls") or {}).get("utility_fpr_benign_scope")
+    if not isinstance(benign_scope, dict) or not benign_scope.get("benign_episode_ids"):
+        raise ValueError("utility_fpr_benign_scope.benign_episode_ids required in design manifest")
+    utility_fpr_benign_ids = sorted(benign_scope["benign_episode_ids"])
+    if len(utility_fpr_benign_ids) != 9:
+        raise ValueError("utility_fpr_benign_scope must list 9 benign episode ids")
+    for row in pool["episodes"]:
+        if row.get("benign_pair_episode_id") not in utility_fpr_benign_ids:
+            raise ValueError(f"benign scope mismatch for {row['episode_id']}")
+    # P4.3 paired runner order: attacks then benign (see iter_episodes default).
+    episode_ids = sorted(primary_attack_ids) + utility_fpr_benign_ids
+    digest = design["dataset"]["digest_sha256"]
+    if digest != P42_FROZEN_DIGEST:
+        raise ValueError("P4.2 digest mismatch in design manifest")
+    coverage_map: dict[str, dict[str, str]] = {}
+    if P42_ELIGIBILITY_PATH.is_file():
+        elig = json.loads(P42_ELIGIBILITY_PATH.read_text(encoding="utf-8"))
+        for row in elig.get("attacks") or []:
+            if row.get("episode_id") in primary_attack_ids:
+                coverage_map[row["episode_id"]] = {
+                    "coverage_class": row.get("coverage_class") or pool["coverage_class"],
+                    "eligibility": row.get("eligibility") or pool["eligibility_class"],
+                }
+    for eid in primary_attack_ids:
+        if eid not in coverage_map:
+            coverage_map[eid] = {
+                "coverage_class": pool["coverage_class"],
+                "eligibility": pool["eligibility_class"],
+            }
+    return {
+        "dataset_root": P42_ROOT,
+        "dataset_version": "P4.2",
+        "dataset_digest": digest,
+        "episode_ids": episode_ids,
+        "primary_attack_ids": primary_attack_ids,
+        "utility_fpr_benign_episode_ids": utility_fpr_benign_ids,
+        "out_base": P42_PAIRED_OUT_BASE,
+        "design_manifest": str(P42_PRIMARY_DESIGN_MANIFEST.relative_to(ROOT)),
+        "coverage_by_episode": coverage_map,
+        "protocol_version": "P4.2-PRIMARY-PAIRED-1",
+        "utility_fpr_benign_scope": benign_scope,
+    }
 
 
 def build_result_record(
@@ -46,6 +152,7 @@ def build_result_record(
     defense_event: dict[str, Any] | None,
     latency_ms: int,
     protocol_version: str = "P4.3-PAIRED-1",
+    dataset_version: str = "P4.3",
 ) -> dict[str, Any]:
     forbidden = set((ep.get("expected") or {}).get("forbidden_tools") or [])
     proposed = trace.get("tool_proposals") or []
@@ -58,7 +165,7 @@ def build_result_record(
     return {
         "schema_version": "p43.v1",
         "protocol_version": protocol_version,
-        "dataset_version": "P4.3",
+        "dataset_version": dataset_version,
         "dataset_digest": digest,
         "episode_id": ep["id"],
         "pair_id": ep.get("pair_id"),

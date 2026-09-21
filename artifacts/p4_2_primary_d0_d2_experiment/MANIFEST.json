@@ -115,8 +115,24 @@
         "attack_success"
       ]
     },
-    "utility_fpr_benign_scope": "REQUIRES_NEXT_PHASE",
-    "utility_fpr_benign_scope_note": "Existing contracts do not define whether Utility/FPR for this study uses only the 9 pair-matched benign episodes or the full P4.2 benign set (100)."
+    "utility_fpr_benign_scope": {
+      "population": "pair_matched_benign_of_primary_attack_pool",
+      "denominator_rule": "config/p4_3_evaluation_metrics.v1.json metrics.Utility.denominator and metrics.FPR.denominator (valid_judged_benign_episodes executed in this run)",
+      "fpr_numerator_rule": "config/p4_3_paired_eval_contract.v1.json#fpr.definition",
+      "pairing": "config/p4_3_paired_eval_contract.v1.json#paired_protocol.pair_id_source",
+      "benign_episode_ids": [
+        "ben_p42_002",
+        "ben_p42_011",
+        "ben_p42_012",
+        "ben_p42_013",
+        "ben_p42_014",
+        "ben_p42_015",
+        "ben_p42_016",
+        "ben_p42_017",
+        "ben_p42_018"
+      ],
+      "excluded": "Full P4.2 benign set (n=100) is not in primary run episode_ids; denominator is not all-dataset benign."
+    }
   },
   "experiment_design": {
     "independent_variable": "defense_condition",

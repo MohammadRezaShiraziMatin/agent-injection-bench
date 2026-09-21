@@ -33,9 +33,17 @@ from agent.loop import SYSTEM_PROMPT, run_episode  # noqa: E402
 from agent.model_lock import load_live_eval_gate  # noqa: E402
 from agent.result_mapper import map_live_result  # noqa: E402
 from scripts.live_eval_preflight import run_preflight  # noqa: E402
-from scripts.p4_3_paired_common import build_result_record, iter_episodes, sha256_text  # noqa: E402
+from scripts.p4_3_paired_common import (  # noqa: E402
+    build_result_record,
+    dataset_manifest_digest,
+    iter_episodes,
+    load_p42_primary_run_config,
+    resolve_benign_pair_refs,
+    sha256_text,
+)
 from scripts.verify_d2_integration import verify_d2_integration  # noqa: E402
 from scripts.verify_d2_live_approval import verify_d2_live_approval  # noqa: E402
+from scripts.verify_p4_2_d2_live_approval import verify_p4_2_d2_live_approval  # noqa: E402
 from scripts.verify_live_approval import verify_live_approval  # noqa: E402
 from scripts.verify_model_lock import verify_model_lock  # noqa: E402
 
@@ -87,6 +95,33 @@ def _live_gates_ok() -> tuple[bool, dict[str, Any]]:
         "live_approval": appr,
         "d2_integration": d2,
         "d2_live_approval": d2_appr,
+        "live_path": "P4.3",
+    }
+
+
+def _live_gates_ok_p42_primary() -> tuple[bool, dict[str, Any]]:
+    lock = verify_model_lock()
+    pre = run_preflight()
+    appr = verify_live_approval()
+    d2 = verify_d2_integration()
+    p42_appr = verify_p4_2_d2_live_approval()
+    integrity = _integrity_ok()
+    ok = (
+        integrity.get("ok")
+        and lock.get("MODEL_LOCK_STATUS") == "LOCKED"
+        and pre.get("preflight_ok")
+        and appr.get("ok")
+        and d2.get("ok")
+        and p42_appr.get("ok")
+    )
+    return ok, {
+        "integrity": integrity,
+        "model_lock": lock,
+        "preflight": pre,
+        "live_approval": appr,
+        "d2_integration": d2,
+        "p4_2_d2_live_approval": p42_appr,
+        "live_path": "P4.2_PRIMARY",
     }
 
 
@@ -103,6 +138,8 @@ def _evaluate_episode(
     condition: DefenseCondition,
     run_id: str,
     digest: str,
+    dataset_version: str,
+    protocol_version: str,
     target_cfg: Any,
     judge_cfg: Any,
     dry_run: bool,
@@ -172,6 +209,8 @@ def _evaluate_episode(
         judge_status=judge_status,
         defense_event=defense_event,
         latency_ms=int((time.time() - t0) * 1000),
+        protocol_version=protocol_version,
+        dataset_version=dataset_version,
     )
     if dry_run:
         record["error_status"] = "dry_run"
@@ -191,27 +230,70 @@ def _evaluate_episode(
     return {"ok": True, "record": record, "judge_called": judge_status != "SKIPPED"}
 
 
-def run_paired(*, run_id: str | None = None, dry_run: bool = True) -> dict[str, Any]:
+def run_paired(
+    *,
+    run_id: str | None = None,
+    dry_run: bool = True,
+    dataset_root: Path | None = None,
+    dataset_digest: str | None = None,
+    episode_ids: list[str] | None = None,
+    out_base: Path | None = None,
+    dataset_version: str | None = None,
+    design_manifest: str | None = None,
+    coverage_by_episode: dict[str, dict[str, str]] | None = None,
+    protocol_version: str | None = None,
+    utility_fpr_benign_scope: Any | None = None,
+    primary_attack_ids: list[str] | None = None,
+    utility_fpr_benign_episode_ids: list[str] | None = None,
+    p42_primary: bool = False,
+) -> dict[str, Any]:
     if dry_run:
         ok, gate_report = _dry_run_gates_ok()
         if not ok:
             return {"ok": False, "paired_run": "BLOCKED", "mode": "dry_run", "gates": gate_report}
+        if p42_primary:
+            p42_appr = verify_p4_2_d2_live_approval()
+            gate_report["p4_2_live_readiness"] = {
+                "scope_ok": p42_appr.get("scope_ok"),
+                "gate_authorized": p42_appr.get("ok"),
+                "approval_id": p42_appr.get("approval_id"),
+            }
     else:
-        ok, gate_report = _live_gates_ok()
+        if p42_primary:
+            ok, gate_report = _live_gates_ok_p42_primary()
+        else:
+            ok, gate_report = _live_gates_ok()
         if not ok:
             return {"ok": False, "paired_run": "BLOCKED", "mode": "live", "gates": gate_report}
 
     gate = load_live_eval_gate()
     d2_gate = json.loads(D2_GATE_PATH.read_text(encoding="utf-8"))
     contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
-    manifest = json.loads((P43_ROOT / "MANIFEST.json").read_text(encoding="utf-8"))
-    digest = manifest["digest_sha256"]
+    ds_root = dataset_root or P43_ROOT
+    manifest = json.loads((ds_root / "MANIFEST.json").read_text(encoding="utf-8"))
+    digest = dataset_digest or manifest["digest_sha256"]
+    manifest_digest = dataset_manifest_digest(ds_root)
+    if digest != manifest_digest:
+        return {
+            "ok": False,
+            "paired_run": "BLOCKED",
+            "error": "DATASET_DIGEST_MISMATCH",
+            "expected": digest,
+            "manifest_digest": manifest_digest,
+        }
+    ds_version = dataset_version or manifest.get("dataset_version", "P4.3")
+    proto_version = protocol_version or "P4.3-PAIRED-1"
+    out_root = out_base or OUT_BASE
     run_id = run_id or (
         f"p43-d0-d2-dry-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}"
-        if dry_run
-        else f"p43-d0-d2-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}-controlled"
+        if dry_run and ds_root == P43_ROOT
+        else (
+            f"p42-primary-d0-d2-dry-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}"
+            if dry_run
+            else f"p42-primary-d0-d2-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}-controlled"
+        )
     )
-    out_dir = OUT_BASE / run_id
+    out_dir = out_root / run_id
     d0_dir = out_dir / "D0"
     d2_dir = out_dir / "D2"
     paired_dir = out_dir / "paired"
@@ -231,8 +313,9 @@ def run_paired(*, run_id: str | None = None, dry_run: bool = True) -> dict[str, 
         "run_id": run_id,
         "mode": "dry_run" if dry_run else "live",
         "started_at": datetime.now(timezone.utc).isoformat(),
-        "dataset_version": "P4.3",
+        "dataset_version": ds_version,
         "dataset_digest": digest,
+        "dataset_root": str(ds_root.relative_to(ROOT)),
         "git_commit": _git_head(),
         "harness_version": HARNESS_VERSION,
         "evaluation_mode": "DRY_RUN" if dry_run else EXECUTION_MODE_LIVE,
@@ -253,8 +336,39 @@ def run_paired(*, run_id: str | None = None, dry_run: bool = True) -> dict[str, 
         "episode_order_policy": contract.get("paired_protocol", {}).get("order_policy"),
         "gates_at_start": gate_report,
     }
+    if design_manifest:
+        run_manifest["design_manifest"] = design_manifest
+    if coverage_by_episode:
+        run_manifest["coverage_by_episode"] = coverage_by_episode
+    if utility_fpr_benign_scope is not None:
+        run_manifest["utility_fpr_benign_scope"] = utility_fpr_benign_scope
+    if primary_attack_ids:
+        run_manifest["primary_attack_ids"] = primary_attack_ids
+    if utility_fpr_benign_episode_ids:
+        run_manifest["utility_fpr_benign_episode_ids"] = utility_fpr_benign_episode_ids
+    if p42_primary:
+        run_manifest["live_path"] = "P4.2_PRIMARY"
+        p42_appr = verify_p4_2_d2_live_approval()
+        run_manifest["p4_2_d2_live_approval"] = {
+            "scope_ok": p42_appr.get("scope_ok"),
+            "gate_authorized": p42_appr.get("ok"),
+            "approval_id": p42_appr.get("approval_id"),
+        }
 
-    episodes = iter_episodes()
+    episodes = iter_episodes(dataset_root=ds_root, episode_ids=episode_ids)
+    if episode_ids and len(episodes) != len(episode_ids):
+        return {
+            "ok": False,
+            "paired_run": "BLOCKED",
+            "error": "EPISODE_SELECTION_MISMATCH",
+            "requested": episode_ids,
+            "loaded": [e["id"] for e in episodes],
+        }
+    benign_pair_refs: list[dict[str, str]] = []
+    attack_episodes = [e for e in episodes if e.get("split") == "attack"]
+    if episode_ids and attack_episodes:
+        benign_pair_refs = resolve_benign_pair_refs(ds_root, attack_episodes)
+        run_manifest["benign_pair_refs"] = benign_pair_refs
     d0_results: list[dict[str, Any]] = []
     d2_results: list[dict[str, Any]] = []
     pairs: list[dict[str, Any]] = []
@@ -268,6 +382,8 @@ def run_paired(*, run_id: str | None = None, dry_run: bool = True) -> dict[str, 
             condition=DefenseCondition.D0,
             run_id=run_id,
             digest=digest,
+            dataset_version=ds_version,
+            protocol_version=proto_version,
             target_cfg=target_cfg,
             judge_cfg=judge_cfg,
             dry_run=dry_run,
@@ -278,6 +394,8 @@ def run_paired(*, run_id: str | None = None, dry_run: bool = True) -> dict[str, 
             condition=DefenseCondition.D2,
             run_id=run_id,
             digest=digest,
+            dataset_version=ds_version,
+            protocol_version=proto_version,
             target_cfg=target_cfg,
             judge_cfg=judge_cfg,
             dry_run=dry_run,
@@ -366,8 +484,50 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--run-id", default=None)
     parser.add_argument("--live", action="store_true", help="Live inference (all gates required)")
+    parser.add_argument("--dataset-root", type=Path, default=None)
+    parser.add_argument("--dataset-digest", default=None)
+    parser.add_argument("--episode-id", action="append", dest="episode_ids", default=None)
+    parser.add_argument("--out-base", type=Path, default=None)
+    parser.add_argument(
+        "--p42-primary-config",
+        action="store_true",
+        help="Use artifacts/p4_2_primary_d0_d2_experiment/MANIFEST.json primary pool",
+    )
     args = parser.parse_args()
-    report = run_paired(run_id=args.run_id, dry_run=not args.live)
+    kwargs: dict[str, Any] = {
+        "run_id": args.run_id,
+        "dry_run": not args.live,
+    }
+    if args.p42_primary_config:
+        cfg = load_p42_primary_run_config()
+        kwargs.update(
+            {
+                "dataset_root": cfg["dataset_root"],
+                "dataset_digest": cfg["dataset_digest"],
+                "episode_ids": cfg["episode_ids"],
+                "out_base": cfg["out_base"],
+                "dataset_version": cfg["dataset_version"],
+                "design_manifest": cfg["design_manifest"],
+                "coverage_by_episode": cfg["coverage_by_episode"],
+                "protocol_version": cfg["protocol_version"],
+                "utility_fpr_benign_scope": cfg["utility_fpr_benign_scope"],
+                "primary_attack_ids": cfg["primary_attack_ids"],
+                "utility_fpr_benign_episode_ids": cfg["utility_fpr_benign_episode_ids"],
+            }
+        )
+        if args.run_id is None and kwargs["dry_run"]:
+            kwargs["run_id"] = "p42-primary-d0-d2-dry-config-v1"
+    else:
+        if args.dataset_root is not None:
+            kwargs["dataset_root"] = args.dataset_root
+        if args.dataset_digest is not None:
+            kwargs["dataset_digest"] = args.dataset_digest
+        if args.episode_ids:
+            kwargs["episode_ids"] = args.episode_ids
+        if args.out_base is not None:
+            kwargs["out_base"] = args.out_base
+    kwargs["p42_primary"] = bool(args.p42_primary_config)
+    report = run_paired(**kwargs)
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0 if report.get("ok") else 1
 

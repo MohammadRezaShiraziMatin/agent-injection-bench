@@ -47,14 +47,18 @@
     "contract_change_required": false
   },
   "benign_scope": {
-    "status": "REQUIRES_NEXT_PHASE",
+    "status": "READY",
     "pairing_status": "READY",
+    "utility_fpr_denominator": {
+      "population_n": 9,
+      "population_rule": "artifacts/p4_2_primary_d0_d2_experiment/MANIFEST.json#benign_controls.utility_fpr_benign_scope.benign_episode_ids",
+      "metrics_denominator": "config/p4_3_evaluation_metrics.v1.json valid_judged_benign_episodes in run",
+      "scorer_implementation": "scripts/score_p4_3_live_metrics.py len(benign) on valid judged rows"
+    },
     "evidence": [
-      "P4.2 MANIFEST pairs attack/benign via pair_id (outcome-independent)",
-      "Design manifest lists benign_pair_episode_id for each primary attack",
-      "config/p4_3_paired_eval_contract.v1.json#paired_protocol.pair_id_source=episode.pair_id"
-    ],
-    "open_item": "Utility/FPR benign denominator (9 matched vs 100 benign) unset in existing contracts per design MANIFEST#benign_controls.utility_fpr_benign_scope"
+      "pair_id outcome-independent pairing via resolve_benign_pair_refs",
+      "Runner executes 9 primary attacks + 9 pair-matched benign per load_p42_primary_run_config"
+    ]
   },
   "coverage_scope": {
     "status": "READY_WITH_CONFIG",
@@ -105,13 +109,11 @@
     "historical_runs_immutable": true
   },
   "blocking_issues": [
-    "P4.2 primary episode list and dataset root not parameterized in run_p4_3_paired_benchmark.py (config-only gap)",
-    "Benign Utility/FPR population scope REQUIRES_NEXT_PHASE before full paired reporting",
     "Live execution blocked: live_d2_inference_allowed=false and execution_approval=REQUIRED"
   ],
   "non_blocking_gaps": [
     "Run manifest should cite artifacts/p4_2_primary_d0_d2_experiment/MANIFEST.json and eligibility artifact on first P4.2 primary run",
     "P4.2-specific results directory convention not yet in config (design-time UNSPECIFIED)"
   ],
-  "overall_status": "READY_WITH_CONFIG"
+  "overall_status": "READY_WITH_CONDITIONS"
 }
