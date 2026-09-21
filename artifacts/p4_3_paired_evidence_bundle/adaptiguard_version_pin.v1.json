@@ -1,0 +1,17 @@
+{
+  "pin_id": "aib-adaptiguard-version-pin-v1",
+  "repository_url": "https://github.com/MohammadRezaShiraziMatin/adapti-guard",
+  "commit_sha": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+  "python_package_name": "adapti-guard",
+  "python_package_version": "0.1.0",
+  "import_root": "adapti_guard",
+  "aib_api": {
+    "type": "CoreDefensePipeline.run",
+    "module": "adapti_guard.core.core_pipeline",
+    "class": "CoreDefensePipeline",
+    "method": "run",
+    "input_type": "adapti_guard.core.episode.EpisodeInput",
+    "note": "AIB bridge maps episode+messages to EpisodeInput; no guard_messages in upstream"
+  },
+  "contract_mismatch_resolved": "AIB no longer requires guard_messages; uses CoreDefensePipeline per upstream source"
+}

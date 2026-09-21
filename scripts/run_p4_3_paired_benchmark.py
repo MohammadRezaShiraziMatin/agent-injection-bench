@@ -77,7 +77,7 @@ def _live_gates_ok() -> tuple[bool, dict[str, Any]]:
         and lock.get("MODEL_LOCK_STATUS") == "LOCKED"
         and pre.get("preflight_ok")
         and appr.get("ok")
-        and d2.get("integration", {}).get("integrated")
+        and d2.get("ok")
         and d2_appr.get("ok")
     )
     return ok, {
@@ -130,6 +130,7 @@ def _evaluate_episode(
                 "error_status": f"MODEL_OR_DEFENSE_FAILURE: {type(exc).__name__}",
                 "judge_status": "SKIPPED",
             },
+            "judge_called": False,
         }
 
     trace = target_out["trace"]
@@ -178,7 +179,16 @@ def _evaluate_episode(
     (out_cond_dir / "episodes" / f"{ep_id}.json").write_text(
         json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
-    return {"ok": True, "record": record}
+    if defense_event and cond_label == "D2" and not dry_run:
+        dtrace = {
+            "episode_id": ep_id,
+            "condition": cond_label,
+            "defense_event": defense_event,
+            "adaptiguard_trace": (defense_event.get("extra") or {}).get("adaptiguard_policy_action"),
+        }
+        trace_path = out_cond_dir / "defense_traces" / f"{ep_id}.json"
+        trace_path.write_text(json.dumps(dtrace, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return {"ok": True, "record": record, "judge_called": judge_status != "SKIPPED"}
 
 
 def run_paired(*, run_id: str | None = None, dry_run: bool = True) -> dict[str, Any]:
@@ -205,8 +215,10 @@ def run_paired(*, run_id: str | None = None, dry_run: bool = True) -> dict[str, 
     d0_dir = out_dir / "D0"
     d2_dir = out_dir / "D2"
     paired_dir = out_dir / "paired"
+    defense_traces_root = out_dir / "defense_traces"
+    defense_traces_root.mkdir(parents=True, exist_ok=True)
     for base in (d0_dir, d2_dir, paired_dir):
-        for sub in ("episodes", "target_traces", "judge_outputs"):
+        for sub in ("episodes", "target_traces", "judge_outputs", "defense_traces"):
             (base / sub).mkdir(parents=True, exist_ok=True)
 
     target_cfg = load_openrouter_config_for_role("target")
@@ -246,6 +258,8 @@ def run_paired(*, run_id: str | None = None, dry_run: bool = True) -> dict[str, 
     d0_results: list[dict[str, Any]] = []
     d2_results: list[dict[str, Any]] = []
     pairs: list[dict[str, Any]] = []
+    target_api_calls = 0
+    judge_api_calls = 0
 
     for ep in episodes:
         pair_id = ep.get("pair_id") or ep["id"]
@@ -271,6 +285,32 @@ def run_paired(*, run_id: str | None = None, dry_run: bool = True) -> dict[str, 
         )
         d0_results.append(d0_eval["record"])
         d2_results.append(d2_eval["record"])
+        for ev in (d0_eval, d2_eval):
+            rec = ev.get("record") or {}
+            de = rec.get("defense_event") or {}
+            if rec.get("error_status") == "completed":
+                if de.get("defense_enabled"):
+                    if (de.get("extra") or {}).get("target_reached"):
+                        target_api_calls += 1
+                else:
+                    target_api_calls += 1
+            if ev.get("judge_called"):
+                judge_api_calls += 1
+        de2 = d2_eval["record"].get("defense_event") or {}
+        if de2.get("defense_enabled") and not dry_run:
+            (defense_traces_root / f"{ep['id']}.json").write_text(
+                json.dumps(
+                    {
+                        "episode_id": ep["id"],
+                        "defense_event": de2,
+                        "target_reached": (de2.get("extra") or {}).get("target_reached"),
+                    },
+                    indent=2,
+                    ensure_ascii=False,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
         pairs.append(
             {
                 "pair_id": pair_id,
@@ -289,6 +329,9 @@ def run_paired(*, run_id: str | None = None, dry_run: bool = True) -> dict[str, 
     run_manifest["finished_at"] = datetime.now(timezone.utc).isoformat()
     run_manifest["n_episodes"] = len(episodes)
     run_manifest["episode_ids"] = [e["id"] for e in episodes]
+    run_manifest["target_api_calls"] = target_api_calls
+    run_manifest["judge_api_calls"] = judge_api_calls
+    run_manifest["adaptiguard_commit"] = integ.get("commit")
 
     (out_dir / "RUN_MANIFEST.json").write_text(
         json.dumps(run_manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
@@ -301,6 +344,10 @@ def run_paired(*, run_id: str | None = None, dry_run: bool = True) -> dict[str, 
     )
     (paired_dir / "PAIRED_INDEX.json").write_text(
         json.dumps(pairs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    combined = d0_results + d2_results
+    (out_dir / "RESULTS.json").write_text(
+        json.dumps(combined, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
 
     return {

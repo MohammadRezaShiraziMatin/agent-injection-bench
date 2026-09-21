@@ -1,0 +1,10 @@
+{
+  "run_id": "p43-d0-d2-20260921-controlled",
+  "run_type": "paired_d0_d2_live",
+  "results_dir": "results/p4_3_paired/p43-d0-d2-20260921-controlled",
+  "metrics_summary": "artifacts/p4_3_paired_live_metrics_summary.json",
+  "evidence_bundle": "artifacts/p4_3_paired_evidence_bundle",
+  "report": "docs/AIB_P4_3_D0_D2_LIVE_BENCHMARK_REPORT.md",
+  "historical_d0_preserved": "results/p4_3_live/p43-live-20260921-controlled",
+  "dataset_digest": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d"
+}
