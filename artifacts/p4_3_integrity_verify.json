@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "p4_2": {
+    "digest_sha256": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+    "expected_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+    "git_diff_episodes_p4_2_empty": true
+  },
+  "p4_3": {
+    "digest_sha256": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+    "qc_ok": true,
+    "n_episodes": 8
+  }
+}

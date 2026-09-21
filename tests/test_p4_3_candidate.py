@@ -39,6 +39,20 @@ def test_p4_3_qc_passes():
     assert report["n_episodes"] == 8
 
 
+def test_p4_3_integrity_runner():
+    proc = subprocess.run(
+        [sys.executable, "scripts/verify_p4_3_integrity.py"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+        env={**dict(__import__("os").environ), "PYTHONPATH": str(ROOT)},
+    )
+    assert proc.returncode == 0
+    data = json.loads(proc.stdout)
+    assert data["ok"] is True
+
+
 def test_p4_3_s1_attacks():
     atk_dir = P43_DIR / "attack"
     ids = sorted(p.stem for p in atk_dir.glob("*.json"))

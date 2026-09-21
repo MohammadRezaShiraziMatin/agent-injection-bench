@@ -50,9 +50,9 @@
 | Episodes | 8 (4 attack + 4 benign) |
 | Pairs | 4 |
 | Seed | `43020260921` |
-| Digest | `3dcd436bb098b6bab601450659227fc686d9457b5052c3bb59d57766ae55be47` |
-| Human review | `artifacts/p4_3_review_queue.json` — all **UNCERTAIN** |
-| Freeze | **NOT READY** |
+| Digest | `e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d` (post–HR v1.0.1) |
+| Human review | **COMPLETE** — `artifacts/p4_3_hr_audit_trail.json` (8× ACCEPT) |
+| Freeze | **NOT READY** (see `docs/AIB_P4_3_COMPLETION_REPORT.md`) |
 
 ## Scientific quality gate (P4.3 candidate)
 
@@ -67,8 +67,8 @@
 | Provenance | PASS (synthetic, generator recorded) |
 | Executability | PASS (labeled EXECUTABLE) |
 | Benign controls | PASS |
-| Human adjudication | **FAIL** (pending) |
-| Reproducibility | PASS (byte-identical regen) |
+| Human adjudication | **PASS** |
+| Reproducibility | PASS (byte-identical regen, generator 1.0.1) |
 | Scientific justification | PASS for G5-001 only |
 
-**Overall:** **NOT READY** for freeze.
+**Overall:** **PASS WITH CONDITIONS** for scientific gate (`docs/AIB_P4_3_COMPLETION_REPORT.md`); **not** released/frozen.
