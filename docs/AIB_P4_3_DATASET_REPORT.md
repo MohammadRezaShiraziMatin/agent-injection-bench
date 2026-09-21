@@ -7,7 +7,7 @@ Baseline HEAD:
 3e37818cbd4b75b185217b7b75f14c27a628a9f1
 
 Final HEAD:
-(see git log after this commit)
+c8f24c2e4524d6cbb068087a5d7b03908c7518ab
 
 P4.2 digest:
 4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee
