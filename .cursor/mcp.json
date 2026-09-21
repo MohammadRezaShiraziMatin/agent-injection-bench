@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "openclaw": {
+      "command": "${workspaceFolder}/.bin/openclaw",
+      "args": [
+        "mcp",
+        "serve",
+        "--url",
+        "ws://127.0.0.1:18789",
+        "--token-file",
+        "${env:HOME}/.openclaw/gateway.token"
+      ],
+      "env": {
+        "PATH": "${env:HOME}/.openclaw/bin:${env:PATH}"
+      }
+    }
+  }
+}

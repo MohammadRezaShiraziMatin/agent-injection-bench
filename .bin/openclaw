@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Workspace shim: prefer ~/.openclaw prefix install, fall back to PATH lookup.
+set -euo pipefail
+if [[ -x "${HOME}/.openclaw/bin/openclaw" ]]; then
+  exec "${HOME}/.openclaw/bin/openclaw" "$@"
+fi
+exec openclaw "$@"

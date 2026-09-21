@@ -34,7 +34,11 @@ fi
 echo ""
 echo "== Local agent smoke test (no secrets printed) =="
 set +e
-out="$(openclaw agent --local -m 'Reply with exactly: OK' --json 2>&1)"
+if openclaw gateway status 2>&1 | grep -q 'Connectivity probe: ok'; then
+  out="$(openclaw agent -m 'Reply with exactly: OK' --json 2>&1)"
+else
+  out="$(openclaw agent --local -m 'Reply with exactly: OK' --json 2>&1)"
+fi
 code=$?
 set -e
 echo "$out" | grep -vE 'sk-or-|sk-ant-|Bearer' | tail -20
