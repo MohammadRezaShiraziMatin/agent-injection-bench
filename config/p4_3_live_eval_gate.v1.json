@@ -1,0 +1,43 @@
+{
+  "gate_id": "aib-p4.3-live-eval-gate-v1",
+  "dataset_p4_2_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+  "dataset_p4_3_digest": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+  "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
+  "openrouter": {
+    "allow_fallbacks_required": false,
+    "provider_routing_must_be_explicit": true,
+    "require_distinct_target_judge": true
+  },
+  "target_model": {
+    "status": "OPEN",
+    "provider": null,
+    "exact_model_id": null,
+    "immutable_snapshot": null,
+    "endpoint_type": "openrouter_chat_completions",
+    "routing_policy": null,
+    "fallback_policy": "deny"
+  },
+  "judge_model": {
+    "status": "OPEN",
+    "provider": null,
+    "exact_model_id": null,
+    "immutable_snapshot": null,
+    "endpoint_type": "openrouter_chat_completions",
+    "routing_policy": null,
+    "fallback_policy": "deny"
+  },
+  "generation": {
+    "temperature": 0,
+    "top_p": 1.0,
+    "seed": 43020260921,
+    "seed_policy": "record_and_honor_if_provider_supports"
+  },
+  "preflight": {
+    "dry_run_required_before_live": true,
+    "live_inference_allowed": false
+  },
+  "success_semantics": {
+    "s4_external_in_sandbox": false,
+    "mock_send_email_is_not_s4_external": true
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "DATASET_STATUS": "PASS",
+  "EVALUATION_STATUS": "PARTIALLY_CLOSED",
+  "FINAL_GATE": "PASS WITH CONDITIONS",
+  "HARNESS_STATUS": "PARTIALLY_CLOSED",
+  "LIVE_EVIDENCE_STATUS": "BLOCKED",
+  "MODEL_LOCK_STATUS": "BLOCKED",
+  "P4_2_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+  "capabilities": {
+    "ADAPTIVE_LIVE": "LIVE_ADAPTIVE",
+    "ADAPTIVE_STATIC": "STATIC_ADAPTIVE_REPLAY",
+    "INTER_AGENT_EPISODE_SURFACE": "INTER_AGENT_REPLAY_ONLY",
+    "MULTI_AGENT": "MULTI_AGENT_EXECUTION_SUPPORTED",
+    "S3_S4": "sandbox_execution_trace_supported_external_s4_not_claimable"
+  },
+  "conditions": [
+    "MODEL_LOCK",
+    "PREFLIGHT",
+    "S4_EXTERNAL_NOT_IN_SANDBOX",
+    "P4_3_S1_N_EQUALS_4_NO_BROAD_STATS"
+  ],
+  "integrity": {
+    "_exit_code": 0,
+    "ok": true,
+    "p4_2": {
+      "digest_sha256": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+      "expected_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+      "git_diff_episodes_p4_2_empty": true
+    },
+    "p4_3": {
+      "digest_sha256": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+      "n_episodes": 8,
+      "qc_ok": true
+    }
+  },
+  "preflight": {
+    "config_hash_sha256": "2231bb552357f9a6b4de2dc2254a9903fe224fb1f0e2672571b57eb681092abf",
+    "dataset_p4_3_digest": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+    "dry_run": true,
+    "issues": [
+      "model_lock=BLOCKED"
+    ],
+    "judge_model": null,
+    "live_inference_executed": false,
+    "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
+    "model_lock": {
+      "MODEL_LOCK_STATUS": "BLOCKED",
+      "allow_fallbacks": false,
+      "api_key_present": true,
+      "gates": {
+        "G10_immutable_snapshot": "FAIL",
+        "G2_target_identity": "FAIL",
+        "G3_judge_identity": "FAIL",
+        "G4_routing_and_distinct": "FAIL"
+      },
+      "judge_model_id": null,
+      "live_inference_allowed": false,
+      "provider_routing": null,
+      "target_model_id": null,
+      "target_ne_judge": false
+    },
+    "preflight_ok": false,
+    "system_prompt_hash_sha256": "df683cb4a3bf30a0d4b4e1f95fac643c9a0aa449b3ffb8d70bcc71dbeb6e8df6",
+    "target_model": null
+  },
+  "qc_p4_3": {
+    "_exit_code": 0,
+    "byte_identical_regeneration": true,
+    "issues": [],
+    "n_attack": 4,
+    "n_benign": 4,
+    "n_episodes": 8,
+    "ok": true,
+    "p4_2_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+    "p4_2_frozen_digest_ok": true
+  }
+}
