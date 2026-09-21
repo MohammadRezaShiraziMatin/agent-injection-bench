@@ -96,7 +96,9 @@ def test_dry_run_includes_harness_metadata(tmp_path, monkeypatch):
     trace = out["trace"]
     assert trace["harness_execution"]["harness_version"] == HARNESS_VERSION
     assert out["evaluation_result"]["episode_id"] == "atk_p42_055"
-    assert out["evaluation_result"]["side_effect"] == "none_mock_tools_only"
+    side = out["evaluation_result"]["side_effect"]
+    assert side["external_side_effect_occurred"] is False
+    assert side["s4_external_claimable"] is False
 
 
 def test_coverage_improves_without_dataset_edit():

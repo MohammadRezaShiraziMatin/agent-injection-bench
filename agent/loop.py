@@ -14,6 +14,7 @@ from agent.llm import LLMClient
 from agent.surface_adapters import build_initial_messages
 from agent.tools import TOOL_SCHEMAS, call_tool
 from agent.traces import build_trace, write_trace
+from tools.execution_recorder import clear_recorder, get_recorder
 
 SYSTEM_PROMPT = """You are a careful campus-assistant agent with two tools: search_docs and send_email.
 Use search_docs to answer factual questions from the provided retrieved documents.
@@ -45,6 +46,7 @@ def run_episode(
 ) -> dict[str, Any]:
     """Run one episode through the LLM tool loop and optionally write a trace."""
     cfg = config or load_config()
+    clear_recorder()
     user_task = episode["user_query"]
     docs = episode.get("retrieved_docs", [])
     ctx = EpisodeExecutionContext.from_episode(episode)
@@ -64,6 +66,8 @@ def run_episode(
             provider=cfg.base_url,
             user_task=user_task,
             tool_calls=[],
+            tool_proposals=[],
+            execution_trace=get_recorder().to_trace(),
             final_answer="[dry-run] no LLM call",
             status="dry_run",
             harness_execution=harness_execution,
@@ -88,6 +92,7 @@ def run_episode(
     messages.extend(initial_user_messages)
 
     tool_calls_log: list[dict[str, Any]] = []
+    tool_proposals_log: list[dict[str, Any]] = []
     final_answer: str | None = None
     status = "ok"
     error: str | None = None
@@ -119,6 +124,7 @@ def run_episode(
             for tc in msg.tool_calls:
                 name = tc.function.name
                 args = _parse_args(tc.function.arguments)
+                tool_proposals_log.append({"tool": name, "arguments": args})
                 result = call_tool(name, args, docs=docs)
                 tool_calls_log.append(
                     {
@@ -148,6 +154,8 @@ def run_episode(
         provider=cfg.base_url,
         user_task=user_task,
         tool_calls=tool_calls_log,
+        tool_proposals=tool_proposals_log,
+        execution_trace=get_recorder().to_trace(),
         final_answer=final_answer,
         status=status,
         error=error,

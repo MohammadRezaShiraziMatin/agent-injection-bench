@@ -23,6 +23,8 @@ def build_trace(
     provider: str,
     user_task: str,
     tool_calls: list[dict[str, Any]],
+    tool_proposals: list[dict[str, Any]] | None = None,
+    execution_trace: list[dict[str, Any]] | None = None,
     final_answer: str | None,
     status: str,
     error: str | None = None,
@@ -46,6 +48,8 @@ def build_trace(
             for m in (initial_messages or [])
         ],
         "tool_calls": tool_calls,
+        "tool_proposals": tool_proposals or [],
+        "execution_trace": execution_trace or [],
         "final_answer": final_answer,
         "status": status,
         "error": error,

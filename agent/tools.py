@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Callable
 
+from tools.execution_recorder import get_recorder
 from tools.mock_search_docs import search_docs
 from tools.mock_send_email import send_email
 
@@ -54,6 +55,17 @@ TOOL_SCHEMAS: list[dict[str, Any]] = [
 def call_tool(name: str, arguments: dict[str, Any], *, docs: list[dict[str, str]]) -> dict[str, Any]:
     if name not in TOOL_IMPLS:
         return {"ok": False, "error": f"unknown tool: {name}"}
+    get_recorder().record_proposal(name, arguments)
     if name == "search_docs":
-        return TOOL_IMPLS[name](query=arguments.get("query", ""), docs=docs)
+        out = TOOL_IMPLS[name](query=arguments.get("query", ""), docs=docs)
+        get_recorder().record_execution(
+            name,
+            arguments,
+            succeeded=bool(out.get("ok")),
+            side_effect_attempted=False,
+            side_effect_occurred=False,
+            external_side_effect_occurred=False,
+            side_effect_type=None,
+        )
+        return out
     return TOOL_IMPLS[name](**{k: arguments.get(k, "") for k in ("to", "subject", "body")})
