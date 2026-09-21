@@ -10,9 +10,13 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_d2_integration_blocked_without_package():
+def test_d2_integration_blocked_without_package(monkeypatch):
     from scripts.verify_d2_integration import verify_d2_integration
 
+    monkeypatch.setattr(
+        "agent.defense.adaptiguard_bridge._package_importable",
+        lambda: False,
+    )
     report = verify_d2_integration()
     assert report["D2_INTEGRATION"] == "BLOCKED"
     assert report["integration"]["integrated"] is False
@@ -34,6 +38,10 @@ def test_paired_dry_run_comparability():
     assert all(r["condition"] == "D2" for r in d2)
     assert all(r["defense_event"]["defense_enabled"] is False for r in d0)
     assert all(r["defense_event"]["defense_enabled"] is True for r in d2)
+    from agent.defense.adaptiguard_bridge import integration_status
+
+    if integration_status().get("integrated"):
+        assert all(r["defense_event"].get("detector_invoked") for r in d2)
 
 
 def test_live_paired_blocked_without_d2():
