@@ -1,6 +1,6 @@
 # ADAPTI-GUARD bridge
 
-This repository is **attack + evaluation only**. It does **not** implement ADAPTI-GUARD or any defense layer.
+This repository is **attack + evaluation only**. It does **not** vend ADAPTI-GUARD. D2 wiring lives in `agent/defense/adaptiguard_bridge.py` and expects an external Python package exposing `guard_messages(episode=..., messages=..., dry_run=...)`.
 
 Intended integration (separate project):
 

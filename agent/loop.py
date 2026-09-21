@@ -6,6 +6,8 @@ import json
 from typing import Any
 
 from agent.config import LLMConfig, load_config
+from agent.defense.middleware import apply_defense
+from agent.defense.types import DefenseCondition
 from agent.evaluation_result import build_evaluation_result
 from agent.execution_context import EpisodeExecutionContext
 from agent.harness_coverage import _classify_episode, _harness_p424_consumed
@@ -43,6 +45,7 @@ def run_episode(
     dry_run: bool = False,
     write: bool = True,
     max_steps: int = MAX_STEPS,
+    defense_condition: DefenseCondition = DefenseCondition.D0,
 ) -> dict[str, Any]:
     """Run one episode through the LLM tool loop and optionally write a trace."""
     cfg = config or load_config()
@@ -59,6 +62,14 @@ def run_episode(
         "executability_harness": executability_harness,
     }
 
+    defense_result = apply_defense(
+        condition=defense_condition,
+        episode=episode,
+        messages=[{"role": "system", "content": SYSTEM_PROMPT}] + list(initial_user_messages),
+        dry_run=True if dry_run else False,
+    )
+    defense_event = defense_result.event.to_dict()
+
     if dry_run:
         trace = build_trace(
             episode=episode,
@@ -68,9 +79,13 @@ def run_episode(
             tool_calls=[],
             tool_proposals=[],
             execution_trace=get_recorder().to_trace(),
-            final_answer="[dry-run] no LLM call",
+            final_answer=defense_result.synthetic_final_answer or "[dry-run] no LLM call",
             status="dry_run",
-            harness_execution=harness_execution,
+            harness_execution={
+                **harness_execution,
+                "defense_condition": defense_condition.value,
+                "defense_event": defense_event,
+            },
             initial_messages=initial_user_messages,
         )
         path = write_trace(trace, write=write)
@@ -79,6 +94,7 @@ def run_episode(
             "trace": trace,
             "trace_path": str(path) if path else None,
             "evaluation_result": eval_result,
+            "defense_event": defense_event,
         }
 
     if not cfg.configured:
@@ -87,9 +103,35 @@ def run_episode(
             "Use --dry-run to exercise the harness without a key."
         )
 
+    if defense_result.skip_target_model:
+        trace = build_trace(
+            episode=episode,
+            model=cfg.model,
+            provider=cfg.base_url,
+            user_task=user_task,
+            tool_calls=[],
+            tool_proposals=[],
+            execution_trace=get_recorder().to_trace(),
+            final_answer=defense_result.synthetic_final_answer or "",
+            status="defense_blocked" if defense_result.event.block else "defense_skip",
+            harness_execution={
+                **harness_execution,
+                "defense_condition": defense_condition.value,
+                "defense_event": defense_event,
+            },
+            initial_messages=initial_user_messages,
+        )
+        path = write_trace(trace, write=write)
+        eval_result = build_evaluation_result(episode=episode, trace=trace)
+        return {
+            "trace": trace,
+            "trace_path": str(path) if path else None,
+            "evaluation_result": eval_result,
+            "defense_event": defense_event,
+        }
+
     client = LLMClient(cfg)
-    messages: list[dict[str, Any]] = [{"role": "system", "content": SYSTEM_PROMPT}]
-    messages.extend(initial_user_messages)
+    messages = list(defense_result.messages)
 
     tool_calls_log: list[dict[str, Any]] = []
     tool_proposals_log: list[dict[str, Any]] = []
@@ -159,7 +201,11 @@ def run_episode(
         final_answer=final_answer,
         status=status,
         error=error,
-        harness_execution=harness_execution,
+        harness_execution={
+            **harness_execution,
+            "defense_condition": defense_condition.value,
+            "defense_event": defense_event,
+        },
         initial_messages=initial_user_messages,
     )
     path = write_trace(trace, write=write)
@@ -168,4 +214,5 @@ def run_episode(
         "trace": trace,
         "trace_path": str(path) if path else None,
         "evaluation_result": eval_result,
+        "defense_event": defense_event,
     }

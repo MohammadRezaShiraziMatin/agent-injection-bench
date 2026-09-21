@@ -1,0 +1,80 @@
+{
+  "catalog_evidence": "artifacts/openrouter_model_lock_evidence.json",
+  "config_hash_sha256": "2303fc4a21b950e50c589c31df039fad322c71b60a0d8554ae6739f0fda52c8e",
+  "d2_gate_hash_sha256": "af8b0d124efd7fe07b0a8bbe5dd6b37cb16554f9b4b1199926744e2d48bbd827",
+  "dataset_digest": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+  "dataset_version": "P4.3",
+  "defense_integration": {
+    "bridge_doc": "docs/ADAPTI_GUARD_BRIDGE.md",
+    "integrated": false,
+    "module": null,
+    "reason": "No AdaptiGuard Python module on PYTHONPATH (see docs/ADAPTI_GUARD_BRIDGE.md)",
+    "repo_path": null,
+    "status": "NOT_INTEGRATED"
+  },
+  "episode_ids": [
+    "atk_p43_001",
+    "atk_p43_002",
+    "atk_p43_003",
+    "atk_p43_004",
+    "ben_p43_001",
+    "ben_p43_002",
+    "ben_p43_003",
+    "ben_p43_004"
+  ],
+  "episode_order_policy": "deterministic_D0_then_D2",
+  "evaluation_mode": "DRY_RUN",
+  "finished_at": "2026-09-21T06:45:55.273321+00:00",
+  "gates_at_start": {
+    "integrity": {
+      "ok": true,
+      "p4_2": {
+        "digest_sha256": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+        "expected_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+        "git_diff_episodes_p4_2_empty": true
+      },
+      "p4_3": {
+        "digest_sha256": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+        "n_episodes": 8,
+        "qc_ok": true
+      }
+    },
+    "mode": "dry_run",
+    "model_lock": {
+      "MODEL_LOCK_STATUS": "LOCKED",
+      "allow_fallbacks": false,
+      "api_key_present": true,
+      "catalog_evidence_path": "artifacts/openrouter_model_lock_evidence.json",
+      "env_judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+      "env_target_model_id": "openai/gpt-4o-mini-2024-07-18",
+      "gates": {
+        "G10_live_eval_readiness": "PASS",
+        "G2_target_identity": "PASS",
+        "G3_judge_identity": "PASS",
+        "G4_immutable_catalog_snapshot": "PASS"
+      },
+      "judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+      "live_inference_allowed": true,
+      "provider_routing_env": null,
+      "target_model_id": "openai/gpt-4o-mini-2024-07-18",
+      "target_ne_judge": true,
+      "upstream_weight_revision": "UNVERIFIED"
+    }
+  },
+  "git_commit": "90fc8374d06901f4c78b0ddb6180a86d4f9107f9",
+  "harness_version": "p4.3-eval-harness-v1",
+  "judge_model": "meta-llama/llama-3.3-70b-instruct",
+  "judge_provider": "openrouter",
+  "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
+  "mode": "dry_run",
+  "n_episodes": 8,
+  "paired_contract": "config/p4_3_paired_eval_contract.v1.json",
+  "run_id": "p43-d0-d2-20260921-dry-controlled",
+  "secret_status": "AVAILABLE",
+  "seed": 43020260921,
+  "started_at": "2026-09-21T06:45:55.265433+00:00",
+  "system_prompt_hash_sha256": "df683cb4a3bf30a0d4b4e1f95fac643c9a0aa449b3ffb8d70bcc71dbeb6e8df6",
+  "target_model": "openai/gpt-4o-mini-2024-07-18",
+  "target_provider": "openrouter",
+  "upstream_weight_revision": "UNVERIFIED"
+}
