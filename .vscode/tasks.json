@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "OpenClaw: Enter OpenRouter API Key",
+      "type": "shell",
+      "windows": {
+        "command": "wsl.exe",
+        "args": [
+          "-e",
+          "bash",
+          "-lc",
+          "cd \"$(wslpath '${workspaceFolder}')\" && python3 scripts/openrouter_key_ui.py"
+        ]
+      },
+      "linux": {
+        "command": "python3",
+        "args": ["${workspaceFolder}/scripts/openrouter_key_ui.py"],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        }
+      },
+      "osx": {
+        "command": "python3",
+        "args": ["${workspaceFolder}/scripts/openrouter_key_ui.py"],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

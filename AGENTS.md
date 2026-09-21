@@ -15,6 +15,7 @@ This repo is wired for **OpenClaw in WSL/Linux**, not a duplicate Windows global
 - MCP bridge: `.cursor/mcp.json` → `openclaw mcp serve` (enable in Cursor **Settings → MCP**).
 - Put **`OPENROUTER_API_KEY`** in the Cursor environment **Secrets** (never commit). Bootstrap imports it into the local auth store when present.
 - **Rotate key:** update the secret, then either run `./scripts/set_openrouter_api_key.sh --force` (WSL) with `OPENROUTER_API_KEY` set, or set `OPENROUTER_API_KEY_ROTATE=1` and re-run bootstrap / restart Cloud Agent.
+- **Browser form:** Run Task **OpenClaw: Enter OpenRouter API Key** (`.vscode/tasks.json`) or `python3 scripts/openrouter_key_ui.py` — opens `http://127.0.0.1:8765/` on this machine only.
 
 ### Verify
 
