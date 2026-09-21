@@ -82,7 +82,11 @@ Historical runs (`p43-live-20260921-controlled`, `p43-d0-d2-20260921-controlled`
 
 ---
 
-## 7. Future runs
+## 7. Controlled defense experiment (design)
+
+Full D0 vs D2 research specification: `docs/AIB_RESEARCH_CONTROLLED_DEFENSE_EXPERIMENT_SPEC.md`.
+
+## 8. Future runs
 
 Before interpreting D2 effectiveness on an episode set:
 
