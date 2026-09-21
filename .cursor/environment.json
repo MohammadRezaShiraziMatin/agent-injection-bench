@@ -1,12 +1,12 @@
 {
   "name": "agent-injection-bench (OpenClaw)",
-  "install": "bash scripts/bootstrap_openclaw.sh",
+  "install": "pip install -e '.[dev]' && bash scripts/bootstrap_openclaw.sh",
   "start": "bash scripts/bootstrap_openclaw.sh",
   "terminals": [
     {
       "name": "openclaw-gateway",
-      "command": "bash -lc 'export PATH=\"$HOME/.openclaw/bin:$PATH\"; openclaw gateway run'",
-      "description": "OpenClaw Gateway on ws://127.0.0.1:18789 (required for MCP bridge and channel tools)."
+      "command": "bash -lc 'export PATH=\"$HOME/.openclaw/bin:$PWD/.bin:$PATH\"; openclaw gateway run'",
+      "description": "OpenClaw Gateway on ws://127.0.0.1:18789 (MCP + agent turns). OpenRouter auth is optional until you set a key via the local key UI."
     }
   ]
 }
