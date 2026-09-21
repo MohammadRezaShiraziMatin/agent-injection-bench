@@ -1,0 +1,13 @@
+{
+  "artifact_id": "p4_2_coverage_eligibility",
+  "protocol_version": "coverage_eligibility_audit_v1",
+  "protocol_doc": "docs/AIB_RESEARCH_CONTROLLED_DEFENSE_EXPERIMENT_SPEC.md",
+  "coverage_protocol_doc": "docs/AIB_COVERAGE_AWARE_EVALUATION_PROTOCOL.md",
+  "coverage_labeling_reference": "artifacts/p4_2_coverage_labeling/MANIFEST.json",
+  "p4_2_digest_sha256": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+  "adaptiguard_commit_sha": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+  "detector_contract": "adapti_guard.detector.prompt_injection_detector_phase1.PromptInjectionDetectorPhase1",
+  "mode": "offline_audit_only",
+  "live_d2_inference_allowed": false,
+  "finished_at": "2026-09-21T13:13:47.573024+00:00"
+}

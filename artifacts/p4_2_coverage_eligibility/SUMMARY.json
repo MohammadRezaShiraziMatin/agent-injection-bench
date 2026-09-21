@@ -1,0 +1,148 @@
+{
+  "distribution": {
+    "PRIMARY_ELIGIBLE": 9,
+    "SECONDARY_ELIGIBLE": 56,
+    "DIAGNOSTIC_ONLY": 35,
+    "EXCLUDED": 0
+  },
+  "primary_sample_size": 9,
+  "secondary_sample_size": 56,
+  "diagnostic_sample_size": 35,
+  "excluded_sample_size": 0,
+  "flags": [
+    "PRIMARY_SAMPLE_INSUFFICIENT"
+  ],
+  "primary_insufficient_criteria": "Expand COV-A with additional episodes where injection payload is on bridge EpisodeInput and offline calibration shows D2 (C1+C2 documented scaffold hit); requires new labeling evidence only \u2014 no dataset/detector mutation in this audit.",
+  "primary_attack_families": {
+    "direct_prompt_injection": [
+      "atk_p42_002"
+    ],
+    "indirect_prompt_injection": [
+      "atk_p42_011",
+      "atk_p42_012",
+      "atk_p42_013",
+      "atk_p42_014",
+      "atk_p42_015",
+      "atk_p42_016",
+      "atk_p42_017",
+      "atk_p42_018"
+    ]
+  },
+  "secondary_attack_families": {
+    "adaptive_injection": [
+      "atk_p42_097",
+      "atk_p42_098",
+      "atk_p42_099",
+      "atk_p42_100"
+    ],
+    "cross_context_injection": [
+      "atk_p42_083",
+      "atk_p42_084",
+      "atk_p42_085",
+      "atk_p42_086",
+      "atk_p42_087",
+      "atk_p42_088",
+      "atk_p42_089",
+      "atk_p42_090",
+      "atk_p42_091",
+      "atk_p42_092"
+    ],
+    "memory_state_injection": [
+      "atk_p42_071",
+      "atk_p42_072",
+      "atk_p42_073",
+      "atk_p42_074",
+      "atk_p42_075",
+      "atk_p42_076",
+      "atk_p42_077",
+      "atk_p42_078",
+      "atk_p42_079",
+      "atk_p42_080",
+      "atk_p42_081",
+      "atk_p42_082"
+    ],
+    "multi_agent_injection": [
+      "atk_p42_093",
+      "atk_p42_094",
+      "atk_p42_095",
+      "atk_p42_096"
+    ],
+    "multi_turn_injection": [
+      "atk_p42_059",
+      "atk_p42_060",
+      "atk_p42_061",
+      "atk_p42_062",
+      "atk_p42_063",
+      "atk_p42_064",
+      "atk_p42_065",
+      "atk_p42_066",
+      "atk_p42_067",
+      "atk_p42_068",
+      "atk_p42_069",
+      "atk_p42_070"
+    ],
+    "tool_output_injection": [
+      "atk_p42_045",
+      "atk_p42_046",
+      "atk_p42_047",
+      "atk_p42_048",
+      "atk_p42_049",
+      "atk_p42_050",
+      "atk_p42_051",
+      "atk_p42_052",
+      "atk_p42_053",
+      "atk_p42_054",
+      "atk_p42_055",
+      "atk_p42_056",
+      "atk_p42_057",
+      "atk_p42_058"
+    ]
+  },
+  "diagnostic_attack_families": {
+    "direct_prompt_injection": [
+      "atk_p42_001",
+      "atk_p42_003",
+      "atk_p42_004",
+      "atk_p42_005",
+      "atk_p42_006",
+      "atk_p42_007",
+      "atk_p42_008",
+      "atk_p42_009",
+      "atk_p42_010"
+    ],
+    "rag_document_injection": [
+      "atk_p42_019",
+      "atk_p42_020",
+      "atk_p42_021",
+      "atk_p42_022",
+      "atk_p42_023",
+      "atk_p42_024",
+      "atk_p42_025",
+      "atk_p42_026",
+      "atk_p42_027",
+      "atk_p42_028",
+      "atk_p42_029",
+      "atk_p42_030",
+      "atk_p42_031",
+      "atk_p42_032",
+      "atk_p42_033",
+      "atk_p42_034"
+    ],
+    "web_retrieved_content_injection": [
+      "atk_p42_035",
+      "atk_p42_036",
+      "atk_p42_037",
+      "atk_p42_038",
+      "atk_p42_039",
+      "atk_p42_040",
+      "atk_p42_041",
+      "atk_p42_042",
+      "atk_p42_043",
+      "atk_p42_044"
+    ]
+  },
+  "unresolved_cases": [],
+  "cov_a_audit_count": 23,
+  "cov_a_primary_count": 9,
+  "cov_a_downgraded_to_secondary": 14
+}
