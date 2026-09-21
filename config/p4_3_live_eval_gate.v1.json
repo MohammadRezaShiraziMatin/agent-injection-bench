@@ -60,7 +60,8 @@
   },
   "preflight": {
     "dry_run_required_before_live": true,
-    "live_inference_allowed": false
+    "live_inference_allowed": true,
+    "live_approval_artifact": "artifacts/p4_3_live_approval.json"
   },
   "success_semantics": {
     "s4_external_in_sandbox": false,

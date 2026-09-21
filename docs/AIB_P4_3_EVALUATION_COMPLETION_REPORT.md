@@ -1,8 +1,10 @@
 # AIB P4.3 — Evaluation Infrastructure Completion Report
 
 **Date:** 2026-09-21 (UTC)  
-**Baseline HEAD (pre-work):** `1e46227`  
-**Scope:** Harness / evaluation / model-lock readiness for live benchmark — **no P4.2 mutation**, **no dataset expansion**, **no live LLM calls**, **no push/PR/release**.
+**Baseline HEAD (pre-work):** `5774066`  
+**Scope:** Harness / evaluation / model-lock / **controlled P4.3 live benchmark** — **no P4.2 mutation**, **no dataset expansion**, **no push/PR/release**.
+
+**Live benchmark:** see `docs/AIB_P4_3_LIVE_BENCHMARK_REPORT.md` (`run_id=p43-live-20260921-controlled`).
 
 ---
 

@@ -24,11 +24,17 @@ class LLMClient:
         tools: list[dict[str, Any]] | None = None,
         *,
         tool_choice: str | dict[str, Any] | None = "auto",
+        temperature: float | None = 0,
+        top_p: float | None = None,
     ) -> Any:
         kwargs: dict[str, Any] = {
             "model": self.config.model,
             "messages": messages,
         }
+        if temperature is not None:
+            kwargs["temperature"] = temperature
+        if top_p is not None:
+            kwargs["top_p"] = top_p
         if tools:
             kwargs["tools"] = tools
             if tool_choice is not None:
