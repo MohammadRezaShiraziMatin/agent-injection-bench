@@ -1,0 +1,66 @@
+{
+  "catalog_fetched_at": "2026-09-21T06:15:47.562755+00:00",
+  "catalog_full_sha256": "065da79155a9caf9be467c6a73465d40329a2277b6a5fc6e8c9b85d415e6b3a3",
+  "catalog_url": "https://openrouter.ai/api/v1/models",
+  "models": {
+    "meta-llama/llama-3.3-70b-instruct": {
+      "canonical_slug": "meta-llama/llama-3.3-70b-instruct",
+      "catalog_entry_sha256": "af876b7ca63198cedb9873cf2ea87057388189e001de86adfd7a81c29f122f25",
+      "context_length": 131072,
+      "created_unix": 1733506137,
+      "exact_model_id": "meta-llama/llama-3.3-70b-instruct",
+      "hugging_face_id": "meta-llama/Llama-3.3-70B-Instruct",
+      "snapshot_limitation": "OpenRouter catalog row fingerprint only; upstream provider weight revision is not independently attested by this repository.",
+      "supported_parameters": [
+        "frequency_penalty",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "tool_calling_supported": true,
+      "weight_revision_provable": false
+    },
+    "openai/gpt-4o-mini-2024-07-18": {
+      "canonical_slug": "openai/gpt-4o-mini-2024-07-18",
+      "catalog_entry_sha256": "9104c1913fcc90fe6d34fed6c04ba453b4dc389b4b5426589ce3aafc9665e5e6",
+      "context_length": 128000,
+      "created_unix": 1721260800,
+      "exact_model_id": "openai/gpt-4o-mini-2024-07-18",
+      "hugging_face_id": null,
+      "snapshot_limitation": "OpenRouter catalog row fingerprint only; upstream provider weight revision is not independently attested by this repository.",
+      "supported_parameters": [
+        "frequency_penalty",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "prediction",
+        "presence_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_logprobs",
+        "top_p",
+        "web_search_options"
+      ],
+      "tool_calling_supported": true,
+      "weight_revision_provable": false
+    }
+  }
+}

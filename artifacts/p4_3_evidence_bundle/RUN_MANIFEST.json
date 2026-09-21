@@ -1,0 +1,94 @@
+{
+  "catalog_evidence": "artifacts/openrouter_model_lock_evidence.json",
+  "config_hash_sha256": "2303fc4a21b950e50c589c31df039fad322c71b60a0d8554ae6739f0fda52c8e",
+  "dataset_digest": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+  "dataset_version": "P4.3",
+  "episode_ids": [
+    "atk_p43_001",
+    "atk_p43_002",
+    "atk_p43_003",
+    "atk_p43_004",
+    "ben_p43_001",
+    "ben_p43_002",
+    "ben_p43_003",
+    "ben_p43_004"
+  ],
+  "evaluation_mode": "LIVE",
+  "finished_at": "2026-09-21T06:30:09.337364+00:00",
+  "gates_at_start": {
+    "approval": {
+      "LIVE_APPROVAL": "EXPLICIT",
+      "approval_id": "p4.3-live-benchmark-1",
+      "approved_at": "2026-09-21T06:30:00Z",
+      "gate_approval_artifact": "artifacts/p4_3_live_approval.json",
+      "live_inference_allowed_in_gate": true,
+      "ok": true
+    },
+    "model_lock": {
+      "MODEL_LOCK_STATUS": "LOCKED",
+      "allow_fallbacks": false,
+      "api_key_present": true,
+      "catalog_evidence_path": "artifacts/openrouter_model_lock_evidence.json",
+      "env_judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+      "env_target_model_id": "openai/gpt-4o-mini-2024-07-18",
+      "gates": {
+        "G10_live_eval_readiness": "PASS",
+        "G2_target_identity": "PASS",
+        "G3_judge_identity": "PASS",
+        "G4_immutable_catalog_snapshot": "PASS"
+      },
+      "judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+      "live_inference_allowed": true,
+      "provider_routing_env": null,
+      "target_model_id": "openai/gpt-4o-mini-2024-07-18",
+      "target_ne_judge": true,
+      "upstream_weight_revision": "UNVERIFIED"
+    },
+    "preflight": {
+      "config_hash_sha256": "2303fc4a21b950e50c589c31df039fad322c71b60a0d8554ae6739f0fda52c8e",
+      "dataset_p4_3_digest": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+      "dry_run": true,
+      "issues": [],
+      "judge_model": "meta-llama/llama-3.3-70b-instruct",
+      "live_inference_executed": false,
+      "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
+      "model_lock": {
+        "MODEL_LOCK_STATUS": "LOCKED",
+        "allow_fallbacks": false,
+        "api_key_present": true,
+        "catalog_evidence_path": "artifacts/openrouter_model_lock_evidence.json",
+        "env_judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+        "env_target_model_id": "openai/gpt-4o-mini-2024-07-18",
+        "gates": {
+          "G10_live_eval_readiness": "PASS",
+          "G2_target_identity": "PASS",
+          "G3_judge_identity": "PASS",
+          "G4_immutable_catalog_snapshot": "PASS"
+        },
+        "judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+        "live_inference_allowed": true,
+        "provider_routing_env": null,
+        "target_model_id": "openai/gpt-4o-mini-2024-07-18",
+        "target_ne_judge": true,
+        "upstream_weight_revision": "UNVERIFIED"
+      },
+      "preflight_ok": true,
+      "system_prompt_hash_sha256": "df683cb4a3bf30a0d4b4e1f95fac643c9a0aa449b3ffb8d70bcc71dbeb6e8df6",
+      "target_model": "openai/gpt-4o-mini-2024-07-18"
+    }
+  },
+  "git_commit": "577406602b406b2ef89d3557c71135a63c085a9d",
+  "harness_version": "p4.3-eval-harness-v1",
+  "judge_model": "meta-llama/llama-3.3-70b-instruct",
+  "judge_provider": "openrouter",
+  "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
+  "n_episodes": 8,
+  "run_id": "p43-live-20260921-controlled",
+  "secret_status": "AVAILABLE",
+  "seed": 43020260921,
+  "started_at": "2026-09-21T06:29:49.874439+00:00",
+  "system_prompt_hash_sha256": "df683cb4a3bf30a0d4b4e1f95fac643c9a0aa449b3ffb8d70bcc71dbeb6e8df6",
+  "target_model": "openai/gpt-4o-mini-2024-07-18",
+  "target_provider": "openrouter",
+  "upstream_weight_revision": "UNVERIFIED"
+}

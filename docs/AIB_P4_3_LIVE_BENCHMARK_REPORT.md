@@ -93,6 +93,12 @@ See `artifacts/p4_3_live_metrics_summary.json`.
 
 ---
 
+## Post-live validation
+
+See `docs/AIB_P4_3_POST_LIVE_VALIDATION_REPORT.md` and `artifacts/p4_3_live_corrected_analysis.json` for S1/S3 disagreement root-cause analysis and **corrected** descriptive metrics (original `RESULTS.json` preserved).
+
+---
+
 ## 8. Final scientific gate
 
 | Status | Value |

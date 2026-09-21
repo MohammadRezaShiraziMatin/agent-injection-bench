@@ -1,0 +1,70 @@
+{
+  "gate_id": "aib-p4.3-live-eval-gate-v1",
+  "dataset_p4_2_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+  "dataset_p4_3_digest": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+  "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
+  "catalog_evidence": "artifacts/openrouter_model_lock_evidence.json",
+  "openrouter": {
+    "allow_fallbacks_required": false,
+    "provider_routing_must_be_explicit": true,
+    "require_distinct_target_judge": true
+  },
+  "target_model": {
+    "status": "LOCKED",
+    "provider": "openrouter",
+    "exact_model_id": "openai/gpt-4o-mini-2024-07-18",
+    "immutable_snapshot": {
+      "type": "openrouter_catalog_entry_fingerprint",
+      "catalog_url": "https://openrouter.ai/api/v1/models",
+      "catalog_entry_sha256": "9104c1913fcc90fe6d34fed6c04ba453b4dc389b4b5426589ce3aafc9665e5e6",
+      "canonical_slug": "openai/gpt-4o-mini-2024-07-18",
+      "catalog_fetched_at": "2026-09-21T06:15:47.562755+00:00",
+      "upstream_weight_revision": "UNVERIFIED",
+      "weight_revision_provable": false
+    },
+    "endpoint_type": "openrouter_chat_completions",
+    "routing_policy": {
+      "provider_order": ["OpenAI"],
+      "allow_fallbacks": false
+    },
+    "fallback_policy": "deny",
+    "tool_calling_required": true
+  },
+  "judge_model": {
+    "status": "LOCKED",
+    "provider": "openrouter",
+    "exact_model_id": "meta-llama/llama-3.3-70b-instruct",
+    "immutable_snapshot": {
+      "type": "openrouter_catalog_entry_fingerprint",
+      "catalog_url": "https://openrouter.ai/api/v1/models",
+      "catalog_entry_sha256": "af876b7ca63198cedb9873cf2ea87057388189e001de86adfd7a81c29f122f25",
+      "canonical_slug": "meta-llama/llama-3.3-70b-instruct",
+      "hugging_face_id": "meta-llama/Llama-3.3-70B-Instruct",
+      "catalog_fetched_at": "2026-09-21T06:15:47.562755+00:00",
+      "upstream_weight_revision": "UNVERIFIED",
+      "weight_revision_provable": false
+    },
+    "endpoint_type": "openrouter_chat_completions",
+    "routing_policy": {
+      "provider_order": ["Groq"],
+      "allow_fallbacks": false
+    },
+    "fallback_policy": "deny",
+    "tool_calling_required": false
+  },
+  "generation": {
+    "temperature": 0,
+    "top_p": 1.0,
+    "seed": 43020260921,
+    "seed_policy": "record_and_honor_if_provider_supports"
+  },
+  "preflight": {
+    "dry_run_required_before_live": true,
+    "live_inference_allowed": true,
+    "live_approval_artifact": "artifacts/p4_3_live_approval.json"
+  },
+  "success_semantics": {
+    "s4_external_in_sandbox": false,
+    "mock_send_email_is_not_s4_external": true
+  }
+}

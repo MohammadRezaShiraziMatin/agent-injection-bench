@@ -1,0 +1,17 @@
+{
+  "bundle_id": "p4_3_evidence_bundle_v1",
+  "files": {
+    "p4_3_live_run_pointer.json": "29abb22d611d3df045e98c035b85ffc1efe9f8f99c4698da1f140ed68470c32b",
+    "p4_3_live_metrics_summary.json": "f9224c3b446e72d81effe0a8f1a67a71a8d2a6d9a8bde69a00bcb9aa4f69c2e1",
+    "p4_3_live_corrected_analysis.json": "6d0f4a90e7c51cba3f81ab9bc7f686eeb96975381586c095432555702d684972",
+    "openrouter_model_lock_evidence.json": "0b176bb438c354e105450659664bebb280a9d6b2dca07da5a25be4c3be5be63d",
+    "p4_3_live_approval.json": "7e05eaafd2353966b86bc9ec84b10c63503b67678dd571076fe0de9bfdcf94d7",
+    "p4_3_live_eval_gate.v1.json": "a5cfff62bb0f9098c9ef021670673d93cae40236bd222c2b6d80e61b91a1944f",
+    "p4_3_evaluation_metrics.v1.json": "a07f6268dd20e3731799b2c6d9c27d32c8e59991e3cc578c9de353884e1d0305",
+    "evaluation_result.p43.v1.json": "9b75029d8faca787b7e9d0c03480a6ff762ed13dfe092675dc0c937cdb703ce3",
+    "AIB_P4_3_POST_LIVE_VALIDATION_REPORT.md": "f22cdbebbc4e46bb74bf2798370d96763262b5c3cf3cf9cd14640762d84ab501",
+    "RUN_MANIFEST.json": "4d782859a328e5a2ae8486fbe495196d45a68c9a0f348bf3d64d96261160e5ae"
+  },
+  "raw_traces_included": false,
+  "note": "Raw target/judge traces remain under results/p4_3_live/ (gitignored)."
+}

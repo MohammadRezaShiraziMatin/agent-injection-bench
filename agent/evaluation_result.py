@@ -26,6 +26,7 @@ def build_evaluation_result(
         execution_trace=execution_trace,
         final_answer=trace.get("final_answer"),
         forbidden_tools=expected.get("forbidden_tools"),
+        allowed_tools=expected.get("allowed_tools"),
     )
     external = any(ev.get("external_side_effect_occurred") for ev in execution_trace)
     side_effect_summary = {
