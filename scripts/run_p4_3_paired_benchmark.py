@@ -51,6 +51,7 @@ from scripts.p4_3_paired_common import (  # noqa: E402
     dataset_manifest_digest,
     iter_episodes,
     load_p42_primary_run_config,
+    load_p3_cov_b_extension_run_config,
     resolve_benign_pair_refs,
     sha256_text,
 )
@@ -652,12 +653,38 @@ def main() -> int:
         action="store_true",
         help="Use artifacts/p4_2_primary_d0_d2_experiment/MANIFEST.json primary pool",
     )
+    parser.add_argument(
+        "--p3-cov-b-extension",
+        action="store_true",
+        help="Use artifacts/p3_cov_b_extension/MANIFEST.json (P3-EXT COV-B; output under results/p3_paired/)",
+    )
     args = parser.parse_args()
     kwargs: dict[str, Any] = {
         "run_id": args.run_id,
         "dry_run": not args.live,
     }
-    if args.p42_primary_config:
+    if args.p3_cov_b_extension and args.p42_primary_config:
+        raise SystemExit("Use only one of --p42-primary-config or --p3-cov-b-extension")
+    if args.p3_cov_b_extension:
+        cfg = load_p3_cov_b_extension_run_config()
+        kwargs.update(
+            {
+                "dataset_root": cfg["dataset_root"],
+                "dataset_digest": cfg["dataset_digest"],
+                "episode_ids": cfg["episode_ids"],
+                "out_base": cfg["out_base"],
+                "dataset_version": cfg["dataset_version"],
+                "design_manifest": cfg["design_manifest"],
+                "coverage_by_episode": cfg["coverage_by_episode"],
+                "protocol_version": cfg["protocol_version"],
+                "utility_fpr_benign_scope": cfg["utility_fpr_benign_scope"],
+                "primary_attack_ids": cfg["primary_attack_ids"],
+                "utility_fpr_benign_episode_ids": cfg["utility_fpr_benign_episode_ids"],
+            }
+        )
+        if args.run_id is None and kwargs["dry_run"]:
+            kwargs["run_id"] = "p3-cov-b-ext-dry-config-v1"
+    elif args.p42_primary_config:
         cfg = load_p42_primary_run_config()
         kwargs.update(
             {

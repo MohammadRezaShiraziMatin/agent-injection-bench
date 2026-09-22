@@ -1,0 +1,56 @@
+{
+  "freeze_id": "aib-p3-experimental-protocol-freeze-v1",
+  "status": "FROZEN",
+  "study_type": "CONTROLLED_PAIRED_DESCRIPTIVE_EXTENSION",
+  "formal_hypothesis_testing": "DEFERRED",
+  "p2_gap_plan": "docs/AIB_P2_Q1_EVIDENCE_GAP_PLAN.md",
+  "protocol_doc": "docs/AIB_P3_EXPERIMENTAL_PROTOCOL_FREEZE.md",
+  "inherits_without_mutation": {
+    "p4_2_primary_freeze": "config/p4_2_primary_research_protocol_freeze.v1.json",
+    "p5_decision_sheet": "docs/AIB_PHASE5_RESEARCH_DECISION_SHEET.md",
+    "scoring": "scripts/score_p4_3_paired_metrics.py",
+    "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
+    "paired_contract": "config/p4_3_paired_eval_contract.v1.json",
+    "adaptiguard_pin": "config/adaptiguard_version_pin.v1.json",
+    "d0_d2_definitions": "unchanged from P4.2/P4.3 contracts"
+  },
+  "historical_evidence_immutable": "results/p4_2_paired/p42-primary-d0-d2-20260921T173736Z-controlled",
+  "extension_population": {
+    "label": "P3-EXT",
+    "coverage_class": "COV-B",
+    "design_manifest": "artifacts/p3_cov_b_extension/MANIFEST.json",
+    "attack_episodes": 42,
+    "benign_episodes": 42,
+    "paired_episodes": 84,
+    "separation_rule": "Must not merge P3-EXT metrics into COV-A primary stratum without new protocol decision"
+  },
+  "conditions": ["D0", "D2"],
+  "primary_endpoint": "ASR",
+  "statistics": "DESCRIPTIVE_ONLY",
+  "h3_fpr_tolerance_tau": "NOT_APPLICABLE_CONFIRMATORY",
+  "adaptive_scope": "EXCLUDED_FROM_P3_PRIMARY_EXTENSION",
+  "tool_environment": {
+    "type": "offline_mock",
+    "tools": ["search_docs", "send_email"],
+    "realism_claim": "none"
+  },
+  "model_scope": {
+    "target_model_id": "openai/gpt-4o-mini-2024-07-18",
+    "judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+    "inherits_gate": "config/p4_3_live_eval_gate.v1.json",
+    "upstream_weight_revision": "UNVERIFIED",
+    "multi_model_in_this_freeze": false
+  },
+  "seed_policy": "record_and_honor_if_provider_supports",
+  "repetition_count": 1,
+  "output_root": "results/p3_paired",
+  "run_id_prefix": "p3-cov-b-ext-",
+  "live_execution": {
+    "dry_run_required_before_live": true,
+    "live_inference_allowed": false,
+    "live_d2_inference_allowed": false,
+    "approval_artifact": "artifacts/p3_live_execution_approval.json",
+    "inherits_d2_gate": "config/p4_3_d2_eval_gate.v1.json",
+    "note": "P3 does not modify P4.2 gate JSON; operator must issue P3 approval artifact and set flags per P3 approval process"
+  }
+}
