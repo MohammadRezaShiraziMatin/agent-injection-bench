@@ -77,5 +77,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package (dev)
+        run: pip install -e ".[dev]"
       - name: Live D2 gate must stay disabled by default
-        run: python -m pytest tests/test_research_ci_contracts.py -q
+        run: pytest tests/test_research_ci_contracts.py -q
