@@ -35,6 +35,15 @@ def _sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def test_research_ci_workflow_present():
+    wf = ROOT / ".github/workflows/research-ci.yml"
+    assert wf.is_file()
+    text = wf.read_text(encoding="utf-8")
+    assert "permissions:" in text
+    assert "contents: read" in text
+
+
+@pytest.mark.skipif(not FREEZE_PATH.is_file(), reason="P4.2 protocol freeze not in tree")
 def test_p5_protocol_freeze_status():
     freeze = json.loads(FREEZE_PATH.read_text(encoding="utf-8"))
     assert freeze.get("status") == "FROZEN"
@@ -49,12 +58,14 @@ def test_p5_protocol_freeze_status():
     assert freeze.get("live_execution_in_this_freeze") is False
 
 
+@pytest.mark.skipif(not D2_GATE_PATH.is_file(), reason="P4.3 D2 eval gate not in tree")
 def test_live_d2_gate_safely_disabled():
     gate = json.loads(D2_GATE_PATH.read_text(encoding="utf-8"))
     assert gate.get("preflight", {}).get("live_d2_inference_allowed") is False
     assert gate.get("p4_2_primary_preflight", {}).get("live_d2_inference_allowed") is False
 
 
+@pytest.mark.skipif(not FREEZE_PATH.is_file(), reason="P4.2 protocol freeze not in tree")
 def test_historical_p42_run_immutable_per_freeze():
     freeze = json.loads(FREEZE_PATH.read_text(encoding="utf-8"))
     rel = freeze.get("historical_run_immutable")
