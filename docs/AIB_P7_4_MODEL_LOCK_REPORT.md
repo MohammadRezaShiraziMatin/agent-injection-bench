@@ -3,7 +3,8 @@
 **Date:** 2026-09-21 (UTC)  
 **Baseline HEAD:** `b803cc2`  
 **Branch:** `cursor/p4-2-dataset-6db2`  
-**Live LLM inference:** **NOT RUN**
+**Live LLM inference:** **NOT RUN**  
+**P7 status:** `DESCRIPTIVE_METRICS_RECONCILED` (tracked primary run `…173736Z…`; see P8 submission index).
 
 ---
 

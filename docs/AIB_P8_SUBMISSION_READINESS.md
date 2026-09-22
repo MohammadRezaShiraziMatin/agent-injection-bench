@@ -1,6 +1,7 @@
 # P8 — Submission evidence index & gap closure (documentation only)
 
 **Status:** Gap-closure packaging for manuscript/submission alignment.  
+**SUBMISSION_READINESS:** `SUFFICIENT_FOR_CURRENT_CLAIMS` (descriptive, COV-A n=9; see §9 claim safety).  
 **Does not:** change datasets, frozen contracts, historical results, or re-run experiments.
 
 ---
@@ -80,8 +81,8 @@ Exclude from primary P4.2 narrative or add external supplementary with provenanc
 
 ## 7. G2-MAIN / G2-CI-POLICY
 
-- Research code + results: `cursor/p4-2-dataset-6db2` (ahead of `main`).
-- PR #4 (`cursor/github-research-ci-6db2`): CI-only vs `main`; merge separately from research branch.
+- Research release merged to `main` (PR #2); CI workflow on `main` (PR #4 merge).
+- Historical development branch: `cursor/p4-2-dataset-6db2` (same content at release merge).
 - **Required check names (from GitHub):** `Tests`, `Research Integrity`, `Security / Workflow Validation` (workflow: Research CI).
 - Branch protection: **ADMIN_ACTION_REQUIRED** (API not writable from agent). Administrator should require the three jobs above on `main` after merge.
 

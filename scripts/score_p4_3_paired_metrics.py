@@ -109,7 +109,7 @@ def score_paired(run_dir: Path) -> dict:
                 "denominator": den,
                 "rate": num / den,
                 "descriptive_only": True,
-                "note": "n=4 attacks — descriptive only",
+                "note": f"n={den} attacks with D0 attack_success=true — descriptive only",
             }
     elif historical and d2_rows:
         num = 0
