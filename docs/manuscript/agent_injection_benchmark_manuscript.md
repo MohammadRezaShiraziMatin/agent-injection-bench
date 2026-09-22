@@ -8,7 +8,7 @@ We report a **controlled, paired, descriptive** evaluation of indirect prompt in
 
 ## 1. Introduction
 
-Indirect prompt injection exposes tool-using agents to adversarial content in retrieved or tool-mediated context. Agent-Injection-Bench (AIB) provides frozen datasets, evaluation contracts, harnesses, and recorded live runs intended for **reproducible, evidence-bounded** reporting. This manuscript summarizes only what is supported by the canonical primary run identified above—not the full 200-episode corpus as a population estimate.
+Indirect prompt injection exposes tool-using agents to adversarial content in retrieved or tool-mediated context [1]. Agent-Injection-Bench (AIB) provides frozen datasets, evaluation contracts, harnesses, and recorded live runs intended for **reproducible, evidence-bounded** reporting. This manuscript summarizes only what is supported by the canonical primary run identified above—not the full 200-episode corpus as a population estimate.
 
 ## 2. Research Questions
 
@@ -18,7 +18,13 @@ Indirect prompt injection exposes tool-using agents to adversarial content in re
 
 ## 3. Related Work
 
-External benchmark mapping and citation readiness are documented in `docs/AIB_P4_3_EXTERNAL_BENCHMARK_AUDIT.md` (e.g., AgentDojo, InjecAgent, Tensor Trust, PIArena). **MANUAL VERIFICATION REQUIRED** for complete bibliographic entries before submission; this draft does not invent DOIs or publication metadata.
+**Indirect prompt injection and agent threat models.** Greshake et al. [1] formalize indirect prompt injection against LLM-integrated applications where retrieved data can act as adversarial instructions. Follow-on work studies automated black-box injection frameworks [6] and tool-integrated agent benchmarks [2, 3]. We cite these works only to situate the threat model and evaluation landscape—not to claim our n=9 descriptive run generalizes their findings.
+
+**Benchmarks and datasets.** InjecAgent [2] benchmarks indirect injections in tool-integrated agents (1,054 test cases). AgentDojo [3] provides a dynamic environment with realistic tasks and security test cases for agent prompt injection. Tensor Trust [4] supplies a large human-generated attack/defense dataset from an online game. BIPIA [5] spans multiple application scenarios for indirect injection. PIArena [8] is a unified evaluation platform with adaptive attack strategies. AIB differs in scope: a frozen, paired D0/D2 descriptive protocol on a fixed COV-A primary pool with immutable run artifacts in-repo.
+
+**Defenses (context only).** StruQ [7] separates prompt and data channels via structured queries and specialized fine-tuning. Our D2 condition evaluates AdaptiGuard as an **integrated mitigation pipeline** on the primary run; we do **not** claim parity with StruQ-style training or that D2 constitutes a generally effective defense.
+
+**Not cited (UNVERIFIED in this pass):** standalone primary artifacts for Task Shield, Spotlighting, and VIGIL were not verified from publisher/arXiv pages and are omitted to avoid citation dumping.
 
 ## 4. Threat Model
 
@@ -35,6 +41,7 @@ P4.2 episodes encode interaction types, horizons, and success criteria (S1–S4)
 - **Episode corpus:** P4.2 frozen dataset under `data/episodes_p4_2/` (digest referenced in protocol).
 - **Primary design manifest:** `artifacts/p4_2_primary_d0_d2_experiment/MANIFEST.json`.
 - **Independent validation corpus (P4.4):** separate freeze; not pooled into primary n=9 metrics here.
+- **Repository release:** frozen artifacts and protocols in AIB [9].
 
 ## 7. Defense Conditions
 
@@ -140,6 +147,20 @@ Do not imply causal or population inference in captions.
 
 ## References
 
-- Repository documentation and audit trail (primary): `docs/AIB_P8_SUBMISSION_READINESS.md`, `docs/AIB_SCIENTIFIC_INTEGRITY_AUDIT.md`, `docs/AIB_P4_3_EXTERNAL_BENCHMARK_AUDIT.md`.
-- AdaptiGuard integration: `docs/ADAPTI_GUARD_BRIDGE.md`.
-- **External papers:** complete citations require **MANUAL VERIFICATION REQUIRED** from primary sources before submission.
+[1] Kai Greshake, Sahar Abdelnabi, Shailesh Mishra, Christoph Endres, Thorsten Holz, and Mario Fritz. 2023. Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection. In *Proceedings of the 16th ACM Workshop on Artificial Intelligence and Security (AISec '23)*, 79–90. DOI: [10.1145/3605764.3623985](https://doi.org/10.1145/3605764.3623985). arXiv: [2302.12173](https://arxiv.org/abs/2302.12173).
+
+[2] Qiusi Zhan, Zhixiang Liang, Zifan Ying, and Daniel Kang. 2024. InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents. In *Findings of the Association for Computational Linguistics: ACL 2024*, 10471–10506, Bangkok, Thailand. DOI: [10.18653/v1/2024.findings-acl.624](https://doi.org/10.18653/v1/2024.findings-acl.624). arXiv: [2403.02691](https://arxiv.org/abs/2403.02691).
+
+[3] Edoardo Debenedetti, Jie Zhang, Mislav Balunović, Luca Beurer-Kellner, Marc Fischer, and Florian Tramèr. 2024. AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents. In *NeurIPS 2024 Datasets and Benchmarks Track*. DOI: [10.52202/079017-2636](https://doi.org/10.52202/079017-2636).
+
+[4] Sam Toyer, Olivia Watkins, Ethan Adrian Mendes, Justin Svegliato, Luke Bailey, Tiffany Wang, Isaac Ong, Karim Elmaaroufi, Pieter Abbeel, Trevor Darrell, Alan Ritter, and Stuart Russell. 2023. Tensor Trust: Interpretable Prompt Injection Attacks from an Online Game. arXiv: [2311.01011](https://arxiv.org/abs/2311.01011).
+
+[5] Jingwei Yi, Yueqi Xie, Bin Zhu, Keegan Hines, Emre Kiciman, Guangzhong Sun, Xing Xie, and Fangzhao Wu. 2023. Benchmarking and Defending Against Indirect Prompt Injection Attacks on Large Language Models. arXiv: [2312.14197](https://arxiv.org/abs/2312.14197). Code: [microsoft/BIPIA](https://github.com/microsoft/BIPIA).
+
+[6] Yi Liu, Gelei Deng, Yuekang Li, Kailong Wang, Zihao Wang, Xiaofeng Wang, Tianwei Zhang, Yepang Liu, Haoyu Wang, Yan Zheng, Leo Yu Zhang, and Yang Liu. 2023. Prompt Injection attack against LLM-integrated Applications. arXiv: [2306.05499](https://arxiv.org/abs/2306.05499).
+
+[7] Sizhe Chen, Julien Piet, Chawin Sitawarin, and David Wagner. 2025. StruQ: Defending Against Prompt Injection with Structured Queries. In *34th USENIX Security Symposium (USENIX Security 25)*, 2383–2400. URL: [USENIX presentation](https://www.usenix.org/conference/usenixsecurity25/presentation/chen-sizhe). arXiv: [2402.06363](https://arxiv.org/abs/2402.06363).
+
+[8] Runpeng Geng, Chenlong Yin, Yanting Wang, Ying Chen, and Jinyuan Jia. 2026. PIArena: A Platform for Prompt Injection Evaluation. In *Proceedings of ACL 2026* (long paper). ACL Anthology: [2026.acl-long.1533](https://aclanthology.org/2026.acl-long.1533/). arXiv: [2604.08499](https://arxiv.org/abs/2604.08499).
+
+[9] MohammadReza Shirazi Matin et al. *Agent-Injection-Bench (AIB)* repository and frozen evaluation artifacts. GitHub: [MohammadRezaShiraziMatin/agent-injection-bench](https://github.com/MohammadRezaShiraziMatin/agent-injection-bench). Primary run: `results/p4_2_paired/p42-primary-d0-d2-20260921T173736Z-controlled/`. Internal docs: `docs/AIB_P8_SUBMISSION_READINESS.md`, `docs/AIB_SCIENTIFIC_INTEGRITY_AUDIT.md`, `docs/ADAPTI_GUARD_BRIDGE.md`.
