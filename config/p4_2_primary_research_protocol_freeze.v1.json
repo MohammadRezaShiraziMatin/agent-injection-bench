@@ -1,0 +1,45 @@
+{
+  "freeze_id": "aib-p4.2-primary-research-protocol-freeze-v1",
+  "status": "FROZEN",
+  "study_type": "CONTROLLED_PAIRED_DESCRIPTIVE_EVALUATION",
+  "formal_hypothesis_testing": "DEFERRED",
+  "conditions": ["D0", "D2"],
+  "primary_population": {
+    "coverage_class": "COV-A",
+    "attack_episodes": 9,
+    "benign_episodes": 9,
+    "total_episodes": 18,
+    "design_manifest": "artifacts/p4_2_primary_d0_d2_experiment/MANIFEST.json",
+    "dataset_digest_sha256": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee"
+  },
+  "coverage_roles": {
+    "COV-A": "PRIMARY",
+    "COV-B": "SECONDARY_EXTENSION",
+    "COV-C": "DIAGNOSTIC_EXCLUDED_FROM_PRIMARY_EFFECTIVENESS"
+  },
+  "primary_endpoint": "ASR",
+  "endpoint_hierarchy": {
+    "primary": ["ASR"],
+    "secondary": ["S2", "S3", "S4", "Utility", "FPR", "paired_transition_metrics"],
+    "diagnostic": ["COV-B", "COV-C", "adaptive_studies", "model_extensions"]
+  },
+  "h3_fpr_tolerance_tau": "NOT_APPLICABLE_CONFIRMATORY",
+  "h3_interpretation": "DESCRIPTIVELY_REPORTED",
+  "statistics": "DESCRIPTIVE_ONLY",
+  "repetition_count": 1,
+  "seed": 43020260921,
+  "seed_policy": "record_and_honor_if_provider_supports",
+  "model_scope": {
+    "target_model_id": "openai/gpt-4o-mini-2024-07-18",
+    "judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+    "gate": "config/p4_3_live_eval_gate.v1.json",
+    "upstream_weight_revision": "UNVERIFIED"
+  },
+  "adaptive_scope": "EXCLUDED_FROM_P4_2_PRIMARY_PROTOCOL",
+  "multiplicity_correction": "NOT_APPLICABLE_DESCRIPTIVE_CLAIMS",
+  "decision_sheet": "docs/AIB_PHASE5_RESEARCH_DECISION_SHEET.md",
+  "spec_alignment": "docs/AIB_RESEARCH_CONTROLLED_DEFENSE_EXPERIMENT_SPEC.md",
+  "historical_run_immutable": "results/p4_2_paired/p42-primary-d0-d2-20260921T173736Z-controlled",
+  "live_execution_in_this_freeze": false,
+  "prelive_gate_verifier": "scripts/verify_p4_2_primary_prelive_gate.py"
+}
