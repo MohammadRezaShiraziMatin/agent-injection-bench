@@ -1,0 +1,384 @@
+{
+  "adaptiguard_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+  "benign_pair_refs": [
+    {
+      "attack_episode_id": "atk_p42_002",
+      "benign_episode_id": "ben_p42_002",
+      "pair_id": "p42_002"
+    },
+    {
+      "attack_episode_id": "atk_p42_011",
+      "benign_episode_id": "ben_p42_011",
+      "pair_id": "p42_011"
+    },
+    {
+      "attack_episode_id": "atk_p42_012",
+      "benign_episode_id": "ben_p42_012",
+      "pair_id": "p42_012"
+    },
+    {
+      "attack_episode_id": "atk_p42_013",
+      "benign_episode_id": "ben_p42_013",
+      "pair_id": "p42_013"
+    },
+    {
+      "attack_episode_id": "atk_p42_014",
+      "benign_episode_id": "ben_p42_014",
+      "pair_id": "p42_014"
+    },
+    {
+      "attack_episode_id": "atk_p42_015",
+      "benign_episode_id": "ben_p42_015",
+      "pair_id": "p42_015"
+    },
+    {
+      "attack_episode_id": "atk_p42_016",
+      "benign_episode_id": "ben_p42_016",
+      "pair_id": "p42_016"
+    },
+    {
+      "attack_episode_id": "atk_p42_017",
+      "benign_episode_id": "ben_p42_017",
+      "pair_id": "p42_017"
+    },
+    {
+      "attack_episode_id": "atk_p42_018",
+      "benign_episode_id": "ben_p42_018",
+      "pair_id": "p42_018"
+    }
+  ],
+  "catalog_evidence": "artifacts/openrouter_model_lock_evidence.json",
+  "config_hash_sha256": "2303fc4a21b950e50c589c31df039fad322c71b60a0d8554ae6739f0fda52c8e",
+  "coverage_by_episode": {
+    "atk_p42_002": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_011": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_012": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_013": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_014": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_015": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_016": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_017": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_018": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    }
+  },
+  "d2_gate_hash_sha256": "06920623310b429b87bc2313dc60b97a551d9a575af1c0f2d0cf51bd9de1bc76",
+  "dataset_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+  "dataset_root": "data/episodes_p4_2",
+  "dataset_version": "P4.2",
+  "defense_integration": {
+    "api": {
+      "class": "CoreDefensePipeline",
+      "input_type": "adapti_guard.core.episode.EpisodeInput",
+      "method": "run",
+      "module": "adapti_guard.core.core_pipeline",
+      "note": "AIB bridge maps episode+messages to EpisodeInput; no guard_messages in upstream",
+      "type": "CoreDefensePipeline.run"
+    },
+    "commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+    "integrated": true,
+    "module": "adapti_guard.core.core_pipeline",
+    "pin": {
+      "actual_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+      "expected_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+      "ok": true,
+      "package_version": "0.1.0",
+      "pin_status": "PINNED",
+      "repo_path": "/workspace/external/adapti-guard"
+    },
+    "repo_path": "/workspace/external/adapti-guard",
+    "status": "INTEGRATED",
+    "version": "0.1.0"
+  },
+  "design_manifest": "artifacts/p4_2_primary_d0_d2_experiment/MANIFEST.json",
+  "episode_ids": [
+    "atk_p42_002",
+    "atk_p42_011",
+    "atk_p42_012",
+    "atk_p42_013",
+    "atk_p42_014",
+    "atk_p42_015",
+    "atk_p42_016",
+    "atk_p42_017",
+    "atk_p42_018",
+    "ben_p42_002",
+    "ben_p42_011",
+    "ben_p42_012",
+    "ben_p42_013",
+    "ben_p42_014",
+    "ben_p42_015",
+    "ben_p42_016",
+    "ben_p42_017",
+    "ben_p42_018"
+  ],
+  "episode_order_policy": "deterministic_D0_then_D2",
+  "evaluation_mode": "LIVE",
+  "finished_at": "2026-09-21T17:39:02.304336+00:00",
+  "gates_at_start": {
+    "d2_integration": {
+      "D2_INTEGRATION": "PASS",
+      "LIVE_D2_ALLOWED_IN_GATE": false,
+      "REASON": null,
+      "checks": {
+        "d0_bypass": {
+          "defense_event": {
+            "block": false,
+            "category": null,
+            "decision": "allow",
+            "defense_backend": "none",
+            "defense_enabled": false,
+            "defense_error": false,
+            "detector_invoked": false,
+            "detector_result": null,
+            "extra": {},
+            "integration_status": "not_applicable",
+            "latency_ms": 0,
+            "reason": "D0_no_defense",
+            "risk_level": null,
+            "risk_score": null,
+            "transform_applied": false
+          },
+          "ok": true
+        },
+        "d2_routing": {
+          "decision": "block",
+          "defense_event": {
+            "block": true,
+            "category": "A3",
+            "decision": "block",
+            "defense_backend": "adaptiguard",
+            "defense_enabled": true,
+            "defense_error": false,
+            "detector_invoked": true,
+            "detector_result": "hit",
+            "extra": {
+              "adaptiguard_policy_action": "A3",
+              "target_reached": false,
+              "tool_access": false
+            },
+            "integration_status": "INTEGRATED",
+            "latency_ms": 2,
+            "reason": "core_high_block",
+            "risk_level": "HIGH",
+            "risk_score": 0.65,
+            "transform_applied": false
+          },
+          "ok": true,
+          "skip_target_model": true,
+          "target_reached": false
+        },
+        "module_resolved": true,
+        "smoke": {
+          "decision": "allow",
+          "detector_invoked": true,
+          "ok": true,
+          "skip_target_model": false,
+          "target_reached": true
+        },
+        "version_pin": true
+      },
+      "gate_id": "aib-p4.3-d2-eval-gate-v1",
+      "integration": {
+        "api": {
+          "class": "CoreDefensePipeline",
+          "input_type": "adapti_guard.core.episode.EpisodeInput",
+          "method": "run",
+          "module": "adapti_guard.core.core_pipeline",
+          "note": "AIB bridge maps episode+messages to EpisodeInput; no guard_messages in upstream",
+          "type": "CoreDefensePipeline.run"
+        },
+        "commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+        "integrated": true,
+        "module": "adapti_guard.core.core_pipeline",
+        "pin": {
+          "actual_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+          "expected_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+          "ok": true,
+          "package_version": "0.1.0",
+          "pin_status": "PINNED",
+          "repo_path": "/workspace/external/adapti-guard"
+        },
+        "repo_path": "/workspace/external/adapti-guard",
+        "status": "INTEGRATED",
+        "version": "0.1.0"
+      },
+      "live_ready": false,
+      "ok": true
+    },
+    "integrity": {
+      "ok": true,
+      "p4_2": {
+        "digest_sha256": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+        "expected_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+        "git_diff_episodes_p4_2_empty": true
+      },
+      "p4_3": {
+        "digest_sha256": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+        "n_episodes": 8,
+        "qc_ok": true
+      }
+    },
+    "live_approval": {
+      "LIVE_APPROVAL": "EXPLICIT",
+      "approval_id": "p4.3-live-benchmark-1",
+      "approved_at": "2026-09-21T06:30:00Z",
+      "gate_approval_artifact": "artifacts/p4_3_live_approval.json",
+      "live_inference_allowed_in_gate": true,
+      "ok": true
+    },
+    "live_path": "P4.2_PRIMARY",
+    "model_lock": {
+      "MODEL_LOCK_STATUS": "LOCKED",
+      "allow_fallbacks": false,
+      "api_key_present": true,
+      "catalog_evidence_path": "artifacts/openrouter_model_lock_evidence.json",
+      "env_judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+      "env_target_model_id": "openai/gpt-4o-mini-2024-07-18",
+      "gates": {
+        "G10_live_eval_readiness": "PASS",
+        "G2_target_identity": "PASS",
+        "G3_judge_identity": "PASS",
+        "G4_immutable_catalog_snapshot": "PASS"
+      },
+      "judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+      "live_inference_allowed": true,
+      "provider_routing_env": null,
+      "target_model_id": "openai/gpt-4o-mini-2024-07-18",
+      "target_ne_judge": true,
+      "upstream_weight_revision": "UNVERIFIED"
+    },
+    "p4_2_d2_live_approval": {
+      "P4_2_D2_LIVE_APPROVAL": "EXPLICIT",
+      "approval_id": "p4.2-primary-paired-d0-d2-live-1",
+      "approved_at": "2026-09-21T15:52:00Z",
+      "gate_approval_artifact": "artifacts/p4_2_d2_live_approval.json",
+      "issues": [],
+      "live_d2_inference_allowed_in_p42_gate": true,
+      "ok": true,
+      "p4_3_global_gate_unchanged": false,
+      "path_ok": true,
+      "scope_ok": true
+    },
+    "preflight": {
+      "config_hash_sha256": "2303fc4a21b950e50c589c31df039fad322c71b60a0d8554ae6739f0fda52c8e",
+      "dataset_p4_3_digest": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+      "dry_run": true,
+      "issues": [],
+      "judge_model": "meta-llama/llama-3.3-70b-instruct",
+      "live_inference_executed": false,
+      "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
+      "model_lock": {
+        "MODEL_LOCK_STATUS": "LOCKED",
+        "allow_fallbacks": false,
+        "api_key_present": true,
+        "catalog_evidence_path": "artifacts/openrouter_model_lock_evidence.json",
+        "env_judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+        "env_target_model_id": "openai/gpt-4o-mini-2024-07-18",
+        "gates": {
+          "G10_live_eval_readiness": "PASS",
+          "G2_target_identity": "PASS",
+          "G3_judge_identity": "PASS",
+          "G4_immutable_catalog_snapshot": "PASS"
+        },
+        "judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+        "live_inference_allowed": true,
+        "provider_routing_env": null,
+        "target_model_id": "openai/gpt-4o-mini-2024-07-18",
+        "target_ne_judge": true,
+        "upstream_weight_revision": "UNVERIFIED"
+      },
+      "preflight_ok": true,
+      "system_prompt_hash_sha256": "df683cb4a3bf30a0d4b4e1f95fac643c9a0aa449b3ffb8d70bcc71dbeb6e8df6",
+      "target_model": "openai/gpt-4o-mini-2024-07-18"
+    }
+  },
+  "git_commit": "f6f192012cf3a05b1cbd91a32ce8aadda4932b52",
+  "harness_version": "p4.3-eval-harness-v1",
+  "judge_api_calls": 36,
+  "judge_model": "meta-llama/llama-3.3-70b-instruct",
+  "judge_provider": "openrouter",
+  "live_path": "P4.2_PRIMARY",
+  "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
+  "mode": "live",
+  "n_episodes": 18,
+  "p4_2_d2_live_approval": {
+    "approval_id": "p4.2-primary-paired-d0-d2-live-1",
+    "gate_authorized": true,
+    "scope_ok": true
+  },
+  "paired_contract": "config/p4_3_paired_eval_contract.v1.json",
+  "primary_attack_ids": [
+    "atk_p42_002",
+    "atk_p42_011",
+    "atk_p42_012",
+    "atk_p42_013",
+    "atk_p42_014",
+    "atk_p42_015",
+    "atk_p42_016",
+    "atk_p42_017",
+    "atk_p42_018"
+  ],
+  "run_id": "p42-primary-d0-d2-20260921T173736Z-controlled",
+  "secret_status": "AVAILABLE",
+  "seed": 43020260921,
+  "started_at": "2026-09-21T17:37:37.639235+00:00",
+  "system_prompt_hash_sha256": "df683cb4a3bf30a0d4b4e1f95fac643c9a0aa449b3ffb8d70bcc71dbeb6e8df6",
+  "target_api_calls": 28,
+  "target_model": "openai/gpt-4o-mini-2024-07-18",
+  "target_provider": "openrouter",
+  "upstream_weight_revision": "UNVERIFIED",
+  "utility_fpr_benign_episode_ids": [
+    "ben_p42_002",
+    "ben_p42_011",
+    "ben_p42_012",
+    "ben_p42_013",
+    "ben_p42_014",
+    "ben_p42_015",
+    "ben_p42_016",
+    "ben_p42_017",
+    "ben_p42_018"
+  ],
+  "utility_fpr_benign_scope": {
+    "benign_episode_ids": [
+      "ben_p42_002",
+      "ben_p42_011",
+      "ben_p42_012",
+      "ben_p42_013",
+      "ben_p42_014",
+      "ben_p42_015",
+      "ben_p42_016",
+      "ben_p42_017",
+      "ben_p42_018"
+    ],
+    "denominator_rule": "config/p4_3_evaluation_metrics.v1.json metrics.Utility.denominator and metrics.FPR.denominator (valid_judged_benign_episodes executed in this run)",
+    "excluded": "Full P4.2 benign set (n=100) is not in primary run episode_ids; denominator is not all-dataset benign.",
+    "fpr_numerator_rule": "config/p4_3_paired_eval_contract.v1.json#fpr.definition",
+    "pairing": "config/p4_3_paired_eval_contract.v1.json#paired_protocol.pair_id_source",
+    "population": "pair_matched_benign_of_primary_attack_pool"
+  }
+}

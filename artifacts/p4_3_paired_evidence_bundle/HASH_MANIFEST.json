@@ -1,0 +1,15 @@
+{
+  "D0_RESULTS.json": "c09a47a95778075a0a53e6065e714084d6c2908f7b85aef11cd7d5f66968a402",
+  "D2_RESULTS.json": "d1cee047536487b613bdfd2f89d5348fcfdf4ffea87a35bfc398b5e3ae005adb",
+  "PAIRED_INDEX.json": "7827ce15b00abbda04d28e4a3ad600c5fc7600e3a8f346566de4803f75f75e4b",
+  "RUN_MANIFEST.json": "678aa4c5375fa7f9e31b432abfaa423998185acc02d8993c5b5d1b1da0f011b7",
+  "adaptiguard_version_pin.v1.json": "60e7723d06ab1883dcf9fb65bd970fa20642f396dfbcecac066b6144111f34ae",
+  "d2_eval_gate.v1.json": "73b08d10d0220219ede38b2a1f692d285723aaaaa4042523736a307332a5ffb8",
+  "d2_live_approval.json": "4dd93b24d2016b02cdd183cfb3f4f062b8509473e4edd8fc63dae771ad7fb2a0",
+  "evaluation_metrics.v1.json": "a07f6268dd20e3731799b2c6d9c27d32c8e59991e3cc578c9de353884e1d0305",
+  "live_eval_gate.v1.json": "a5cfff62bb0f9098c9ef021670673d93cae40236bd222c2b6d80e61b91a1944f",
+  "model_lock_evidence.json": "0b176bb438c354e105450659664bebb280a9d6b2dca07da5a25be4c3be5be63d",
+  "p4_3_live_approval.json": "7e05eaafd2353966b86bc9ec84b10c63503b67678dd571076fe0de9bfdcf94d7",
+  "paired_eval_contract.v1.json": "c2bd7b2bab5e291bb971fe0e1a75e0817ad842bac5a554c1b2a3a9ecbfe96cd4",
+  "paired_live_metrics_summary.json": "496d4289a503408d871e0c9ac2afc8e435cfa16c3a809787b1a09b2a3d036e2a"
+}

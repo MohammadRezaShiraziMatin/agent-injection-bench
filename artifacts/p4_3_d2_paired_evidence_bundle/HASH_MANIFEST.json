@@ -1,0 +1,10 @@
+{
+  "PAIRED_INDEX.json": "85222b7b3d12bdc2e32c3a025acc4a907e82aa6385b331a1130f0578c2c4b9df",
+  "RUN_MANIFEST.json": "825b32271277c2769a5cc757794a659b482ccb545ec52097882f031c37790e38",
+  "d2_eval_gate.v1.json": "73b08d10d0220219ede38b2a1f692d285723aaaaa4042523736a307332a5ffb8",
+  "evaluation_metrics.v1.json": "a07f6268dd20e3731799b2c6d9c27d32c8e59991e3cc578c9de353884e1d0305",
+  "live_eval_gate.v1.json": "a5cfff62bb0f9098c9ef021670673d93cae40236bd222c2b6d80e61b91a1944f",
+  "model_lock_evidence.json": "0b176bb438c354e105450659664bebb280a9d6b2dca07da5a25be4c3be5be63d",
+  "paired_eval_contract.v1.json": "c2bd7b2bab5e291bb971fe0e1a75e0817ad842bac5a554c1b2a3a9ecbfe96cd4",
+  "paired_metrics_summary.json": "c5f25e16109ddf6b580e79147f2483c0e2dd7ce4d352892dc816eaa18215f867"
+}

@@ -2,9 +2,12 @@
 .venv/
 __pycache__/
 results/traces/*.json
+results/p4_3_live/
+results/p4_3_paired/
 *.egg-info/
 .pytest_cache/
 *.pyc
 .DS_Store
 dist/
 build/
+external/adapti-guard/

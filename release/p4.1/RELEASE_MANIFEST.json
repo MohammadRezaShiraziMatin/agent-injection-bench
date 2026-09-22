@@ -1,0 +1,238 @@
+{
+  "dataset_version": "P4.1",
+  "digest_sha256": "717458789217d4fd29c655e40018471fdaf16b061ff5481cfdc48f7812437ac3",
+  "file_count": 45,
+  "files": [
+    {
+      "byte_size": 6083,
+      "path": "data/episodes_v1/MANIFEST.json",
+      "sha256": "27b02c9c0bd94b182e239659c5ad4fc130eef95f0904a96219936f461216bf99"
+    },
+    {
+      "byte_size": 1867,
+      "path": "data/episodes_v1/attack/atk_p41_01.json",
+      "sha256": "5648fbbceab531948bbcf521f0cda3ff2040f1c78d6f1695f4470a9d21572d08"
+    },
+    {
+      "byte_size": 1861,
+      "path": "data/episodes_v1/attack/atk_p41_02.json",
+      "sha256": "8a0fa31a69d2be0c95520aebe2593891f637ba28d9e5417f3e85ce65f59bc8e3"
+    },
+    {
+      "byte_size": 1964,
+      "path": "data/episodes_v1/attack/atk_p41_03.json",
+      "sha256": "229c1250b6c212a08fb7aa70085f6a5a69a4cdb25ad3a35b63ef231e3e90bd05"
+    },
+    {
+      "byte_size": 1963,
+      "path": "data/episodes_v1/attack/atk_p41_04.json",
+      "sha256": "93aa34a35456686a1ecae8c72c55f2402f91dd3a99ebca14705ed00734491395"
+    },
+    {
+      "byte_size": 2204,
+      "path": "data/episodes_v1/attack/atk_p41_05.json",
+      "sha256": "0d0e931920369d7915cecfe9b983a879ca0a2bcbc0038222eaeb387d53c32cb9"
+    },
+    {
+      "byte_size": 1900,
+      "path": "data/episodes_v1/attack/atk_p41_06.json",
+      "sha256": "c6622af4108ee27e01d84edcf0db53f332304ef9f5121bd573d75d092a6f0cfe"
+    },
+    {
+      "byte_size": 1908,
+      "path": "data/episodes_v1/attack/atk_p41_07.json",
+      "sha256": "a3acc32e854e26af0d90f4d08cfcab3136a8e3ff4196ef9f031fdb72b32f5be6"
+    },
+    {
+      "byte_size": 2136,
+      "path": "data/episodes_v1/attack/atk_p41_08.json",
+      "sha256": "95ac9db088a5c934d1d09df7748803d8eea106485a2ee6ade75246129740a429"
+    },
+    {
+      "byte_size": 1869,
+      "path": "data/episodes_v1/attack/atk_p41_09.json",
+      "sha256": "65e8b4598fee8d5cd00865957faf534cea9f3626839439bfa9f1d7a401bdf3ca"
+    },
+    {
+      "byte_size": 1925,
+      "path": "data/episodes_v1/attack/atk_p41_10.json",
+      "sha256": "05db87d927a942376f615e4d28b8a854a1c1e2de8e2b671540e8539207c87095"
+    },
+    {
+      "byte_size": 1811,
+      "path": "data/episodes_v1/benign/ben_p41_01.json",
+      "sha256": "c1980d5a1bd40ed9e7da56d4bc8229ee26c0d1758806157180e58b692543ace5"
+    },
+    {
+      "byte_size": 1800,
+      "path": "data/episodes_v1/benign/ben_p41_02.json",
+      "sha256": "df691464d7c17e27bee63bd5eb8f1225c4dd85fbcd91855bc99bdb202f8b6fcd"
+    },
+    {
+      "byte_size": 1892,
+      "path": "data/episodes_v1/benign/ben_p41_03.json",
+      "sha256": "8fe076c6e27ea7a36fb3beec938ae314b180ce1e3c6bbd3f6d775d16252ba487"
+    },
+    {
+      "byte_size": 1974,
+      "path": "data/episodes_v1/benign/ben_p41_04.json",
+      "sha256": "8751312800683283be9f7cb26d7385a47d685bc9f9bb8fb3e5110e572402f786"
+    },
+    {
+      "byte_size": 2112,
+      "path": "data/episodes_v1/benign/ben_p41_05.json",
+      "sha256": "b4ca3cf3fd1aa35f8e6a3f7edd8385df620af51409ce0fad06d5f2f87365f00b"
+    },
+    {
+      "byte_size": 1906,
+      "path": "data/episodes_v1/benign/ben_p41_06.json",
+      "sha256": "90b5ef8fa628402acea3aa7b985027e425d4471d471b8e07ee6d2eaffae1fa3d"
+    },
+    {
+      "byte_size": 1801,
+      "path": "data/episodes_v1/benign/ben_p41_07.json",
+      "sha256": "7773bef39027afe75e5f07d7ddb7e7182e8fe2387c9d4f279be587b561b7d543"
+    },
+    {
+      "byte_size": 1910,
+      "path": "data/episodes_v1/benign/ben_p41_08.json",
+      "sha256": "292b38999a9debb93c0b7d512361dc6ecd5cde6980e6fe6d2d86e770644289b5"
+    },
+    {
+      "byte_size": 1835,
+      "path": "data/episodes_v1/benign/ben_p41_09.json",
+      "sha256": "7938a6c9d704881737304f78f4aedf20a20f6a2258a2505256d09e668a02d9d0"
+    },
+    {
+      "byte_size": 1905,
+      "path": "data/episodes_v1/benign/ben_p41_10.json",
+      "sha256": "fe1916365fd83f2da45ccf892c0de7269a17e06c3b887d1d02ca95fee6d20e5e"
+    },
+    {
+      "byte_size": 4956,
+      "path": "docs/AIB_P4_1_DATASET_PLAN.md",
+      "sha256": "1d5b12af16a0bc4dfbf56d948cb6c9bfdeacf09723fa83f69c9fce3d907630ee"
+    },
+    {
+      "byte_size": 4607,
+      "path": "docs/AIB_P4_1_DATASET_REPORT.md",
+      "sha256": "26861c8954d0bcf523ec008bb69d0ea39dc92eac6ad0affbd625ec2e6b4b2ec4"
+    },
+    {
+      "byte_size": 3433,
+      "path": "docs/AIB_P4_ARTIFACT_ARCHIVE_INSPECTION.md",
+      "sha256": "5ea10720e99cb4f53ea7ad77ed75f7264eb1e68c4e8d27a5c5c0908cc758c284"
+    },
+    {
+      "byte_size": 7854,
+      "path": "docs/AIB_P4_RECOVERY_REPORT.md",
+      "sha256": "8ae0be5659a23d199851d72a1578caeb74362c2866e516df9b4182db696af34d"
+    },
+    {
+      "byte_size": 5750,
+      "path": "docs/AIB_P5_1_TARGETED_REVISION_REPORT.md",
+      "sha256": "b10be433fed2ae13097d2294837d4550e77e661b5e14a3b8a02cb7231fdac7ec"
+    },
+    {
+      "byte_size": 10212,
+      "path": "docs/AIB_P5_2_CONDITIONS_CLOSURE_AUDIT.md",
+      "sha256": "4e14bbaa31ad6ee6d22e061d01379d3df16f0ccbb90ed63952d14498d538dc7c"
+    },
+    {
+      "byte_size": 5907,
+      "path": "docs/AIB_P5_3_SEMANTIC_DEDUP_REPORT.md",
+      "sha256": "a12581b66fe0bfe76c10bd94dc57aff2ad6405f66f78bc0d418b333e59188c96"
+    },
+    {
+      "byte_size": 9262,
+      "path": "docs/AIB_P5_4_1_METADATA_CLOSURE_REPORT.md",
+      "sha256": "510af071fd1c0007b57d7e657a005f745ff1855046f712346308863561d2a331"
+    },
+    {
+      "byte_size": 8166,
+      "path": "docs/AIB_P5_4_HUMAN_ADJUDICATION_REPORT.md",
+      "sha256": "1744e9a1ae3b550ee097bc09ef6f4ef348533258ca1205b99d0e25b0206ae046"
+    },
+    {
+      "byte_size": 12769,
+      "path": "docs/AIB_P5_5_FINAL_SCIENTIFIC_CLOSURE_REPORT.md",
+      "sha256": "ca822b367e3121235708765df0ddf1bd01d872ecc22533ba90067f64dd3b2992"
+    },
+    {
+      "byte_size": 9931,
+      "path": "docs/AIB_P5_DATASET_QA_REPORT.md",
+      "sha256": "32b6792d8e890f4bfdb76a804fc16fb3936a38af1707037f0e0e955f5b700987"
+    },
+    {
+      "byte_size": 8798,
+      "path": "docs/AIB_P6_DATASET_FREEZE_REPORT.md",
+      "sha256": "cfd0ceae23c0b970980c921c6a5f01355aa5971b5e5920c905b83485bee885b3"
+    },
+    {
+      "byte_size": 5016,
+      "path": "docs/AIB_P6_DATASET_FREEZE_SPEC.md",
+      "sha256": "1a53371f198de2c1ead149338e518768650c4d31bf86f90888fc1837433b59ef"
+    },
+    {
+      "byte_size": 3417,
+      "path": "docs/AIB_P6_LIMITATIONS_ANNEX.md",
+      "sha256": "476193328afde298281e8156afeaf572265cd1cfc7d2b800822436c165c7e143"
+    },
+    {
+      "byte_size": 8347,
+      "path": "schema/episode.v1.json",
+      "sha256": "5912d8267ef8526513d013a61a2563c218e8f8f80995dea842996c226ce49541"
+    },
+    {
+      "byte_size": 4656,
+      "path": "scripts/build_p6_release.py",
+      "sha256": "31438eea33fb63100cd567324c633de9bcf44e96b4a50d377bd7f40e78d1ba72"
+    },
+    {
+      "byte_size": 27972,
+      "path": "scripts/gen_p4_1_dataset.py",
+      "sha256": "d7f8ea82d17cba2f7d347f7385038f0415923826e3f9619cd4278ab23ab49b6a"
+    },
+    {
+      "byte_size": 8130,
+      "path": "scripts/qc_p4_1.py",
+      "sha256": "ff0a7a7077b4204b60521e74fe12a2829200ce40ceb18acb1e62d76e153a57c3"
+    },
+    {
+      "byte_size": 9931,
+      "path": "scripts/semantic_dedup_p4_1.py",
+      "sha256": "c299a979c6a2c24fa75fc52b4baad942e90def90f744ca8015593ac2ad953a24"
+    },
+    {
+      "byte_size": 1122,
+      "path": "scripts/validate_episodes.py",
+      "sha256": "697d38e2539548200066d09249702f5a75ddf9de10c3d5cd083a6cbb9dcc2793"
+    },
+    {
+      "byte_size": 7530,
+      "path": "scripts/verify_p6_freeze.py",
+      "sha256": "010bac89e1614b8161869ddc4e4f77ff1106c71647bdae463025cff9fdf7ebfa"
+    },
+    {
+      "byte_size": 4495,
+      "path": "tests/fixtures/v0_episode_sha256.json",
+      "sha256": "d9f8e66e71d702d00e0160a626ae15fed197fbb3d7ad958fc7e96809c8ff7b3d"
+    },
+    {
+      "byte_size": 2989,
+      "path": "tests/test_p4_1_dataset.py",
+      "sha256": "17094a3dd08d1002efcdc6912bbdaec13e297639942d200d345f8144685f2735"
+    },
+    {
+      "byte_size": 1006,
+      "path": "tests/test_p6_freeze.py",
+      "sha256": "afb586fc1f875ecf66759c171467f5a5258c5bae3dafc3f85484fc4f61598b21"
+    }
+  ],
+  "freeze_id": "aib-p4.1-frozen-v1.0",
+  "identity": "P4.1 controlled reconstruction (not historical P4 recovery)",
+  "includes_v0_episodes": false,
+  "package": "release/p4.1",
+  "schema": "schema/episode.v1.json",
+  "seed": 41020260920
+}

@@ -1,0 +1,64 @@
+{
+  "queue_id": "p4.3-gap-fill-v1",
+  "status": "adjudication_complete",
+  "completed_at": "2026-09-21",
+  "audit_trail": "artifacts/p4_3_hr_audit_trail.json",
+  "episodes": [
+    {
+      "episode_id": "atk_p43_001",
+      "pair_id": "p43_001",
+      "gap_id": "G5-001",
+      "decision": "ACCEPT",
+      "review_status": "ACCEPT"
+    },
+    {
+      "episode_id": "ben_p43_001",
+      "pair_id": "p43_001",
+      "gap_id": "G5-001",
+      "decision": "ACCEPT",
+      "review_status": "ACCEPT"
+    },
+    {
+      "episode_id": "atk_p43_002",
+      "pair_id": "p43_002",
+      "gap_id": "G5-002",
+      "decision": "ACCEPT",
+      "review_status": "ACCEPT"
+    },
+    {
+      "episode_id": "ben_p43_002",
+      "pair_id": "p43_002",
+      "gap_id": "G5-002",
+      "decision": "ACCEPT",
+      "review_status": "ACCEPT"
+    },
+    {
+      "episode_id": "atk_p43_003",
+      "pair_id": "p43_003",
+      "gap_id": "G5-003",
+      "decision": "ACCEPT",
+      "review_status": "ACCEPT"
+    },
+    {
+      "episode_id": "ben_p43_003",
+      "pair_id": "p43_003",
+      "gap_id": "G5-003",
+      "decision": "ACCEPT",
+      "review_status": "ACCEPT"
+    },
+    {
+      "episode_id": "atk_p43_004",
+      "pair_id": "p43_004",
+      "gap_id": "G5-004",
+      "decision": "ACCEPT",
+      "review_status": "ACCEPT"
+    },
+    {
+      "episode_id": "ben_p43_004",
+      "pair_id": "p43_004",
+      "gap_id": "G5-004",
+      "decision": "ACCEPT",
+      "review_status": "ACCEPT"
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://agent-injection-bench.local/schema/episode.v2.json",
+  "title": "AgentInjectionBenchEpisodeV2",
+  "description": "P4.2 expanded benchmark episode schema (P4.1 frozen on episode.v1.json).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "dataset_version",
+    "id",
+    "split",
+    "dataset_partition",
+    "user_query",
+    "retrieved_docs",
+    "injection",
+    "expected",
+    "taxonomy",
+    "execution",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": { "const": "2.0" },
+    "dataset_version": { "const": "P4.2" },
+    "id": {
+      "type": "string",
+      "pattern": "^(atk|ben)_p42_[0-9]{3}$"
+    },
+    "split": { "type": "string", "enum": ["attack", "benign"] },
+    "dataset_partition": {
+      "type": "string",
+      "enum": ["development", "validation", "test"]
+    },
+    "pair_id": {
+      "type": "string",
+      "pattern": "^p42_[0-9]{3}$"
+    },
+    "user_query": { "type": "string", "minLength": 1 },
+    "conversation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "content"],
+        "properties": {
+          "role": { "type": "string", "enum": ["user", "assistant"] },
+          "content": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "session_state": {
+      "type": "object",
+      "additionalProperties": { "type": ["string", "number", "boolean"] }
+    },
+    "memory_store": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["key", "value"],
+        "properties": {
+          "key": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    },
+    "cross_context": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["context_id", "label", "text"],
+        "properties": {
+          "context_id": { "type": "string" },
+          "label": { "type": "string" },
+          "text": { "type": "string" }
+        }
+      }
+    },
+    "tool_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["tool_name", "call_id", "output"],
+        "properties": {
+          "tool_name": { "type": "string" },
+          "call_id": { "type": "string" },
+          "output": { "type": "string" }
+        }
+      }
+    },
+    "retrieved_docs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["doc_id", "text"],
+        "properties": {
+          "doc_id": { "type": "string", "minLength": 1 },
+          "text": { "type": "string", "minLength": 1 },
+          "source_kind": {
+            "type": "string",
+            "enum": ["internal_kb", "web_snippet", "policy_pdf_excerpt", "ticket_archive"]
+          }
+        }
+      }
+    },
+    "injection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present"],
+      "properties": {
+        "present": { "type": "boolean" },
+        "payload": { "type": "string" },
+        "target_tool": { "type": "string" },
+        "locus": { "type": "string" }
+      }
+    },
+    "taxonomy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family",
+        "technique",
+        "objective",
+        "source",
+        "target",
+        "path",
+        "interaction_type",
+        "horizon",
+        "context_type",
+        "tool",
+        "memory_state"
+      ],
+      "properties": {
+        "family": {
+          "type": "string",
+          "enum": [
+            "direct_prompt_injection",
+            "indirect_prompt_injection",
+            "multi_turn_injection",
+            "rag_document_injection",
+            "web_retrieved_content_injection",
+            "tool_output_injection",
+            "memory_state_injection",
+            "cross_context_injection",
+            "multi_agent_injection",
+            "adaptive_injection"
+          ]
+        },
+        "technique": {
+          "type": "string",
+          "enum": [
+            "instruction_override",
+            "tool_hijack",
+            "data_disclosure",
+            "workflow_hijack",
+            "fake_authorization",
+            "urgency_social",
+            "role_play",
+            "encoding_obfuscation",
+            "context_smuggling",
+            "feedback_adaptation"
+          ]
+        },
+        "objective": {
+          "type": "string",
+          "enum": [
+            "unauthorized_tool_proposal",
+            "unauthorized_tool_execution",
+            "unauthorized_state_change",
+            "instruction_deviation",
+            "data_exfiltration",
+            "benign_control"
+          ]
+        },
+        "objective_note": { "type": "string" },
+        "source": {
+          "type": "string",
+          "enum": [
+            "user_message",
+            "retrieved_document",
+            "web_retrieved_content",
+            "tool_output",
+            "prior_turn",
+            "auxiliary_context",
+            "session_state",
+            "memory_store",
+            "inter_agent_message",
+            "attacker_observation"
+          ]
+        },
+        "target": {
+          "type": "string",
+          "enum": ["send_email", "search_docs", "agent_memory", "user_response", "peer_agent"]
+        },
+        "path": {
+          "type": "string",
+          "enum": ["direct", "indirect", "direct_tool_channel", "cross_boundary", "state_gated", "multi_agent_channel"]
+        },
+        "interaction_type": {
+          "type": "string",
+          "enum": ["single_turn", "multi_turn"]
+        },
+        "horizon": { "type": "string", "enum": ["h0", "h1", "h2", "ha"] },
+        "context_type": {
+          "type": "string",
+          "enum": [
+            "campus_finance",
+            "campus_research",
+            "campus_it",
+            "campus_hr",
+            "campus_facilities",
+            "campus_compliance",
+            "campus_health",
+            "campus_security"
+          ]
+        },
+        "tool": { "type": "string", "enum": ["send_email", "search_docs", "none"] },
+        "memory_state": {
+          "type": "string",
+          "enum": ["none", "read", "write", "poisoned", "session_state", "persistent_memory"]
+        }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["executability", "harness_surfaces"],
+      "properties": {
+        "executability": {
+          "type": "string",
+          "enum": ["EXECUTABLE", "PARTIALLY_EXECUTABLE", "DESIGNED_NOT_EXECUTABLE"]
+        },
+        "harness_surfaces": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "user_query",
+              "retrieved_docs",
+              "conversation",
+              "tool_results",
+              "memory_store",
+              "session_state",
+              "cross_context",
+              "multi_agent_channel",
+              "adaptive_loop"
+            ]
+          }
+        },
+        "missing_adapter_note": { "type": "string" }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed_tools", "forbidden_tools", "success_criterion"],
+      "properties": {
+        "allowed_tools": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "forbidden_tools": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "utility_answer_contains": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "success_criterion": {
+          "type": "string",
+          "enum": ["S0", "S1", "S2", "S3", "S4"]
+        },
+        "success_observable": { "type": "string" },
+        "not_success": { "type": "string" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provenance_type",
+        "authoring_method",
+        "generator_version",
+        "seed",
+        "creation_timestamp",
+        "review_status",
+        "source_reference",
+        "synthetic",
+        "license"
+      ],
+      "properties": {
+        "provenance_type": {
+          "type": "string",
+          "enum": ["human_authored", "template_generated", "programmatically_generated", "hybrid"]
+        },
+        "authoring_method": { "type": "string", "minLength": 1 },
+        "generator_version": { "type": "string", "minLength": 1 },
+        "seed": { "type": "integer" },
+        "creation_timestamp": { "const": "2026-09-20T00:00:00Z" },
+        "review_status": {
+          "type": "string",
+          "enum": ["unreviewed", "pending_review", "human_reviewed"]
+        },
+        "source_reference": { "type": "string", "minLength": 1 },
+        "synthetic": { "const": true },
+        "license": { "type": "string", "enum": ["MIT"] }
+      }
+    },
+    "notes": { "type": "string" },
+    "adaptive_trace": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["phase", "content"],
+        "properties": {
+          "phase": { "type": "string" },
+          "content": { "type": "string" }
+        }
+      }
+    },
+    "inter_agent_messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["agent_id", "channel", "content"],
+        "properties": {
+          "agent_id": { "type": "string" },
+          "channel": { "type": "string" },
+          "content": { "type": "string" }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "split": { "const": "attack" } }, "required": ["split"] },
+      "then": {
+        "required": ["pair_id"],
+        "properties": {
+          "injection": {
+            "required": ["present", "payload", "target_tool", "locus"]
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "split": { "const": "benign" } }, "required": ["split"] },
+      "then": {
+        "required": ["pair_id"],
+        "properties": {
+          "injection": {
+            "properties": { "present": { "const": false } }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "taxonomy": {
+            "type": "object",
+            "properties": { "family": { "const": "memory_state_injection" } },
+            "required": ["family"]
+          }
+        },
+        "required": ["taxonomy"]
+      },
+      "then": {
+        "properties": {
+          "memory_store": { "type": "array", "minItems": 1 }
+        }
+      }
+    }
+  ]
+}

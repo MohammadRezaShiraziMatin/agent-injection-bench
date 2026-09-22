@@ -1,0 +1,198 @@
+{
+  "attack_count": 10,
+  "benign_count": 10,
+  "dataset_version": "P4.1",
+  "digest_sha256": "717458789217d4fd29c655e40018471fdaf16b061ff5481cfdc48f7812437ac3",
+  "episode_count": 20,
+  "episodes": [
+    {
+      "byte_size": 1867,
+      "episode_id": "atk_p41_01",
+      "filename": "attack/atk_p41_01.json",
+      "pair_id": "p41_01",
+      "role": "attack",
+      "sha256": "5648fbbceab531948bbcf521f0cda3ff2040f1c78d6f1695f4470a9d21572d08"
+    },
+    {
+      "byte_size": 1861,
+      "episode_id": "atk_p41_02",
+      "filename": "attack/atk_p41_02.json",
+      "pair_id": "p41_02",
+      "role": "attack",
+      "sha256": "8a0fa31a69d2be0c95520aebe2593891f637ba28d9e5417f3e85ce65f59bc8e3"
+    },
+    {
+      "byte_size": 1964,
+      "episode_id": "atk_p41_03",
+      "filename": "attack/atk_p41_03.json",
+      "pair_id": "p41_03",
+      "role": "attack",
+      "sha256": "229c1250b6c212a08fb7aa70085f6a5a69a4cdb25ad3a35b63ef231e3e90bd05"
+    },
+    {
+      "byte_size": 1963,
+      "episode_id": "atk_p41_04",
+      "filename": "attack/atk_p41_04.json",
+      "pair_id": "p41_04",
+      "role": "attack",
+      "sha256": "93aa34a35456686a1ecae8c72c55f2402f91dd3a99ebca14705ed00734491395"
+    },
+    {
+      "byte_size": 2204,
+      "episode_id": "atk_p41_05",
+      "filename": "attack/atk_p41_05.json",
+      "pair_id": "p41_05",
+      "role": "attack",
+      "sha256": "0d0e931920369d7915cecfe9b983a879ca0a2bcbc0038222eaeb387d53c32cb9"
+    },
+    {
+      "byte_size": 1900,
+      "episode_id": "atk_p41_06",
+      "filename": "attack/atk_p41_06.json",
+      "pair_id": "p41_06",
+      "role": "attack",
+      "sha256": "c6622af4108ee27e01d84edcf0db53f332304ef9f5121bd573d75d092a6f0cfe"
+    },
+    {
+      "byte_size": 1908,
+      "episode_id": "atk_p41_07",
+      "filename": "attack/atk_p41_07.json",
+      "pair_id": "p41_07",
+      "role": "attack",
+      "sha256": "a3acc32e854e26af0d90f4d08cfcab3136a8e3ff4196ef9f031fdb72b32f5be6"
+    },
+    {
+      "byte_size": 2136,
+      "episode_id": "atk_p41_08",
+      "filename": "attack/atk_p41_08.json",
+      "pair_id": "p41_08",
+      "role": "attack",
+      "sha256": "95ac9db088a5c934d1d09df7748803d8eea106485a2ee6ade75246129740a429"
+    },
+    {
+      "byte_size": 1869,
+      "episode_id": "atk_p41_09",
+      "filename": "attack/atk_p41_09.json",
+      "pair_id": "p41_09",
+      "role": "attack",
+      "sha256": "65e8b4598fee8d5cd00865957faf534cea9f3626839439bfa9f1d7a401bdf3ca"
+    },
+    {
+      "byte_size": 1925,
+      "episode_id": "atk_p41_10",
+      "filename": "attack/atk_p41_10.json",
+      "pair_id": "p41_10",
+      "role": "attack",
+      "sha256": "05db87d927a942376f615e4d28b8a854a1c1e2de8e2b671540e8539207c87095"
+    },
+    {
+      "byte_size": 1811,
+      "episode_id": "ben_p41_01",
+      "filename": "benign/ben_p41_01.json",
+      "pair_id": "p41_01",
+      "role": "benign",
+      "sha256": "c1980d5a1bd40ed9e7da56d4bc8229ee26c0d1758806157180e58b692543ace5"
+    },
+    {
+      "byte_size": 1800,
+      "episode_id": "ben_p41_02",
+      "filename": "benign/ben_p41_02.json",
+      "pair_id": "p41_02",
+      "role": "benign",
+      "sha256": "df691464d7c17e27bee63bd5eb8f1225c4dd85fbcd91855bc99bdb202f8b6fcd"
+    },
+    {
+      "byte_size": 1892,
+      "episode_id": "ben_p41_03",
+      "filename": "benign/ben_p41_03.json",
+      "pair_id": "p41_03",
+      "role": "benign",
+      "sha256": "8fe076c6e27ea7a36fb3beec938ae314b180ce1e3c6bbd3f6d775d16252ba487"
+    },
+    {
+      "byte_size": 1974,
+      "episode_id": "ben_p41_04",
+      "filename": "benign/ben_p41_04.json",
+      "pair_id": "p41_04",
+      "role": "benign",
+      "sha256": "8751312800683283be9f7cb26d7385a47d685bc9f9bb8fb3e5110e572402f786"
+    },
+    {
+      "byte_size": 2112,
+      "episode_id": "ben_p41_05",
+      "filename": "benign/ben_p41_05.json",
+      "pair_id": "p41_05",
+      "role": "benign",
+      "sha256": "b4ca3cf3fd1aa35f8e6a3f7edd8385df620af51409ce0fad06d5f2f87365f00b"
+    },
+    {
+      "byte_size": 1906,
+      "episode_id": "ben_p41_06",
+      "filename": "benign/ben_p41_06.json",
+      "pair_id": "p41_06",
+      "role": "benign",
+      "sha256": "90b5ef8fa628402acea3aa7b985027e425d4471d471b8e07ee6d2eaffae1fa3d"
+    },
+    {
+      "byte_size": 1801,
+      "episode_id": "ben_p41_07",
+      "filename": "benign/ben_p41_07.json",
+      "pair_id": "p41_07",
+      "role": "benign",
+      "sha256": "7773bef39027afe75e5f07d7ddb7e7182e8fe2387c9d4f279be587b561b7d543"
+    },
+    {
+      "byte_size": 1910,
+      "episode_id": "ben_p41_08",
+      "filename": "benign/ben_p41_08.json",
+      "pair_id": "p41_08",
+      "role": "benign",
+      "sha256": "292b38999a9debb93c0b7d512361dc6ecd5cde6980e6fe6d2d86e770644289b5"
+    },
+    {
+      "byte_size": 1835,
+      "episode_id": "ben_p41_09",
+      "filename": "benign/ben_p41_09.json",
+      "pair_id": "p41_09",
+      "role": "benign",
+      "sha256": "7938a6c9d704881737304f78f4aedf20a20f6a2258a2505256d09e668a02d9d0"
+    },
+    {
+      "byte_size": 1905,
+      "episode_id": "ben_p41_10",
+      "filename": "benign/ben_p41_10.json",
+      "pair_id": "p41_10",
+      "role": "benign",
+      "sha256": "fe1916365fd83f2da45ccf892c0de7269a17e06c3b887d1d02ca95fee6d20e5e"
+    }
+  ],
+  "files": [
+    "attack/atk_p41_01.json",
+    "attack/atk_p41_02.json",
+    "attack/atk_p41_03.json",
+    "attack/atk_p41_04.json",
+    "attack/atk_p41_05.json",
+    "attack/atk_p41_06.json",
+    "attack/atk_p41_07.json",
+    "attack/atk_p41_08.json",
+    "attack/atk_p41_09.json",
+    "attack/atk_p41_10.json",
+    "benign/ben_p41_01.json",
+    "benign/ben_p41_02.json",
+    "benign/ben_p41_03.json",
+    "benign/ben_p41_04.json",
+    "benign/ben_p41_05.json",
+    "benign/ben_p41_06.json",
+    "benign/ben_p41_07.json",
+    "benign/ben_p41_08.json",
+    "benign/ben_p41_09.json",
+    "benign/ben_p41_10.json"
+  ],
+  "freeze_id": "aib-p4.1-frozen-v1.0",
+  "generator": "scripts/gen_p4_1_dataset.py",
+  "identity": "P4.1 controlled reconstruction (not historical P4 recovery)",
+  "n_files": 20,
+  "pair_count": 10,
+  "schema": "schema/episode.v1.json",
+  "seed": 41020260920
+}

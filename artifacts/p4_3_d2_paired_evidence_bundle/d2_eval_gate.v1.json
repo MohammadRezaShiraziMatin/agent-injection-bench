@@ -1,0 +1,22 @@
+{
+  "gate_id": "aib-p4.3-d2-eval-gate-v1",
+  "defense": {
+    "name": "AdaptiGuard",
+    "condition": "D2",
+    "integration_doc": "docs/ADAPTI_GUARD_BRIDGE.md",
+    "requires_python_module": true,
+    "optional_env": {
+      "AIB_ADAPTIGUARD_MODULE": "explicit module name override",
+      "AIB_ADAPTIGUARD_REPO": "path to external repo (informational)",
+      "AIB_ADAPTIGUARD_COMMIT": "pinned defense commit for manifest"
+    }
+  },
+  "preflight": {
+    "dry_run_required_before_live": true,
+    "live_d2_inference_allowed": false,
+    "live_d2_approval_artifact": "artifacts/p4_3_d2_live_approval.json",
+    "notes": "Set live_d2_inference_allowed true only after verify_d2_integration PASS and explicit approval artifact"
+  },
+  "paired_output_base": "results/p4_3_paired",
+  "inherits_model_lock": "config/p4_3_live_eval_gate.v1.json"
+}

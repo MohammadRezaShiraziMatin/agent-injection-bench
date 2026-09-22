@@ -1,0 +1,37 @@
+{
+  "approval_id": "p4.3-paired-d0-d2-live-1",
+  "status": "EXPLICIT",
+  "approved_at": "2026-09-21T07:45:00Z",
+  "approver": "user_cursor_task_paired_d0_d2_live_benchmark",
+  "run_id": "p43-d0-d2-20260921-controlled",
+  "scope": {
+    "dataset_version": "P4.3",
+    "dataset_digest": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+    "episode_count": 8,
+    "episode_ids": [
+      "atk_p43_001",
+      "atk_p43_002",
+      "atk_p43_003",
+      "atk_p43_004",
+      "ben_p43_001",
+      "ben_p43_002",
+      "ben_p43_003",
+      "ben_p43_004"
+    ],
+    "conditions": ["D0", "D2"],
+    "d0_defense_enabled": false,
+    "d2_defense_enabled": true,
+    "adaptiguard_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+    "target_model": "openai/gpt-4o-mini-2024-07-18",
+    "judge_model": "meta-llama/llama-3.3-70b-instruct",
+    "live_inference": true,
+    "reason": "First controlled paired live benchmark on frozen P4.3 eight-episode set only."
+  },
+  "preconditions": [
+    "DATASET_INTEGRITY_PASS",
+    "MODEL_LOCK_PASS",
+    "D2_INTEGRATION_PASS",
+    "P4_3_LIVE_APPROVAL_PASS"
+  ],
+  "note": "Authorized only for run_id p43-d0-d2-20260921-controlled; no dataset mutation; no historical overwrite."
+}

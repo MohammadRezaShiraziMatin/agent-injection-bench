@@ -1,0 +1,45 @@
+{
+  "attack_count": 100,
+  "benign_count": 100,
+  "criteria": {
+    "S1": 8,
+    "S2": 92
+  },
+  "digest": "d5132fb3a4897684e1cb8a6f38f7cd367ee2a928bcd351743f73f13c326d796f",
+  "families": {
+    "adaptive_injection": 6,
+    "cross_context_injection": 10,
+    "direct_prompt_injection": 12,
+    "indirect_prompt_injection": 10,
+    "memory_state_injection": 10,
+    "multi_agent_injection": 8,
+    "multi_turn_injection": 10,
+    "rag_document_injection": 12,
+    "tool_output_injection": 12,
+    "web_retrieved_content_injection": 10
+  },
+  "hard_benign": 100,
+  "issue_count": 0,
+  "issues": [],
+  "leakage": {
+    "acf_collisions": 0,
+    "exact_payload_collisions": 0,
+    "intra_near_duplicates_capped": 0,
+    "max_ngram_jaccard_observed": 0.5,
+    "near_duplicates_vs_prior": 0,
+    "normalized_query_collisions": 0,
+    "p44_attacks_checked": 100,
+    "prior_attacks_checked": 104,
+    "threshold": 0.88
+  },
+  "manifest_digest_ok": true,
+  "ok": true,
+  "pair_count": 100,
+  "reproducible": true,
+  "schema_validation": "PASS",
+  "strata": {
+    "high": 56,
+    "low": 12,
+    "mid": 32
+  }
+}

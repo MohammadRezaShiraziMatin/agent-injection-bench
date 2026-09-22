@@ -1,0 +1,74 @@
+{
+  "approval_id": "p4.2-primary-paired-d0-d2-live-1",
+  "status": "EXPLICIT",
+  "approved_at": "2026-09-21T15:52:00Z",
+  "approver": "user_cursor_task_p42_primary_d0_d2_live_approval",
+  "run_id_policy": "p42-primary-d0-d2-<UTC-timestamp>-controlled",
+  "run_id": null,
+  "scope": {
+    "dataset_version": "P4.2",
+    "dataset_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+    "design_manifest": "artifacts/p4_2_primary_d0_d2_experiment/MANIFEST.json",
+    "primary_attack_ids": [
+      "atk_p42_002",
+      "atk_p42_011",
+      "atk_p42_012",
+      "atk_p42_013",
+      "atk_p42_014",
+      "atk_p42_015",
+      "atk_p42_016",
+      "atk_p42_017",
+      "atk_p42_018"
+    ],
+    "benign_episode_ids": [
+      "ben_p42_002",
+      "ben_p42_011",
+      "ben_p42_012",
+      "ben_p42_013",
+      "ben_p42_014",
+      "ben_p42_015",
+      "ben_p42_016",
+      "ben_p42_017",
+      "ben_p42_018"
+    ],
+    "pairing": "episode.pair_id per config/p4_3_paired_eval_contract.v1.json",
+    "episode_count": 18,
+    "conditions": ["D0", "D2"],
+    "condition_order": "deterministic_D0_then_D2",
+    "d0_defense_enabled": false,
+    "d2_defense_enabled": true,
+    "coverage_class_attacks": "COV-A",
+    "eligibility_attacks": "PRIMARY_ELIGIBLE",
+    "adaptiguard_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+    "target_model": "openai/gpt-4o-mini-2024-07-18",
+    "target_provider": "openrouter",
+    "target_routing": {
+      "provider_order": ["OpenAI"],
+      "allow_fallbacks": false
+    },
+    "judge_model": "meta-llama/llama-3.3-70b-instruct",
+    "judge_provider": "openrouter",
+    "judge_routing": {
+      "provider_order": ["Groq"],
+      "allow_fallbacks": false
+    },
+    "fallback_policy": "deny",
+    "live_inference": true,
+    "output_root": "results/p4_2_paired/",
+    "runner_flag": "--p42-primary-config",
+    "reason": "Controlled paired D0 vs D2 live benchmark on frozen P4.2 primary pool only (9 COV-A attacks + 9 pair-matched benign)."
+  },
+  "preconditions": [
+    "P4_2_FREEZE_PASS",
+    "MODEL_LOCK_PASS",
+    "D2_INTEGRATION_PASS",
+    "P4_2_PRE_LIVE_AUDIT_PASS",
+    "FPR_SCORER_ALIGNED"
+  ],
+  "excludes": {
+    "dataset_version": "P4.3",
+    "approval_artifact": "artifacts/p4_3_d2_live_approval.json",
+    "note": "P4.3 approval must not authorize this run."
+  },
+  "note": "Authorized only for P4.2 primary scope above; assign run_id at execution; no dataset mutation; no historical overwrite."
+}

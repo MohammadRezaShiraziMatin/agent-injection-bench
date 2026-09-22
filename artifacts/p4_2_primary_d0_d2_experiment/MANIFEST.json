@@ -1,0 +1,232 @@
+{
+  "manifest_id": "aib-p4.2-primary-d0-d2-experiment-design-v1",
+  "status": "DESIGN_ONLY",
+  "live_execution": false,
+  "execution_approval": "REQUIRED",
+  "created_at": "2026-09-21T13:50:00+00:00",
+  "repository_commit_at_authoring": "4b1c5c3cacb322da03a65f6c78f96384cb6bd5c8",
+  "dataset": {
+    "name": "P4.2",
+    "episode_count": 200,
+    "attack_count": 100,
+    "benign_count": 100,
+    "digest_sha256": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+    "freeze_reference": {
+      "freeze_id": "aib-p4.2-frozen-v1.0",
+      "manifest_path": "data/episodes_p4_2/MANIFEST.json",
+      "verify_script": "scripts/verify_p4_2_freeze.py"
+    },
+    "excluded_from_primary": {
+      "dataset": "P4.3",
+      "digest_sha256": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+      "reason": "P4.3 attacks COV-C; not primary effectiveness population per docs/AIB_RESEARCH_CONTROLLED_DEFENSE_EXPERIMENT_SPEC.md"
+    }
+  },
+  "coverage": {
+    "labeling_artifact": "artifacts/p4_2_coverage_labeling/MANIFEST.json",
+    "eligibility_artifact": "artifacts/p4_2_coverage_eligibility/MANIFEST.json",
+    "protocol_doc": "docs/AIB_COVERAGE_AWARE_EVALUATION_PROTOCOL.md",
+    "primary": "COV-A only (PRIMARY_ELIGIBLE)",
+    "secondary": "COV-B",
+    "diagnostic": "COV-C",
+    "promotion_rule": "COV-B and COV-C must not enter primary analysis stratum"
+  },
+  "primary_attack_pool": {
+    "n": 9,
+    "eligibility_class": "PRIMARY_ELIGIBLE",
+    "coverage_class": "COV-A",
+    "episode_order_policy": "sorted_ascending_by_episode_id",
+    "episodes": [
+      {
+        "episode_id": "atk_p42_002",
+        "pair_id": "p42_002",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_002.json",
+        "benign_pair_episode_id": "ben_p42_002",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_002.json"
+      },
+      {
+        "episode_id": "atk_p42_011",
+        "pair_id": "p42_011",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_011.json",
+        "benign_pair_episode_id": "ben_p42_011",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_011.json"
+      },
+      {
+        "episode_id": "atk_p42_012",
+        "pair_id": "p42_012",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_012.json",
+        "benign_pair_episode_id": "ben_p42_012",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_012.json"
+      },
+      {
+        "episode_id": "atk_p42_013",
+        "pair_id": "p42_013",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_013.json",
+        "benign_pair_episode_id": "ben_p42_013",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_013.json"
+      },
+      {
+        "episode_id": "atk_p42_014",
+        "pair_id": "p42_014",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_014.json",
+        "benign_pair_episode_id": "ben_p42_014",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_014.json"
+      },
+      {
+        "episode_id": "atk_p42_015",
+        "pair_id": "p42_015",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_015.json",
+        "benign_pair_episode_id": "ben_p42_015",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_015.json"
+      },
+      {
+        "episode_id": "atk_p42_016",
+        "pair_id": "p42_016",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_016.json",
+        "benign_pair_episode_id": "ben_p42_016",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_016.json"
+      },
+      {
+        "episode_id": "atk_p42_017",
+        "pair_id": "p42_017",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_017.json",
+        "benign_pair_episode_id": "ben_p42_017",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_017.json"
+      },
+      {
+        "episode_id": "atk_p42_018",
+        "pair_id": "p42_018",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_018.json",
+        "benign_pair_episode_id": "ben_p42_018",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_018.json"
+      }
+    ]
+  },
+  "benign_controls": {
+    "pairing_contract": {
+      "source": "config/p4_3_paired_eval_contract.v1.json#paired_protocol.pair_id_source",
+      "pair_id_field": "episode.pair_id",
+      "dataset_pairing": "data/episodes_p4_2/MANIFEST.json (matched attack/benign rows per pair_id)",
+      "outcome_independent": true,
+      "forbidden_pairing_inputs": [
+        "D0_result",
+        "D2_result",
+        "detector_hit",
+        "attack_success"
+      ]
+    },
+    "utility_fpr_benign_scope": {
+      "population": "pair_matched_benign_of_primary_attack_pool",
+      "denominator_rule": "config/p4_3_evaluation_metrics.v1.json metrics.Utility.denominator and metrics.FPR.denominator (valid_judged_benign_episodes executed in this run)",
+      "fpr_numerator_rule": "config/p4_3_paired_eval_contract.v1.json#fpr.definition",
+      "pairing": "config/p4_3_paired_eval_contract.v1.json#paired_protocol.pair_id_source",
+      "benign_episode_ids": [
+        "ben_p42_002",
+        "ben_p42_011",
+        "ben_p42_012",
+        "ben_p42_013",
+        "ben_p42_014",
+        "ben_p42_015",
+        "ben_p42_016",
+        "ben_p42_017",
+        "ben_p42_018"
+      ],
+      "excluded": "Full P4.2 benign set (n=100) is not in primary run episode_ids; denominator is not all-dataset benign."
+    }
+  },
+  "experiment_design": {
+    "independent_variable": "defense_condition",
+    "conditions_reference": "config/p4_3_paired_eval_contract.v1.json#conditions",
+    "conditions": {
+      "D0": {
+        "defense_enabled": false,
+        "defense_backend": "none"
+      },
+      "D2": {
+        "defense_enabled": true,
+        "defense_backend": "adaptiguard"
+      }
+    },
+    "pairing_method": "paired_D0_then_D2_per_episode",
+    "pairing_method_reference": "config/p4_3_paired_eval_contract.v1.json#paired_protocol",
+    "episode_order_within_run": "primary_attack_pool.episode_order_policy",
+    "historical_runs_immutable": [
+      "results/p4_3_live/p43-live-20260921-controlled",
+      "results/p4_3_paired/p43-d0-d2-20260921-controlled"
+    ]
+  },
+  "defense_integration": {
+    "adaptiguard_commit_sha": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+    "pin_file": "config/adaptiguard_version_pin.v1.json",
+    "bridge": "agent/defense/adaptiguard_bridge.py",
+    "adapter": "agent/defense/adaptiguard_adapter.py",
+    "d2_gate": "config/p4_3_d2_eval_gate.v1.json",
+    "live_d2_inference_allowed": false
+  },
+  "model_and_provider_lock": {
+    "gate_contract": "config/p4_3_live_eval_gate.v1.json",
+    "catalog_evidence": "artifacts/openrouter_model_lock_evidence.json",
+    "target_model": {
+      "provider": "openrouter",
+      "exact_model_id": "openai/gpt-4o-mini-2024-07-18",
+      "routing_policy": {
+        "provider_order": ["OpenAI"],
+        "allow_fallbacks": false
+      },
+      "fallback_policy": "deny"
+    },
+    "judge_model": {
+      "provider": "openrouter",
+      "exact_model_id": "meta-llama/llama-3.3-70b-instruct",
+      "routing_policy": {
+        "provider_order": ["Groq"],
+        "allow_fallbacks": false
+      },
+      "fallback_policy": "deny"
+    },
+    "generation_parameters": {
+      "temperature": 0,
+      "top_p": 1.0,
+      "seed": 43020260921,
+      "seed_policy": "record_and_honor_if_provider_supports"
+    },
+    "upstream_weight_revision": "UNVERIFIED"
+  },
+  "metrics": {
+    "contract": "config/p4_3_evaluation_metrics.v1.json",
+    "severity_reference": "S1_S4 in metrics contract",
+    "reported_metrics": {
+      "ASR": "config/p4_3_evaluation_metrics.v1.json#metrics.ASR",
+      "S1": "severity S1 via success_criterion mapping",
+      "S2": "config/p4_3_evaluation_metrics.v1.json#metrics.S2_Success_Rate scope P4.2 S2",
+      "S3": "severity S3 / Unauthorized_Execution_Rate when harness evidence present",
+      "S4": "severity S4 / Sensitive_Side_Effect_Rate when recorder evidence present",
+      "Utility": "config/p4_3_evaluation_metrics.v1.json#metrics.Utility",
+      "FPR": "config/p4_3_paired_eval_contract.v1.json#fpr",
+      "paired_transitions": "config/p4_3_paired_eval_contract.v1.json#paired_protocol and outcome_semantics"
+    },
+    "defense_rate": "NOT_COMPUTABLE",
+    "defense_rate_reason": "No paired P4.2 primary D0/D2 run exists; Paired_Defense_Rate requires paired_alignment and matched_d0_baseline per config/p4_3_paired_eval_contract.v1.json#defense_rate.paired_operational_definition"
+  },
+  "execution_tooling": {
+    "p4_2_paired_runner": "UNSPECIFIED",
+    "p4_2_paired_runner_note": "REQUIRES_NEXT_PHASE — no P4.2-specific paired runner contract in repo; nearest reference implementation scripts/run_p4_3_paired_benchmark.py",
+    "runner_reference_commit": "42eeaa8fb889496740af7c198d3fd20ef1545639",
+    "scorer_reference": "scripts/score_p4_3_paired_metrics.py",
+    "scorer_reference_commit": "42eeaa8fb889496740af7c198d3fd20ef1545639",
+    "harness_version_constant": "agent/harness_meta.py#HARNESS_VERSION",
+    "harness_version_value": "p4.3-eval-harness-v1"
+  },
+  "statistical_interpretation": {
+    "primary_attack_n": 9,
+    "analysis": "descriptive_paired",
+    "generalization": "not_supported",
+    "superiority_claim": "not_supported"
+  },
+  "preflight_requirements": {
+    "verify_p4_2_freeze": "scripts/verify_p4_2_freeze.py",
+    "verify_model_lock": "scripts/verify_model_lock.py",
+    "verify_d2_integration": "scripts/verify_d2_integration.py",
+    "live_approval_artifacts": "REQUIRED before live_execution=true (per config/p4_3_d2_eval_gate.v1.json)"
+  }
+}

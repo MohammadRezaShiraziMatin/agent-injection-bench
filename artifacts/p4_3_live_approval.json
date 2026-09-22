@@ -1,0 +1,18 @@
+{
+  "approval_id": "p4.3-live-benchmark-1",
+  "status": "EXPLICIT",
+  "approved_at": "2026-09-21T06:30:00Z",
+  "approver": "user_cursor_task_live_benchmark_p4_3",
+  "scope": {
+    "dataset_version": "P4.3",
+    "dataset_digest": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+    "episode_count": 8,
+    "live_inference": true
+  },
+  "preconditions": [
+    "MODEL_LOCK_PASS",
+    "PREFLIGHT_PASS",
+    "DATASET_INTEGRITY_PASS"
+  ],
+  "note": "Explicit authorization via user task to run controlled P4.3 live benchmark."
+}

@@ -1,0 +1,19 @@
+{
+  "artifact_id": "p4_2_coverage_labeling",
+  "labeling_protocol": "coverage_labeling_audit_v1",
+  "protocol_doc": "docs/AIB_COVERAGE_AWARE_EVALUATION_PROTOCOL.md",
+  "controlled_experiment_spec": "docs/AIB_RESEARCH_CONTROLLED_DEFENSE_EXPERIMENT_SPEC.md",
+  "p4_2_digest_sha256": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+  "adaptiguard_commit_sha": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+  "detector_evidence_references": [
+    "experiments/detector_coverage_gap_v1/MANIFEST.json",
+    "experiments/detector_coverage_gap_v1/RESULTS.json",
+    "external/adapti-guard/tests/test_phase1_core_pipeline.py",
+    "external/adapti-guard/tests/test_phase1_evidence_scenarios.py"
+  ],
+  "mode": "offline_detector_only",
+  "live_d2_inference_allowed": false,
+  "p4_3_note": "P4.3 attacks remain COV-C (not relabeled in this artifact)",
+  "finished_at": "2026-09-21T11:12:19.820367+00:00",
+  "episode_count": 200
+}

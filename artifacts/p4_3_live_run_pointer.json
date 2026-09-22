@@ -1,0 +1,7 @@
+{
+  "run_id": "p43-live-20260921-controlled",
+  "results_path": "results/p4_3_live/p43-live-20260921-controlled/RESULTS.json",
+  "manifest_path": "results/p4_3_live/p43-live-20260921-controlled/RUN_MANIFEST.json",
+  "metrics_summary": "artifacts/p4_3_live_metrics_summary.json",
+  "note": "Raw traces under results/p4_3_live/ are gitignored; reproducibility via RUN_MANIFEST + git commit of runner version."
+}
