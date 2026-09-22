@@ -1,0 +1,81 @@
+# Offline research integrity: tests + existing verifiers (no LLM / live inference).
+name: Research CI
+
+on:
+  push:
+    branches: [main, "cursor/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: research-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONPATH: .
+  # Placeholder only — verify_model_lock checks presence, not network calls.
+  OPENROUTER_API_KEY: ci-placeholder-not-used
+  OPENROUTER_TARGET_MODEL: openai/gpt-4o-mini-2024-07-18
+  OPENROUTER_JUDGE_MODEL: meta-llama/llama-3.3-70b-instruct
+  OPENROUTER_ALLOW_FALLBACKS: "false"
+  OPENROUTER_TARGET_PROVIDER_ORDER: OpenAI
+  OPENROUTER_JUDGE_PROVIDER_ORDER: Groq
+  AIB_ADAPTIGUARD_COMMIT: 30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package (dev)
+        run: pip install -e ".[dev]"
+      - name: pytest
+        run: pytest -q
+
+  research-integrity:
+    name: Research Integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package (dev)
+        run: pip install -e ".[dev]"
+      - name: Install pinned AdaptiGuard (offline smoke only)
+        run: |
+          git clone https://github.com/MohammadRezaShiraziMatin/adapti-guard external/adapti-guard
+          cd external/adapti-guard
+          git checkout "${AIB_ADAPTIGUARD_COMMIT}"
+          pip install -e .
+        env:
+          AIB_ADAPTIGUARD_REPO: ${{ github.workspace }}/external/adapti-guard
+      - name: Dataset and freeze verifiers
+        run: |
+          python scripts/verify_p4_2_freeze.py
+          python scripts/verify_p4_3_integrity.py
+          python scripts/verify_p4_4_v2_freeze.py
+          python scripts/verify_p6_freeze.py
+      - name: Protocol and live-gate safety verifiers
+        run: |
+          python scripts/verify_p4_2_primary_prelive_gate.py
+          python scripts/verify_p4_2_d2_live_approval.py
+          python scripts/verify_model_lock.py
+      - name: D2 integration (no live inference)
+        env:
+          AIB_ADAPTIGUARD_REPO: ${{ github.workspace }}/external/adapti-guard
+        run: python scripts/verify_d2_integration.py
+
+  workflow-safety:
+    name: Security / Workflow Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Live D2 gate must stay disabled by default
+        run: python -m pytest tests/test_research_ci_contracts.py -q
