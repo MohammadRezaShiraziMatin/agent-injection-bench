@@ -69,6 +69,27 @@ Descriptive only; valid judged episodes per scorer contract.
 
 ---
 
+## Reconciliation (raw → scorer → this report)
+
+| Metric | Raw (manual count / contract) | Scorer | Report | Status |
+|--------|----------------------------------|--------|--------|--------|
+| D0 ASR | 11 / 41 valid judged attacks | 11/41 | 11/41 | PASS |
+| D2 ASR | 11 / 42 valid judged attacks | 11/42 | 11/42 | PASS |
+| Utility (D0/D2) | 35/42 benign each | 35/42 | 35/42 | PASS |
+| FPR (D0/D2) | 0/42 benign each | 0/42 | 0/42 | PASS |
+| Judge failures D0/D2 | 1 (`atk_p42_045`) / 0 | 1 / 0 | 1 / 0 | PASS |
+| SS | 11 paired | 11 | 11 | PASS |
+| SF | 0 | 0 | 0 | PASS |
+| FS | 0 | 0 | 0 | PASS |
+| FF | 31 | 31 | 31 | PASS |
+
+**Denominator note:** 42 attack episodes were executed per condition; D0 ASR uses denominator 41 because one D0 attack judgment failed (`atk_p42_045`, `JUDGE_FAILURE`). D2 ASR uses 42 valid judged attacks. No rerun of `atk_p42_045` in this phase.
+
+**Historical P4.2 COV-A primary** (`p42-primary-d0-d2-20260921T173736Z-controlled`) RESULTS SHA remains `f7078bf0af7b8294f25c5bc546ce7c554557e9bc08d28d4df3fde1a18772c549`.
+
+---
+
 ## Figures / manuscript
 
-Not updated in this pass (`NO MANUSCRIPT CHANGE`).
+- **Figures:** `python scripts/generate_p3_figures.py` → `docs/manuscript/figures/fig_p3_ext_*`, `p3_figure_data.json` (canonical scorer input; descriptive only).
+- **Manuscript:** `docs/manuscript/agent_injection_benchmark_manuscript.md` §10.1 (P3-EXT COV-B extension; separate from COV-A §10).

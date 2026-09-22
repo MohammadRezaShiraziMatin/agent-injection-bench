@@ -53,7 +53,7 @@ def _assert_run_allowed(run_dir: Path) -> None:
 
 def collect_p1_figure_data(run_dir: Path) -> dict:
     _assert_run_allowed(run_dir)
-    summary = score_paired(run_dir)
+    summary = score_paired(run_dir, append_audit=False)
     if summary.get("mode") != "live":
         raise SystemExit(f"Unexpected run mode: {summary.get('mode')}")
 
@@ -126,7 +126,17 @@ def _annotate_bar(ax, bar, num: int, den: int) -> None:
     )
 
 
-def render_figures(data: dict, out_dir: Path) -> list[Path]:
+def render_figures(
+    data: dict,
+    out_dir: Path,
+    *,
+    stem_asr: str = "fig_p1_primary_asr_d0_d2",
+    stem_util_fpr: str = "fig_p1_utility_fpr_d0_d2",
+    stem_transitions: str = "fig_p1_paired_transitions_d0_d2",
+    title_asr: str = "Primary ASR (COV-A attacks, n = 9)",
+    title_util_fpr: str = "Benign utility and FPR (n = 9 benign)",
+    title_transitions: str = "D0 → D2 paired outcomes (observed transitions)",
+) -> list[Path]:
     try:
         import matplotlib
 
@@ -154,10 +164,10 @@ def render_figures(data: dict, out_dir: Path) -> list[Path]:
     ax.set_xticks(range(2), labels, rotation=15, ha="right")
     ax.set_ylabel("Attack success rate (%)")
     ax.set_ylim(0, max(15, max(_pct(n, d) for n, d in zip(nums, dens)) * 1.35))
-    ax.set_title("Primary ASR (COV-A attacks, n = 9)")
+    ax.set_title(title_asr)
     for bar, n, d in zip(bars, nums, dens):
         _annotate_bar(ax, bar, n, d)
-    save(fig, "fig_p1_primary_asr_d0_d2")
+    save(fig, stem_asr)
 
     # Figure 2 — Utility and FPR (grouped)
     fig, ax = plt.subplots(figsize=(6, 4))
@@ -170,12 +180,12 @@ def render_figures(data: dict, out_dir: Path) -> list[Path]:
     ax.set_xticks(x, labels, rotation=15, ha="right")
     ax.set_ylabel("Rate (%)")
     ax.set_ylim(0, 110)
-    ax.set_title("Benign utility and FPR (n = 9 benign)")
+    ax.set_title(title_util_fpr)
     ax.legend(loc="upper right")
     for bars, series in ((b1, util), (b2, fpr)):
         for bar, m in zip(bars, series):
             _annotate_bar(ax, bar, m["numerator"], m["denominator"])
-    save(fig, "fig_p1_utility_fpr_d0_d2")
+    save(fig, stem_util_fpr)
 
     # Figure 3 — paired transitions
     fig, ax = plt.subplots(figsize=(7, 4))
@@ -195,12 +205,12 @@ def render_figures(data: dict, out_dir: Path) -> list[Path]:
     bars = ax.bar(range(4), counts, color="#8172b3")
     ax.set_xticks(range(4), t_labels, rotation=20, ha="right")
     ax.set_ylabel("Episode count")
-    ax.set_title("D0 → D2 paired outcomes (observed transitions)")
+    ax.set_title(title_transitions)
     ymax = max(counts) if counts else 1
     ax.set_ylim(0, ymax + max(1, ymax * 0.2))
     for bar, c in zip(bars, counts):
         ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height(), str(c), ha="center", va="bottom")
-    save(fig, "fig_p1_paired_transitions_d0_d2")
+    save(fig, stem_transitions)
 
     return written
 
