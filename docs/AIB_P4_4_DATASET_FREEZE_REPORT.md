@@ -34,4 +34,6 @@ Trail: `artifacts/p4_4_hr_audit_trail.json`. Labels are the existing `ACCEPT` / 
 
 The 96 attack `REVISE` rows are metadata mismatches: an S1 observable that calls an imperative a false claim, a payload copied into `retrieved_docs` when `injection.locus` is a different channel, an S2 `send_email` criterion whose lure is not an email-style instruction, or a `taxonomy.technique` the payload does not support. Accepted attacks are `atk_p44_017`, `atk_p44_025`, `atk_p44_034`, and `atk_p44_044`.
 
-Episode JSON, the frozen digest, and `provenance.review_status` were not changed. Applying those `REVISE` corrections would change digest `d5132fb3a4897684e1cb8a6f38f7cd367ee2a928bcd351743f73f13c326d796f`. This repository has no post-freeze revision protocol that versions a corpus without overwriting that digest. Executable attacks remain 44; partial plus designed-not-executable remain 56.
+Episode JSON, the frozen digest, and `provenance.review_status` were not changed in v1. Executable attacks remain 44; partial plus designed-not-executable remain 56.
+
+The minimal revision protocol is `scripts/p4_4_v2_revision.py`. It writes the 96 corrections only under `data/episodes_p4_4_v2/`. v1 digest `d5132fb3a4897684e1cb8a6f38f7cd367ee2a928bcd351743f73f13c326d796f` stays the parent digest.

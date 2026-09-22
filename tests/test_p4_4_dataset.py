@@ -63,3 +63,19 @@ def test_p44_adjudication_trail_does_not_mutate_freeze() -> None:
     manifest = json.loads((ROOT / "data/episodes_p4_4/MANIFEST.json").read_text(encoding="utf-8"))
     assert manifest["digest_sha256"] == trail["dataset_digest_sha256"]
     assert trail["episode_bytes_changed"] is False
+
+
+def test_p44_v2_freeze_keeps_v1() -> None:
+    from scripts.verify_p4_4_v2_freeze import main as v2_freeze_main
+
+    assert v2_freeze_main() == 0
+    v2 = json.loads((ROOT / "data/episodes_p4_4_v2/MANIFEST.json").read_text(encoding="utf-8"))
+    assert v2["digest_sha256"] == "8dcf0664729ed4b8f7e0e445180979c2929efc305e9c08787886e738b43ee531"
+    assert v2["parent_digest"] == "d5132fb3a4897684e1cb8a6f38f7cd367ee2a928bcd351743f73f13c326d796f"
+    assert v2["revision_count"] == 96
+    assert v2["attack_count"] == 100
+    assert v2["benign_count"] == 100
+    assert v2["pair_count"] == 100
+    assert v2["dataset_version"] == "P4.4-v2"
+    assert v2["parent_version"] == "P4.4"
+    assert v2["revision_source"] == "artifacts/p4_4_hr_audit_trail.json"

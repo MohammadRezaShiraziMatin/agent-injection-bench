@@ -1,0 +1,2970 @@
+{
+  "attack_count": 100,
+  "benign_count": 100,
+  "corpus_revision": "v2",
+  "dataset_version": "P4.4-v2",
+  "digest_sha256": "8dcf0664729ed4b8f7e0e445180979c2929efc305e9c08787886e738b43ee531",
+  "episode_count": 200,
+  "episode_schema_dataset_version": "P4.4",
+  "episodes": [
+    {
+      "byte_size": 2434,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_001",
+      "filename": "attack/atk_p44_001.json",
+      "pair_id": "p44_001",
+      "role": "attack",
+      "sha256": "e3d2ec5ebe0e78d802db649b58a7603f87901faae0ef2579405c411f734047e8"
+    },
+    {
+      "byte_size": 2398,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_002",
+      "filename": "attack/atk_p44_002.json",
+      "pair_id": "p44_002",
+      "role": "attack",
+      "sha256": "9b3118ccdb4217fcb465843f6d2b67b88c48c125bb5f039bd77d48163d0dbc33"
+    },
+    {
+      "byte_size": 2391,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_003",
+      "filename": "attack/atk_p44_003.json",
+      "pair_id": "p44_003",
+      "role": "attack",
+      "sha256": "1415352d33dc3d0f793fa2bb343dbc482d3a243249424585ce882775ff666c8c"
+    },
+    {
+      "byte_size": 2374,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_004",
+      "filename": "attack/atk_p44_004.json",
+      "pair_id": "p44_004",
+      "role": "attack",
+      "sha256": "f641d1b844d5e78412c04f6aeba575b76bf42373d4c2306ae74ed9669cd6c92a"
+    },
+    {
+      "byte_size": 2364,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_005",
+      "filename": "attack/atk_p44_005.json",
+      "pair_id": "p44_005",
+      "role": "attack",
+      "sha256": "77b35bfdf0c4a288b9b1ed7be3a00f23e8191545f84a533a96ea9cb501cb73a4"
+    },
+    {
+      "byte_size": 2379,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_006",
+      "filename": "attack/atk_p44_006.json",
+      "pair_id": "p44_006",
+      "role": "attack",
+      "sha256": "2747bb26c24a7a7a39bc1ddf10c2ec1050b5dabf495403061f5318e10eea53ea"
+    },
+    {
+      "byte_size": 2393,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_007",
+      "filename": "attack/atk_p44_007.json",
+      "pair_id": "p44_007",
+      "role": "attack",
+      "sha256": "89804aeb68989319b9461b78e382e3f9f863c41acd57391ca662832de59c30da"
+    },
+    {
+      "byte_size": 2359,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_008",
+      "filename": "attack/atk_p44_008.json",
+      "pair_id": "p44_008",
+      "role": "attack",
+      "sha256": "a4e5da98987c571bd26af4f69c0ba83606bca3307c30089287e7d1cd591ed690"
+    },
+    {
+      "byte_size": 2381,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_009",
+      "filename": "attack/atk_p44_009.json",
+      "pair_id": "p44_009",
+      "role": "attack",
+      "sha256": "f7120ab8fd166997a144ca5487ac789e4e6bc8e3f3c9e8760f758907c14e84dc"
+    },
+    {
+      "byte_size": 2362,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_010",
+      "filename": "attack/atk_p44_010.json",
+      "pair_id": "p44_010",
+      "role": "attack",
+      "sha256": "4e8998e0ff69e01ba41ed2c98e27e9d7f6320819075902e3a0ade5ea592cec83"
+    },
+    {
+      "byte_size": 2375,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_011",
+      "filename": "attack/atk_p44_011.json",
+      "pair_id": "p44_011",
+      "role": "attack",
+      "sha256": "ad35eeaccaef8a5242a514d5b8192e12223856dd5eedb2bd98d1cede540d1c6c"
+    },
+    {
+      "byte_size": 2347,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_012",
+      "filename": "attack/atk_p44_012.json",
+      "pair_id": "p44_012",
+      "role": "attack",
+      "sha256": "d5ac14d1ad4bd8c365b996f7119832f8eb638bf6e992673ec2cdbe933c9f75e3"
+    },
+    {
+      "byte_size": 2427,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_013",
+      "filename": "attack/atk_p44_013.json",
+      "pair_id": "p44_013",
+      "role": "attack",
+      "sha256": "8923017032e631849d64312650737ba668f427a14deaa3e02c5496dfa9812fed"
+    },
+    {
+      "byte_size": 2387,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_014",
+      "filename": "attack/atk_p44_014.json",
+      "pair_id": "p44_014",
+      "role": "attack",
+      "sha256": "e3fa52461fbc817314d1b70db251d1b935d433599df72dc794104760437d0e02"
+    },
+    {
+      "byte_size": 2413,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_015",
+      "filename": "attack/atk_p44_015.json",
+      "pair_id": "p44_015",
+      "role": "attack",
+      "sha256": "ca137eaf16612e74c40f50de194e9c49e5c68aeb70b852cd33a9e5ac58fbcf4a"
+    },
+    {
+      "byte_size": 2391,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_016",
+      "filename": "attack/atk_p44_016.json",
+      "pair_id": "p44_016",
+      "role": "attack",
+      "sha256": "3e0bb2e6364242540a2b9086e993d300174e9ab0e0fdcf6fb1ba3c9d4406488a"
+    },
+    {
+      "byte_size": 2410,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_017",
+      "filename": "attack/atk_p44_017.json",
+      "pair_id": "p44_017",
+      "role": "attack",
+      "sha256": "f6f612df2015e205b1d532f1ec744fa3b96dd2eb5162112535e5b5087b44355c"
+    },
+    {
+      "byte_size": 2376,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_018",
+      "filename": "attack/atk_p44_018.json",
+      "pair_id": "p44_018",
+      "role": "attack",
+      "sha256": "2124a8facf2cc417ad03690163fd58ef802bcfbafe10f84b6681f69c10174c38"
+    },
+    {
+      "byte_size": 2394,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_019",
+      "filename": "attack/atk_p44_019.json",
+      "pair_id": "p44_019",
+      "role": "attack",
+      "sha256": "ca9cbde43b1c14720dc35f18b23d62cb971693ad59479276828513c4277c9b1b"
+    },
+    {
+      "byte_size": 2396,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_020",
+      "filename": "attack/atk_p44_020.json",
+      "pair_id": "p44_020",
+      "role": "attack",
+      "sha256": "af8577e91fa29ff15f55085c465756c8a59b383cfaa5f481c8f2d5707bc0b4ad"
+    },
+    {
+      "byte_size": 2404,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_021",
+      "filename": "attack/atk_p44_021.json",
+      "pair_id": "p44_021",
+      "role": "attack",
+      "sha256": "033c5398b7501589efce7fc9800e141a02f17ff2b1a408e8811098cd1ad6c652"
+    },
+    {
+      "byte_size": 2390,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_022",
+      "filename": "attack/atk_p44_022.json",
+      "pair_id": "p44_022",
+      "role": "attack",
+      "sha256": "3495246275f7a4274a5219bd69a106ccfacf922683fa46087ee06f2856cfac4a"
+    },
+    {
+      "byte_size": 2402,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_023",
+      "filename": "attack/atk_p44_023.json",
+      "pair_id": "p44_023",
+      "role": "attack",
+      "sha256": "46fccb062d6a6fa2cb35de7e7c7c898116353e36d7e4fc2bb0f37082f724323a"
+    },
+    {
+      "byte_size": 2394,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_024",
+      "filename": "attack/atk_p44_024.json",
+      "pair_id": "p44_024",
+      "role": "attack",
+      "sha256": "a295f85f62ec83784708c27fa7b645482513e07c0a9a941b04abdcaf183a8b01"
+    },
+    {
+      "byte_size": 2393,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_025",
+      "filename": "attack/atk_p44_025.json",
+      "pair_id": "p44_025",
+      "role": "attack",
+      "sha256": "4337bb4efa84231fd21c6342ce7f33ce8c99abdfa3c2fb860947f92059b7ea50"
+    },
+    {
+      "byte_size": 2383,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_026",
+      "filename": "attack/atk_p44_026.json",
+      "pair_id": "p44_026",
+      "role": "attack",
+      "sha256": "783ce12df997bb785cc50074fb5a0273fbc034d08f55ae89d3cfe6db66c84254"
+    },
+    {
+      "byte_size": 2385,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_027",
+      "filename": "attack/atk_p44_027.json",
+      "pair_id": "p44_027",
+      "role": "attack",
+      "sha256": "bc0d4222a65f6e352905d7c7d25654088adba7c98152a77cbfef55547043f5eb"
+    },
+    {
+      "byte_size": 2388,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_028",
+      "filename": "attack/atk_p44_028.json",
+      "pair_id": "p44_028",
+      "role": "attack",
+      "sha256": "81ad13b48f877c9429fcfe94e3b7456e7207cfce135c4cea0a2f38ce9a16a0ec"
+    },
+    {
+      "byte_size": 2421,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_029",
+      "filename": "attack/atk_p44_029.json",
+      "pair_id": "p44_029",
+      "role": "attack",
+      "sha256": "de4300b61489eed09be98d4f84261c07166bb638e030a61893591a8f646203dd"
+    },
+    {
+      "byte_size": 2379,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_030",
+      "filename": "attack/atk_p44_030.json",
+      "pair_id": "p44_030",
+      "role": "attack",
+      "sha256": "70eef0e2f869b8938c6fd72629d60ec9c7ac3be08a22da131726924a876a8eac"
+    },
+    {
+      "byte_size": 2411,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_031",
+      "filename": "attack/atk_p44_031.json",
+      "pair_id": "p44_031",
+      "role": "attack",
+      "sha256": "e8cbf743c67a8e9520e3bd6f96f91ec3515b7b555a08b78355507d4baed06609"
+    },
+    {
+      "byte_size": 2418,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_032",
+      "filename": "attack/atk_p44_032.json",
+      "pair_id": "p44_032",
+      "role": "attack",
+      "sha256": "a6df1c7ef67bf28b332516054bb6695331e8015af32ad08311beb5e4528c39e5"
+    },
+    {
+      "byte_size": 2383,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_033",
+      "filename": "attack/atk_p44_033.json",
+      "pair_id": "p44_033",
+      "role": "attack",
+      "sha256": "69ee665602ccb3ad1eb1e79d607a62556633c1a4401912f9649257607771fbfb"
+    },
+    {
+      "byte_size": 2382,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_034",
+      "filename": "attack/atk_p44_034.json",
+      "pair_id": "p44_034",
+      "role": "attack",
+      "sha256": "4b010158b2c70805195c9177f48a386c67d010b310f55a58de8a10a819d2e2e7"
+    },
+    {
+      "byte_size": 2422,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_035",
+      "filename": "attack/atk_p44_035.json",
+      "pair_id": "p44_035",
+      "role": "attack",
+      "sha256": "ba42cd37cdf94b229839c7706bee39d0d499624762a3ce2c4ca44b997cb57c7b"
+    },
+    {
+      "byte_size": 2403,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_036",
+      "filename": "attack/atk_p44_036.json",
+      "pair_id": "p44_036",
+      "role": "attack",
+      "sha256": "2bc1299596d476bd55926d9d3e465ad898511403f22ab4c0d2f151afa4708383"
+    },
+    {
+      "byte_size": 2394,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_037",
+      "filename": "attack/atk_p44_037.json",
+      "pair_id": "p44_037",
+      "role": "attack",
+      "sha256": "67161bd51cb8ac4c9cefb4cc4a93869c3f4d18b5987824eb6a9b8bae46b2691a"
+    },
+    {
+      "byte_size": 2403,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_038",
+      "filename": "attack/atk_p44_038.json",
+      "pair_id": "p44_038",
+      "role": "attack",
+      "sha256": "a1df97827dddc3b6beb32412db834c1940b5066c69165cb6c42d634b2947f7d9"
+    },
+    {
+      "byte_size": 2394,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_039",
+      "filename": "attack/atk_p44_039.json",
+      "pair_id": "p44_039",
+      "role": "attack",
+      "sha256": "a4de2e67e6639a09ede7de944de49887191e238fc745df9875b5f18638e247c9"
+    },
+    {
+      "byte_size": 2406,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_040",
+      "filename": "attack/atk_p44_040.json",
+      "pair_id": "p44_040",
+      "role": "attack",
+      "sha256": "9ea50b8bf8db539bab33d784940363216b62b502aa97b675c1e33d4949c2add0"
+    },
+    {
+      "byte_size": 2404,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_041",
+      "filename": "attack/atk_p44_041.json",
+      "pair_id": "p44_041",
+      "role": "attack",
+      "sha256": "91969392207bae3e61213309c43de3c1a056ccbf784455cdacae5cf9029cfa48"
+    },
+    {
+      "byte_size": 2396,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_042",
+      "filename": "attack/atk_p44_042.json",
+      "pair_id": "p44_042",
+      "role": "attack",
+      "sha256": "cdf167fc5b5257b7143ca9617b7aea6c248e7e5acbcd71257c588a9fc94a4973"
+    },
+    {
+      "byte_size": 2381,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_043",
+      "filename": "attack/atk_p44_043.json",
+      "pair_id": "p44_043",
+      "role": "attack",
+      "sha256": "ef13165c89e1ebf41fb8bd3ce9847da2613fa0598b41f644cb177c99ab6b77b2"
+    },
+    {
+      "byte_size": 2392,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_044",
+      "filename": "attack/atk_p44_044.json",
+      "pair_id": "p44_044",
+      "role": "attack",
+      "sha256": "938808dc1864478c3a72b937161250d8ae16105990484b2a37dbf08191fc1327"
+    },
+    {
+      "byte_size": 2582,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_045",
+      "filename": "attack/atk_p44_045.json",
+      "pair_id": "p44_045",
+      "role": "attack",
+      "sha256": "98a974918a2d8379ec5fe68ee82bd10aad72e53f78c3688c9ae23f8b6f257e2e"
+    },
+    {
+      "byte_size": 2610,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_046",
+      "filename": "attack/atk_p44_046.json",
+      "pair_id": "p44_046",
+      "role": "attack",
+      "sha256": "fc30d753f9f20ae161fea722238ab0a74a4a95f04ee09c36969f2da4b13b7434"
+    },
+    {
+      "byte_size": 2593,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_047",
+      "filename": "attack/atk_p44_047.json",
+      "pair_id": "p44_047",
+      "role": "attack",
+      "sha256": "4f879d030344e725123bbe3974c5392167f8e01b1b86755095d5ddc1bd565b32"
+    },
+    {
+      "byte_size": 2577,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_048",
+      "filename": "attack/atk_p44_048.json",
+      "pair_id": "p44_048",
+      "role": "attack",
+      "sha256": "b3fce1d94796573b28dd5129dabd703df1f8f4c529d38fed1c3e7b64b1477017"
+    },
+    {
+      "byte_size": 2591,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_049",
+      "filename": "attack/atk_p44_049.json",
+      "pair_id": "p44_049",
+      "role": "attack",
+      "sha256": "39d729a534b85f6a9e7d2f0dddf6765e9dfea4e248fd8272005bf6498fe03eed"
+    },
+    {
+      "byte_size": 2612,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_050",
+      "filename": "attack/atk_p44_050.json",
+      "pair_id": "p44_050",
+      "role": "attack",
+      "sha256": "7b788a238f3356f0ef782de0725338bfc233e73d7f7ccb13080bef6955caa952"
+    },
+    {
+      "byte_size": 2589,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_051",
+      "filename": "attack/atk_p44_051.json",
+      "pair_id": "p44_051",
+      "role": "attack",
+      "sha256": "7b8a9859f7c5169575de788f7be8f40cf1f6c6e892af00c467e20c1c10ee7971"
+    },
+    {
+      "byte_size": 2602,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_052",
+      "filename": "attack/atk_p44_052.json",
+      "pair_id": "p44_052",
+      "role": "attack",
+      "sha256": "a393190253f803cb45826d27c38a116428110ac8ba76f90dc3b31d188dd937cb"
+    },
+    {
+      "byte_size": 2593,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_053",
+      "filename": "attack/atk_p44_053.json",
+      "pair_id": "p44_053",
+      "role": "attack",
+      "sha256": "71c57151418ba62b425ab0da2d379ed28d28ba4fe073deffef6fc769df216966"
+    },
+    {
+      "byte_size": 2610,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_054",
+      "filename": "attack/atk_p44_054.json",
+      "pair_id": "p44_054",
+      "role": "attack",
+      "sha256": "9e21dc735ea4713c295ad0c861a435fa19507b69d2257ede37f5d3d1bcfddba5"
+    },
+    {
+      "byte_size": 2597,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_055",
+      "filename": "attack/atk_p44_055.json",
+      "pair_id": "p44_055",
+      "role": "attack",
+      "sha256": "4e51225ce0b125ff9059adc3b80bc2ee213850148f381ccaae2b540ea99a049e"
+    },
+    {
+      "byte_size": 2607,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_056",
+      "filename": "attack/atk_p44_056.json",
+      "pair_id": "p44_056",
+      "role": "attack",
+      "sha256": "1ebcf19eb126a587dbd5895fd0b80ce3ed20680064e4582c37a2c145d450d0c7"
+    },
+    {
+      "byte_size": 2780,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_057",
+      "filename": "attack/atk_p44_057.json",
+      "pair_id": "p44_057",
+      "role": "attack",
+      "sha256": "d092dba73b8bb9ea7fa8ba9afd3fc2516b7484624f8b1ba39d01e619ff013726"
+    },
+    {
+      "byte_size": 2744,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_058",
+      "filename": "attack/atk_p44_058.json",
+      "pair_id": "p44_058",
+      "role": "attack",
+      "sha256": "03f56c59cc541e1820bfaee27b49e7d4722b37d581ed373bbb57163f5b04ff4c"
+    },
+    {
+      "byte_size": 2758,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_059",
+      "filename": "attack/atk_p44_059.json",
+      "pair_id": "p44_059",
+      "role": "attack",
+      "sha256": "db899e61b63cf55166cae34c4140a612dcb73fba869e46dc16669fddc6aa266c"
+    },
+    {
+      "byte_size": 2766,
+      "dataset_partition": "development",
+      "episode_id": "atk_p44_060",
+      "filename": "attack/atk_p44_060.json",
+      "pair_id": "p44_060",
+      "role": "attack",
+      "sha256": "1a6e32fee6a32f78f0f1b2bd22efaf7f0b5832db4500878e8668387bbb417f7a"
+    },
+    {
+      "byte_size": 2773,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_061",
+      "filename": "attack/atk_p44_061.json",
+      "pair_id": "p44_061",
+      "role": "attack",
+      "sha256": "54e6d1af984835a55946d110ef129995db0e4201ec055370fb18032a29e0a801"
+    },
+    {
+      "byte_size": 2771,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_062",
+      "filename": "attack/atk_p44_062.json",
+      "pair_id": "p44_062",
+      "role": "attack",
+      "sha256": "cb03ee885990e8854273d53f8124fa66643047f68a267e698baa6f0638bc843e"
+    },
+    {
+      "byte_size": 2757,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_063",
+      "filename": "attack/atk_p44_063.json",
+      "pair_id": "p44_063",
+      "role": "attack",
+      "sha256": "05344e68baa54c3f656ae71b24c53a767c526b9560046755aeb9c66d54532775"
+    },
+    {
+      "byte_size": 2761,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_064",
+      "filename": "attack/atk_p44_064.json",
+      "pair_id": "p44_064",
+      "role": "attack",
+      "sha256": "b04433e6d4731da7a4620598c765b535eb77f23870065d7e2e59151224c9d41b"
+    },
+    {
+      "byte_size": 2762,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_065",
+      "filename": "attack/atk_p44_065.json",
+      "pair_id": "p44_065",
+      "role": "attack",
+      "sha256": "bc27f62c83003d03e8058e2dcdb11488b492dbf282db9ebecd7cf1df6625adc3"
+    },
+    {
+      "byte_size": 2777,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_066",
+      "filename": "attack/atk_p44_066.json",
+      "pair_id": "p44_066",
+      "role": "attack",
+      "sha256": "d4268e1e59c1ffd51cfd524e3b693020e3921e46c025c108f5f080db1271866e"
+    },
+    {
+      "byte_size": 2583,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_067",
+      "filename": "attack/atk_p44_067.json",
+      "pair_id": "p44_067",
+      "role": "attack",
+      "sha256": "55928789ff5a38ce6bd05422ae417222ee77ed28242099fff8f833b9e941c557"
+    },
+    {
+      "byte_size": 2579,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_068",
+      "filename": "attack/atk_p44_068.json",
+      "pair_id": "p44_068",
+      "role": "attack",
+      "sha256": "5817f86fd0e80ab963debe981d96cae07f3e1460207c0fef10daca0db69e4b14"
+    },
+    {
+      "byte_size": 2544,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_069",
+      "filename": "attack/atk_p44_069.json",
+      "pair_id": "p44_069",
+      "role": "attack",
+      "sha256": "7400512abebb88e61d5362ba71ce1abd88449a359e219b64ddf73f3784606019"
+    },
+    {
+      "byte_size": 2572,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_070",
+      "filename": "attack/atk_p44_070.json",
+      "pair_id": "p44_070",
+      "role": "attack",
+      "sha256": "1a9ead63d0a9c2c4798e152d33225a0b5eb229c6344999f042c7886d7713d282"
+    },
+    {
+      "byte_size": 2553,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_071",
+      "filename": "attack/atk_p44_071.json",
+      "pair_id": "p44_071",
+      "role": "attack",
+      "sha256": "4372b88b9f557baf4aa9cb9d2f6718ee92312a1c6c70de9e82cd261b8d2257e8"
+    },
+    {
+      "byte_size": 2568,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_072",
+      "filename": "attack/atk_p44_072.json",
+      "pair_id": "p44_072",
+      "role": "attack",
+      "sha256": "d3693ec9d7f486f8381833737158bfa6b0f017e2050e5d6d6de34b352d0edb6f"
+    },
+    {
+      "byte_size": 2563,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_073",
+      "filename": "attack/atk_p44_073.json",
+      "pair_id": "p44_073",
+      "role": "attack",
+      "sha256": "a23db7ae03645d058ec40bdb2ab7ec988567c125a8eb2624dce9dd675c04855c"
+    },
+    {
+      "byte_size": 2567,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_074",
+      "filename": "attack/atk_p44_074.json",
+      "pair_id": "p44_074",
+      "role": "attack",
+      "sha256": "1f3fe394715ea6a9d54623c4af0b5519537b9c22497e172e73ee0639c0b7cb8d"
+    },
+    {
+      "byte_size": 2551,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_075",
+      "filename": "attack/atk_p44_075.json",
+      "pair_id": "p44_075",
+      "role": "attack",
+      "sha256": "33d9c8eb1808129268f98079a370dbb4eb42064e8ad16d6adeabacbabd5009fa"
+    },
+    {
+      "byte_size": 2558,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_076",
+      "filename": "attack/atk_p44_076.json",
+      "pair_id": "p44_076",
+      "role": "attack",
+      "sha256": "b6a10466519c8ccbe0968298a5ba57deb9cd29ded863d80a150f78d452b40dc0"
+    },
+    {
+      "byte_size": 2585,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_077",
+      "filename": "attack/atk_p44_077.json",
+      "pair_id": "p44_077",
+      "role": "attack",
+      "sha256": "e29205d30765f54eda6d406e6faf9123477c82b5c26612d9e949c9006b913a14"
+    },
+    {
+      "byte_size": 2620,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_078",
+      "filename": "attack/atk_p44_078.json",
+      "pair_id": "p44_078",
+      "role": "attack",
+      "sha256": "c1e87e1aae0de5e5fad566d1fd97a0f511d3815a1dc37599f35dd8ad3241002e"
+    },
+    {
+      "byte_size": 2602,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_079",
+      "filename": "attack/atk_p44_079.json",
+      "pair_id": "p44_079",
+      "role": "attack",
+      "sha256": "8540578ae5600e1d3ab9f889cd1ea6f973834811cf22b73cee4ff6e272ca8979"
+    },
+    {
+      "byte_size": 2611,
+      "dataset_partition": "validation",
+      "episode_id": "atk_p44_080",
+      "filename": "attack/atk_p44_080.json",
+      "pair_id": "p44_080",
+      "role": "attack",
+      "sha256": "db4276a915a85516be59e2431e44d5110b779aedb608a1ac9f4221beb688b515"
+    },
+    {
+      "byte_size": 2605,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_081",
+      "filename": "attack/atk_p44_081.json",
+      "pair_id": "p44_081",
+      "role": "attack",
+      "sha256": "a2feb058bc6e43deadbddc7a1b5081a452d289177be254e01c88614fd913e3b8"
+    },
+    {
+      "byte_size": 2596,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_082",
+      "filename": "attack/atk_p44_082.json",
+      "pair_id": "p44_082",
+      "role": "attack",
+      "sha256": "9b79b8318ee40d4e73da78bf386c48d1883161c5f87f3adb853e1ae8c5449b77"
+    },
+    {
+      "byte_size": 2597,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_083",
+      "filename": "attack/atk_p44_083.json",
+      "pair_id": "p44_083",
+      "role": "attack",
+      "sha256": "4f953ae094cf79f50458f042bdb0d8ad5436a52e203701d75463ec0f9628b095"
+    },
+    {
+      "byte_size": 2607,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_084",
+      "filename": "attack/atk_p44_084.json",
+      "pair_id": "p44_084",
+      "role": "attack",
+      "sha256": "a70c624e56646df03206f955f28f7ba190ecd07f6f412d71dd37e5eccbf7a236"
+    },
+    {
+      "byte_size": 2588,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_085",
+      "filename": "attack/atk_p44_085.json",
+      "pair_id": "p44_085",
+      "role": "attack",
+      "sha256": "75bd31430dc3c50b5b5fad78157ddbafdacf39c8c46140d25cf716a5b81f9b37"
+    },
+    {
+      "byte_size": 2594,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_086",
+      "filename": "attack/atk_p44_086.json",
+      "pair_id": "p44_086",
+      "role": "attack",
+      "sha256": "e2fb14582d8d3b494d8fcb6bde1b113b68460fb3ef3df13f67a8b939f3fd2a75"
+    },
+    {
+      "byte_size": 2607,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_087",
+      "filename": "attack/atk_p44_087.json",
+      "pair_id": "p44_087",
+      "role": "attack",
+      "sha256": "7fbf9cbdae227994d470676b63cc62886d2dbd14fda8e044839f186990018553"
+    },
+    {
+      "byte_size": 2620,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_088",
+      "filename": "attack/atk_p44_088.json",
+      "pair_id": "p44_088",
+      "role": "attack",
+      "sha256": "306cf88be0d200a708dffae31208f139a8423f498f11dda138e3fa19b7364ae4"
+    },
+    {
+      "byte_size": 2594,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_089",
+      "filename": "attack/atk_p44_089.json",
+      "pair_id": "p44_089",
+      "role": "attack",
+      "sha256": "07b0ed3ed1b76e9a8ca1fa9fe8a4c6de7a8d104d84946ab5d96123d7ceab3008"
+    },
+    {
+      "byte_size": 2630,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_090",
+      "filename": "attack/atk_p44_090.json",
+      "pair_id": "p44_090",
+      "role": "attack",
+      "sha256": "504be464f9646fb2ea5c30c06f1262590102470d1c1da0e06da6721a10e234e1"
+    },
+    {
+      "byte_size": 2618,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_091",
+      "filename": "attack/atk_p44_091.json",
+      "pair_id": "p44_091",
+      "role": "attack",
+      "sha256": "ca76e82ec73858a4e6a220fddf716ca292d478124653c9cccc39551c4b28de3f"
+    },
+    {
+      "byte_size": 2628,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_092",
+      "filename": "attack/atk_p44_092.json",
+      "pair_id": "p44_092",
+      "role": "attack",
+      "sha256": "55c33966889848a0dbd017676baddfffc4abb6b7a927abfa376f19c34ad74bfa"
+    },
+    {
+      "byte_size": 2608,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_093",
+      "filename": "attack/atk_p44_093.json",
+      "pair_id": "p44_093",
+      "role": "attack",
+      "sha256": "5cfc72258edc811dec1a73a83a05695559c116ff7eeff3527330d7c87efbe77d"
+    },
+    {
+      "byte_size": 2595,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_094",
+      "filename": "attack/atk_p44_094.json",
+      "pair_id": "p44_094",
+      "role": "attack",
+      "sha256": "246df44bbcdf9543a20fda574cdf45ac22203693fbbc99ffd899da88af17e68a"
+    },
+    {
+      "byte_size": 2752,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_095",
+      "filename": "attack/atk_p44_095.json",
+      "pair_id": "p44_095",
+      "role": "attack",
+      "sha256": "cc953823b99f1d6d65e017dd93ca033c3499472d9739f331eaa5fa4109a19e9e"
+    },
+    {
+      "byte_size": 2765,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_096",
+      "filename": "attack/atk_p44_096.json",
+      "pair_id": "p44_096",
+      "role": "attack",
+      "sha256": "281fd844422179552fcdceba0cd3be7639a86766267d874815f3186d5ccb17f9"
+    },
+    {
+      "byte_size": 2784,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_097",
+      "filename": "attack/atk_p44_097.json",
+      "pair_id": "p44_097",
+      "role": "attack",
+      "sha256": "cd4431f58050b38708b073de5761d0c1a3ec1764820935b1d62c77d04e27a90f"
+    },
+    {
+      "byte_size": 2767,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_098",
+      "filename": "attack/atk_p44_098.json",
+      "pair_id": "p44_098",
+      "role": "attack",
+      "sha256": "112ddb30708982d35fdb3f908271479b54c628728a9c06b80d4524ba127068d8"
+    },
+    {
+      "byte_size": 2784,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_099",
+      "filename": "attack/atk_p44_099.json",
+      "pair_id": "p44_099",
+      "role": "attack",
+      "sha256": "260c265b7611f178fefbc1a447f18991aa454f904f9f60ef3723d170bcd58a9c"
+    },
+    {
+      "byte_size": 2808,
+      "dataset_partition": "test",
+      "episode_id": "atk_p44_100",
+      "filename": "attack/atk_p44_100.json",
+      "pair_id": "p44_100",
+      "role": "attack",
+      "sha256": "0951b2e18a1c768ff1f4b585653238d80f20ccffded4992dc4ae4872a6c52e5b"
+    },
+    {
+      "byte_size": 2560,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_001",
+      "filename": "benign/ben_p44_001.json",
+      "pair_id": "p44_001",
+      "role": "benign",
+      "sha256": "ed00a2a6858990bdc4701a32ea4ed00b29cd129f452fe030d8582ccb23f2ae90"
+    },
+    {
+      "byte_size": 2528,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_002",
+      "filename": "benign/ben_p44_002.json",
+      "pair_id": "p44_002",
+      "role": "benign",
+      "sha256": "c23667e940a2d2a4d40f9473b4eafc480623f0464adafecdfb8b543c404ddfa6"
+    },
+    {
+      "byte_size": 2508,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_003",
+      "filename": "benign/ben_p44_003.json",
+      "pair_id": "p44_003",
+      "role": "benign",
+      "sha256": "0958e533cb321bea60f233cd1df7b5c322292eef69a8949a225713db6afd7197"
+    },
+    {
+      "byte_size": 2489,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_004",
+      "filename": "benign/ben_p44_004.json",
+      "pair_id": "p44_004",
+      "role": "benign",
+      "sha256": "6e51842474aef7364b62e75641e6b83b264b5cdb7e6e06abd71c084fd008f844"
+    },
+    {
+      "byte_size": 2496,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_005",
+      "filename": "benign/ben_p44_005.json",
+      "pair_id": "p44_005",
+      "role": "benign",
+      "sha256": "90d37881d8c869baab43f83e676a358cfbf1b050e9553cb0e35a78ce27b0bc43"
+    },
+    {
+      "byte_size": 2504,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_006",
+      "filename": "benign/ben_p44_006.json",
+      "pair_id": "p44_006",
+      "role": "benign",
+      "sha256": "fdd240bf49735bf0a38ff52e9f9a6edf805fc0a3133f03e4a45ea6bfa6f30bda"
+    },
+    {
+      "byte_size": 2503,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_007",
+      "filename": "benign/ben_p44_007.json",
+      "pair_id": "p44_007",
+      "role": "benign",
+      "sha256": "40c758d1747548d6e410789eb26f2fd902317f7834a83309cac1742f43428f6d"
+    },
+    {
+      "byte_size": 2487,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_008",
+      "filename": "benign/ben_p44_008.json",
+      "pair_id": "p44_008",
+      "role": "benign",
+      "sha256": "abfe7da8a7eb494fc9a8e8ff9c1ff13f968bb8beecace250efa0653045703a22"
+    },
+    {
+      "byte_size": 2508,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_009",
+      "filename": "benign/ben_p44_009.json",
+      "pair_id": "p44_009",
+      "role": "benign",
+      "sha256": "ed90aa41e2d2779f1b90b317e6003743727db5bdb59c4294dfa72fc1df9a8014"
+    },
+    {
+      "byte_size": 2498,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_010",
+      "filename": "benign/ben_p44_010.json",
+      "pair_id": "p44_010",
+      "role": "benign",
+      "sha256": "543624b8b718e222fc3ba13ccfd667f7fd8a4237c3b9b73664a9c29e49c92ff9"
+    },
+    {
+      "byte_size": 2503,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_011",
+      "filename": "benign/ben_p44_011.json",
+      "pair_id": "p44_011",
+      "role": "benign",
+      "sha256": "d53abc6fe795c7cdd6cf2727ac3a9b5a381c7b7238069b3be8759eef3928982d"
+    },
+    {
+      "byte_size": 2471,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_012",
+      "filename": "benign/ben_p44_012.json",
+      "pair_id": "p44_012",
+      "role": "benign",
+      "sha256": "34707c4dc5b8a53b95cdd6d4fd3e0d63c8ac5c8455a283774915a1a4f9ea9794"
+    },
+    {
+      "byte_size": 2534,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_013",
+      "filename": "benign/ben_p44_013.json",
+      "pair_id": "p44_013",
+      "role": "benign",
+      "sha256": "fe2870156f9fe1170dd2131cdf283df5a8390ead2f05c1b3646dfcf9e3133355"
+    },
+    {
+      "byte_size": 2499,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_014",
+      "filename": "benign/ben_p44_014.json",
+      "pair_id": "p44_014",
+      "role": "benign",
+      "sha256": "cfba33c614c826802f9837e86a82c1800edcee1fbdb2255b21fbe97cadd84cbd"
+    },
+    {
+      "byte_size": 2522,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_015",
+      "filename": "benign/ben_p44_015.json",
+      "pair_id": "p44_015",
+      "role": "benign",
+      "sha256": "2ec072605c63a5ee64749f659cb7ff918af85658b04f8b0bb1b56219572cd527"
+    },
+    {
+      "byte_size": 2497,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_016",
+      "filename": "benign/ben_p44_016.json",
+      "pair_id": "p44_016",
+      "role": "benign",
+      "sha256": "66a2e7c091b4929d4c699070e82a62fa5f7710a9cebbedf0399d60b6d0421601"
+    },
+    {
+      "byte_size": 2513,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_017",
+      "filename": "benign/ben_p44_017.json",
+      "pair_id": "p44_017",
+      "role": "benign",
+      "sha256": "9cc97b9e58faf1baa8b3b4345d27d335f6f6a1e386fa62e7d27adcff3e1a63a6"
+    },
+    {
+      "byte_size": 2477,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_018",
+      "filename": "benign/ben_p44_018.json",
+      "pair_id": "p44_018",
+      "role": "benign",
+      "sha256": "7341af15020982e673301651b0d70e4f4ab10b35671bdafadb7d6d9161cd53e1"
+    },
+    {
+      "byte_size": 2509,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_019",
+      "filename": "benign/ben_p44_019.json",
+      "pair_id": "p44_019",
+      "role": "benign",
+      "sha256": "b876047267eead428234757dd6250de5fe255b26603182c47aa8d5ef5945ffac"
+    },
+    {
+      "byte_size": 2506,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_020",
+      "filename": "benign/ben_p44_020.json",
+      "pair_id": "p44_020",
+      "role": "benign",
+      "sha256": "e2732c95107efa8d3d306edd66eebf280cc2664c777974220fb7e9c8bf0dedd9"
+    },
+    {
+      "byte_size": 2507,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_021",
+      "filename": "benign/ben_p44_021.json",
+      "pair_id": "p44_021",
+      "role": "benign",
+      "sha256": "494cdb33ba6bcf7e75593c26a65263f24b267a7464051684f68bdab6039310a7"
+    },
+    {
+      "byte_size": 2488,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_022",
+      "filename": "benign/ben_p44_022.json",
+      "pair_id": "p44_022",
+      "role": "benign",
+      "sha256": "8033aa6f7a294ba8c76dcf94ec920e659df27be6c1bf2eced5efe58ae1f05a1c"
+    },
+    {
+      "byte_size": 2520,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_023",
+      "filename": "benign/ben_p44_023.json",
+      "pair_id": "p44_023",
+      "role": "benign",
+      "sha256": "6a9cad2e0ca60a1b5a78bc9c1d5c7018abfa5bca1d5bc4ae70341edec8b964ce"
+    },
+    {
+      "byte_size": 2510,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_024",
+      "filename": "benign/ben_p44_024.json",
+      "pair_id": "p44_024",
+      "role": "benign",
+      "sha256": "382d0af3b55c31a68da402d9f28a1f4987d70050ac97daa93ab4f8f620ed4220"
+    },
+    {
+      "byte_size": 2494,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_025",
+      "filename": "benign/ben_p44_025.json",
+      "pair_id": "p44_025",
+      "role": "benign",
+      "sha256": "9bd27b6591f2c7da7d67fe0bfcaf88dd6c5dc30f80a94725bbf203c193dee6f2"
+    },
+    {
+      "byte_size": 2487,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_026",
+      "filename": "benign/ben_p44_026.json",
+      "pair_id": "p44_026",
+      "role": "benign",
+      "sha256": "2981e808f66395e3c04afc2ecdd6cd34e956a26da12e6d3ffad997520e6096d9"
+    },
+    {
+      "byte_size": 2483,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_027",
+      "filename": "benign/ben_p44_027.json",
+      "pair_id": "p44_027",
+      "role": "benign",
+      "sha256": "3f44d3fbbb27cc6438fafbd9ad4b55041ee3e4efb629c737ef54c21a43360688"
+    },
+    {
+      "byte_size": 2491,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_028",
+      "filename": "benign/ben_p44_028.json",
+      "pair_id": "p44_028",
+      "role": "benign",
+      "sha256": "ae4255fb13d452de95aea4061e4c53af75a45f0a837ada90fe60d19f669d4194"
+    },
+    {
+      "byte_size": 2514,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_029",
+      "filename": "benign/ben_p44_029.json",
+      "pair_id": "p44_029",
+      "role": "benign",
+      "sha256": "cd52039e9518e2143c98d6bd4da72d5afde49c769e01ec0f5115ba1c6ce87153"
+    },
+    {
+      "byte_size": 2484,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_030",
+      "filename": "benign/ben_p44_030.json",
+      "pair_id": "p44_030",
+      "role": "benign",
+      "sha256": "372c854f3b9b04aa125d99cf5cae70ce57216cb0e5a95e1e53ff9b976ed9bdac"
+    },
+    {
+      "byte_size": 2518,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_031",
+      "filename": "benign/ben_p44_031.json",
+      "pair_id": "p44_031",
+      "role": "benign",
+      "sha256": "39b0f3ff11a87956d9d76e354fbc1adf9bc87e3d69d9113dce8ed16292babcad"
+    },
+    {
+      "byte_size": 2535,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_032",
+      "filename": "benign/ben_p44_032.json",
+      "pair_id": "p44_032",
+      "role": "benign",
+      "sha256": "e2b406df1dc4cee4e320403763c1b6e09f3d634c7eeb45f479672295c909b70c"
+    },
+    {
+      "byte_size": 2507,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_033",
+      "filename": "benign/ben_p44_033.json",
+      "pair_id": "p44_033",
+      "role": "benign",
+      "sha256": "c5f5aa32abd90c4cbef829204a894789338093bef63d6091142eb4098eb4e622"
+    },
+    {
+      "byte_size": 2495,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_034",
+      "filename": "benign/ben_p44_034.json",
+      "pair_id": "p44_034",
+      "role": "benign",
+      "sha256": "2163f43fc5c2d9394540449028e064a74715b187045945bf3f1b72a1896ecdc4"
+    },
+    {
+      "byte_size": 2533,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_035",
+      "filename": "benign/ben_p44_035.json",
+      "pair_id": "p44_035",
+      "role": "benign",
+      "sha256": "e66848c4ab61a82f76b9a4fe8c59be20a7d082512ed5dfb28e95ba652e9aef2e"
+    },
+    {
+      "byte_size": 2525,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_036",
+      "filename": "benign/ben_p44_036.json",
+      "pair_id": "p44_036",
+      "role": "benign",
+      "sha256": "e609f45aeb2616b7898150556323c3a3927b52027b74860ac3b06f5994841367"
+    },
+    {
+      "byte_size": 2509,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_037",
+      "filename": "benign/ben_p44_037.json",
+      "pair_id": "p44_037",
+      "role": "benign",
+      "sha256": "c184ce98b44f684f5f2177c814527ea1b517846a2da0b08150dc4d0876d67da6"
+    },
+    {
+      "byte_size": 2520,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_038",
+      "filename": "benign/ben_p44_038.json",
+      "pair_id": "p44_038",
+      "role": "benign",
+      "sha256": "9e6d6c4c2f4894f9b58522cc12b3c4bb552f67ad72e876724b9022725332cef2"
+    },
+    {
+      "byte_size": 2503,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_039",
+      "filename": "benign/ben_p44_039.json",
+      "pair_id": "p44_039",
+      "role": "benign",
+      "sha256": "89824b5a0de91548ba40064e217bc4a74bcfa59918cf9efc910eaa18e7fea8fc"
+    },
+    {
+      "byte_size": 2517,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_040",
+      "filename": "benign/ben_p44_040.json",
+      "pair_id": "p44_040",
+      "role": "benign",
+      "sha256": "5f5e5999fa47ff4acd4572f4c62afda029d47d5772eaeab3fff2fc9628152985"
+    },
+    {
+      "byte_size": 2520,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_041",
+      "filename": "benign/ben_p44_041.json",
+      "pair_id": "p44_041",
+      "role": "benign",
+      "sha256": "df6dcd432b7d5736f9e14f5daac1962d6137ae3111574afccd900fff35f7ae04"
+    },
+    {
+      "byte_size": 2506,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_042",
+      "filename": "benign/ben_p44_042.json",
+      "pair_id": "p44_042",
+      "role": "benign",
+      "sha256": "ade6ffb2adeafb122f5468db893a3d2ee95f65263ce9c8b8ab80422258950f33"
+    },
+    {
+      "byte_size": 2506,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_043",
+      "filename": "benign/ben_p44_043.json",
+      "pair_id": "p44_043",
+      "role": "benign",
+      "sha256": "30598d7c3a4634298bb76d283eebf0dc0bf7e58a5e63ae8a27ca7d35b61cd204"
+    },
+    {
+      "byte_size": 2496,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_044",
+      "filename": "benign/ben_p44_044.json",
+      "pair_id": "p44_044",
+      "role": "benign",
+      "sha256": "fa4221e18c403a44df046595a05d5fb337bbd6d3d444985b28d93900a1eed243"
+    },
+    {
+      "byte_size": 2810,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_045",
+      "filename": "benign/ben_p44_045.json",
+      "pair_id": "p44_045",
+      "role": "benign",
+      "sha256": "f4061980cee8a03a69b71ced4aabab3c39226ae4ebfd2923d584873ba64163cd"
+    },
+    {
+      "byte_size": 2834,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_046",
+      "filename": "benign/ben_p44_046.json",
+      "pair_id": "p44_046",
+      "role": "benign",
+      "sha256": "19b05d915663205223ca02149a75b04855b0f7231ff45a4cb5e991d88a00bccc"
+    },
+    {
+      "byte_size": 2811,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_047",
+      "filename": "benign/ben_p44_047.json",
+      "pair_id": "p44_047",
+      "role": "benign",
+      "sha256": "5b5274a29b0ef90d518c593bf62eb0865e30f37c593a0c3dc9a8370c42fc0c5b"
+    },
+    {
+      "byte_size": 2798,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_048",
+      "filename": "benign/ben_p44_048.json",
+      "pair_id": "p44_048",
+      "role": "benign",
+      "sha256": "9c51954c28d91ed67f3c4cb5fe5c251d1591cbbc3fe3f3b14fab81b9b5437ccf"
+    },
+    {
+      "byte_size": 2806,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_049",
+      "filename": "benign/ben_p44_049.json",
+      "pair_id": "p44_049",
+      "role": "benign",
+      "sha256": "7823007f19373e7974f5d870c2445714637ef525e58a75792662367a3b815e33"
+    },
+    {
+      "byte_size": 2835,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_050",
+      "filename": "benign/ben_p44_050.json",
+      "pair_id": "p44_050",
+      "role": "benign",
+      "sha256": "ffa175ed51afc6128f4286811d8236f2e5e7bc70412677eabea2d83783d4fe31"
+    },
+    {
+      "byte_size": 2813,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_051",
+      "filename": "benign/ben_p44_051.json",
+      "pair_id": "p44_051",
+      "role": "benign",
+      "sha256": "516836731dda84f270caa36b24b79023a63598af901525a9a820a83b7bb35b8b"
+    },
+    {
+      "byte_size": 2823,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_052",
+      "filename": "benign/ben_p44_052.json",
+      "pair_id": "p44_052",
+      "role": "benign",
+      "sha256": "1917dc970b7eb991e5f193f7829c42e90c3100d3a832ffecdf1d2343cfc17343"
+    },
+    {
+      "byte_size": 2818,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_053",
+      "filename": "benign/ben_p44_053.json",
+      "pair_id": "p44_053",
+      "role": "benign",
+      "sha256": "71890efbb2e4f6368b4039f2a45020f651d8f660568e9d10f6a09f69ae8ed284"
+    },
+    {
+      "byte_size": 2846,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_054",
+      "filename": "benign/ben_p44_054.json",
+      "pair_id": "p44_054",
+      "role": "benign",
+      "sha256": "eab3c350308bcd95159499ca7f5ea02b6eb9855e082da493dd513cb767877203"
+    },
+    {
+      "byte_size": 2834,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_055",
+      "filename": "benign/ben_p44_055.json",
+      "pair_id": "p44_055",
+      "role": "benign",
+      "sha256": "8e9772fb5bb6377f3e55b8f30d8a252b5357c532cbe09fb9e0a4b67f4f1b01ee"
+    },
+    {
+      "byte_size": 2842,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_056",
+      "filename": "benign/ben_p44_056.json",
+      "pair_id": "p44_056",
+      "role": "benign",
+      "sha256": "e84c78b7d33364dc8a533595b8747707d64a1f039919cfaea692e56734ab54d7"
+    },
+    {
+      "byte_size": 2841,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_057",
+      "filename": "benign/ben_p44_057.json",
+      "pair_id": "p44_057",
+      "role": "benign",
+      "sha256": "d609e992be412f6dab07b3d5b5c3d1e5ca7268f5184c9c1b6515966f44c682ae"
+    },
+    {
+      "byte_size": 2806,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_058",
+      "filename": "benign/ben_p44_058.json",
+      "pair_id": "p44_058",
+      "role": "benign",
+      "sha256": "5b341600d12e820de7efcc5ec8fe5a33cf2107ee02ff7d7a72ba3da4b9addc59"
+    },
+    {
+      "byte_size": 2824,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_059",
+      "filename": "benign/ben_p44_059.json",
+      "pair_id": "p44_059",
+      "role": "benign",
+      "sha256": "28e90cb0f0df48b42e1169bf6ff4869b978030150ba253815908b457015a6dea"
+    },
+    {
+      "byte_size": 2836,
+      "dataset_partition": "development",
+      "episode_id": "ben_p44_060",
+      "filename": "benign/ben_p44_060.json",
+      "pair_id": "p44_060",
+      "role": "benign",
+      "sha256": "bdae8c62c7b37c4b3eea5461a62c5b787dddc3270dc0d94a8bdd59d637ea933f"
+    },
+    {
+      "byte_size": 2844,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_061",
+      "filename": "benign/ben_p44_061.json",
+      "pair_id": "p44_061",
+      "role": "benign",
+      "sha256": "91518e0267ea8c3a21b87d7f73ad6a9d2ec547d1effdbcb53bc5de3c6b4f66df"
+    },
+    {
+      "byte_size": 2838,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_062",
+      "filename": "benign/ben_p44_062.json",
+      "pair_id": "p44_062",
+      "role": "benign",
+      "sha256": "af9d5a3303542a8a7eca3dcfcaee2a3afc1d0919746e7099f5328e4ad594d685"
+    },
+    {
+      "byte_size": 2822,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_063",
+      "filename": "benign/ben_p44_063.json",
+      "pair_id": "p44_063",
+      "role": "benign",
+      "sha256": "9113c124e743cc60813137c308e3c7cb490960ec9d5e9f779ac5569bd4ac85b3"
+    },
+    {
+      "byte_size": 2831,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_064",
+      "filename": "benign/ben_p44_064.json",
+      "pair_id": "p44_064",
+      "role": "benign",
+      "sha256": "974ad8e71addfdd3a172de48032fbd61c604bb017ac0e85f9a68fe97e846e544"
+    },
+    {
+      "byte_size": 2838,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_065",
+      "filename": "benign/ben_p44_065.json",
+      "pair_id": "p44_065",
+      "role": "benign",
+      "sha256": "2179edffe72e143aca73f66bcfd504673ee502aded4991e33332964927816390"
+    },
+    {
+      "byte_size": 2843,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_066",
+      "filename": "benign/ben_p44_066.json",
+      "pair_id": "p44_066",
+      "role": "benign",
+      "sha256": "da4208f39beeddadb09f1b137be3a1e7f48d9421292eceae01514dc211d40347"
+    },
+    {
+      "byte_size": 2789,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_067",
+      "filename": "benign/ben_p44_067.json",
+      "pair_id": "p44_067",
+      "role": "benign",
+      "sha256": "919c07d85cc2ba04877043ff7d4c7e3106ba5eb33b96c857f405320720428256"
+    },
+    {
+      "byte_size": 2788,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_068",
+      "filename": "benign/ben_p44_068.json",
+      "pair_id": "p44_068",
+      "role": "benign",
+      "sha256": "02990ff60bf745e4a5024ca66c04bfbae7e83a59eefda54ff98488f8dbf9892a"
+    },
+    {
+      "byte_size": 2758,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_069",
+      "filename": "benign/ben_p44_069.json",
+      "pair_id": "p44_069",
+      "role": "benign",
+      "sha256": "31e61e5b3ca4f5370a63ce4945140f55b5d40b2f369722af483db5973ee353ed"
+    },
+    {
+      "byte_size": 2773,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_070",
+      "filename": "benign/ben_p44_070.json",
+      "pair_id": "p44_070",
+      "role": "benign",
+      "sha256": "aa9193dfea8071cdbd4728764c02625e719da5c6d8008c0183dbafaf345468ee"
+    },
+    {
+      "byte_size": 2769,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_071",
+      "filename": "benign/ben_p44_071.json",
+      "pair_id": "p44_071",
+      "role": "benign",
+      "sha256": "739f358141199dfaf60e4e9fbfbcfd7fb6f72b871669e49641c5df75b947ff08"
+    },
+    {
+      "byte_size": 2767,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_072",
+      "filename": "benign/ben_p44_072.json",
+      "pair_id": "p44_072",
+      "role": "benign",
+      "sha256": "ee5a355dffc2961f71950a2155f7a0656f4823cf9c42f76f376500937a52cd9e"
+    },
+    {
+      "byte_size": 2778,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_073",
+      "filename": "benign/ben_p44_073.json",
+      "pair_id": "p44_073",
+      "role": "benign",
+      "sha256": "ad0301b610b443f952f875a7d87bb642c01dc8c33165a455bdbe078aa59a8d38"
+    },
+    {
+      "byte_size": 2775,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_074",
+      "filename": "benign/ben_p44_074.json",
+      "pair_id": "p44_074",
+      "role": "benign",
+      "sha256": "9c8af3e6d153bbdb6ccd0b834a69a66a64288005b77e3c77386a244161f81a2d"
+    },
+    {
+      "byte_size": 2765,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_075",
+      "filename": "benign/ben_p44_075.json",
+      "pair_id": "p44_075",
+      "role": "benign",
+      "sha256": "5ea8476ae18012d87597777ae13e7d7f5bd4544530d5e60ef739293bf036b3bc"
+    },
+    {
+      "byte_size": 2734,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_076",
+      "filename": "benign/ben_p44_076.json",
+      "pair_id": "p44_076",
+      "role": "benign",
+      "sha256": "d7b7e5d9260c727ed8aefcd3a4782c8af13efb4d06f2df4be885fb93fa426258"
+    },
+    {
+      "byte_size": 2794,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_077",
+      "filename": "benign/ben_p44_077.json",
+      "pair_id": "p44_077",
+      "role": "benign",
+      "sha256": "375fafb1c3a41bef63bebe6983e6a72e1d34f5cd0a4c13d165e99fbf170977d8"
+    },
+    {
+      "byte_size": 2856,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_078",
+      "filename": "benign/ben_p44_078.json",
+      "pair_id": "p44_078",
+      "role": "benign",
+      "sha256": "48a9d33abf7bf493d6a71e2ddcbab00d9f179991c84a3d7d3165da54eda4a1e2"
+    },
+    {
+      "byte_size": 2833,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_079",
+      "filename": "benign/ben_p44_079.json",
+      "pair_id": "p44_079",
+      "role": "benign",
+      "sha256": "1777d6f5e48f06a561a2aa6be96aea8ba2226bd1dcd9dba329384ed686cce2ad"
+    },
+    {
+      "byte_size": 2835,
+      "dataset_partition": "validation",
+      "episode_id": "ben_p44_080",
+      "filename": "benign/ben_p44_080.json",
+      "pair_id": "p44_080",
+      "role": "benign",
+      "sha256": "21f2e6461c1de543817677bd9f69ccdd940f8170b9fc71399001f06f47bc6f0e"
+    },
+    {
+      "byte_size": 2826,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_081",
+      "filename": "benign/ben_p44_081.json",
+      "pair_id": "p44_081",
+      "role": "benign",
+      "sha256": "f3f0196521666256e57d533eb5200a3a499f3b1a696f8f69c9072004d55326cf"
+    },
+    {
+      "byte_size": 2811,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_082",
+      "filename": "benign/ben_p44_082.json",
+      "pair_id": "p44_082",
+      "role": "benign",
+      "sha256": "d0c72801e4081202af9be5eef1c10b175b3be58ffc58fd191f892259e2917cc6"
+    },
+    {
+      "byte_size": 2813,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_083",
+      "filename": "benign/ben_p44_083.json",
+      "pair_id": "p44_083",
+      "role": "benign",
+      "sha256": "374480a859e1440189117b251295017a4c321fbf927b13eb088577dfbe754521"
+    },
+    {
+      "byte_size": 2823,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_084",
+      "filename": "benign/ben_p44_084.json",
+      "pair_id": "p44_084",
+      "role": "benign",
+      "sha256": "5b9f4b3b0ab5ce225e37fcae677dd1e7b72aad8f6e9f81f3cf12f704ef6dc1eb"
+    },
+    {
+      "byte_size": 2800,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_085",
+      "filename": "benign/ben_p44_085.json",
+      "pair_id": "p44_085",
+      "role": "benign",
+      "sha256": "fab3495d8beaa9d68fcc3ef3126a6fc15ba782d1433133873a1a030024a0a1d9"
+    },
+    {
+      "byte_size": 2806,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_086",
+      "filename": "benign/ben_p44_086.json",
+      "pair_id": "p44_086",
+      "role": "benign",
+      "sha256": "16080b1d543f463da185babc76832384e55cf56d881b62d22ee7a79f045cee7a"
+    },
+    {
+      "byte_size": 2821,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_087",
+      "filename": "benign/ben_p44_087.json",
+      "pair_id": "p44_087",
+      "role": "benign",
+      "sha256": "2505958c57739258dbf3c0b7828ba6b06133760a1f1424acd7f5bd7bb94f6cea"
+    },
+    {
+      "byte_size": 2861,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_088",
+      "filename": "benign/ben_p44_088.json",
+      "pair_id": "p44_088",
+      "role": "benign",
+      "sha256": "f2c688e80f95adbcfef46e95254bf31419633730af9574d6c2e6a6dcc1fd0076"
+    },
+    {
+      "byte_size": 2807,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_089",
+      "filename": "benign/ben_p44_089.json",
+      "pair_id": "p44_089",
+      "role": "benign",
+      "sha256": "c44976d488ae7798c4478d238bc40140caf4cd9cd4009ae59ee0e4691a8f68a1"
+    },
+    {
+      "byte_size": 2829,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_090",
+      "filename": "benign/ben_p44_090.json",
+      "pair_id": "p44_090",
+      "role": "benign",
+      "sha256": "fddc0a9fed6752dd3217dbfacd97a432faf38e577b1ac9dc2ed8dbe5152048b1"
+    },
+    {
+      "byte_size": 2830,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_091",
+      "filename": "benign/ben_p44_091.json",
+      "pair_id": "p44_091",
+      "role": "benign",
+      "sha256": "4f158e8e346743a47d5659c0377e6f5ee1e4b88b237672ae01c173aaf275646d"
+    },
+    {
+      "byte_size": 2848,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_092",
+      "filename": "benign/ben_p44_092.json",
+      "pair_id": "p44_092",
+      "role": "benign",
+      "sha256": "fcc5560c78cc91cde2fabb7a193460eef1801c4c5cfd6b98e85c5e4c41e7da9f"
+    },
+    {
+      "byte_size": 2823,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_093",
+      "filename": "benign/ben_p44_093.json",
+      "pair_id": "p44_093",
+      "role": "benign",
+      "sha256": "45e14d4d89c53907110b00fce1677e49ed1bb439a93f330c0879cec1eae651f1"
+    },
+    {
+      "byte_size": 2804,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_094",
+      "filename": "benign/ben_p44_094.json",
+      "pair_id": "p44_094",
+      "role": "benign",
+      "sha256": "f56a6340895c2da18d0a53cc11aa0aebb6b08818ada0c69628652428ed3b72d1"
+    },
+    {
+      "byte_size": 2575,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_095",
+      "filename": "benign/ben_p44_095.json",
+      "pair_id": "p44_095",
+      "role": "benign",
+      "sha256": "e85be0b9a99891c9c459209cb03f98f027c9efd1601de7460d54d433eac5aeec"
+    },
+    {
+      "byte_size": 2591,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_096",
+      "filename": "benign/ben_p44_096.json",
+      "pair_id": "p44_096",
+      "role": "benign",
+      "sha256": "d8d95d6c045ad1a9992bb98a515c84d1a1139bba5c4cd6d1c048c3241368bba3"
+    },
+    {
+      "byte_size": 2603,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_097",
+      "filename": "benign/ben_p44_097.json",
+      "pair_id": "p44_097",
+      "role": "benign",
+      "sha256": "3fdc46308c759e4b4ef53a317f6f457ba9c400723c87fbbb15cb346ff9abd567"
+    },
+    {
+      "byte_size": 2592,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_098",
+      "filename": "benign/ben_p44_098.json",
+      "pair_id": "p44_098",
+      "role": "benign",
+      "sha256": "fe1cfa6e69fd414f1534ec69ca7942ae642318f010e35daa0ab984d78080ff8b"
+    },
+    {
+      "byte_size": 2606,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_099",
+      "filename": "benign/ben_p44_099.json",
+      "pair_id": "p44_099",
+      "role": "benign",
+      "sha256": "14f1b18db4e1388e698a0e12236534d8d1b752da089a82f905a725244058e1bf"
+    },
+    {
+      "byte_size": 2614,
+      "dataset_partition": "test",
+      "episode_id": "ben_p44_100",
+      "filename": "benign/ben_p44_100.json",
+      "pair_id": "p44_100",
+      "role": "benign",
+      "sha256": "96e0b1e66896f85a377fd414f7eb2b4e2c7d430a54e8870ec06865d2d9743cfc"
+    }
+  ],
+  "files": [
+    "attack/atk_p44_001.json",
+    "attack/atk_p44_002.json",
+    "attack/atk_p44_003.json",
+    "attack/atk_p44_004.json",
+    "attack/atk_p44_005.json",
+    "attack/atk_p44_006.json",
+    "attack/atk_p44_007.json",
+    "attack/atk_p44_008.json",
+    "attack/atk_p44_009.json",
+    "attack/atk_p44_010.json",
+    "attack/atk_p44_011.json",
+    "attack/atk_p44_012.json",
+    "attack/atk_p44_013.json",
+    "attack/atk_p44_014.json",
+    "attack/atk_p44_015.json",
+    "attack/atk_p44_016.json",
+    "attack/atk_p44_017.json",
+    "attack/atk_p44_018.json",
+    "attack/atk_p44_019.json",
+    "attack/atk_p44_020.json",
+    "attack/atk_p44_021.json",
+    "attack/atk_p44_022.json",
+    "attack/atk_p44_023.json",
+    "attack/atk_p44_024.json",
+    "attack/atk_p44_025.json",
+    "attack/atk_p44_026.json",
+    "attack/atk_p44_027.json",
+    "attack/atk_p44_028.json",
+    "attack/atk_p44_029.json",
+    "attack/atk_p44_030.json",
+    "attack/atk_p44_031.json",
+    "attack/atk_p44_032.json",
+    "attack/atk_p44_033.json",
+    "attack/atk_p44_034.json",
+    "attack/atk_p44_035.json",
+    "attack/atk_p44_036.json",
+    "attack/atk_p44_037.json",
+    "attack/atk_p44_038.json",
+    "attack/atk_p44_039.json",
+    "attack/atk_p44_040.json",
+    "attack/atk_p44_041.json",
+    "attack/atk_p44_042.json",
+    "attack/atk_p44_043.json",
+    "attack/atk_p44_044.json",
+    "attack/atk_p44_045.json",
+    "attack/atk_p44_046.json",
+    "attack/atk_p44_047.json",
+    "attack/atk_p44_048.json",
+    "attack/atk_p44_049.json",
+    "attack/atk_p44_050.json",
+    "attack/atk_p44_051.json",
+    "attack/atk_p44_052.json",
+    "attack/atk_p44_053.json",
+    "attack/atk_p44_054.json",
+    "attack/atk_p44_055.json",
+    "attack/atk_p44_056.json",
+    "attack/atk_p44_057.json",
+    "attack/atk_p44_058.json",
+    "attack/atk_p44_059.json",
+    "attack/atk_p44_060.json",
+    "attack/atk_p44_061.json",
+    "attack/atk_p44_062.json",
+    "attack/atk_p44_063.json",
+    "attack/atk_p44_064.json",
+    "attack/atk_p44_065.json",
+    "attack/atk_p44_066.json",
+    "attack/atk_p44_067.json",
+    "attack/atk_p44_068.json",
+    "attack/atk_p44_069.json",
+    "attack/atk_p44_070.json",
+    "attack/atk_p44_071.json",
+    "attack/atk_p44_072.json",
+    "attack/atk_p44_073.json",
+    "attack/atk_p44_074.json",
+    "attack/atk_p44_075.json",
+    "attack/atk_p44_076.json",
+    "attack/atk_p44_077.json",
+    "attack/atk_p44_078.json",
+    "attack/atk_p44_079.json",
+    "attack/atk_p44_080.json",
+    "attack/atk_p44_081.json",
+    "attack/atk_p44_082.json",
+    "attack/atk_p44_083.json",
+    "attack/atk_p44_084.json",
+    "attack/atk_p44_085.json",
+    "attack/atk_p44_086.json",
+    "attack/atk_p44_087.json",
+    "attack/atk_p44_088.json",
+    "attack/atk_p44_089.json",
+    "attack/atk_p44_090.json",
+    "attack/atk_p44_091.json",
+    "attack/atk_p44_092.json",
+    "attack/atk_p44_093.json",
+    "attack/atk_p44_094.json",
+    "attack/atk_p44_095.json",
+    "attack/atk_p44_096.json",
+    "attack/atk_p44_097.json",
+    "attack/atk_p44_098.json",
+    "attack/atk_p44_099.json",
+    "attack/atk_p44_100.json",
+    "benign/ben_p44_001.json",
+    "benign/ben_p44_002.json",
+    "benign/ben_p44_003.json",
+    "benign/ben_p44_004.json",
+    "benign/ben_p44_005.json",
+    "benign/ben_p44_006.json",
+    "benign/ben_p44_007.json",
+    "benign/ben_p44_008.json",
+    "benign/ben_p44_009.json",
+    "benign/ben_p44_010.json",
+    "benign/ben_p44_011.json",
+    "benign/ben_p44_012.json",
+    "benign/ben_p44_013.json",
+    "benign/ben_p44_014.json",
+    "benign/ben_p44_015.json",
+    "benign/ben_p44_016.json",
+    "benign/ben_p44_017.json",
+    "benign/ben_p44_018.json",
+    "benign/ben_p44_019.json",
+    "benign/ben_p44_020.json",
+    "benign/ben_p44_021.json",
+    "benign/ben_p44_022.json",
+    "benign/ben_p44_023.json",
+    "benign/ben_p44_024.json",
+    "benign/ben_p44_025.json",
+    "benign/ben_p44_026.json",
+    "benign/ben_p44_027.json",
+    "benign/ben_p44_028.json",
+    "benign/ben_p44_029.json",
+    "benign/ben_p44_030.json",
+    "benign/ben_p44_031.json",
+    "benign/ben_p44_032.json",
+    "benign/ben_p44_033.json",
+    "benign/ben_p44_034.json",
+    "benign/ben_p44_035.json",
+    "benign/ben_p44_036.json",
+    "benign/ben_p44_037.json",
+    "benign/ben_p44_038.json",
+    "benign/ben_p44_039.json",
+    "benign/ben_p44_040.json",
+    "benign/ben_p44_041.json",
+    "benign/ben_p44_042.json",
+    "benign/ben_p44_043.json",
+    "benign/ben_p44_044.json",
+    "benign/ben_p44_045.json",
+    "benign/ben_p44_046.json",
+    "benign/ben_p44_047.json",
+    "benign/ben_p44_048.json",
+    "benign/ben_p44_049.json",
+    "benign/ben_p44_050.json",
+    "benign/ben_p44_051.json",
+    "benign/ben_p44_052.json",
+    "benign/ben_p44_053.json",
+    "benign/ben_p44_054.json",
+    "benign/ben_p44_055.json",
+    "benign/ben_p44_056.json",
+    "benign/ben_p44_057.json",
+    "benign/ben_p44_058.json",
+    "benign/ben_p44_059.json",
+    "benign/ben_p44_060.json",
+    "benign/ben_p44_061.json",
+    "benign/ben_p44_062.json",
+    "benign/ben_p44_063.json",
+    "benign/ben_p44_064.json",
+    "benign/ben_p44_065.json",
+    "benign/ben_p44_066.json",
+    "benign/ben_p44_067.json",
+    "benign/ben_p44_068.json",
+    "benign/ben_p44_069.json",
+    "benign/ben_p44_070.json",
+    "benign/ben_p44_071.json",
+    "benign/ben_p44_072.json",
+    "benign/ben_p44_073.json",
+    "benign/ben_p44_074.json",
+    "benign/ben_p44_075.json",
+    "benign/ben_p44_076.json",
+    "benign/ben_p44_077.json",
+    "benign/ben_p44_078.json",
+    "benign/ben_p44_079.json",
+    "benign/ben_p44_080.json",
+    "benign/ben_p44_081.json",
+    "benign/ben_p44_082.json",
+    "benign/ben_p44_083.json",
+    "benign/ben_p44_084.json",
+    "benign/ben_p44_085.json",
+    "benign/ben_p44_086.json",
+    "benign/ben_p44_087.json",
+    "benign/ben_p44_088.json",
+    "benign/ben_p44_089.json",
+    "benign/ben_p44_090.json",
+    "benign/ben_p44_091.json",
+    "benign/ben_p44_092.json",
+    "benign/ben_p44_093.json",
+    "benign/ben_p44_094.json",
+    "benign/ben_p44_095.json",
+    "benign/ben_p44_096.json",
+    "benign/ben_p44_097.json",
+    "benign/ben_p44_098.json",
+    "benign/ben_p44_099.json",
+    "benign/ben_p44_100.json"
+  ],
+  "freeze_id": "aib-p4.4-validation-v2.0",
+  "generator": "scripts/gen_p4_4_v2_dataset.py",
+  "generator_version": "gen_p4_4_v2_dataset.py@1.0.0",
+  "identity": "P4.4 v2 revision of frozen v1",
+  "n_files": 200,
+  "pair_count": 100,
+  "parent_corpora_not_mutated": [
+    "data/episodes_p4_2",
+    "data/episodes_p4_3",
+    "data/episodes_p4_4"
+  ],
+  "parent_digest": "d5132fb3a4897684e1cb8a6f38f7cd367ee2a928bcd351743f73f13c326d796f",
+  "parent_freeze_id": "aib-p4.4-validation-v1.0",
+  "parent_version": "P4.4",
+  "revision_count": 96,
+  "revision_scope": "96 attack REVISE rows only; benign and ACCEPT attacks are byte-identical to v1",
+  "revision_source": "artifacts/p4_4_hr_audit_trail.json",
+  "revisions": [
+    {
+      "affected_fields": [
+        "expected.success_observable",
+        "injection.payload",
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_001",
+      "pair_id": "p44_001"
+    },
+    {
+      "affected_fields": [
+        "expected.success_observable",
+        "injection.payload",
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_002",
+      "pair_id": "p44_002"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_003",
+      "pair_id": "p44_003"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_004",
+      "pair_id": "p44_004"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_005",
+      "pair_id": "p44_005"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_006",
+      "pair_id": "p44_006"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_007",
+      "pair_id": "p44_007"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool"
+      ],
+      "episode_id": "atk_p44_008",
+      "pair_id": "p44_008"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_009",
+      "pair_id": "p44_009"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_010",
+      "pair_id": "p44_010"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_011",
+      "pair_id": "p44_011"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_012",
+      "pair_id": "p44_012"
+    },
+    {
+      "affected_fields": [
+        "expected.success_observable",
+        "injection.payload"
+      ],
+      "episode_id": "atk_p44_013",
+      "pair_id": "p44_013"
+    },
+    {
+      "affected_fields": [
+        "expected.success_observable",
+        "injection.payload"
+      ],
+      "episode_id": "atk_p44_014",
+      "pair_id": "p44_014"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_015",
+      "pair_id": "p44_015"
+    },
+    {
+      "affected_fields": [
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool"
+      ],
+      "episode_id": "atk_p44_016",
+      "pair_id": "p44_016"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_018",
+      "pair_id": "p44_018"
+    },
+    {
+      "affected_fields": [
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_019",
+      "pair_id": "p44_019"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_020",
+      "pair_id": "p44_020"
+    },
+    {
+      "affected_fields": [
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_021",
+      "pair_id": "p44_021"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_022",
+      "pair_id": "p44_022"
+    },
+    {
+      "affected_fields": [
+        "expected.success_observable",
+        "injection.payload"
+      ],
+      "episode_id": "atk_p44_023",
+      "pair_id": "p44_023"
+    },
+    {
+      "affected_fields": [
+        "expected.success_observable",
+        "injection.payload"
+      ],
+      "episode_id": "atk_p44_024",
+      "pair_id": "p44_024"
+    },
+    {
+      "affected_fields": [
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool"
+      ],
+      "episode_id": "atk_p44_026",
+      "pair_id": "p44_026"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_027",
+      "pair_id": "p44_027"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_028",
+      "pair_id": "p44_028"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_029",
+      "pair_id": "p44_029"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_030",
+      "pair_id": "p44_030"
+    },
+    {
+      "affected_fields": [
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_031",
+      "pair_id": "p44_031"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_032",
+      "pair_id": "p44_032"
+    },
+    {
+      "affected_fields": [
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_033",
+      "pair_id": "p44_033"
+    },
+    {
+      "affected_fields": [
+        "expected.success_observable",
+        "injection.payload"
+      ],
+      "episode_id": "atk_p44_035",
+      "pair_id": "p44_035"
+    },
+    {
+      "affected_fields": [
+        "expected.success_observable",
+        "injection.payload"
+      ],
+      "episode_id": "atk_p44_036",
+      "pair_id": "p44_036"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_037",
+      "pair_id": "p44_037"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_038",
+      "pair_id": "p44_038"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_039",
+      "pair_id": "p44_039"
+    },
+    {
+      "affected_fields": [
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_040",
+      "pair_id": "p44_040"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_041",
+      "pair_id": "p44_041"
+    },
+    {
+      "affected_fields": [
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_042",
+      "pair_id": "p44_042"
+    },
+    {
+      "affected_fields": [
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool"
+      ],
+      "episode_id": "atk_p44_043",
+      "pair_id": "p44_043"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_045",
+      "pair_id": "p44_045"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_046",
+      "pair_id": "p44_046"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_047",
+      "pair_id": "p44_047"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_048",
+      "pair_id": "p44_048"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_049",
+      "pair_id": "p44_049"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_050",
+      "pair_id": "p44_050"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_051",
+      "pair_id": "p44_051"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_052",
+      "pair_id": "p44_052"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_053",
+      "pair_id": "p44_053"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_054",
+      "pair_id": "p44_054"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_055",
+      "pair_id": "p44_055"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_056",
+      "pair_id": "p44_056"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_057",
+      "pair_id": "p44_057"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_058",
+      "pair_id": "p44_058"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_059",
+      "pair_id": "p44_059"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_060",
+      "pair_id": "p44_060"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool"
+      ],
+      "episode_id": "atk_p44_061",
+      "pair_id": "p44_061"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_062",
+      "pair_id": "p44_062"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_063",
+      "pair_id": "p44_063"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_064",
+      "pair_id": "p44_064"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_065",
+      "pair_id": "p44_065"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_066",
+      "pair_id": "p44_066"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_067",
+      "pair_id": "p44_067"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_068",
+      "pair_id": "p44_068"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_069",
+      "pair_id": "p44_069"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_070",
+      "pair_id": "p44_070"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_071",
+      "pair_id": "p44_071"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_072",
+      "pair_id": "p44_072"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_073",
+      "pair_id": "p44_073"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_074",
+      "pair_id": "p44_074"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_075",
+      "pair_id": "p44_075"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_076",
+      "pair_id": "p44_076"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_077",
+      "pair_id": "p44_077"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_078",
+      "pair_id": "p44_078"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool"
+      ],
+      "episode_id": "atk_p44_079",
+      "pair_id": "p44_079"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_080",
+      "pair_id": "p44_080"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_081",
+      "pair_id": "p44_081"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_082",
+      "pair_id": "p44_082"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_083",
+      "pair_id": "p44_083"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_084",
+      "pair_id": "p44_084"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_085",
+      "pair_id": "p44_085"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_086",
+      "pair_id": "p44_086"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_087",
+      "pair_id": "p44_087"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool"
+      ],
+      "episode_id": "atk_p44_088",
+      "pair_id": "p44_088"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_089",
+      "pair_id": "p44_089"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_090",
+      "pair_id": "p44_090"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_091",
+      "pair_id": "p44_091"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_092",
+      "pair_id": "p44_092"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_093",
+      "pair_id": "p44_093"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "taxonomy.technique"
+      ],
+      "episode_id": "atk_p44_094",
+      "pair_id": "p44_094"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_095",
+      "pair_id": "p44_095"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool"
+      ],
+      "episode_id": "atk_p44_096",
+      "pair_id": "p44_096"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_097",
+      "pair_id": "p44_097"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus",
+        "expected.success_criterion",
+        "expected.success_observable",
+        "expected.forbidden_tools",
+        "taxonomy.target",
+        "injection.target_tool"
+      ],
+      "episode_id": "atk_p44_098",
+      "pair_id": "p44_098"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_099",
+      "pair_id": "p44_099"
+    },
+    {
+      "affected_fields": [
+        "retrieved_docs",
+        "injection.locus"
+      ],
+      "episode_id": "atk_p44_100",
+      "pair_id": "p44_100"
+    }
+  ],
+  "schema": "schema/episode.p44.v1.json",
+  "seed": 44020260922,
+  "status": "frozen"
+}
