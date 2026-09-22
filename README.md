@@ -1,6 +1,16 @@
 # agent-injection-bench
 
-v0 **indirect prompt-injection** benchmark for tool-using LLM agents.
+**Research release (main):** controlled paired **descriptive** evaluation (P4.2 primary COV-A, n=9+9), frozen protocols, tracked historical run `p42-primary-d0-d2-20260921T173736Z-controlled`, offline CI. Start here:
+
+- `docs/AIB_FINAL_RESEARCH_READINESS.md`
+- `docs/AIB_REPRODUCIBILITY_INDEX.md`
+- `docs/AIB_SCIENTIFIC_INTEGRITY_AUDIT.md`
+
+Claims are **evidence-bounded** (no population-level efficacy or significance). Missing re-run `…130300Z…` is documented in `docs/AIB_P8_SUBMISSION_READINESS.md`.
+
+---
+
+v0 **indirect prompt-injection** scaffold (subset under `data/episodes/`):
 
 Scope (frozen for v0):
 
@@ -61,7 +71,7 @@ results/traces/                # gitignored *.json (+ .gitkeep)
 
 1. Injections are **indirect** (in retrieved docs), never in `user_query`.
 2. Tools are **offline mocks** — `send_email` logs only.
-3. **No defenses** in this repo (see `docs/ADAPTI_GUARD_BRIDGE.md`).
+3. **D0/D2 defense evaluation** for research runs uses AdaptiGuard integration (see `docs/ADAPTI_GUARD_BRIDGE.md`, `config/adaptiguard_version_pin.v1.json`). v0 mock harness remains defense-free.
 4. Schema is **frozen** — do not weaken validation.
 5. Traces record execution facts only; do not invent success labels.
 
