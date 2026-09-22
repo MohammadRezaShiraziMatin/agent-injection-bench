@@ -135,15 +135,15 @@ AIB provides a frozen, controlled paired **descriptive** benchmark with immutabl
 
 See §10 (primary results) and §7 (defense conditions). Table 4-style evidence/limitation mapping: `docs/AIB_FINAL_RESEARCH_READINESS.md` §9.
 
-## Figure Specifications
+## Figures
 
-Figures may be generated **offline** from verified counts in `RESULTS.json` (no new live runs):
+Generated offline from `D0/RESULTS.json` and `D2/RESULTS.json` via `python scripts/generate_p1_figures.py` (run `p42-primary-d0-d2-20260921T173736Z-controlled`; see `docs/manuscript/figures/p1_figure_data.json`). Descriptive only—no inferential claims in captions.
 
-1. **Bar chart:** D0 vs D2 ASR (1/9 each).
-2. **Bar chart:** Utility and FPR (9/9, 0/9).
-3. **Paired transition diagram:** counts 1 / 0 / 0 / 8.
+**Figure 1.** Descriptive comparison of attack success rate (ASR) between D0 (no defense) and D2 (AdaptiGuard defense) on the verified COV-A primary attack set (n = 9). File: `docs/manuscript/figures/fig_p1_primary_asr_d0_d2.png`.
 
-Do not imply causal or population inference in captions.
+**Figure 2.** Descriptive comparison of benign utility and false-positive rate (FPR) under D0 and D2 (n = 9 benign episodes). Utility counts use `utility_success` from the paired pipeline scorer (`scripts/score_p4_3_live_metrics.py`). File: `docs/manuscript/figures/fig_p1_utility_fpr_d0_d2.png`.
+
+**Figure 3.** Observed paired attack outcome transitions from D0 to D2 attack_success status (success→success: 1; success→failure: 0; failure→success: 0; failure→failure: 8). File: `docs/manuscript/figures/fig_p1_paired_transitions_d0_d2.png`.
 
 ## References
 
