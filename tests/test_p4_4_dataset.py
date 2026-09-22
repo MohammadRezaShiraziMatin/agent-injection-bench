@@ -37,3 +37,29 @@ def test_p44_freeze_and_parents() -> None:
     assert freeze_main() == 0
     p42 = json.loads((ROOT / "data/episodes_p4_2/MANIFEST.json").read_text(encoding="utf-8"))
     assert p42["digest_sha256"] == "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee"
+    p43 = json.loads((ROOT / "data/episodes_p4_3/MANIFEST.json").read_text(encoding="utf-8"))
+    assert p43["digest_sha256"] == "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d"
+
+
+def test_p44_adjudication_trail_does_not_mutate_freeze() -> None:
+    trail = json.loads((ROOT / "artifacts/p4_4_hr_audit_trail.json").read_text(encoding="utf-8"))
+    decisions = trail["decisions"]
+    assert len(decisions) == 200
+    assert len({d["episode_id"] for d in decisions}) == 200
+    labels = {"ACCEPT", "REVISE", "REJECT", "UNCERTAIN"}
+    counts = {"attack": {k: 0 for k in labels}, "benign": {k: 0 for k in labels}}
+    for row in decisions:
+        assert row["human_decision"] in labels
+        split = "attack" if row["episode_id"].startswith("atk_") else "benign"
+        counts[split][row["human_decision"]] += 1
+        if row["human_decision"] != "ACCEPT":
+            assert row["reason"]
+            assert row["affected_fields"]
+        episode = next((ROOT / "data/episodes_p4_4").rglob(row["episode_id"] + ".json"))
+        body = json.loads(episode.read_text(encoding="utf-8"))
+        assert body["provenance"]["review_status"] == "unreviewed"
+        assert body["pair_id"] == row["pair_id"]
+    assert counts == trail["summary"]
+    manifest = json.loads((ROOT / "data/episodes_p4_4/MANIFEST.json").read_text(encoding="utf-8"))
+    assert manifest["digest_sha256"] == trail["dataset_digest_sha256"]
+    assert trail["episode_bytes_changed"] is False
