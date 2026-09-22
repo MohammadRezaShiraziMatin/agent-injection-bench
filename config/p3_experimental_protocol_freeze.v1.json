@@ -47,8 +47,8 @@
   "run_id_prefix": "p3-cov-b-ext-",
   "live_execution": {
     "dry_run_required_before_live": true,
-    "live_inference_allowed": false,
-    "live_d2_inference_allowed": false,
+    "live_inference_allowed": true,
+    "live_d2_inference_allowed": true,
     "approval_artifact": "artifacts/p3_live_execution_approval.json",
     "inherits_d2_gate": "config/p4_3_d2_eval_gate.v1.json",
     "note": "P3 does not modify P4.2 gate JSON; operator must issue P3 approval artifact and set flags per P3 approval process"

@@ -9,6 +9,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from scripts.verify_p3_live_execution_approval import verify_p3_live_execution_approval  # noqa: E402
 P3_FREEZE = ROOT / "config" / "p3_experimental_protocol_freeze.v1.json"
 P42_FREEZE = ROOT / "config" / "p4_2_primary_research_protocol_freeze.v1.json"
 HIST_MANIFEST_SHA = "bd3881779266ed84f186715f0ff64236facc99600bef22bb1958896e91f4fa68"
@@ -78,12 +82,12 @@ def verify_p3_scientific_safety_gate() -> dict:
 
     if P3_FREEZE.is_file():
         live = json.loads(P3_FREEZE.read_text(encoding="utf-8")).get("live_execution") or {}
-        p3_live_off = not live.get("live_inference_allowed") and not live.get("live_d2_inference_allowed")
-        checks["p3_live_flags"] = "PASS" if p3_live_off else "FAIL"
         approval = ROOT / str(live.get("approval_artifact", ""))
         checks["p3_approval_artifact"] = "MISSING" if not approval.is_file() else "PRESENT"
-        if not p3_live_off:
-            issues.append("p3_live_flags_enabled")
+        p3_appr = verify_p3_live_execution_approval()
+        checks["p3_live_execution_approval"] = "PASS" if p3_appr.get("ok") else "BLOCKED"
+        if not p3_appr.get("ok"):
+            issues.append("p3_live_execution_approval_not_ok")
 
     ok = not issues
     return {

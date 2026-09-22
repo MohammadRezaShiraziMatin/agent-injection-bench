@@ -19,7 +19,7 @@ def test_p3_freeze_descriptive_extension():
     assert doc.get("statistics") == "DESCRIPTIVE_ONLY"
     assert doc.get("primary_endpoint") == "ASR"
     assert doc["extension_population"]["label"] == "P3-EXT"
-    assert doc["live_execution"]["live_d2_inference_allowed"] is False
+    assert doc["live_execution"]["live_d2_inference_allowed"] is True
     hist = doc.get("historical_evidence_immutable", "")
     assert "173736" in hist
 
@@ -42,4 +42,17 @@ def test_p3_safety_gate_passes_offline():
     report = verify_p3_scientific_safety_gate()
     assert report.get("checks", {}).get("historical_run_protected") == "PASS"
     assert report.get("checks", {}).get("protocol_frozen") == "PASS"
+    assert report.get("checks", {}).get("p3_approval_artifact") == "PRESENT"
     assert report.get("ok") is True
+
+
+@pytest.mark.skipif(
+    not (ROOT / "artifacts" / "p3_live_execution_approval.json").is_file(),
+    reason="P3 approval not in tree",
+)
+def test_p3_live_execution_approval_ok():
+    from scripts.verify_p3_live_execution_approval import verify_p3_live_execution_approval
+
+    report = verify_p3_live_execution_approval()
+    assert report.get("ok") is True
+    assert report.get("scope_ok") is True
