@@ -86,7 +86,9 @@ def test_p42_dry_run_records_live_readiness():
         (ROOT / report["out_dir"] / "RUN_MANIFEST.json").read_text(encoding="utf-8")
     )
     assert manifest["p4_2_d2_live_approval"]["scope_ok"] is True
-    assert manifest["p4_2_d2_live_approval"]["gate_authorized"] is False
+    gate = json.loads((ROOT / "config/p4_3_d2_eval_gate.v1.json").read_text(encoding="utf-8"))
+    expected_gate = bool((gate.get("p4_2_primary_preflight") or {}).get("live_d2_inference_allowed"))
+    assert manifest["p4_2_d2_live_approval"]["gate_authorized"] is expected_gate
 
 
 def test_p42_primary_config_dry_run():
