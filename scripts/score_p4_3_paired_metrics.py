@@ -12,7 +12,14 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from agent.structured_run_log import STAGE_AGGREGATION, STAGE_SCORING, StructuredRunLogger  # noqa: E402
+
+def _path_ref(path: Path) -> str:
+    try:
+        return str(path.relative_to(ROOT))
+    except ValueError:
+        return str(path)
+
+from agent.structured_run_log import STAGE_SCORING, StructuredRunLogger  # noqa: E402
 from scripts.score_p4_3_live_metrics import score_run  # noqa: E402
 
 
@@ -43,12 +50,8 @@ def _append_scoring_audit(run_dir: Path, summary: dict) -> None:
         mode=summary.get("mode"),
         metrics_contract="config/p4_3_evaluation_metrics.v1.json",
         paired_defense_status=(summary.get("Paired_Defense_Rate") or {}).get("status"),
-    )
-    log.emit(
-        STAGE_AGGREGATION,
-        status="OK",
-        scoring_scope="paired_D0_D2",
         fpr_d2=summary.get("FPR_D2"),
+        scoring_scope="paired_D0_D2",
     )
 
 
@@ -150,7 +153,7 @@ def score_paired(run_dir: Path) -> dict:
     fpr_d2 = d2_metrics.get("FPR") if isinstance(d2_metrics, dict) else None
     summary = {
         "descriptive_only": True,
-        "run_dir": str(run_dir.relative_to(ROOT)),
+        "run_dir": _path_ref(run_dir),
         "mode": mode,
         "D0": d0_metrics,
         "D2": d2_metrics,

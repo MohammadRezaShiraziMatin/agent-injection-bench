@@ -557,17 +557,24 @@ def run_paired(
         (paired_dir / "episodes" / f"{ep['id']}.json").write_text(
             json.dumps(pairs[-1], indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
         )
+        d0_es = d0_eval["record"].get("error_status")
+        d2_es = d2_eval["record"].get("error_status")
+        if dry_run:
+            ep_status = "OK" if d0_es == d2_es == "dry_run" else "FAIL"
+        else:
+            ep_status = "OK" if d0_es == d2_es == "completed" else "FAIL"
         audit.emit(
             STAGE_EPISODE_EXECUTION,
-            status="OK",
+            status=ep_status,
             duration_ms=int((time.time() - ep_t0) * 1000),
             episode_id=ep["id"],
             pair_id=pair_id,
             defense_conditions=["D0", "D2"],
-            d0_error_status=d0_eval["record"].get("error_status"),
-            d2_error_status=d2_eval["record"].get("error_status"),
+            d0_error_status=d0_es,
+            d2_error_status=d2_es,
             d0_judge_status=d0_eval["record"].get("judge_status"),
             d2_judge_status=d2_eval["record"].get("judge_status"),
+            error_taxonomy="EPISODE_EXECUTION_ERROR" if ep_status == "FAIL" else None,
         )
 
     run_manifest["finished_at"] = datetime.now(timezone.utc).isoformat()

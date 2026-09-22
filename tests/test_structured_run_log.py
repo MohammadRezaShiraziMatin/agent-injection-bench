@@ -39,3 +39,10 @@ def test_audit_trail_written_on_paired_dry_run(tmp_path):
     for row in lines:
         blob = json.dumps(row)
         assert "sk-" not in blob or "[REDACTED]" in blob
+
+    from scripts.score_p4_3_paired_metrics import score_paired
+
+    score_paired(out_base / "test-audit-trail-dry")
+    lines2 = [json.loads(ln) for ln in trail.read_text(encoding="utf-8").splitlines() if ln.strip()]
+    assert any(r["stage"] == "SCORING" for r in lines2)
+    assert sum(1 for r in lines2 if r["stage"] == "AGGREGATION") == 1

@@ -112,8 +112,10 @@ class StructuredRunLogger:
             record["error_taxonomy"] = error_taxonomy
         if fields:
             record["details"] = sanitize_for_log(fields)
+        line = json.dumps(record, ensure_ascii=False, sort_keys=True, default=str) + "\n"
         with self.log_path.open("a", encoding="utf-8") as fh:
-            fh.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
+            fh.write(line)
+            fh.flush()
 
     def finalize(
         self,
