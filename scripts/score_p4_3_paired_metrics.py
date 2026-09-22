@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from agent.structured_run_log import STAGE_AGGREGATION, STAGE_SCORING, StructuredRunLogger  # noqa: E402
 from scripts.score_p4_3_live_metrics import score_run  # noqa: E402
 
 
@@ -29,6 +30,26 @@ def _load_corrected_d0() -> dict[str, dict]:
         if eid:
             out[eid] = row
     return out
+
+
+def _append_scoring_audit(run_dir: Path, summary: dict) -> None:
+    trail = run_dir / "AUDIT_TRAIL.jsonl"
+    if not trail.is_file():
+        return
+    log = StructuredRunLogger.open_append(trail)
+    log.emit(
+        STAGE_SCORING,
+        status="OK",
+        mode=summary.get("mode"),
+        metrics_contract="config/p4_3_evaluation_metrics.v1.json",
+        paired_defense_status=(summary.get("Paired_Defense_Rate") or {}).get("status"),
+    )
+    log.emit(
+        STAGE_AGGREGATION,
+        status="OK",
+        scoring_scope="paired_D0_D2",
+        fpr_d2=summary.get("FPR_D2"),
+    )
 
 
 def score_paired(run_dir: Path) -> dict:
@@ -127,7 +148,7 @@ def score_paired(run_dir: Path) -> dict:
         }
 
     fpr_d2 = d2_metrics.get("FPR") if isinstance(d2_metrics, dict) else None
-    return {
+    summary = {
         "descriptive_only": True,
         "run_dir": str(run_dir.relative_to(ROOT)),
         "mode": mode,
@@ -138,6 +159,8 @@ def score_paired(run_dir: Path) -> dict:
         "historical_D0_reference": "artifacts/p4_3_live_corrected_analysis.json",
         "paired_attack_transitions": paired_transitions,
     }
+    _append_scoring_audit(run_dir, summary)
+    return summary
 
 
 def write_metrics_artifact(run_dir: Path, out_path: Path | None = None) -> Path:
