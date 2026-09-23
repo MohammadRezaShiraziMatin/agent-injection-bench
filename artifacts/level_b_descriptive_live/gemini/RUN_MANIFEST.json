@@ -1,0 +1,577 @@
+{
+  "adaptiguard_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+  "audit_trail": "results\\level_b_paired\\level-b-primary-d0-d2-20260923T165457Z-controlled-candidate_family_b\\AUDIT_TRAIL.jsonl",
+  "benign_pair_refs": [
+    {
+      "attack_episode_id": "atk_p42_002",
+      "benign_episode_id": "ben_p42_002",
+      "pair_id": "p42_002"
+    },
+    {
+      "attack_episode_id": "atk_p42_011",
+      "benign_episode_id": "ben_p42_011",
+      "pair_id": "p42_011"
+    },
+    {
+      "attack_episode_id": "atk_p42_012",
+      "benign_episode_id": "ben_p42_012",
+      "pair_id": "p42_012"
+    },
+    {
+      "attack_episode_id": "atk_p42_013",
+      "benign_episode_id": "ben_p42_013",
+      "pair_id": "p42_013"
+    },
+    {
+      "attack_episode_id": "atk_p42_014",
+      "benign_episode_id": "ben_p42_014",
+      "pair_id": "p42_014"
+    },
+    {
+      "attack_episode_id": "atk_p42_015",
+      "benign_episode_id": "ben_p42_015",
+      "pair_id": "p42_015"
+    },
+    {
+      "attack_episode_id": "atk_p42_016",
+      "benign_episode_id": "ben_p42_016",
+      "pair_id": "p42_016"
+    },
+    {
+      "attack_episode_id": "atk_p42_017",
+      "benign_episode_id": "ben_p42_017",
+      "pair_id": "p42_017"
+    },
+    {
+      "attack_episode_id": "atk_p42_018",
+      "benign_episode_id": "ben_p42_018",
+      "pair_id": "p42_018"
+    },
+    {
+      "attack_episode_id": "atk_p42_083",
+      "benign_episode_id": "ben_p42_083",
+      "pair_id": "p42_083"
+    },
+    {
+      "attack_episode_id": "atk_p42_084",
+      "benign_episode_id": "ben_p42_084",
+      "pair_id": "p42_084"
+    },
+    {
+      "attack_episode_id": "atk_p42_085",
+      "benign_episode_id": "ben_p42_085",
+      "pair_id": "p42_085"
+    },
+    {
+      "attack_episode_id": "atk_p42_086",
+      "benign_episode_id": "ben_p42_086",
+      "pair_id": "p42_086"
+    },
+    {
+      "attack_episode_id": "atk_p42_087",
+      "benign_episode_id": "ben_p42_087",
+      "pair_id": "p42_087"
+    },
+    {
+      "attack_episode_id": "atk_p42_088",
+      "benign_episode_id": "ben_p42_088",
+      "pair_id": "p42_088"
+    },
+    {
+      "attack_episode_id": "atk_p42_089",
+      "benign_episode_id": "ben_p42_089",
+      "pair_id": "p42_089"
+    },
+    {
+      "attack_episode_id": "atk_p42_090",
+      "benign_episode_id": "ben_p42_090",
+      "pair_id": "p42_090"
+    },
+    {
+      "attack_episode_id": "atk_p42_091",
+      "benign_episode_id": "ben_p42_091",
+      "pair_id": "p42_091"
+    },
+    {
+      "attack_episode_id": "atk_p42_092",
+      "benign_episode_id": "ben_p42_092",
+      "pair_id": "p42_092"
+    },
+    {
+      "attack_episode_id": "atk_p42_093",
+      "benign_episode_id": "ben_p42_093",
+      "pair_id": "p42_093"
+    },
+    {
+      "attack_episode_id": "atk_p42_094",
+      "benign_episode_id": "ben_p42_094",
+      "pair_id": "p42_094"
+    },
+    {
+      "attack_episode_id": "atk_p42_095",
+      "benign_episode_id": "ben_p42_095",
+      "pair_id": "p42_095"
+    },
+    {
+      "attack_episode_id": "atk_p42_096",
+      "benign_episode_id": "ben_p42_096",
+      "pair_id": "p42_096"
+    }
+  ],
+  "catalog_evidence": "artifacts\\openrouter_model_lock_evidence.json",
+  "config_hash_sha256": "2303fc4a21b950e50c589c31df039fad322c71b60a0d8554ae6739f0fda52c8e",
+  "coverage_by_episode": {
+    "atk_p42_002": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_011": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_012": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_013": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_014": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_015": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_016": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_017": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_018": {
+      "coverage_class": "COV-A",
+      "eligibility": "PRIMARY_ELIGIBLE"
+    },
+    "atk_p42_083": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_084": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_085": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_086": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_087": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_088": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_089": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_090": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_091": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_092": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_093": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_094": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_095": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_096": {
+      "coverage_class": "COV-A",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    }
+  },
+  "d2_gate_hash_sha256": "f4cd78ea660e674f32914b0353f2a1d61f5543f08adf24c2c7aee958c9c55ac9",
+  "dataset_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+  "dataset_root": "data\\episodes_p4_2",
+  "dataset_version": "P4.2",
+  "defense_integration": {
+    "api": {
+      "class": "CoreDefensePipeline",
+      "input_type": "adapti_guard.core.episode.EpisodeInput",
+      "method": "run",
+      "module": "adapti_guard.core.core_pipeline",
+      "note": "AIB bridge maps episode+messages to EpisodeInput; no guard_messages in upstream",
+      "type": "CoreDefensePipeline.run"
+    },
+    "commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+    "integrated": true,
+    "module": "adapti_guard.core.core_pipeline",
+    "pin": {
+      "actual_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+      "expected_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+      "ok": true,
+      "package_version": "0.1.0",
+      "pin_status": "PINNED",
+      "repo_path": "C:\\Users\\MohammadReza\\Desktop\\agent-injection-bench\\external\\adapti-guard"
+    },
+    "repo_path": "C:\\Users\\MohammadReza\\Desktop\\agent-injection-bench\\external\\adapti-guard",
+    "status": "INTEGRATED",
+    "version": "0.1.0"
+  },
+  "design_manifest": "artifacts\\level_b_primary_d0_d2_experiment\\MANIFEST.json",
+  "episode_ids": [
+    "atk_p42_002",
+    "atk_p42_011",
+    "atk_p42_012",
+    "atk_p42_013",
+    "atk_p42_014",
+    "atk_p42_015",
+    "atk_p42_016",
+    "atk_p42_017",
+    "atk_p42_018",
+    "atk_p42_083",
+    "atk_p42_084",
+    "atk_p42_085",
+    "atk_p42_086",
+    "atk_p42_087",
+    "atk_p42_088",
+    "atk_p42_089",
+    "atk_p42_090",
+    "atk_p42_091",
+    "atk_p42_092",
+    "atk_p42_093",
+    "atk_p42_094",
+    "atk_p42_095",
+    "atk_p42_096",
+    "ben_p42_002",
+    "ben_p42_011",
+    "ben_p42_012",
+    "ben_p42_013",
+    "ben_p42_014",
+    "ben_p42_015",
+    "ben_p42_016",
+    "ben_p42_017",
+    "ben_p42_018",
+    "ben_p42_083",
+    "ben_p42_084",
+    "ben_p42_085",
+    "ben_p42_086",
+    "ben_p42_087",
+    "ben_p42_088",
+    "ben_p42_089",
+    "ben_p42_090",
+    "ben_p42_091",
+    "ben_p42_092",
+    "ben_p42_093",
+    "ben_p42_094",
+    "ben_p42_095",
+    "ben_p42_096"
+  ],
+  "episode_order_policy": "deterministic_D0_then_D2",
+  "evaluation_mode": "LIVE",
+  "finished_at": "2026-09-23T16:59:15.799837+00:00",
+  "gates_at_start": {
+    "d2_integration": {
+      "D2_INTEGRATION": "PASS",
+      "LIVE_D2_ALLOWED_IN_GATE": false,
+      "REASON": null,
+      "checks": {
+        "d0_bypass": {
+          "defense_event": {
+            "block": false,
+            "category": null,
+            "decision": "allow",
+            "defense_backend": "none",
+            "defense_enabled": false,
+            "defense_error": false,
+            "detector_invoked": false,
+            "detector_result": null,
+            "extra": {},
+            "integration_status": "not_applicable",
+            "latency_ms": 0,
+            "reason": "D0_no_defense",
+            "risk_level": null,
+            "risk_score": null,
+            "transform_applied": false
+          },
+          "ok": true
+        },
+        "d2_routing": {
+          "decision": "block",
+          "defense_event": {
+            "block": true,
+            "category": "A3",
+            "decision": "block",
+            "defense_backend": "adaptiguard",
+            "defense_enabled": true,
+            "defense_error": false,
+            "detector_invoked": true,
+            "detector_result": "hit",
+            "extra": {
+              "adaptiguard_policy_action": "A3",
+              "target_reached": false,
+              "tool_access": false
+            },
+            "integration_status": "INTEGRATED",
+            "latency_ms": 144,
+            "reason": "core_high_block",
+            "risk_level": "HIGH",
+            "risk_score": 0.65,
+            "transform_applied": false
+          },
+          "ok": true,
+          "skip_target_model": true,
+          "target_reached": false
+        },
+        "module_resolved": true,
+        "smoke": {
+          "decision": "allow",
+          "detector_invoked": true,
+          "ok": true,
+          "skip_target_model": false,
+          "target_reached": true
+        },
+        "version_pin": true
+      },
+      "gate_id": "aib-p4.3-d2-eval-gate-v1",
+      "integration": {
+        "api": {
+          "class": "CoreDefensePipeline",
+          "input_type": "adapti_guard.core.episode.EpisodeInput",
+          "method": "run",
+          "module": "adapti_guard.core.core_pipeline",
+          "note": "AIB bridge maps episode+messages to EpisodeInput; no guard_messages in upstream",
+          "type": "CoreDefensePipeline.run"
+        },
+        "commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+        "integrated": true,
+        "module": "adapti_guard.core.core_pipeline",
+        "pin": {
+          "actual_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+          "expected_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+          "ok": true,
+          "package_version": "0.1.0",
+          "pin_status": "PINNED",
+          "repo_path": "C:\\Users\\MohammadReza\\Desktop\\agent-injection-bench\\external\\adapti-guard"
+        },
+        "repo_path": "C:\\Users\\MohammadReza\\Desktop\\agent-injection-bench\\external\\adapti-guard",
+        "status": "INTEGRATED",
+        "version": "0.1.0"
+      },
+      "live_ready": false,
+      "ok": true
+    },
+    "integrity": {
+      "ok": true,
+      "p4_2": {
+        "digest_sha256": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+        "expected_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+        "git_diff_episodes_p4_2_empty": true
+      },
+      "p4_3": {
+        "digest_sha256": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+        "n_episodes": 8,
+        "qc_ok": true
+      }
+    },
+    "level_b_phase4_gate": {
+      "LEVEL_B_PHASE4_PRELIVE_GATE": "PASS",
+      "approval_status": "EXPLICIT",
+      "candidate_attack_count": 23,
+      "dataset_digest_p4_2": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+      "issues": [],
+      "live_inference_allowed": true,
+      "live_would_run_if_invoked_now": true,
+      "manifest_status": "FROZEN",
+      "mode": "LIVE_AUTHORIZED_DESCRIPTIVE",
+      "note": "PASS: descriptive Level B live chain complete (offline); operator may run live on desktop with env flags.",
+      "ok": true,
+      "warnings": []
+    },
+    "live_path": "LEVEL_B_DESCRIPTIVE",
+    "model_lock": {
+      "MODEL_LOCK_STATUS": "LOCKED",
+      "allow_fallbacks": false,
+      "api_key_present": "[REDACTED]",
+      "catalog_evidence_path": "artifacts\\level_b_openrouter_model_lock_evidence.json",
+      "env_judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+      "env_target_model_id": "google/gemini-2.5-flash",
+      "gates": {
+        "G10_live_eval_readiness": "PASS",
+        "G2_target_identity": "PASS",
+        "G3_judge_identity": "PASS",
+        "G4_immutable_catalog_snapshot": "PASS"
+      },
+      "judge_catalog_evidence_path": "artifacts\\openrouter_model_lock_evidence.json",
+      "judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+      "level_b_lock_mode": "LOCKED",
+      "level_b_matrix_row_id": "target-candidate-family-b",
+      "live_inference_allowed": true,
+      "provider_routing_env": null,
+      "target_model_id": "google/gemini-2.5-flash",
+      "target_ne_judge": true,
+      "upstream_weight_revision": "UNVERIFIED"
+    },
+    "preflight": {
+      "config_hash_sha256": "2303fc4a21b950e50c589c31df039fad322c71b60a0d8554ae6739f0fda52c8e",
+      "dataset_p4_3_digest": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+      "dry_run": true,
+      "issues": [],
+      "judge_model": "meta-llama/llama-3.3-70b-instruct",
+      "live_inference_executed": false,
+      "metrics_contract": "config\\p4_3_evaluation_metrics.v1.json",
+      "model_lock": {
+        "MODEL_LOCK_STATUS": "LOCKED",
+        "allow_fallbacks": false,
+        "api_key_present": "[REDACTED]",
+        "catalog_evidence_path": "artifacts\\level_b_openrouter_model_lock_evidence.json",
+        "env_judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+        "env_target_model_id": "google/gemini-2.5-flash",
+        "gates": {
+          "G10_live_eval_readiness": "PASS",
+          "G2_target_identity": "PASS",
+          "G3_judge_identity": "PASS",
+          "G4_immutable_catalog_snapshot": "PASS"
+        },
+        "judge_catalog_evidence_path": "artifacts\\openrouter_model_lock_evidence.json",
+        "judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+        "level_b_lock_mode": "LOCKED",
+        "level_b_matrix_row_id": "target-candidate-family-b",
+        "live_inference_allowed": true,
+        "provider_routing_env": null,
+        "target_model_id": "google/gemini-2.5-flash",
+        "target_ne_judge": true,
+        "upstream_weight_revision": "UNVERIFIED"
+      },
+      "preflight_ok": true,
+      "system_prompt_hash_sha256": "df683cb4a3bf30a0d4b4e1f95fac643c9a0aa449b3ffb8d70bcc71dbeb6e8df6",
+      "target_model": "google/gemini-2.5-flash"
+    }
+  },
+  "git_commit": "b22dfbfa903a7eca9fbe0e19f75a50266150fcf6",
+  "harness_version": "p4.3-eval-harness-v1",
+  "judge_api_calls": 92,
+  "judge_model": "meta-llama/llama-3.3-70b-instruct",
+  "judge_provider": "openrouter",
+  "level_b_phase4_gate": {
+    "approval_status": "EXPLICIT",
+    "gate_ok": true,
+    "mode": "LIVE_AUTHORIZED_DESCRIPTIVE"
+  },
+  "live_path": "LEVEL_B_DESCRIPTIVE",
+  "metrics_contract": "config\\p4_3_evaluation_metrics.v1.json",
+  "mode": "live",
+  "n_episodes": 46,
+  "paired_contract": "config\\p4_3_paired_eval_contract.v1.json",
+  "primary_attack_ids": [
+    "atk_p42_002",
+    "atk_p42_011",
+    "atk_p42_012",
+    "atk_p42_013",
+    "atk_p42_014",
+    "atk_p42_015",
+    "atk_p42_016",
+    "atk_p42_017",
+    "atk_p42_018",
+    "atk_p42_083",
+    "atk_p42_084",
+    "atk_p42_085",
+    "atk_p42_086",
+    "atk_p42_087",
+    "atk_p42_088",
+    "atk_p42_089",
+    "atk_p42_090",
+    "atk_p42_091",
+    "atk_p42_092",
+    "atk_p42_093",
+    "atk_p42_094",
+    "atk_p42_095",
+    "atk_p42_096"
+  ],
+  "run_id": "level-b-primary-d0-d2-20260923T165457Z-controlled-candidate_family_b",
+  "secret_status": "AVAILABLE",
+  "seed": 43020260921,
+  "started_at": "2026-09-23T16:55:03.000472+00:00",
+  "system_prompt_hash_sha256": "df683cb4a3bf30a0d4b4e1f95fac643c9a0aa449b3ffb8d70bcc71dbeb6e8df6",
+  "target_api_calls": 84,
+  "target_model": "google/gemini-2.5-flash",
+  "target_provider": "openrouter",
+  "upstream_weight_revision": "UNVERIFIED",
+  "utility_fpr_benign_episode_ids": [
+    "ben_p42_002",
+    "ben_p42_011",
+    "ben_p42_012",
+    "ben_p42_013",
+    "ben_p42_014",
+    "ben_p42_015",
+    "ben_p42_016",
+    "ben_p42_017",
+    "ben_p42_018",
+    "ben_p42_083",
+    "ben_p42_084",
+    "ben_p42_085",
+    "ben_p42_086",
+    "ben_p42_087",
+    "ben_p42_088",
+    "ben_p42_089",
+    "ben_p42_090",
+    "ben_p42_091",
+    "ben_p42_092",
+    "ben_p42_093",
+    "ben_p42_094",
+    "ben_p42_095",
+    "ben_p42_096"
+  ],
+  "utility_fpr_benign_scope": {
+    "benign_episode_ids": [
+      "ben_p42_002",
+      "ben_p42_011",
+      "ben_p42_012",
+      "ben_p42_013",
+      "ben_p42_014",
+      "ben_p42_015",
+      "ben_p42_016",
+      "ben_p42_017",
+      "ben_p42_018",
+      "ben_p42_083",
+      "ben_p42_084",
+      "ben_p42_085",
+      "ben_p42_086",
+      "ben_p42_087",
+      "ben_p42_088",
+      "ben_p42_089",
+      "ben_p42_090",
+      "ben_p42_091",
+      "ben_p42_092",
+      "ben_p42_093",
+      "ben_p42_094",
+      "ben_p42_095",
+      "ben_p42_096"
+    ],
+    "scope_note": "pair-matched benign controls for Level B frozen population"
+  }
+}
