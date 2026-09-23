@@ -24,6 +24,8 @@ def test_verify_level_b_phase4_prelive_gate_passes_offline():
     assert data["LEVEL_B_PHASE4_PRELIVE_GATE"] == "PASS"
     assert data["live_inference_allowed"] is False
     assert data["candidate_attack_count"] > 9
+    assert data["manifest_status"] == "FROZEN"
+    assert data["mode"] == "PRELIVE_LOCKED_FROZEN_AWAITING_LIVE_APPROVAL"
 
 
 def test_prelive_gate_fails_on_false_authorization(tmp_path: Path):

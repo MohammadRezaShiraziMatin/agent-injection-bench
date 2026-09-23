@@ -1,9 +1,16 @@
 {
   "manifest_id": "aib-level-b-primary-d0-d2-candidate-v1",
-  "status": "DRAFT_NOT_FROZEN",
+  "status": "FROZEN",
   "live_execution": false,
-  "population_label": "LEVEL_B_CANDIDATE_EXPANDED_COV_A",
+  "population_label": "LEVEL_B_FROZEN_EXPANDED_COV_A",
   "created_at": "2026-09-23T16:00:00+00:00",
+  "frozen_at": "2026-09-23T16:30:00+00:00",
+  "freeze_rationale": {
+    "researcher_decision": "expanded COV-A 23+23 primary pool per Phase 4 prelive plan",
+    "rejected_alternate": "P3-EXT COV-B 42+42 extension stratum (documented, not selected)",
+    "confirmatory_sap": "not locked — descriptive Level B path only until separate SAP freeze",
+    "note": "Freeze pins episode lists for future Level B runs; does not authorize live inference or produce Level B evidence."
+  },
   "repository_commit_at_authoring": "576b20fc",
   "dataset": {
     "name": "P4.2",
@@ -27,9 +34,8 @@
     ]
   },
   "researcher_decisions_required_before_freeze": [
-    "confirm_expanded_cov_a_vs_cov_b_subset_vs_hybrid",
-    "confirmatory_sap_and_sample_size_if_applicable",
-    "exclude_or_include_episodes_already_in_level_a_runs_with_new_run_ids_only"
+    "confirmatory_sap_and_sample_size_if_confirmatory_claims_desired",
+    "live_execution_authorization_artifacts"
   ],
   "pairing_policy": {
     "rule": "episode.pair_id per config/p4_3_paired_eval_contract.v1.json",
@@ -306,8 +312,8 @@
   },
   "draft_list_content_sha256": "431fd791ce8f2f563da710fc699ab06326287a616c9667c057a4470e19e6d894",
   "explicit_non_claims": [
-    "DRAFT_NOT_FROZEN \u2014 not execution-ready",
+    "FROZEN population list only \u2014 not Level B scored evidence until fresh immutable run IDs exist",
     "Does not supersede immutable Level A runs",
-    "Candidate list exceeds n=9 for planning only"
+    "live_execution false until operator approval chain and gate enablement"
   ]
 }

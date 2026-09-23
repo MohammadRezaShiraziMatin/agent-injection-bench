@@ -24,7 +24,7 @@ def test_verify_level_b_model_matrix_passes_offline():
     assert data["MATRIX_VERIFY_STATUS"] == "PASS"
     assert data["status"] == "DESIGN"
     assert data["live_execution_authorized"] is False
-    assert data["target_families_non_candidate"] == ["openai_gpt4o_mini"]
+    assert data["target_families_non_candidate"] == ["google_gemini_flash", "openai_gpt4o_mini"]
 
 
 def test_verify_level_b_model_matrix_fails_on_false_lock(tmp_path: Path):

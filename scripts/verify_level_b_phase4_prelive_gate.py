@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Offline Level B Phase 4 prelive gate (draft / awaiting key). Fails closed on false authorization."""
+"""Offline Level B Phase 4 prelive gate (lock/freeze; live fail-closed)."""
 
 from __future__ import annotations
 
@@ -16,13 +16,15 @@ APPROVAL_PATH = ROOT / "artifacts" / "level_b_phase4_execution_approval.json"
 MANIFEST_PATH = ROOT / "artifacts" / "level_b_primary_d0_d2_experiment" / "MANIFEST.json"
 PROTOCOL_FREEZE_PATH = ROOT / "config" / "level_b_protocol_freeze.v1.json"
 MODEL_MATRIX_PATH = ROOT / "config" / "level_b_model_matrix.v1.json"
+LEVEL_B_CATALOG_EVIDENCE_PATH = ROOT / "artifacts" / "level_b_openrouter_model_lock_evidence.json"
 ADAPTIGUARD_PIN_PATH = ROOT / "config" / "adaptiguard_version_pin.v1.json"
 
 P42_DIGEST = "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee"
 AG_SHA = "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64"
 
-PRELIVE_STATUSES = {"AWAITING_KEY", "NOT_AUTHORIZED"}
+PRELIVE_STATUSES = {"AWAITING_KEY", "NOT_AUTHORIZED", "KEY_RECEIVED_PENDING_AUTH"}
 LIVE_STATUSES = {"EXPLICIT", "AUTHORIZED", "AUTHORIZED_FOR_EXECUTION"}
+PRELIVE_MANIFEST_STATUSES = {"DRAFT_NOT_FROZEN", "FROZEN"}
 
 
 def _manifest_list_hash(manifest: dict[str, Any]) -> str:
@@ -33,6 +35,53 @@ def _manifest_list_hash(manifest: dict[str, Any]) -> str:
     }
     raw = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
     return hashlib.sha256(raw).hexdigest()
+
+
+def _second_target_locked(matrix: dict[str, Any]) -> bool:
+    for row in matrix.get("rows") or []:
+        if row.get("role") == "target" and row.get("lock_status") == "LOCKED":
+            return True
+    return False
+
+
+def _validate_level_b_catalog_chain(gate: dict[str, Any], matrix: dict[str, Any]) -> list[str]:
+    issues: list[str] = []
+    catalog_ref = gate.get("catalog_evidence")
+    if catalog_ref != "artifacts/level_b_openrouter_model_lock_evidence.json":
+        issues.append("gate_level_b_catalog_evidence_path_missing_or_wrong")
+    second = (gate.get("target_models") or {}).get("second_family_locked") or {}
+    if second.get("exact_model_id") != "google/gemini-2.5-flash":
+        issues.append("gate_second_target_model_id_mismatch")
+    if second.get("status") != "LOCKED":
+        issues.append("gate_second_target_not_locked")
+    snap = second.get("immutable_snapshot") or {}
+    if not snap.get("catalog_entry_sha256"):
+        issues.append("gate_second_target_catalog_fingerprint_missing")
+
+    locked_row = None
+    for row in matrix.get("rows") or []:
+        if row.get("row_id") == "target-candidate-family-b":
+            locked_row = row
+            break
+    if not locked_row or locked_row.get("lock_status") != "LOCKED":
+        issues.append("matrix_second_target_not_locked")
+    elif locked_row.get("model_id") != "google/gemini-2.5-flash":
+        issues.append("matrix_second_target_model_id_mismatch")
+    elif locked_row.get("catalog_lock_evidence") != catalog_ref:
+        issues.append("matrix_catalog_lock_evidence_mismatch")
+
+    if not LEVEL_B_CATALOG_EVIDENCE_PATH.is_file():
+        issues.append("level_b_catalog_evidence_missing")
+        return issues
+
+    evidence = json.loads(LEVEL_B_CATALOG_EVIDENCE_PATH.read_text(encoding="utf-8"))
+    mid = "google/gemini-2.5-flash"
+    entry = (evidence.get("models") or {}).get(mid) or {}
+    if entry.get("catalog_entry_sha256") != snap.get("catalog_entry_sha256"):
+        issues.append("gate_catalog_fingerprint_not_in_evidence_file")
+    if entry.get("tool_calling_supported") is not True:
+        issues.append("second_target_tool_calling_not_supported_in_evidence")
+    return issues
 
 
 def verify_level_b_phase4_prelive_gate(
@@ -75,9 +124,10 @@ def verify_level_b_phase4_prelive_gate(
         manifest: dict[str, Any] = {}
     else:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        if manifest.get("status") != "DRAFT_NOT_FROZEN":
+        manifest_status = manifest.get("status")
+        if manifest_status not in PRELIVE_MANIFEST_STATUSES:
             if (approval.get("status") or "") not in LIVE_STATUSES:
-                issues.append("manifest_not_draft_in_prelive_mode")
+                issues.append(f"manifest_status_unexpected_in_prelive:{manifest_status!r}")
         if manifest.get("live_execution") is True:
             issues.append("manifest_live_execution_true")
         pool = manifest.get("primary_attack_pool") or {}
@@ -100,6 +150,7 @@ def verify_level_b_phase4_prelive_gate(
     else:
         issues.append("level_b_protocol_freeze_missing")
 
+    matrix: dict[str, Any] = {}
     if model_matrix_path.is_file():
         matrix = json.loads(model_matrix_path.read_text(encoding="utf-8"))
         if matrix.get("authorization") != "NOT_AUTHORIZED":
@@ -107,6 +158,10 @@ def verify_level_b_phase4_prelive_gate(
         for row in matrix.get("rows") or []:
             if row.get("lock_status") == "CANDIDATE_NOT_LOCKED" and row.get("role") == "target":
                 warnings.append("second_target_family_still_candidate")
+        if manifest.get("status") == "FROZEN" and not _second_target_locked(matrix):
+            issues.append("frozen_manifest_requires_second_target_locked")
+        if _second_target_locked(matrix) and gate:
+            issues.extend(_validate_level_b_catalog_chain(gate, matrix))
     else:
         issues.append("level_b_model_matrix_missing")
 
@@ -119,11 +174,14 @@ def verify_level_b_phase4_prelive_gate(
 
     prelive_ok = not issues
     live_would_run = _would_allow_live_inference(approval, gate, manifest, os.environ)
+    mode = "PRELIVE_DRAFT_AWAITING_KEY"
+    if manifest.get("status") == "FROZEN" and _second_target_locked(matrix):
+        mode = "PRELIVE_LOCKED_FROZEN_AWAITING_LIVE_APPROVAL"
 
     return {
         "LEVEL_B_PHASE4_PRELIVE_GATE": "PASS" if prelive_ok else "FAIL",
         "ok": prelive_ok,
-        "mode": "PRELIVE_DRAFT_AWAITING_KEY",
+        "mode": mode,
         "live_inference_allowed": False,
         "live_would_run_if_invoked_now": live_would_run,
         "issues": issues,

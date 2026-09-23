@@ -1,11 +1,11 @@
 {
   "approval_id": "level-b-phase4-paired-d0-d2-prelive-v1",
-  "status": "AWAITING_KEY",
+  "status": "KEY_RECEIVED_PENDING_AUTH",
   "authorized": false,
   "approver": null,
   "approved_at": null,
   "git_commit_at_authorization": null,
-  "note": "Phase 4 prelive scaffolding only. No live OpenRouter inference, scoring, or new Level B run IDs until Matin completes authorization fields below.",
+  "note": "OpenRouter API key supplied out-of-band to the operator environment only (never committed). Live inference remains blocked: authorized false, gate live_inference_allowed false, and human operator sign-off fields below are still empty. Lock/freeze prep (second target LOCKED, population FROZEN) does not flip live execution.",
   "preconditions": [
     "LEVEL_B_PROTOCOL_FREEZE_PASS",
     "LEVEL_B_MODEL_MATRIX_LOCKED",
@@ -31,7 +31,8 @@
     ]
   },
   "scope": {
-    "population_label": "LEVEL_B_CANDIDATE_EXPANDED_COV_A",
+    "population_label": "LEVEL_B_FROZEN_EXPANDED_COV_A",
+    "population_manifest_status": "FROZEN",
     "draft_population_manifest": "artifacts/level_b_primary_d0_d2_experiment/MANIFEST.json",
     "draft_list_content_sha256": "431fd791ce8f2f563da710fc699ab06326287a616c9667c057a4470e19e6d894",
     "candidate_attack_count": 23,

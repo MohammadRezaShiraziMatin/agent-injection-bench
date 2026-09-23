@@ -1,23 +1,23 @@
-# Level B model matrix (Phase 2 scaffolding)
+# Level B model matrix (Phase 2 scaffolding → Phase 4 prelive lock)
 
 **Document ID:** `aib-level-b-model-matrix-v1`  
-**Status:** **DESIGN / NOT_AUTHORIZED** — scaffolding only  
+**Status:** **DESIGN / NOT_AUTHORIZED** — second target **LOCKED** at prelive; live execution still blocked  
 **Config:** [`../config/level_b_model_matrix.v1.json`](../config/level_b_model_matrix.v1.json)
 
-This document describes **Phase 2** of [`AIB_Q1_STRENGTHENING_4PHASE.md`](./AIB_Q1_STRENGTHENING_4PHASE.md): a **candidate** multi-model matrix for the Level B path. It does **not** authorize live runs, does **not** add Level B evidence under `results/`, and does **not** support cross-model ASR or generalization claims.
+This document describes the Level B multi-model matrix on the Q1 strengthening path ([`AIB_Q1_STRENGTHENING_4PHASE.md`](./AIB_Q1_STRENGTHENING_4PHASE.md)). Phase 4 **prelive** locks the second target family (`google/gemini-2.5-flash`) with OpenRouter catalog evidence. That lock does **not** authorize live runs, does **not** add Level B evidence under `results/`, and does **not** support cross-model ASR or generalization claims until fresh immutable run IDs exist.
 
 ---
 
 ## Scope
 
-| In scope (Phase 2) | Out of scope |
-|--------------------|--------------|
-| Document target + judge rows with generation and cache fields | Live OpenRouter calls |
-| Reuse Level A target/judge IDs as one inherited row | Locking a second target family |
-| Placeholder second **target family** (`CANDIDATE_NOT_LOCKED`) | New run IDs or scored outcomes |
-| Offline verifier + Research CI hook | SAP lock or execution approval |
+| In scope (prelive lock) | Out of scope |
+|-------------------------|--------------|
+| Two target families with explicit generation and cache fields | Live OpenRouter inference |
+| Level A target/judge IDs as inherited rows | Matrix-level `AUTHORIZED` or live gate enablement |
+| **LOCKED** second target (`google/gemini-2.5-flash`) + catalog snapshot | New run IDs or scored outcomes |
+| Offline verifiers + Research CI | Confirmatory SAP lock or forged operator approval |
 
-The matrix implements the **design intent** of Level B protocol [§13 Model matrix](./AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md#13-model-matrix-design-only-until-lock): minimum two target families for a future multi-model claim, single operational judge unless a pre-registered ablation says otherwise, explicit temperature / `max_tokens` / cache policy per row.
+The matrix implements Level B protocol [§13 Model matrix](./AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md#13-model-matrix-design-only-until-lock): minimum two target families for a future multi-model claim, single operational judge unless a pre-registered ablation says otherwise, explicit temperature / `max_tokens` / cache policy per row.
 
 ---
 
@@ -27,7 +27,7 @@ The matrix implements the **design intent** of Level B protocol [§13 Model matr
 - Matrix rows marked `INHERITS_LEVEL_A` must match that gate’s `exact_model_id` values; the offline verifier enforces this.
 - Level A result bundles (`p42-primary-d0-d2-20260921T173736Z-controlled`, `p3-cov-b-ext-20260923T112900Z-controlled`) stay **immutable**.
 
-[`config/level_b_protocol_freeze.v1.json`](../config/level_b_protocol_freeze.v1.json) references this matrix read-only under `inherits_read_only.level_b_model_matrix` while protocol status remains `DESIGN_NOT_FROZEN`.
+[`config/level_b_protocol_freeze.v1.json`](../config/level_b_protocol_freeze.v1.json) references this matrix read-only while protocol status remains `DESIGN_NOT_FROZEN` (confirmatory SAP not locked).
 
 ---
 
@@ -37,12 +37,14 @@ The matrix implements the **design intent** of Level B protocol [§13 Model matr
 |-------|---------|
 | `role` | `target` or `judge` |
 | `family` | Stable family label for stratification / manifests |
-| `model_id` | OpenRouter-style slug when known; candidate rows use an explicit non-lock placeholder string |
-| `lock_status` | `INHERITS_LEVEL_A`, `CANDIDATE_NOT_LOCKED`, or (future) `LOCKED` after sign-off |
+| `model_id` | OpenRouter-style slug when known |
+| `lock_status` | `INHERITS_LEVEL_A`, `CANDIDATE_NOT_LOCKED`, or `LOCKED` after sign-off |
+| `catalog_lock_evidence` | Path to OpenRouter catalog fingerprint JSON (second target) |
 | `provider` | Routing surface (OpenRouter in current design) |
 | `temperature`, `max_tokens`, `cache_policy` | Frozen-at-run fields per protocol §13 |
+| `routing_notes` | Provider order and fallback policy (`Google`, `allow_fallbacks: false` for Gemini row) |
 
-**Second target family:** `google_gemini_flash` is a **candidate family name only**. The `model_id` is not locked until researcher sign-off, catalog snapshots, and gate artifacts exist (Phase 4 prep)—not in Phase 2.
+**Second target family:** `google_gemini_flash` → **`google/gemini-2.5-flash`** (`LOCKED`). Evidence: [`../artifacts/level_b_openrouter_model_lock_evidence.json`](../artifacts/level_b_openrouter_model_lock_evidence.json), wired in [`../config/level_b_live_eval_gate.v1.json`](../config/level_b_live_eval_gate.v1.json).
 
 ---
 
@@ -52,16 +54,17 @@ From repository root (no API key required):
 
 ```bash
 python3 scripts/verify_level_b_model_matrix.py
+python3 scripts/verify_level_b_phase4_prelive_gate.py
 ```
 
-Exit code `0` when structure, fingerprint, Level A cross-check, and protocol-freeze pointer are valid. Exit code `1` on drift (e.g., fingerprint mismatch, false `LOCKED` without approval fields, or Level A ID mismatch).
+Exit code `0` when structure, fingerprint, Level A cross-check, catalog chain, and protocol-freeze pointer are valid. Exit code `1` on drift (e.g., fingerprint mismatch, false matrix `AUTHORIZED`, or Level A ID mismatch).
 
-Research CI runs this script in the **Protocol and live-gate verifiers** step when present (`.github/workflows/research-ci.yml`).
+Research CI runs these scripts in the **Protocol and live-gate verifiers** step when present (`.github/workflows/research-ci.yml`).
 
 ---
 
 ## Claim ladder (explicit)
 
-- Phase 2 **alone** does not establish multi-model ASR, defense efficacy, or Q1 readiness.
+- Prelive lock **alone** does not establish multi-model ASR, defense efficacy, or Q1 readiness.
 - Mock or offline matrix checks are **integrity scaffolding**, not experimental outcomes.
-- Only Phase 4 fresh immutable runs under frozen authorization may upgrade evidence toward Level B per [`../paper/RESULTS_EVIDENCE.md`](../paper/RESULTS_EVIDENCE.md).
+- Only Phase 4 **live** fresh immutable runs under frozen authorization may upgrade evidence toward Level B per [`../paper/RESULTS_EVIDENCE.md`](../paper/RESULTS_EVIDENCE.md).

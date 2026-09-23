@@ -10,7 +10,7 @@ Use this before citing numbers, writing slides, or merging results across repos.
 | **Level B (future)** | (Nothing yet — requires new protocol + fresh runs) | Relabeling Level A runs; pooling COV-A and COV-B without a frozen plan; efficacy or confirmatory language |
 | **Level C (future)** | (Not defined by current evidence) | Security-venue readiness claims without new frozen protocols |
 
-Gap plan: [AIB_P2_Q1_EVIDENCE_GAP_PLAN.md](./AIB_P2_Q1_EVIDENCE_GAP_PLAN.md). Q1 strengthening roadmap (Phase 1 = design only): [AIB_Q1_STRENGTHENING_4PHASE.md](./AIB_Q1_STRENGTHENING_4PHASE.md) · Level B protocol (DESIGN): [AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md](./AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md).
+Gap plan: [AIB_P2_Q1_EVIDENCE_GAP_PLAN.md](./AIB_P2_Q1_EVIDENCE_GAP_PLAN.md). Q1 strengthening roadmap: [AIB_Q1_STRENGTHENING_4PHASE.md](./AIB_Q1_STRENGTHENING_4PHASE.md) · Level B protocol (DESIGN): [AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md](./AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md) · Phase 4 prelive lock/freeze (no live): [AIB_LEVEL_B_PHASE4_PRELIVE.md](./AIB_LEVEL_B_PHASE4_PRELIVE.md).
 
 ## Operational modes (v0 harness vs research runs)
 

@@ -13,6 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 MATRIX_PATH = ROOT / "config" / "level_b_model_matrix.v1.json"
 LEVEL_A_GATE_PATH = ROOT / "config" / "p4_3_live_eval_gate.v1.json"
 PROTOCOL_FREEZE_PATH = ROOT / "config" / "level_b_protocol_freeze.v1.json"
+LEVEL_B_GATE_PATH = ROOT / "config" / "level_b_live_eval_gate.v1.json"
+LEVEL_B_CATALOG_EVIDENCE_PATH = ROOT / "artifacts" / "level_b_openrouter_model_lock_evidence.json"
 
 ROW_REQUIRED = (
     "role",
@@ -150,6 +152,36 @@ def verify_level_b_model_matrix(
             )
         if (freeze.get("status") or "").upper() in {"FROZEN", "LOCKED"}:
             issues.append("protocol freeze must remain DESIGN_NOT_FROZEN in Phase 2")
+
+    if LEVEL_B_GATE_PATH.is_file():
+        lb_gate = json.loads(LEVEL_B_GATE_PATH.read_text(encoding="utf-8"))
+        second = (lb_gate.get("target_models") or {}).get("second_family_locked") or {}
+        locked_rows = [
+            r
+            for r in rows
+            if isinstance(r, dict)
+            and r.get("role") == "target"
+            and r.get("lock_status") == "LOCKED"
+        ]
+        for row in locked_rows:
+            mid = row.get("model_id")
+            if second.get("exact_model_id") and mid != second.get("exact_model_id"):
+                issues.append(
+                    f"Level B gate second target drift: matrix {mid!r} != gate {second.get('exact_model_id')!r}"
+                )
+            evidence_ref = row.get("catalog_lock_evidence") or lb_gate.get("catalog_evidence")
+            if evidence_ref and evidence_ref != lb_gate.get("catalog_evidence"):
+                issues.append("locked target catalog_lock_evidence != level_b gate catalog_evidence")
+            if LEVEL_B_CATALOG_EVIDENCE_PATH.is_file() and evidence_ref:
+                rel = str(LEVEL_B_CATALOG_EVIDENCE_PATH.relative_to(ROOT)).replace("\\", "/")
+                if evidence_ref != rel:
+                    issues.append("catalog_lock_evidence path must match artifacts file")
+                evidence = json.loads(LEVEL_B_CATALOG_EVIDENCE_PATH.read_text(encoding="utf-8"))
+                entry = (evidence.get("models") or {}).get(mid or "") or {}
+                snap = second.get("immutable_snapshot") or {}
+                if snap.get("catalog_entry_sha256") and entry.get("catalog_entry_sha256"):
+                    if snap["catalog_entry_sha256"] != entry["catalog_entry_sha256"]:
+                        issues.append("gate catalog fingerprint != level_b catalog evidence")
 
     matrix_ok = len(issues) == 0
     return {

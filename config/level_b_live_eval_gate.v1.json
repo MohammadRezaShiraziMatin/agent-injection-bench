@@ -11,11 +11,39 @@
   "population_manifest_artifact": "artifacts/level_b_primary_d0_d2_experiment/MANIFEST.json",
   "adaptiguard_pin_artifact": "config/adaptiguard_version_pin.v1.json",
   "level_a_gate_read_only": "config/p4_3_live_eval_gate.v1.json",
+  "catalog_evidence": "artifacts/level_b_openrouter_model_lock_evidence.json",
   "openrouter": {
     "allow_fallbacks_required": false,
     "provider_routing_must_be_explicit": true,
     "require_distinct_target_judge": true,
     "live_calls_allowed_in_this_gate": false
+  },
+  "target_models": {
+    "primary_inherits_level_a": {
+      "matrix_row_id": "target-level-a-primary",
+      "catalog_evidence": "artifacts/openrouter_model_lock_evidence.json",
+      "gate_read_only": "config/p4_3_live_eval_gate.v1.json"
+    },
+    "second_family_locked": {
+      "matrix_row_id": "target-candidate-family-b",
+      "status": "LOCKED",
+      "exact_model_id": "google/gemini-2.5-flash",
+      "catalog_evidence": "artifacts/level_b_openrouter_model_lock_evidence.json",
+      "immutable_snapshot": {
+        "type": "openrouter_catalog_entry_fingerprint",
+        "catalog_url": "https://openrouter.ai/api/v1/models",
+        "catalog_entry_sha256": "e14799eaa168a3b849645bb6cad1758a40cce41f31e5073ae0cda634626ee5dc",
+        "canonical_slug": "google/gemini-2.5-flash",
+        "catalog_fetched_at": "2026-09-23T16:13:20.060678+00:00",
+        "upstream_weight_revision": "UNVERIFIED",
+        "weight_revision_provable": false
+      },
+      "routing_policy": {
+        "provider_order": ["Google"],
+        "allow_fallbacks": false
+      },
+      "tool_calling_required": true
+    }
   },
   "preflight": {
     "dry_run_required_before_live": true,
@@ -36,7 +64,7 @@
   },
   "explicit_non_claims": [
     "This gate does not authorize live inference while live_inference_allowed is false",
-    "Phase 4 prep does not produce Level B evidence",
-    "Model matrix row target-candidate-family-b remains CANDIDATE_NOT_LOCKED until researcher lock"
+    "Phase 4 prelive lock/freeze does not produce Level B evidence",
+    "Population manifest FROZEN and second target LOCKED are prerequisites only—not execution authorization"
   ]
 }
