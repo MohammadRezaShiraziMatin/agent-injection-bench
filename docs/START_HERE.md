@@ -12,7 +12,7 @@ This repository combines a **v0 scaffold** (frozen episodes, offline mock tools,
 | **Level B** | Not satisfied by current runs alone | Requires a **new experimental protocol** and **fresh immutable run IDs** — see gap plan |
 | **v0 harness pilot** | Runbook only until 40 live v0 traces are archived | Local `results/traces/` ASR/utility from `score_*.py` on **live** traces only |
 
-Canonical claim ladder and allowed/forbidden wording: [`../paper/RESULTS_EVIDENCE.md`](../paper/RESULTS_EVIDENCE.md). Factual run inventory: [STATUS.md](./STATUS.md). Gap plan: [AIB_P2_Q1_EVIDENCE_GAP_PLAN.md](./AIB_P2_Q1_EVIDENCE_GAP_PLAN.md). Claim discipline (modes, blending, dry-run): [CLAIMS_MAP.md](./CLAIMS_MAP.md).
+Canonical claim ladder and allowed/forbidden wording: [`../paper/RESULTS_EVIDENCE.md`](../paper/RESULTS_EVIDENCE.md). Factual run inventory: [STATUS.md](./STATUS.md). Gap plan: [AIB_P2_Q1_EVIDENCE_GAP_PLAN.md](./AIB_P2_Q1_EVIDENCE_GAP_PLAN.md). **Q1 / Level B path (design only until Phase 4 runs):** [AIB_Q1_STRENGTHENING_4PHASE.md](./AIB_Q1_STRENGTHENING_4PHASE.md). Claim discipline (modes, blending, dry-run): [CLAIMS_MAP.md](./CLAIMS_MAP.md).
 
 ## Read order
 

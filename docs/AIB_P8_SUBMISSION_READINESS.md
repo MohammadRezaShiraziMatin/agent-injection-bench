@@ -90,7 +90,7 @@ Exclude from primary P4.2 narrative or add external supplementary with provenanc
 
 ## 8. G2-MANUSCRIPT
 
-No manuscript in repo. Claim audit must run when source is available.  
+Manuscript draft present: [`docs/manuscript/agent_injection_benchmark_manuscript.md`](manuscript/agent_injection_benchmark_manuscript.md). Claim audit must align prose with Level A evidence and [`CLAIMS_MAP.md`](CLAIMS_MAP.md).  
 Use table template in §9.
 
 ---
