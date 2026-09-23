@@ -15,7 +15,7 @@ if str(ROOT) not in sys.path:
 
 from agent.config import describe_openrouter_config  # noqa: E402
 from agent.loop import SYSTEM_PROMPT  # noqa: E402
-from scripts.verify_model_lock import verify_model_lock  # noqa: E402
+from scripts.verify_model_lock import verify_level_b_model_lock, verify_model_lock  # noqa: E402
 
 GATE_PATH = ROOT / "config" / "p4_3_live_eval_gate.v1.json"
 P43_MANIFEST = ROOT / "data" / "episodes_p4_3" / "MANIFEST.json"
@@ -26,9 +26,12 @@ def _sha256_text(text: str) -> str:
     return hashlib.sha256(text.encode()).hexdigest()
 
 
-def run_preflight() -> dict:
+def run_preflight(*, level_b_matrix_row_id: str | None = None) -> dict:
     issues: list[str] = []
-    lock = verify_model_lock()
+    if level_b_matrix_row_id:
+        lock = verify_level_b_model_lock(level_b_matrix_row_id)
+    else:
+        lock = verify_model_lock()
     if lock["MODEL_LOCK_STATUS"] != "LOCKED":
         issues.append(f"model_lock={lock['MODEL_LOCK_STATUS']}")
 
