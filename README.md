@@ -1,5 +1,10 @@
 # agent-injection-bench
 
+[![Research CI](https://github.com/MohammadRezaShiraziMatin/agent-injection-bench/actions/workflows/research-ci.yml/badge.svg)](https://github.com/MohammadRezaShiraziMatin/agent-injection-bench/actions/workflows/research-ci.yml)
+[![License: MIT](https://img.shields.io/github/license/MohammadRezaShiraziMatin/agent-injection-bench)](LICENSE)
+
+**What this is:** A research benchmark and harness for **indirect prompt injection** in tool-using LLM agents (mock offline tools, paired D0/D2 descriptive protocols, reproducible offline CI).
+
 **Research release (main):** controlled paired **descriptive** evaluation (P4.2 primary COV-A, n=9+9), frozen protocols, tracked historical run `p42-primary-d0-d2-20260921T173736Z-controlled`, offline CI. Start here:
 
 - `docs/AIB_FINAL_RESEARCH_READINESS.md`
@@ -7,6 +12,8 @@
 - `docs/AIB_SCIENTIFIC_INTEGRITY_AUDIT.md`
 
 Claims are **evidence-bounded** (no population-level efficacy or significance). Missing re-run `…130300Z…` is documented in `docs/AIB_P8_SUBMISSION_READINESS.md`.
+
+**Tests:** `pytest -q` (see [Research CI](.github/workflows/research-ci.yml)). **Citation:** [`CITATION.cff`](CITATION.cff). **Security:** [`SECURITY.md`](SECURITY.md). **Contributing:** [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ---
 
