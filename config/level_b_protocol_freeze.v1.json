@@ -1,0 +1,28 @@
+{
+  "freeze_id": "aib-level-b-protocol-freeze-v1",
+  "status": "DESIGN_NOT_FROZEN",
+  "authorization": "NOT_AUTHORIZED_FOR_EXECUTION",
+  "protocol_doc": "docs/AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md",
+  "program_roadmap": "docs/AIB_Q1_STRENGTHENING_4PHASE.md",
+  "gap_plan": "docs/AIB_P2_Q1_EVIDENCE_GAP_PLAN.md",
+  "p8_skeleton": "docs/AIB_P8_FUTURE_EXPERIMENT_PROTOCOL_DRAFT.md",
+  "evidence_level_target": "Level B",
+  "level_a_immutable_runs": [
+    "p42-primary-d0-d2-20260921T173736Z-controlled",
+    "p3-cov-b-ext-20260923T112900Z-controlled"
+  ],
+  "inherits_read_only": {
+    "p4_2_primary_freeze": "config/p4_2_primary_research_protocol_freeze.v1.json",
+    "p3_extension_freeze": "config/p3_experimental_protocol_freeze.v1.json",
+    "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
+    "paired_contract": "config/p4_3_paired_eval_contract.v1.json",
+    "adaptiguard_pin": "config/adaptiguard_version_pin.v1.json"
+  },
+  "researcher_decisions_required_before_freeze": [
+    "primary_population_manifest_and_coverage_classes",
+    "target_model_matrix_minimum_two_families",
+    "confirmatory_sap_and_sample_size_if_applicable",
+    "execution_authorization_artifacts"
+  ],
+  "notes": "Stub for Phase 1 planning only. Do not set status to FROZEN without SAP LOCK and approval chain defined in the protocol doc."
+}
