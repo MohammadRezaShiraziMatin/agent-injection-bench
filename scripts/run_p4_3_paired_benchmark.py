@@ -51,12 +51,14 @@ from scripts.p4_3_paired_common import (  # noqa: E402
     dataset_manifest_digest,
     iter_episodes,
     load_p42_primary_run_config,
+    load_p3_cov_b_extension_run_config,
     resolve_benign_pair_refs,
     sha256_text,
 )
 from scripts.verify_d2_integration import verify_d2_integration  # noqa: E402
 from scripts.verify_d2_live_approval import verify_d2_live_approval  # noqa: E402
 from scripts.verify_p4_2_d2_live_approval import verify_p4_2_d2_live_approval  # noqa: E402
+from scripts.verify_p3_live_execution_approval import verify_p3_live_execution_approval  # noqa: E402
 from scripts.verify_live_approval import verify_live_approval  # noqa: E402
 from scripts.verify_model_lock import verify_model_lock  # noqa: E402
 
@@ -116,6 +118,32 @@ def _live_gates_ok() -> tuple[bool, dict[str, Any]]:
         "d2_integration": d2,
         "d2_live_approval": d2_appr,
         "live_path": "P4.3",
+    }
+
+
+def _live_gates_ok_p3_ext() -> tuple[bool, dict[str, Any]]:
+    lock = verify_model_lock()
+    pre = run_preflight()
+    appr = verify_live_approval()
+    d2 = verify_d2_integration()
+    p3_appr = verify_p3_live_execution_approval()
+    integrity = _integrity_ok()
+    ok = (
+        integrity.get("ok")
+        and lock.get("MODEL_LOCK_STATUS") == "LOCKED"
+        and pre.get("preflight_ok")
+        and appr.get("ok")
+        and d2.get("ok")
+        and p3_appr.get("ok")
+    )
+    return ok, {
+        "integrity": integrity,
+        "model_lock": lock,
+        "preflight": pre,
+        "live_approval": appr,
+        "d2_integration": d2,
+        "p3_live_execution_approval": p3_appr,
+        "live_path": "P3_EXT_COV_B",
     }
 
 
@@ -266,6 +294,7 @@ def run_paired(
     primary_attack_ids: list[str] | None = None,
     utility_fpr_benign_episode_ids: list[str] | None = None,
     p42_primary: bool = False,
+    p3_ext: bool = False,
 ) -> dict[str, Any]:
     t_run = time.time()
     ds_root = dataset_root or P43_ROOT
@@ -290,6 +319,7 @@ def run_paired(
         status="OK",
         mode="dry_run" if dry_run else "live",
         p42_primary=p42_primary,
+        p3_ext=p3_ext,
         dataset_root=str(ds_root.relative_to(ROOT)),
         git_commit=_git_head(),
     )
@@ -314,7 +344,9 @@ def run_paired(
                 "approval_id": p42_appr.get("approval_id"),
             }
     else:
-        if p42_primary:
+        if p3_ext:
+            ok, gate_report = _live_gates_ok_p3_ext()
+        elif p42_primary:
             ok, gate_report = _live_gates_ok_p42_primary()
         else:
             ok, gate_report = _live_gates_ok()
@@ -392,7 +424,11 @@ def run_paired(
     audit.emit(
         STAGE_GATE,
         status="OK",
-        live_path="P4.2_PRIMARY" if p42_primary else "P4.3",
+        live_path=(
+            "P3_EXT_COV_B"
+            if p3_ext
+            else ("P4.2_PRIMARY" if p42_primary else "P4.3")
+        ),
         gates_at_start=sanitize_for_log(gate_report),
     )
 
@@ -442,6 +478,14 @@ def run_paired(
             "scope_ok": p42_appr.get("scope_ok"),
             "gate_authorized": p42_appr.get("ok"),
             "approval_id": p42_appr.get("approval_id"),
+        }
+    elif p3_ext:
+        run_manifest["live_path"] = "P3_EXT_COV_B"
+        p3_appr = verify_p3_live_execution_approval()
+        run_manifest["p3_live_execution_approval"] = {
+            "scope_ok": p3_appr.get("scope_ok"),
+            "gate_authorized": p3_appr.get("ok"),
+            "approval_id": p3_appr.get("approval_id"),
         }
 
     episodes = iter_episodes(dataset_root=ds_root, episode_ids=episode_ids)
@@ -652,12 +696,38 @@ def main() -> int:
         action="store_true",
         help="Use artifacts/p4_2_primary_d0_d2_experiment/MANIFEST.json primary pool",
     )
+    parser.add_argument(
+        "--p3-cov-b-extension",
+        action="store_true",
+        help="Use artifacts/p3_cov_b_extension/MANIFEST.json (P3-EXT COV-B; output under results/p3_paired/)",
+    )
     args = parser.parse_args()
     kwargs: dict[str, Any] = {
         "run_id": args.run_id,
         "dry_run": not args.live,
     }
-    if args.p42_primary_config:
+    if args.p3_cov_b_extension and args.p42_primary_config:
+        raise SystemExit("Use only one of --p42-primary-config or --p3-cov-b-extension")
+    if args.p3_cov_b_extension:
+        cfg = load_p3_cov_b_extension_run_config()
+        kwargs.update(
+            {
+                "dataset_root": cfg["dataset_root"],
+                "dataset_digest": cfg["dataset_digest"],
+                "episode_ids": cfg["episode_ids"],
+                "out_base": cfg["out_base"],
+                "dataset_version": cfg["dataset_version"],
+                "design_manifest": cfg["design_manifest"],
+                "coverage_by_episode": cfg["coverage_by_episode"],
+                "protocol_version": cfg["protocol_version"],
+                "utility_fpr_benign_scope": cfg["utility_fpr_benign_scope"],
+                "primary_attack_ids": cfg["primary_attack_ids"],
+                "utility_fpr_benign_episode_ids": cfg["utility_fpr_benign_episode_ids"],
+            }
+        )
+        if args.run_id is None and kwargs["dry_run"]:
+            kwargs["run_id"] = "p3-cov-b-ext-dry-config-v1"
+    elif args.p42_primary_config:
         cfg = load_p42_primary_run_config()
         kwargs.update(
             {
@@ -686,6 +756,7 @@ def main() -> int:
         if args.out_base is not None:
             kwargs["out_base"] = args.out_base
     kwargs["p42_primary"] = bool(args.p42_primary_config)
+    kwargs["p3_ext"] = bool(args.p3_cov_b_extension)
     report = run_paired(**kwargs)
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0 if report.get("ok") else 1

@@ -55,7 +55,7 @@ def _append_scoring_audit(run_dir: Path, summary: dict) -> None:
     )
 
 
-def score_paired(run_dir: Path) -> dict:
+def score_paired(run_dir: Path, *, append_audit: bool = True) -> dict:
     d0_path = run_dir / "D0" / "RESULTS.json"
     d2_path = run_dir / "D2" / "RESULTS.json"
     d0_metrics = score_run(d0_path) if d0_path.is_file() else {"status": "MISSING"}
@@ -162,7 +162,8 @@ def score_paired(run_dir: Path) -> dict:
         "historical_D0_reference": "artifacts/p4_3_live_corrected_analysis.json",
         "paired_attack_transitions": paired_transitions,
     }
-    _append_scoring_audit(run_dir, summary)
+    if append_audit:
+        _append_scoring_audit(run_dir, summary)
     return summary
 
 

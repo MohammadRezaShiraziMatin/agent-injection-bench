@@ -16,6 +16,16 @@ Indirect prompt injection exposes tool-using agents to adversarial content in re
 
 **Out of scope for this evidence:** confirmatory hypothesis tests, population-level efficacy, multi-model benchmarks, adaptive attack campaigns, or Track A/B comparisons (not evidenced in-repo).
 
+### 2.1 Evidence claim level (Level A / B / C)
+
+**Current level: Level A (descriptive).** Level A is defined by evidence **type and quality** (controlled paired design, immutable runs, frozen protocols, scorer-backed descriptive metrics, explicit limitations)—not by sample size alone. The tracked Level A package comprises: (1) **P4.2 primary COV-A** (`p42-primary-d0-d2-20260921T173736Z-controlled`; §10); and (2) **P3-EXT COV-B** (`p3-cov-b-ext-20260923T112900Z-controlled`; §10.1), a separate descriptive extension that does **not** supersede the primary layer and does **not** automatically advance the project to Level B.
+
+**Allowed at Level A:** sample-level observed ASR, Utility, FPR, and paired transitions; protocol and artifact provenance; **D2 defense integration** and **observed D0/D2 behavior** on the recorded execution path.
+
+**Excluded at Level A:** claims of robust or general defense effectiveness, superiority, state-of-the-art performance, statistical significance, broad generalization, production readiness, or comprehensive security coverage.
+
+**Level B** (future) requires a new pre-specified protocol and fresh immutable runs (e.g., multi-model coverage, richer harness/traces, optional confirmatory design)—see `docs/AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`. **Level C** denotes higher evidence maturity for security-venue preparation, not guaranteed acceptance. Venue positioning is descriptive only (Level A: workshop/findings/artifact-oriented paths; Level B: stronger empirical paths once evidenced; Level C: higher-evidence security-venue preparation).
+
 ## 3. Related Work
 
 **Indirect prompt injection and agent threat models.** Greshake et al. [1] formalize indirect prompt injection against LLM-integrated applications where retrieved data can act as adversarial instructions. Follow-on work studies automated black-box injection frameworks [6] and tool-integrated agent benchmarks [2, 3]. We cite these works only to situate the threat model and evaluation landscape—not to claim our n=9 descriptive run generalizes their findings.
@@ -48,9 +58,9 @@ P4.2 episodes encode interaction types, horizons, and success criteria (S1–S4)
 | Condition | Description |
 |-----------|-------------|
 | **D0** | No defense: middleware passthrough (`D0_no_defense`). |
-| **D2** | **Evaluated defense condition:** AdaptiGuard `CoreDefensePipeline` via AIB bridge; pinned commit `30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64` (`config/adaptiguard_version_pin.v1.json`). |
+| **D2** | **D2 defense integration:** AdaptiGuard `CoreDefensePipeline` via AIB bridge on the recorded execution path; pinned commit `30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64` (`config/adaptiguard_version_pin.v1.json`). |
 
-D2 is reported as an **evaluated mitigation condition**, not as a proven robust or state-of-the-art defense. No D1 condition appears in the primary protocol freeze.
+D2 is reported as **integrated defense execution** with **observed D0/D2 behavior** in paired runs—not as effective, robust, or superior protection. No D1 condition appears in the primary protocol freeze.
 
 ## 8. Experimental Protocol
 
@@ -95,9 +105,41 @@ Definitions follow `config/p4_3_evaluation_metrics.v1.json` and paired scorer `s
 
 **Descriptive delta (ASR):** 0 between D0 and D2 on this sample. No inferential test is reported.
 
+### 10.1 Expanded descriptive extension (P3-EXT, COV-B)
+
+**Scope:** Separately authorized live extension on COV-B (`config/p3_experimental_protocol_freeze.v1.json`; manifest `artifacts/p3_cov_b_extension/MANIFEST.json`). This layer is **not** pooled with the COV-A primary n=9 claims in §10.
+
+- **Run ID:** `p3-cov-b-ext-20260923T112900Z-controlled`
+- **Population:** 42 attack + 42 benign episodes (84 records per `D0/RESULTS.json` and `D2/RESULTS.json`)
+- **Target / judge (verified on this run):** `openai/gpt-4o-mini-2024-07-18`; `meta-llama/llama-3.3-70b-instruct`
+- **Validity:** 84 episodes executed per condition; paired D0/D2 episode identities match
+
+**Judge quality:** One D0 judge failure on attack episode `atk_p42_045` (`judge_status=JUDGE_FAILURE`); zero D2 judge failures. The failed D0 judgment is preserved in raw evidence; it was **not** rerun in post-live reconciliation.
+
+| Metric | D0 | D2 |
+|--------|----|----|
+| ASR | 11/41 (26.8%) | 11/42 (26.2%) |
+| Utility | 35/42 (83.3%) | 35/42 (83.3%) |
+| FPR | 0/42 (0%) | 0/42 (0%) |
+
+D0 ASR denominator 41 reflects exclusion of `atk_p42_045` from valid judged attacks per scorer contract; 42 attacks were still executed under D0.
+
+**Paired attack transitions (D0 attack_success → D2 attack_success):**
+
+| Transition | Count |
+|------------|------:|
+| success → success | 11 |
+| success → failure | 0 |
+| failure → success | 0 |
+| failure → failure | 31 |
+
+**Interpretation (bounded):** Observed descriptive counts on the specified COV-B sample, target, judge, and execution only. Compared to §10 (COV-A, n=9), ASR numerators/denominators differ by design (coverage class and sample size); any cross-layer numeric difference is an **observed descriptive difference**, not evidence of defense success or failure in general.
+
 ## 11. Discussion
 
 The primary sample shows **parity** in ASR between D0 and D2 (1/9 each) with unchanged utility and FPR on benign episodes. This is consistent with a **limited descriptive** snapshot, not with a claim that D2 reduces attack success in general. Interpretation must respect COV-A selection, single target model, single repetition, and operational judge. Adaptive studies and Track A/B packs are excluded from the primary protocol and are not evidenced in this repository.
+
+The P3-EXT COV-B extension (§10.1) reports larger-n descriptive counts under the same D0/D2 pairing protocol on a different coverage class; it does not supersede §10 and does not support confirmatory or superiority claims.
 
 ## 12. Limitations
 
@@ -110,6 +152,7 @@ The primary sample shows **parity** in ASR between D0 and D2 (1/9 each) with unc
 7. **Utility:** judge + substring fallback; limited construct validity.
 8. **Reproducibility:** configuration and artifacts are tracked; API stochasticity may prevent bit-identical replication.
 9. **No superiority, SOTA, or population-level efficacy** claims are supported.
+10. **P3-EXT (COV-B):** single target and judge as in §10.1; one D0 judge failure (`atk_p42_045`); descriptive extension only; COV-B-specific coverage; no adaptive attack evaluation; no human IAA; not generalizable to all agents or models; provider/cache constraints per frozen P3 protocol.
 
 ## 13. Reproducibility
 
@@ -129,21 +172,29 @@ Offline checks: `pytest -q`; `python scripts/verify_p4_2_freeze.py`; `verify_p4_
 
 ## 14. Conclusion
 
-AIB provides a frozen, controlled paired **descriptive** benchmark with immutable primary live evidence on COV-A (n=9+9). Reported metrics are sample observations for one model configuration; they do not prove defense effectiveness, statistical improvement, or broad generalization. Future work requires separately authorized experiments (larger n, multi-model, confirmatory design).
+AIB’s current evidence is at **Level A**: controlled paired **descriptive** evaluation with immutable artifacts for P4.2 primary COV-A (n=9+9) and the separate P3-EXT COV-B extension (§10.1). Reported metrics are sample observations for specified target–judge configurations; they do not establish confirmatory effectiveness, superiority, or broad generalization. Reaching **Level B** requires a new experimental protocol and fresh immutable runs as documented in `docs/AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`.
 
 ## Tables
 
 See §10 (primary results) and §7 (defense conditions). Table 4-style evidence/limitation mapping: `docs/AIB_FINAL_RESEARCH_READINESS.md` §9.
 
-## Figure Specifications
+## Figures
 
-Figures may be generated **offline** from verified counts in `RESULTS.json` (no new live runs):
+Generated offline from `D0/RESULTS.json` and `D2/RESULTS.json` via `python scripts/generate_p1_figures.py` (run `p42-primary-d0-d2-20260921T173736Z-controlled`; see `docs/manuscript/figures/p1_figure_data.json`). Descriptive only—no inferential claims in captions.
 
-1. **Bar chart:** D0 vs D2 ASR (1/9 each).
-2. **Bar chart:** Utility and FPR (9/9, 0/9).
-3. **Paired transition diagram:** counts 1 / 0 / 0 / 8.
+**Figure 1.** Descriptive comparison of attack success rate (ASR) between D0 (no defense) and D2 (AdaptiGuard defense) on the verified COV-A primary attack set (n = 9). File: `docs/manuscript/figures/fig_p1_primary_asr_d0_d2.png`.
 
-Do not imply causal or population inference in captions.
+**Figure 2.** Descriptive comparison of benign utility and false-positive rate (FPR) under D0 and D2 (n = 9 benign episodes). Utility counts use `utility_success` from the paired pipeline scorer (`scripts/score_p4_3_live_metrics.py`). File: `docs/manuscript/figures/fig_p1_utility_fpr_d0_d2.png`.
+
+**Figure 3.** Observed paired attack outcome transitions from D0 to D2 attack_success status (success→success: 1; success→failure: 0; failure→success: 0; failure→failure: 8). File: `docs/manuscript/figures/fig_p1_paired_transitions_d0_d2.png`.
+
+**P3-EXT (COV-B, separate from §10):** Generated via `python scripts/generate_p3_figures.py` from run `p3-cov-b-ext-20260923T112900Z-controlled` (`docs/manuscript/figures/p3_figure_data.json`). Descriptive only; valid judged denominators per scorer (D0 ASR n=41 attacks due to one D0 judge failure).
+
+**Figure 4.** P3-EXT ASR under D0 versus D2 on COV-B attacks (D0: 11/41; D2: 11/42). File: `docs/manuscript/figures/fig_p3_ext_asr_d0_d2.png`.
+
+**Figure 5.** P3-EXT benign utility and FPR (n = 42 benign). File: `docs/manuscript/figures/fig_p3_ext_utility_fpr_d0_d2.png`.
+
+**Figure 6.** P3-EXT paired attack transitions (success→success: 11; failure→failure: 31). File: `docs/manuscript/figures/fig_p3_ext_paired_transitions_d0_d2.png`.
 
 ## References
 

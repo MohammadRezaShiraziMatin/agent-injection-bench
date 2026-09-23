@@ -1,0 +1,282 @@
+{
+  "benign_controls": {
+    "utility_fpr_benign_scope": {
+      "benign_episode_ids": [
+        "ben_p42_045",
+        "ben_p42_046",
+        "ben_p42_047",
+        "ben_p42_048",
+        "ben_p42_049",
+        "ben_p42_050",
+        "ben_p42_051",
+        "ben_p42_052",
+        "ben_p42_053",
+        "ben_p42_054",
+        "ben_p42_055",
+        "ben_p42_056",
+        "ben_p42_057",
+        "ben_p42_058",
+        "ben_p42_059",
+        "ben_p42_060",
+        "ben_p42_061",
+        "ben_p42_062",
+        "ben_p42_063",
+        "ben_p42_064",
+        "ben_p42_065",
+        "ben_p42_066",
+        "ben_p42_067",
+        "ben_p42_068",
+        "ben_p42_069",
+        "ben_p42_070",
+        "ben_p42_071",
+        "ben_p42_072",
+        "ben_p42_073",
+        "ben_p42_074",
+        "ben_p42_075",
+        "ben_p42_076",
+        "ben_p42_077",
+        "ben_p42_078",
+        "ben_p42_079",
+        "ben_p42_080",
+        "ben_p42_081",
+        "ben_p42_082",
+        "ben_p42_097",
+        "ben_p42_098",
+        "ben_p42_099",
+        "ben_p42_100"
+      ],
+      "population": "pair_matched_benign_of_p3_ext_attack_pool"
+    }
+  },
+  "coverage_class": "COV-B",
+  "dataset": {
+    "dataset_root": "data/episodes_p4_2",
+    "digest_sha256": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+    "name": "P4.2"
+  },
+  "eligibility": "SECONDARY_ELIGIBLE",
+  "extension_attack_pool": {
+    "episode_order_policy": "sorted_ascending_by_episode_id",
+    "episodes": [
+      {
+        "benign_pair_episode_id": "ben_p42_045",
+        "episode_id": "atk_p42_045",
+        "pair_id": "p42_045"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_046",
+        "episode_id": "atk_p42_046",
+        "pair_id": "p42_046"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_047",
+        "episode_id": "atk_p42_047",
+        "pair_id": "p42_047"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_048",
+        "episode_id": "atk_p42_048",
+        "pair_id": "p42_048"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_049",
+        "episode_id": "atk_p42_049",
+        "pair_id": "p42_049"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_050",
+        "episode_id": "atk_p42_050",
+        "pair_id": "p42_050"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_051",
+        "episode_id": "atk_p42_051",
+        "pair_id": "p42_051"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_052",
+        "episode_id": "atk_p42_052",
+        "pair_id": "p42_052"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_053",
+        "episode_id": "atk_p42_053",
+        "pair_id": "p42_053"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_054",
+        "episode_id": "atk_p42_054",
+        "pair_id": "p42_054"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_055",
+        "episode_id": "atk_p42_055",
+        "pair_id": "p42_055"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_056",
+        "episode_id": "atk_p42_056",
+        "pair_id": "p42_056"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_057",
+        "episode_id": "atk_p42_057",
+        "pair_id": "p42_057"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_058",
+        "episode_id": "atk_p42_058",
+        "pair_id": "p42_058"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_059",
+        "episode_id": "atk_p42_059",
+        "pair_id": "p42_059"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_060",
+        "episode_id": "atk_p42_060",
+        "pair_id": "p42_060"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_061",
+        "episode_id": "atk_p42_061",
+        "pair_id": "p42_061"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_062",
+        "episode_id": "atk_p42_062",
+        "pair_id": "p42_062"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_063",
+        "episode_id": "atk_p42_063",
+        "pair_id": "p42_063"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_064",
+        "episode_id": "atk_p42_064",
+        "pair_id": "p42_064"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_065",
+        "episode_id": "atk_p42_065",
+        "pair_id": "p42_065"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_066",
+        "episode_id": "atk_p42_066",
+        "pair_id": "p42_066"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_067",
+        "episode_id": "atk_p42_067",
+        "pair_id": "p42_067"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_068",
+        "episode_id": "atk_p42_068",
+        "pair_id": "p42_068"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_069",
+        "episode_id": "atk_p42_069",
+        "pair_id": "p42_069"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_070",
+        "episode_id": "atk_p42_070",
+        "pair_id": "p42_070"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_071",
+        "episode_id": "atk_p42_071",
+        "pair_id": "p42_071"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_072",
+        "episode_id": "atk_p42_072",
+        "pair_id": "p42_072"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_073",
+        "episode_id": "atk_p42_073",
+        "pair_id": "p42_073"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_074",
+        "episode_id": "atk_p42_074",
+        "pair_id": "p42_074"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_075",
+        "episode_id": "atk_p42_075",
+        "pair_id": "p42_075"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_076",
+        "episode_id": "atk_p42_076",
+        "pair_id": "p42_076"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_077",
+        "episode_id": "atk_p42_077",
+        "pair_id": "p42_077"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_078",
+        "episode_id": "atk_p42_078",
+        "pair_id": "p42_078"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_079",
+        "episode_id": "atk_p42_079",
+        "pair_id": "p42_079"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_080",
+        "episode_id": "atk_p42_080",
+        "pair_id": "p42_080"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_081",
+        "episode_id": "atk_p42_081",
+        "pair_id": "p42_081"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_082",
+        "episode_id": "atk_p42_082",
+        "pair_id": "p42_082"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_097",
+        "episode_id": "atk_p42_097",
+        "pair_id": "p42_097"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_098",
+        "episode_id": "atk_p42_098",
+        "pair_id": "p42_098"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_099",
+        "episode_id": "atk_p42_099",
+        "pair_id": "p42_099"
+      },
+      {
+        "benign_pair_episode_id": "ben_p42_100",
+        "episode_id": "atk_p42_100",
+        "pair_id": "p42_100"
+      }
+    ],
+    "n": 42
+  },
+  "manifest_id": "aib-p3-cov-b-extension-design-v1",
+  "population_label": "P3-EXT",
+  "separation_from_historical": {
+    "cov_a_primary_run_immutable": "results/p4_2_paired/p42-primary-d0-d2-20260921T173736Z-controlled",
+    "rule": "COV-A primary metrics remain historical-only; P3-EXT is a separate stratum"
+  },
+  "statistical_interpretation": "DESCRIPTIVE_ONLY; not confirmatory; no pre-registered hypothesis test on this freeze",
+  "status": "DESIGN_FROZEN"
+}
