@@ -1,5 +1,7 @@
 # Status
 
+**Entry:** [START_HERE.md](./START_HERE.md) · **Claims:** [CLAIMS_MAP.md](./CLAIMS_MAP.md) · **Claim ladder:** [`../paper/RESULTS_EVIDENCE.md`](../paper/RESULTS_EVIDENCE.md)
+
 ## Research evidence (P4.2 / P3-EXT)
 
 **Current claim level: Level A** (descriptive paired evaluation; immutable tracked runs).
