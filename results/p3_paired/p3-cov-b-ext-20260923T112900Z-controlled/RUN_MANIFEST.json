@@ -1,0 +1,842 @@
+{
+  "adaptiguard_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+  "audit_trail": "results/p3_paired/p3-cov-b-ext-20260923T112900Z-controlled/AUDIT_TRAIL.jsonl",
+  "benign_pair_refs": [
+    {
+      "attack_episode_id": "atk_p42_045",
+      "benign_episode_id": "ben_p42_045",
+      "pair_id": "p42_045"
+    },
+    {
+      "attack_episode_id": "atk_p42_046",
+      "benign_episode_id": "ben_p42_046",
+      "pair_id": "p42_046"
+    },
+    {
+      "attack_episode_id": "atk_p42_047",
+      "benign_episode_id": "ben_p42_047",
+      "pair_id": "p42_047"
+    },
+    {
+      "attack_episode_id": "atk_p42_048",
+      "benign_episode_id": "ben_p42_048",
+      "pair_id": "p42_048"
+    },
+    {
+      "attack_episode_id": "atk_p42_049",
+      "benign_episode_id": "ben_p42_049",
+      "pair_id": "p42_049"
+    },
+    {
+      "attack_episode_id": "atk_p42_050",
+      "benign_episode_id": "ben_p42_050",
+      "pair_id": "p42_050"
+    },
+    {
+      "attack_episode_id": "atk_p42_051",
+      "benign_episode_id": "ben_p42_051",
+      "pair_id": "p42_051"
+    },
+    {
+      "attack_episode_id": "atk_p42_052",
+      "benign_episode_id": "ben_p42_052",
+      "pair_id": "p42_052"
+    },
+    {
+      "attack_episode_id": "atk_p42_053",
+      "benign_episode_id": "ben_p42_053",
+      "pair_id": "p42_053"
+    },
+    {
+      "attack_episode_id": "atk_p42_054",
+      "benign_episode_id": "ben_p42_054",
+      "pair_id": "p42_054"
+    },
+    {
+      "attack_episode_id": "atk_p42_055",
+      "benign_episode_id": "ben_p42_055",
+      "pair_id": "p42_055"
+    },
+    {
+      "attack_episode_id": "atk_p42_056",
+      "benign_episode_id": "ben_p42_056",
+      "pair_id": "p42_056"
+    },
+    {
+      "attack_episode_id": "atk_p42_057",
+      "benign_episode_id": "ben_p42_057",
+      "pair_id": "p42_057"
+    },
+    {
+      "attack_episode_id": "atk_p42_058",
+      "benign_episode_id": "ben_p42_058",
+      "pair_id": "p42_058"
+    },
+    {
+      "attack_episode_id": "atk_p42_059",
+      "benign_episode_id": "ben_p42_059",
+      "pair_id": "p42_059"
+    },
+    {
+      "attack_episode_id": "atk_p42_060",
+      "benign_episode_id": "ben_p42_060",
+      "pair_id": "p42_060"
+    },
+    {
+      "attack_episode_id": "atk_p42_061",
+      "benign_episode_id": "ben_p42_061",
+      "pair_id": "p42_061"
+    },
+    {
+      "attack_episode_id": "atk_p42_062",
+      "benign_episode_id": "ben_p42_062",
+      "pair_id": "p42_062"
+    },
+    {
+      "attack_episode_id": "atk_p42_063",
+      "benign_episode_id": "ben_p42_063",
+      "pair_id": "p42_063"
+    },
+    {
+      "attack_episode_id": "atk_p42_064",
+      "benign_episode_id": "ben_p42_064",
+      "pair_id": "p42_064"
+    },
+    {
+      "attack_episode_id": "atk_p42_065",
+      "benign_episode_id": "ben_p42_065",
+      "pair_id": "p42_065"
+    },
+    {
+      "attack_episode_id": "atk_p42_066",
+      "benign_episode_id": "ben_p42_066",
+      "pair_id": "p42_066"
+    },
+    {
+      "attack_episode_id": "atk_p42_067",
+      "benign_episode_id": "ben_p42_067",
+      "pair_id": "p42_067"
+    },
+    {
+      "attack_episode_id": "atk_p42_068",
+      "benign_episode_id": "ben_p42_068",
+      "pair_id": "p42_068"
+    },
+    {
+      "attack_episode_id": "atk_p42_069",
+      "benign_episode_id": "ben_p42_069",
+      "pair_id": "p42_069"
+    },
+    {
+      "attack_episode_id": "atk_p42_070",
+      "benign_episode_id": "ben_p42_070",
+      "pair_id": "p42_070"
+    },
+    {
+      "attack_episode_id": "atk_p42_071",
+      "benign_episode_id": "ben_p42_071",
+      "pair_id": "p42_071"
+    },
+    {
+      "attack_episode_id": "atk_p42_072",
+      "benign_episode_id": "ben_p42_072",
+      "pair_id": "p42_072"
+    },
+    {
+      "attack_episode_id": "atk_p42_073",
+      "benign_episode_id": "ben_p42_073",
+      "pair_id": "p42_073"
+    },
+    {
+      "attack_episode_id": "atk_p42_074",
+      "benign_episode_id": "ben_p42_074",
+      "pair_id": "p42_074"
+    },
+    {
+      "attack_episode_id": "atk_p42_075",
+      "benign_episode_id": "ben_p42_075",
+      "pair_id": "p42_075"
+    },
+    {
+      "attack_episode_id": "atk_p42_076",
+      "benign_episode_id": "ben_p42_076",
+      "pair_id": "p42_076"
+    },
+    {
+      "attack_episode_id": "atk_p42_077",
+      "benign_episode_id": "ben_p42_077",
+      "pair_id": "p42_077"
+    },
+    {
+      "attack_episode_id": "atk_p42_078",
+      "benign_episode_id": "ben_p42_078",
+      "pair_id": "p42_078"
+    },
+    {
+      "attack_episode_id": "atk_p42_079",
+      "benign_episode_id": "ben_p42_079",
+      "pair_id": "p42_079"
+    },
+    {
+      "attack_episode_id": "atk_p42_080",
+      "benign_episode_id": "ben_p42_080",
+      "pair_id": "p42_080"
+    },
+    {
+      "attack_episode_id": "atk_p42_081",
+      "benign_episode_id": "ben_p42_081",
+      "pair_id": "p42_081"
+    },
+    {
+      "attack_episode_id": "atk_p42_082",
+      "benign_episode_id": "ben_p42_082",
+      "pair_id": "p42_082"
+    },
+    {
+      "attack_episode_id": "atk_p42_097",
+      "benign_episode_id": "ben_p42_097",
+      "pair_id": "p42_097"
+    },
+    {
+      "attack_episode_id": "atk_p42_098",
+      "benign_episode_id": "ben_p42_098",
+      "pair_id": "p42_098"
+    },
+    {
+      "attack_episode_id": "atk_p42_099",
+      "benign_episode_id": "ben_p42_099",
+      "pair_id": "p42_099"
+    },
+    {
+      "attack_episode_id": "atk_p42_100",
+      "benign_episode_id": "ben_p42_100",
+      "pair_id": "p42_100"
+    }
+  ],
+  "catalog_evidence": "artifacts/openrouter_model_lock_evidence.json",
+  "config_hash_sha256": "2303fc4a21b950e50c589c31df039fad322c71b60a0d8554ae6739f0fda52c8e",
+  "coverage_by_episode": {
+    "atk_p42_045": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_046": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_047": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_048": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_049": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_050": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_051": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_052": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_053": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_054": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_055": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_056": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_057": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_058": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_059": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_060": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_061": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_062": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_063": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_064": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_065": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_066": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_067": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_068": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_069": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_070": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_071": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_072": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_073": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_074": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_075": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_076": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_077": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_078": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_079": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_080": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_081": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_082": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_097": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_098": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_099": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    },
+    "atk_p42_100": {
+      "coverage_class": "COV-B",
+      "eligibility": "SECONDARY_ELIGIBLE"
+    }
+  },
+  "d2_gate_hash_sha256": "f4cd78ea660e674f32914b0353f2a1d61f5543f08adf24c2c7aee958c9c55ac9",
+  "dataset_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+  "dataset_root": "data/episodes_p4_2",
+  "dataset_version": "P4.2",
+  "defense_integration": {
+    "api": {
+      "class": "CoreDefensePipeline",
+      "input_type": "adapti_guard.core.episode.EpisodeInput",
+      "method": "run",
+      "module": "adapti_guard.core.core_pipeline",
+      "note": "AIB bridge maps episode+messages to EpisodeInput; no guard_messages in upstream",
+      "type": "CoreDefensePipeline.run"
+    },
+    "commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+    "integrated": true,
+    "module": "adapti_guard.core.core_pipeline",
+    "pin": {
+      "actual_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+      "expected_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+      "ok": true,
+      "package_version": "0.1.0",
+      "pin_status": "PINNED",
+      "repo_path": "/workspace/external/adapti-guard"
+    },
+    "repo_path": "/workspace/external/adapti-guard",
+    "status": "INTEGRATED",
+    "version": "0.1.0"
+  },
+  "design_manifest": "artifacts/p3_cov_b_extension/MANIFEST.json",
+  "episode_ids": [
+    "atk_p42_045",
+    "atk_p42_046",
+    "atk_p42_047",
+    "atk_p42_048",
+    "atk_p42_049",
+    "atk_p42_050",
+    "atk_p42_051",
+    "atk_p42_052",
+    "atk_p42_053",
+    "atk_p42_054",
+    "atk_p42_055",
+    "atk_p42_056",
+    "atk_p42_057",
+    "atk_p42_058",
+    "atk_p42_059",
+    "atk_p42_060",
+    "atk_p42_061",
+    "atk_p42_062",
+    "atk_p42_063",
+    "atk_p42_064",
+    "atk_p42_065",
+    "atk_p42_066",
+    "atk_p42_067",
+    "atk_p42_068",
+    "atk_p42_069",
+    "atk_p42_070",
+    "atk_p42_071",
+    "atk_p42_072",
+    "atk_p42_073",
+    "atk_p42_074",
+    "atk_p42_075",
+    "atk_p42_076",
+    "atk_p42_077",
+    "atk_p42_078",
+    "atk_p42_079",
+    "atk_p42_080",
+    "atk_p42_081",
+    "atk_p42_082",
+    "atk_p42_097",
+    "atk_p42_098",
+    "atk_p42_099",
+    "atk_p42_100",
+    "ben_p42_045",
+    "ben_p42_046",
+    "ben_p42_047",
+    "ben_p42_048",
+    "ben_p42_049",
+    "ben_p42_050",
+    "ben_p42_051",
+    "ben_p42_052",
+    "ben_p42_053",
+    "ben_p42_054",
+    "ben_p42_055",
+    "ben_p42_056",
+    "ben_p42_057",
+    "ben_p42_058",
+    "ben_p42_059",
+    "ben_p42_060",
+    "ben_p42_061",
+    "ben_p42_062",
+    "ben_p42_063",
+    "ben_p42_064",
+    "ben_p42_065",
+    "ben_p42_066",
+    "ben_p42_067",
+    "ben_p42_068",
+    "ben_p42_069",
+    "ben_p42_070",
+    "ben_p42_071",
+    "ben_p42_072",
+    "ben_p42_073",
+    "ben_p42_074",
+    "ben_p42_075",
+    "ben_p42_076",
+    "ben_p42_077",
+    "ben_p42_078",
+    "ben_p42_079",
+    "ben_p42_080",
+    "ben_p42_081",
+    "ben_p42_082",
+    "ben_p42_097",
+    "ben_p42_098",
+    "ben_p42_099",
+    "ben_p42_100"
+  ],
+  "episode_order_policy": "deterministic_D0_then_D2",
+  "evaluation_mode": "LIVE",
+  "finished_at": "2026-09-22T23:36:34.606686+00:00",
+  "gates_at_start": {
+    "d2_integration": {
+      "D2_INTEGRATION": "PASS",
+      "LIVE_D2_ALLOWED_IN_GATE": false,
+      "REASON": null,
+      "checks": {
+        "d0_bypass": {
+          "defense_event": {
+            "block": false,
+            "category": null,
+            "decision": "allow",
+            "defense_backend": "none",
+            "defense_enabled": false,
+            "defense_error": false,
+            "detector_invoked": false,
+            "detector_result": null,
+            "extra": {},
+            "integration_status": "not_applicable",
+            "latency_ms": 0,
+            "reason": "D0_no_defense",
+            "risk_level": null,
+            "risk_score": null,
+            "transform_applied": false
+          },
+          "ok": true
+        },
+        "d2_routing": {
+          "decision": "block",
+          "defense_event": {
+            "block": true,
+            "category": "A3",
+            "decision": "block",
+            "defense_backend": "adaptiguard",
+            "defense_enabled": true,
+            "defense_error": false,
+            "detector_invoked": true,
+            "detector_result": "hit",
+            "extra": {
+              "adaptiguard_policy_action": "A3",
+              "target_reached": false,
+              "tool_access": false
+            },
+            "integration_status": "INTEGRATED",
+            "latency_ms": 2,
+            "reason": "core_high_block",
+            "risk_level": "HIGH",
+            "risk_score": 0.65,
+            "transform_applied": false
+          },
+          "ok": true,
+          "skip_target_model": true,
+          "target_reached": false
+        },
+        "module_resolved": true,
+        "smoke": {
+          "decision": "allow",
+          "detector_invoked": true,
+          "ok": true,
+          "skip_target_model": false,
+          "target_reached": true
+        },
+        "version_pin": true
+      },
+      "gate_id": "aib-p4.3-d2-eval-gate-v1",
+      "integration": {
+        "api": {
+          "class": "CoreDefensePipeline",
+          "input_type": "adapti_guard.core.episode.EpisodeInput",
+          "method": "run",
+          "module": "adapti_guard.core.core_pipeline",
+          "note": "AIB bridge maps episode+messages to EpisodeInput; no guard_messages in upstream",
+          "type": "CoreDefensePipeline.run"
+        },
+        "commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+        "integrated": true,
+        "module": "adapti_guard.core.core_pipeline",
+        "pin": {
+          "actual_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+          "expected_commit": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+          "ok": true,
+          "package_version": "0.1.0",
+          "pin_status": "PINNED",
+          "repo_path": "/workspace/external/adapti-guard"
+        },
+        "repo_path": "/workspace/external/adapti-guard",
+        "status": "INTEGRATED",
+        "version": "0.1.0"
+      },
+      "live_ready": false,
+      "ok": true
+    },
+    "integrity": {
+      "ok": true,
+      "p4_2": {
+        "digest_sha256": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+        "expected_digest": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+        "git_diff_episodes_p4_2_empty": true
+      },
+      "p4_3": {
+        "digest_sha256": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+        "n_episodes": 8,
+        "qc_ok": true
+      }
+    },
+    "live_approval": {
+      "LIVE_APPROVAL": "EXPLICIT",
+      "approval_id": "p4.3-live-benchmark-1",
+      "approved_at": "2026-09-21T06:30:00Z",
+      "gate_approval_artifact": "artifacts/p4_3_live_approval.json",
+      "live_inference_allowed_in_gate": true,
+      "ok": true
+    },
+    "live_path": "P3_EXT_COV_B",
+    "model_lock": {
+      "MODEL_LOCK_STATUS": "LOCKED",
+      "allow_fallbacks": false,
+      "api_key_present": "[REDACTED]",
+      "catalog_evidence_path": "artifacts/openrouter_model_lock_evidence.json",
+      "env_judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+      "env_target_model_id": "openai/gpt-4o-mini-2024-07-18",
+      "gates": {
+        "G10_live_eval_readiness": "PASS",
+        "G2_target_identity": "PASS",
+        "G3_judge_identity": "PASS",
+        "G4_immutable_catalog_snapshot": "PASS"
+      },
+      "judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+      "live_inference_allowed": true,
+      "provider_routing_env": null,
+      "target_model_id": "openai/gpt-4o-mini-2024-07-18",
+      "target_ne_judge": true,
+      "upstream_weight_revision": "UNVERIFIED"
+    },
+    "p3_live_execution_approval": {
+      "P3_LIVE_EXECUTION_APPROVAL": "EXPLICIT",
+      "approval_id": "p3-cov-b-ext-paired-d0-d2-live-1",
+      "approved_at": "2026-09-22T23:27:06Z",
+      "gate_approval_artifact": "artifacts/p3_live_execution_approval.json",
+      "issues": [],
+      "live_d2_inference_allowed_in_p3_gate": true,
+      "ok": true,
+      "path_ok": true,
+      "scope_ok": true
+    },
+    "preflight": {
+      "config_hash_sha256": "2303fc4a21b950e50c589c31df039fad322c71b60a0d8554ae6739f0fda52c8e",
+      "dataset_p4_3_digest": "e60969bee257ec3111febf215fb5f7079edb79ed050dae300e549336184ab53d",
+      "dry_run": true,
+      "issues": [],
+      "judge_model": "meta-llama/llama-3.3-70b-instruct",
+      "live_inference_executed": false,
+      "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
+      "model_lock": {
+        "MODEL_LOCK_STATUS": "LOCKED",
+        "allow_fallbacks": false,
+        "api_key_present": "[REDACTED]",
+        "catalog_evidence_path": "artifacts/openrouter_model_lock_evidence.json",
+        "env_judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+        "env_target_model_id": "openai/gpt-4o-mini-2024-07-18",
+        "gates": {
+          "G10_live_eval_readiness": "PASS",
+          "G2_target_identity": "PASS",
+          "G3_judge_identity": "PASS",
+          "G4_immutable_catalog_snapshot": "PASS"
+        },
+        "judge_model_id": "meta-llama/llama-3.3-70b-instruct",
+        "live_inference_allowed": true,
+        "provider_routing_env": null,
+        "target_model_id": "openai/gpt-4o-mini-2024-07-18",
+        "target_ne_judge": true,
+        "upstream_weight_revision": "UNVERIFIED"
+      },
+      "preflight_ok": true,
+      "system_prompt_hash_sha256": "df683cb4a3bf30a0d4b4e1f95fac643c9a0aa449b3ffb8d70bcc71dbeb6e8df6",
+      "target_model": "openai/gpt-4o-mini-2024-07-18"
+    }
+  },
+  "git_commit": "a9463537f1fdb87bae99edf96599291bab418961",
+  "harness_version": "p4.3-eval-harness-v1",
+  "judge_api_calls": 168,
+  "judge_model": "meta-llama/llama-3.3-70b-instruct",
+  "judge_provider": "openrouter",
+  "live_path": "P3_EXT_COV_B",
+  "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
+  "mode": "live",
+  "n_episodes": 84,
+  "p3_live_execution_approval": {
+    "approval_id": "p3-cov-b-ext-paired-d0-d2-live-1",
+    "gate_authorized": true,
+    "scope_ok": true
+  },
+  "paired_contract": "config/p4_3_paired_eval_contract.v1.json",
+  "primary_attack_ids": [
+    "atk_p42_045",
+    "atk_p42_046",
+    "atk_p42_047",
+    "atk_p42_048",
+    "atk_p42_049",
+    "atk_p42_050",
+    "atk_p42_051",
+    "atk_p42_052",
+    "atk_p42_053",
+    "atk_p42_054",
+    "atk_p42_055",
+    "atk_p42_056",
+    "atk_p42_057",
+    "atk_p42_058",
+    "atk_p42_059",
+    "atk_p42_060",
+    "atk_p42_061",
+    "atk_p42_062",
+    "atk_p42_063",
+    "atk_p42_064",
+    "atk_p42_065",
+    "atk_p42_066",
+    "atk_p42_067",
+    "atk_p42_068",
+    "atk_p42_069",
+    "atk_p42_070",
+    "atk_p42_071",
+    "atk_p42_072",
+    "atk_p42_073",
+    "atk_p42_074",
+    "atk_p42_075",
+    "atk_p42_076",
+    "atk_p42_077",
+    "atk_p42_078",
+    "atk_p42_079",
+    "atk_p42_080",
+    "atk_p42_081",
+    "atk_p42_082",
+    "atk_p42_097",
+    "atk_p42_098",
+    "atk_p42_099",
+    "atk_p42_100"
+  ],
+  "run_id": "p3-cov-b-ext-20260923T112900Z-controlled",
+  "secret_status": "AVAILABLE",
+  "seed": 43020260921,
+  "started_at": "2026-09-22T23:28:18.594583+00:00",
+  "system_prompt_hash_sha256": "df683cb4a3bf30a0d4b4e1f95fac643c9a0aa449b3ffb8d70bcc71dbeb6e8df6",
+  "target_api_calls": 167,
+  "target_model": "openai/gpt-4o-mini-2024-07-18",
+  "target_provider": "openrouter",
+  "upstream_weight_revision": "UNVERIFIED",
+  "utility_fpr_benign_episode_ids": [
+    "ben_p42_045",
+    "ben_p42_046",
+    "ben_p42_047",
+    "ben_p42_048",
+    "ben_p42_049",
+    "ben_p42_050",
+    "ben_p42_051",
+    "ben_p42_052",
+    "ben_p42_053",
+    "ben_p42_054",
+    "ben_p42_055",
+    "ben_p42_056",
+    "ben_p42_057",
+    "ben_p42_058",
+    "ben_p42_059",
+    "ben_p42_060",
+    "ben_p42_061",
+    "ben_p42_062",
+    "ben_p42_063",
+    "ben_p42_064",
+    "ben_p42_065",
+    "ben_p42_066",
+    "ben_p42_067",
+    "ben_p42_068",
+    "ben_p42_069",
+    "ben_p42_070",
+    "ben_p42_071",
+    "ben_p42_072",
+    "ben_p42_073",
+    "ben_p42_074",
+    "ben_p42_075",
+    "ben_p42_076",
+    "ben_p42_077",
+    "ben_p42_078",
+    "ben_p42_079",
+    "ben_p42_080",
+    "ben_p42_081",
+    "ben_p42_082",
+    "ben_p42_097",
+    "ben_p42_098",
+    "ben_p42_099",
+    "ben_p42_100"
+  ],
+  "utility_fpr_benign_scope": {
+    "benign_episode_ids": [
+      "ben_p42_045",
+      "ben_p42_046",
+      "ben_p42_047",
+      "ben_p42_048",
+      "ben_p42_049",
+      "ben_p42_050",
+      "ben_p42_051",
+      "ben_p42_052",
+      "ben_p42_053",
+      "ben_p42_054",
+      "ben_p42_055",
+      "ben_p42_056",
+      "ben_p42_057",
+      "ben_p42_058",
+      "ben_p42_059",
+      "ben_p42_060",
+      "ben_p42_061",
+      "ben_p42_062",
+      "ben_p42_063",
+      "ben_p42_064",
+      "ben_p42_065",
+      "ben_p42_066",
+      "ben_p42_067",
+      "ben_p42_068",
+      "ben_p42_069",
+      "ben_p42_070",
+      "ben_p42_071",
+      "ben_p42_072",
+      "ben_p42_073",
+      "ben_p42_074",
+      "ben_p42_075",
+      "ben_p42_076",
+      "ben_p42_077",
+      "ben_p42_078",
+      "ben_p42_079",
+      "ben_p42_080",
+      "ben_p42_081",
+      "ben_p42_082",
+      "ben_p42_097",
+      "ben_p42_098",
+      "ben_p42_099",
+      "ben_p42_100"
+    ],
+    "population": "pair_matched_benign_of_p3_ext_attack_pool"
+  }
+}

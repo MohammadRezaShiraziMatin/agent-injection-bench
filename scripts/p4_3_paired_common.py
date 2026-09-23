@@ -13,6 +13,8 @@ P42_ROOT = ROOT / "data" / "episodes_p4_2"
 P42_PRIMARY_DESIGN_MANIFEST = ROOT / "artifacts" / "p4_2_primary_d0_d2_experiment" / "MANIFEST.json"
 P42_ELIGIBILITY_PATH = ROOT / "artifacts" / "p4_2_coverage_eligibility" / "ELIGIBILITY.json"
 P42_PAIRED_OUT_BASE = ROOT / "results" / "p4_2_paired"
+P3_PAIRED_OUT_BASE = ROOT / "results" / "p3_paired"
+P3_COV_B_EXTENSION_MANIFEST = ROOT / "artifacts" / "p3_cov_b_extension" / "MANIFEST.json"
 P42_FROZEN_DIGEST = "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee"
 
 
@@ -135,6 +137,54 @@ def load_p42_primary_run_config() -> dict[str, Any]:
         "coverage_by_episode": coverage_map,
         "protocol_version": "P4.2-PRIMARY-PAIRED-1",
         "utility_fpr_benign_scope": benign_scope,
+    }
+
+
+def load_p3_cov_b_extension_run_config() -> dict[str, Any]:
+    """P3 extension pool (COV-B secondary) — separate from frozen COV-A primary."""
+    if not P3_COV_B_EXTENSION_MANIFEST.is_file():
+        raise FileNotFoundError(P3_COV_B_EXTENSION_MANIFEST)
+    design = json.loads(P3_COV_B_EXTENSION_MANIFEST.read_text(encoding="utf-8"))
+    pool = design["extension_attack_pool"]
+    primary_attack_ids = [row["episode_id"] for row in pool["episodes"]]
+    benign_scope = (design.get("benign_controls") or {}).get("utility_fpr_benign_scope")
+    if not isinstance(benign_scope, dict) or not benign_scope.get("benign_episode_ids"):
+        raise ValueError("utility_fpr_benign_scope.benign_episode_ids required in P3 manifest")
+    utility_fpr_benign_ids = sorted(benign_scope["benign_episode_ids"])
+    if len(utility_fpr_benign_ids) != len(primary_attack_ids):
+        raise ValueError("P3 benign scope must match attack pool size")
+    digest = design["dataset"]["digest_sha256"]
+    if digest != P42_FROZEN_DIGEST:
+        raise ValueError("P4.2 digest mismatch in P3 manifest")
+    coverage_map: dict[str, dict[str, str]] = {}
+    if P42_ELIGIBILITY_PATH.is_file():
+        elig = json.loads(P42_ELIGIBILITY_PATH.read_text(encoding="utf-8"))
+        for row in elig.get("attacks") or []:
+            if row.get("episode_id") in primary_attack_ids:
+                coverage_map[row["episode_id"]] = {
+                    "coverage_class": row.get("coverage_class") or design.get("coverage_class"),
+                    "eligibility": row.get("eligibility") or design.get("eligibility"),
+                }
+    for eid in primary_attack_ids:
+        if eid not in coverage_map:
+            coverage_map[eid] = {
+                "coverage_class": design.get("coverage_class", "COV-B"),
+                "eligibility": design.get("eligibility", "SECONDARY_ELIGIBLE"),
+            }
+    episode_ids = sorted(primary_attack_ids) + utility_fpr_benign_ids
+    return {
+        "dataset_root": P42_ROOT,
+        "dataset_version": "P4.2",
+        "dataset_digest": digest,
+        "episode_ids": episode_ids,
+        "primary_attack_ids": primary_attack_ids,
+        "utility_fpr_benign_episode_ids": utility_fpr_benign_ids,
+        "out_base": P3_PAIRED_OUT_BASE,
+        "design_manifest": str(P3_COV_B_EXTENSION_MANIFEST.relative_to(ROOT)),
+        "coverage_by_episode": coverage_map,
+        "protocol_version": "P3-COV-B-EXT-PAIRED-1",
+        "utility_fpr_benign_scope": benign_scope,
+        "population_label": design.get("population_label", "P3-EXT"),
     }
 
 

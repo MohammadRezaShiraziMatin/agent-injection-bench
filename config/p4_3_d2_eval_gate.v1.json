@@ -25,5 +25,12 @@
     "notes": "P4.2 primary paired live: requires verify_p4_2_d2_live_approval PASS (scope + EXPLICIT + this flag true). Independent from preflight.live_d2_inference_allowed."
   },
   "paired_output_base": "results/p4_3_paired",
+  "p3_ext_preflight": {
+    "dry_run_required_before_live": true,
+    "live_d2_inference_allowed": true,
+    "live_d2_approval_artifact": "artifacts/p3_live_execution_approval.json",
+    "paired_output_base": "results/p3_paired",
+    "notes": "P3-EXT COV-B paired live only; independent from preflight.live_d2_inference_allowed and p4_2_primary_preflight"
+  },
   "inherits_model_lock": "config/p4_3_live_eval_gate.v1.json"
 }

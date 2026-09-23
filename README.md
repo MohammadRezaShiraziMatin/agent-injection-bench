@@ -1,12 +1,21 @@
 # agent-injection-bench
 
-**Research release (main):** controlled paired **descriptive** evaluation (P4.2 primary COV-A, n=9+9), frozen protocols, tracked historical run `p42-primary-d0-d2-20260921T173736Z-controlled`, offline CI. Start here:
+**Research release (main):** **Level A** evidence — controlled paired **descriptive** evaluation with immutable run artifacts, frozen protocols, and offline CI.
+
+| Layer | Run | Population |
+|-------|-----|------------|
+| P4.2 primary (COV-A) | `p42-primary-d0-d2-20260921T173736Z-controlled` | 9 attack + 9 benign |
+| P3-EXT (COV-B) | `p3-cov-b-ext-20260923T112900Z-controlled` | 42 attack + 42 benign (separate extension; still Level A) |
+
+P3-EXT does **not** automatically create Level B; larger n alone is not a level upgrade. **Level B** requires a new protocol and fresh immutable runs — gaps: [`docs/AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`](docs/AIB_P2_Q1_EVIDENCE_GAP_PLAN.md). Claim ladder and evidence index: [`paper/RESULTS_EVIDENCE.md`](paper/RESULTS_EVIDENCE.md).
+
+Start here:
 
 - `docs/AIB_FINAL_RESEARCH_READINESS.md`
 - `docs/AIB_REPRODUCIBILITY_INDEX.md`
 - `docs/AIB_SCIENTIFIC_INTEGRITY_AUDIT.md`
 
-Claims are **evidence-bounded** (no population-level efficacy or significance). Missing re-run `…130300Z…` is documented in `docs/AIB_P8_SUBMISSION_READINESS.md`.
+Claims are **evidence-bounded** (no population-level efficacy, superiority, or significance). Missing re-run `…130300Z…` is documented in `docs/AIB_P8_SUBMISSION_READINESS.md`.
 
 ---
 
