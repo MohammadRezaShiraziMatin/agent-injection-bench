@@ -1,7 +1,7 @@
 # Q1 Strengthening — Four-Phase Program (Planning)
 
 **Document ID:** `aib-q1-strengthening-4phase-v1`  
-**Status:** **Phase 3 complete (harness scaffolding on `main` branch work)** — no execution authorized by this document  
+**Status:** **Phase 4 prep in progress (prelive gates & draft manifest)** — **no live execution authorized**  
 **Current evidence level on `main`:** **Level A only** (descriptive paired runs; not Q1-ready)
 
 **Honest baseline (do not relabel):**
@@ -133,7 +133,21 @@ pytest tests/test_level_b_harness_phase3.py -q
 
 **Scope:** Execute pre-authorized runs under **Level B namespace** (new `run_id`s, new manifests, approval JSON + live eval gate + API key). Analyze per locked SAP only after `PROTOCOL FREEZE` and `EXECUTION AUTHORIZATION`.
 
-**Exit criteria:**
+**Phase 4 prep (current — no live API):**
+
+- [`AIB_LEVEL_B_PHASE4_PRELIVE.md`](./AIB_LEVEL_B_PHASE4_PRELIVE.md) — operator checklist; **do not execute live yet**
+- `artifacts/level_b_phase4_execution_approval.json` — `AWAITING_KEY` / not authorized
+- `artifacts/level_b_primary_d0_d2_experiment/MANIFEST.json` — draft candidate population (`DRAFT_NOT_FROZEN`)
+- `config/level_b_live_eval_gate.v1.json` — fails closed (`live_inference_allowed: false`)
+- `scripts/verify_level_b_phase4_prelive_gate.py` — offline prelive verifier (CI)
+
+**Run prelive verifier (offline):**
+
+```bash
+python3 scripts/verify_level_b_phase4_prelive_gate.py
+```
+
+**Exit criteria (live execution — not started):**
 
 - [ ] New immutable bundles under a Level B path (analogous to P4.2/P3 patterns) with manifest hash and provenance
 - [ ] Scoring via existing paired contract; results recorded in evidence index without mutating Level A SHA artifacts
@@ -168,8 +182,9 @@ Allowed throughout: honest Level A citations with run IDs, protocol design statu
 | Phase 1 — Level B protocol | **Complete on `main`** — [`AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md`](./AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md) (`DESIGN`) |
 | Phase 2 — Model matrix | **Complete on `main`** — [`AIB_LEVEL_B_MODEL_MATRIX.md`](./AIB_LEVEL_B_MODEL_MATRIX.md) + verifier |
 | Phase 3 — Realistic harness & D2 traces | **Complete (scaffolding)** — [`AIB_LEVEL_B_HARNESS_PHASE3.md`](./AIB_LEVEL_B_HARNESS_PHASE3.md) |
+| Phase 4 — Prelive gates & draft manifest | **In progress** — [`AIB_LEVEL_B_PHASE4_PRELIVE.md`](./AIB_LEVEL_B_PHASE4_PRELIVE.md) |
 | Config freeze stub | `DESIGN_NOT_FROZEN` — not authorized for runs |
-| Live execution | **Not authorized** |
+| Live execution | **Not authorized** — awaiting API key + researcher lock/freeze |
 | Level A runs | **Immutable** |
 
-**Next engineering phase:** Phase 4 (fresh immutable Level B live evidence) — **not authorized** until protocol freeze + execution approval.
+**Next step for Matin:** complete prelive checklist in [`AIB_LEVEL_B_PHASE4_PRELIVE.md`](./AIB_LEVEL_B_PHASE4_PRELIVE.md) before any live Level B run.

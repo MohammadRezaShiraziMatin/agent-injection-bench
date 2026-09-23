@@ -1,0 +1,55 @@
+{
+  "approval_id": "level-b-phase4-paired-d0-d2-prelive-v1",
+  "status": "AWAITING_KEY",
+  "authorized": false,
+  "approver": null,
+  "approved_at": null,
+  "git_commit_at_authorization": null,
+  "note": "Phase 4 prelive scaffolding only. No live OpenRouter inference, scoring, or new Level B run IDs until Matin completes authorization fields below.",
+  "preconditions": [
+    "LEVEL_B_PROTOCOL_FREEZE_PASS",
+    "LEVEL_B_MODEL_MATRIX_LOCKED",
+    "LEVEL_B_POPULATION_MANIFEST_FROZEN",
+    "LEVEL_B_HARNESS_PHASE3_VERIFIER_PASS",
+    "D2_INTEGRATION_PASS",
+    "OPENROUTER_API_KEY_CONFIRMED_BY_OPERATOR"
+  ],
+  "required_fields_for_authorization": {
+    "operator": "Named human approver (not the agent)",
+    "approved_at_utc": "ISO-8601 timestamp at sign-off",
+    "model_matrix_lock_ref": "config/level_b_model_matrix.v1.json with second target family LOCKED (not CANDIDATE_NOT_LOCKED)",
+    "population_manifest_path": "artifacts/level_b_primary_d0_d2_experiment/MANIFEST.json",
+    "population_manifest_status": "FROZEN (not DRAFT_NOT_FROZEN)",
+    "draft_list_content_sha256": "Must match frozen manifest draft_list_content_sha256 after freeze",
+    "dataset_manifest_hash": "P4.2 digest 4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee or successor recorded at freeze",
+    "adaptiguard_pin": "config/adaptiguard_version_pin.v1.json commit 30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64 unless superseded at freeze",
+    "git_commit": "Repository commit SHA pinning approval + manifest + gate",
+    "live_gate_ref": "config/level_b_live_eval_gate.v1.json with preflight.live_inference_allowed true only after this approval",
+    "env_flags": [
+      "AIB_LEVEL_B_LIVE_EXECUTION=1",
+      "OPENROUTER_API_KEY"
+    ]
+  },
+  "scope": {
+    "population_label": "LEVEL_B_CANDIDATE_EXPANDED_COV_A",
+    "draft_population_manifest": "artifacts/level_b_primary_d0_d2_experiment/MANIFEST.json",
+    "draft_list_content_sha256": "431fd791ce8f2f563da710fc699ab06326287a616c9667c057a4470e19e6d894",
+    "candidate_attack_count": 23,
+    "candidate_benign_count": 23,
+    "conditions": ["D0", "D2"],
+    "condition_order": "deterministic_D0_then_D2",
+    "output_root": "results/level_b_paired/",
+    "run_id_policy": "level-b-primary-d0-d2-<UTC-timestamp>-controlled",
+    "pairing": "episode.pair_id per config/p4_3_paired_eval_contract.v1.json",
+    "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
+    "paired_contract": "config/p4_3_paired_eval_contract.v1.json",
+    "harness_contract": "config/level_b_harness_contract.v1.json"
+  },
+  "excludes": {
+    "immutable_level_a_runs": [
+      "p42-primary-d0-d2-20260921T173736Z-controlled",
+      "p3-cov-b-ext-20260923T112900Z-controlled"
+    ],
+    "note": "Level B requires fresh run IDs; do not mutate or re-score Level A bundles."
+  }
+}

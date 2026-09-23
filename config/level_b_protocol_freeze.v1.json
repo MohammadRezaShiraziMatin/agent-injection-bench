@@ -17,7 +17,11 @@
     "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
     "paired_contract": "config/p4_3_paired_eval_contract.v1.json",
     "adaptiguard_pin": "config/adaptiguard_version_pin.v1.json",
-    "level_b_model_matrix": "config/level_b_model_matrix.v1.json"
+    "level_b_model_matrix": "config/level_b_model_matrix.v1.json",
+    "level_b_harness_contract": "config/level_b_harness_contract.v1.json",
+    "level_b_phase4_prelive_gate": "config/level_b_live_eval_gate.v1.json",
+    "level_b_phase4_execution_approval": "artifacts/level_b_phase4_execution_approval.json",
+    "level_b_draft_population_manifest": "artifacts/level_b_primary_d0_d2_experiment/MANIFEST.json"
   },
   "researcher_decisions_required_before_freeze": [
     "primary_population_manifest_and_coverage_classes",
