@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software in research, please cite it as below."
+title: agent-injection-bench
+license: MIT
+url: "https://github.com/MohammadRezaShiraziMatin/agent-injection-bench"
+authors:
+  - given-names: Seyed Mohammadreza
+    family-names: "Shirazi Matin"
+    alias: MohammadRezaShiraziMatin
+preferred-citation:
+  type: software
+  title: agent-injection-bench
+  license: MIT
+  url: "https://github.com/MohammadRezaShiraziMatin/agent-injection-bench"
+  year: 2026
+  authors:
+    - given-names: Seyed Mohammadreza
+      family-names: "Shirazi Matin"
+  abstract: >-
+    Research benchmark and harness for indirect prompt injection (IPI) leading
+    to tool misuse in tool-using LLM agents, with descriptive paired D0/D2
+    evaluation protocols, mock offline tools, and reproducible offline CI.

@@ -1,5 +1,8 @@
 # agent-injection-bench
 
+[![Research CI](https://github.com/MohammadRezaShiraziMatin/agent-injection-bench/actions/workflows/research-ci.yml/badge.svg)](https://github.com/MohammadRezaShiraziMatin/agent-injection-bench/actions/workflows/research-ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 **Research release (main):** controlled paired **descriptive** evaluation (P4.2 primary COV-A, n=9+9), frozen protocols, tracked historical run `p42-primary-d0-d2-20260921T173736Z-controlled`, offline CI. Start here:
 
 - `docs/AIB_FINAL_RESEARCH_READINESS.md`
