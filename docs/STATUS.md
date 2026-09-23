@@ -38,9 +38,14 @@ This Desktop tree was **reimplemented from the recovered v0 specification** (clo
 | 1 | Level B protocol & population design (no execution) | **Complete on `main`** — [`AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md`](AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md) (`DESIGN`) |
 | 2 | Multi-model matrix scaffolding | **Descriptive live authorized on `main`** — [`AIB_LEVEL_B_MODEL_MATRIX.md`](AIB_LEVEL_B_MODEL_MATRIX.md) (second target **LOCKED**; matrix `AUTHORIZED_FOR_DESCRIPTIVE_LIVE`) |
 | 3 | Realistic harness & D2 trace coverage | **Complete (scaffolding)** — [`AIB_LEVEL_B_HARNESS_PHASE3.md`](AIB_LEVEL_B_HARNESS_PHASE3.md) |
-| 4 | Fresh immutable Level B live runs | **Descriptive live authorized on `main`** — [`AIB_LEVEL_B_PHASE4_PRELIVE.md`](AIB_LEVEL_B_PHASE4_PRELIVE.md) (`LIVE_AUTHORIZED_DESCRIPTIVE`; operator runbook [`AIB_LEVEL_B_LIVE_RUN.md`](AIB_LEVEL_B_LIVE_RUN.md); **no scored Level B bundles yet**) |
+| 4 | Fresh immutable Level B live runs | **Descriptive live scored (lean tracked artifacts)** — [`AIB_LEVEL_B_PHASE4_PRELIVE.md`](AIB_LEVEL_B_PHASE4_PRELIVE.md) · runbook [`AIB_LEVEL_B_LIVE_RUN.md`](AIB_LEVEL_B_LIVE_RUN.md) · index [`../artifacts/level_b_descriptive_live/INDEX.json`](../artifacts/level_b_descriptive_live/INDEX.json) |
 
-Level A runs remain the only scored research evidence until Phase 4 **live** execution produces immutable run IDs under `results/level_b_paired/`. Gate authorization does not add Level B evidence by itself. Gap context: [`AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`](AIB_P2_Q1_EVIDENCE_GAP_PLAN.md).
+Phase 4 **DESCRIPTIVE_ONLY** live paired runs (scored with `scripts/score_p4_3_paired_metrics.py` at git `b22dfbfa903a7eca9fbe0e19f75a50266150fcf6`):
+
+- `level-b-primary-d0-d2-20260923T164727Z-controlled-level_a_primary` — `openai/gpt-4o-mini-2024-07-18` · matrix `target-level-a-primary`
+- `level-b-primary-d0-d2-20260923T165457Z-controlled-candidate_family_b` — `google/gemini-2.5-flash` · matrix `target-candidate-family-b`
+
+Lean scored bundles: [`artifacts/level_b_descriptive_live/`](../artifacts/level_b_descriptive_live/) (full traces remain operator-local under `results/level_b_paired/`). **Claim class remains DESCRIPTIVE_ONLY** — gate authorization ≠ confirmatory inference; no SAP / Q1-ready claim; Level A immutable runs and `data/episodes_*` must not be mutated. Level A remains the cited primary descriptive package for manuscript evidence; Level B pilot runs are a separate layer. Gap context: [`AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`](AIB_P2_Q1_EVIDENCE_GAP_PLAN.md).
 
 **v0 harness (optional, separate from Level B):**
 

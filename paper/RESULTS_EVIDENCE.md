@@ -41,9 +41,20 @@ P3-EXT remains **descriptive** and does **not** automatically advance the projec
 - Comprehensive security coverage, adaptive robustness, or multi-model/agent leaderboard claims.
 - Any implication that P3-EXT alone satisfies Level B or “Q1-ready” thresholds.
 
-### Level B — stronger experimental submission (future)
+### Level B descriptive live pilot (DESCRIPTIVE_ONLY — separate evidence layer)
 
-Level B requires a **new experimental protocol** and **fresh immutable run IDs**, not relabeling of current runs. Minimum strengthening dimensions (see gap plan) include, where pre-specified: larger registered sample, multiple target models, broader attack coverage, more realistic agent/tool harness, richer D2 traces, independent replication where appropriate, and stronger reproducibility controls. P3-EXT COV-B expansion **does not** by itself constitute Level B.
+Protocol-authorized **descriptive** Level B paired live runs exist as **lean tracked artifacts** ([`artifacts/level_b_descriptive_live/INDEX.json`](../artifacts/level_b_descriptive_live/INDEX.json)); scored with `scripts/score_p4_3_paired_metrics.py` at execution git `b22dfbfa903a7eca9fbe0e19f75a50266150fcf6`. **Level A remains the manuscript primary descriptive evidence ladder** (P4.2 COV-A + P3-EXT); these runs do not replace or supersede Level A bundles.
+
+| Run ID | Target | Matrix row | Sample metrics (from INDEX summaries only) |
+|--------|--------|------------|---------------------------------------------|
+| `level-b-primary-d0-d2-20260923T164727Z-controlled-level_a_primary` | `openai/gpt-4o-mini-2024-07-18` | `target-level-a-primary` | D0 ASR 1/23, D2 ASR 1/23; D0 Utility 22/22, D2 Utility 23/23; FPR_D2 0/23 |
+| `level-b-primary-d0-d2-20260923T165457Z-controlled-candidate_family_b` | `google/gemini-2.5-flash` | `target-candidate-family-b` | D0 ASR 6/23, D2 ASR 1/23; D0 Utility 23/23, D2 Utility 23/23; FPR_D2 0/23 |
+
+**Claim class:** **DESCRIPTIVE_ONLY** (same exclusions as Level A for confirmatory inference, superiority, generalization, and Q1-ready positioning). Authorization and scored pilot runs **do not** establish confirmatory effectiveness or multi-model generalization. Full run traces are operator-local under `results/level_b_paired/<run_id>/` and are not committed.
+
+### Level B — stronger experimental submission (future beyond descriptive pilot)
+
+Level B **confirmatory / SAP-backed** submission still requires explicit frozen protocols and evidence gaps closed per the gap plan. The descriptive pilot above satisfies **fresh immutable run IDs** under the Level B namespace for sample-level observation only. Minimum strengthening dimensions (see gap plan) include, where pre-specified: larger registered sample, broader attack coverage, more realistic agent/tool harness, richer D2 traces, independent replication where appropriate, and stronger reproducibility controls. P3-EXT COV-B expansion **does not** by itself constitute Level B.
 
 ### Level C — higher security-venue preparation (future)
 
