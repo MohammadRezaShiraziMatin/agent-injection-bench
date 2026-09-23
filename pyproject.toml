@@ -13,7 +13,7 @@ authors = [{ name = "agent-injection-bench contributors" }]
 dependencies = [
   "jsonschema>=4.26.0",
   "python-dotenv>=1.2.3",
-  "openai>=1.40",
+  "openai>=2.54.0",
 ]
 
 [project.optional-dependencies]
