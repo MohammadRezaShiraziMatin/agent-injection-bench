@@ -61,6 +61,10 @@ from scripts.verify_p4_2_d2_live_approval import verify_p4_2_d2_live_approval  #
 from scripts.verify_p3_live_execution_approval import verify_p3_live_execution_approval  # noqa: E402
 from scripts.verify_live_approval import verify_live_approval  # noqa: E402
 from scripts.verify_model_lock import verify_model_lock  # noqa: E402
+from scripts.verify_level_b_phase4_prelive_gate import (  # noqa: E402
+    MODE_LIVE_AUTHORIZED,
+    verify_level_b_phase4_prelive_gate,
+)
 
 
 def _path_ref(path: Path) -> str:
@@ -144,6 +148,32 @@ def _live_gates_ok_p3_ext() -> tuple[bool, dict[str, Any]]:
         "d2_integration": d2,
         "p3_live_execution_approval": p3_appr,
         "live_path": "P3_EXT_COV_B",
+    }
+
+
+def _live_gates_ok_level_b() -> tuple[bool, dict[str, Any]]:
+    lock = verify_model_lock()
+    pre = run_preflight()
+    d2 = verify_d2_integration()
+    integrity = _integrity_ok()
+    lb_gate = verify_level_b_phase4_prelive_gate()
+    ok = (
+        integrity.get("ok")
+        and lock.get("MODEL_LOCK_STATUS") == "LOCKED"
+        and pre.get("preflight_ok")
+        and d2.get("ok")
+        and lb_gate.get("ok")
+        and lb_gate.get("mode") == MODE_LIVE_AUTHORIZED
+        and lb_gate.get("live_inference_allowed")
+        and __import__("os").environ.get("AIB_LEVEL_B_LIVE_EXECUTION") == "1"
+    )
+    return ok, {
+        "integrity": integrity,
+        "model_lock": lock,
+        "preflight": pre,
+        "d2_integration": d2,
+        "level_b_phase4_gate": lb_gate,
+        "live_path": "LEVEL_B_DESCRIPTIVE",
     }
 
 
@@ -295,6 +325,7 @@ def run_paired(
     utility_fpr_benign_episode_ids: list[str] | None = None,
     p42_primary: bool = False,
     p3_ext: bool = False,
+    level_b: bool = False,
 ) -> dict[str, Any]:
     t_run = time.time()
     ds_root = dataset_root or P43_ROOT
@@ -320,6 +351,7 @@ def run_paired(
         mode="dry_run" if dry_run else "live",
         p42_primary=p42_primary,
         p3_ext=p3_ext,
+        level_b=level_b,
         dataset_root=str(ds_root.relative_to(ROOT)),
         git_commit=_git_head(),
     )
@@ -344,7 +376,9 @@ def run_paired(
                 "approval_id": p42_appr.get("approval_id"),
             }
     else:
-        if p3_ext:
+        if level_b:
+            ok, gate_report = _live_gates_ok_level_b()
+        elif p3_ext:
             ok, gate_report = _live_gates_ok_p3_ext()
         elif p42_primary:
             ok, gate_report = _live_gates_ok_p42_primary()
@@ -425,9 +459,13 @@ def run_paired(
         STAGE_GATE,
         status="OK",
         live_path=(
-            "P3_EXT_COV_B"
-            if p3_ext
-            else ("P4.2_PRIMARY" if p42_primary else "P4.3")
+            "LEVEL_B_DESCRIPTIVE"
+            if level_b
+            else (
+                "P3_EXT_COV_B"
+                if p3_ext
+                else ("P4.2_PRIMARY" if p42_primary else "P4.3")
+            )
         ),
         gates_at_start=sanitize_for_log(gate_report),
     )
@@ -471,7 +509,15 @@ def run_paired(
         run_manifest["primary_attack_ids"] = primary_attack_ids
     if utility_fpr_benign_episode_ids:
         run_manifest["utility_fpr_benign_episode_ids"] = utility_fpr_benign_episode_ids
-    if p42_primary:
+    if level_b:
+        run_manifest["live_path"] = "LEVEL_B_DESCRIPTIVE"
+        lb_gate = verify_level_b_phase4_prelive_gate()
+        run_manifest["level_b_phase4_gate"] = {
+            "mode": lb_gate.get("mode"),
+            "gate_ok": lb_gate.get("ok"),
+            "approval_status": lb_gate.get("approval_status"),
+        }
+    elif p42_primary:
         run_manifest["live_path"] = "P4.2_PRIMARY"
         p42_appr = verify_p4_2_d2_live_approval()
         run_manifest["p4_2_d2_live_approval"] = {

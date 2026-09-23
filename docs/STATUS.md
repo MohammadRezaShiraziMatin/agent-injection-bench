@@ -36,11 +36,11 @@ This Desktop tree was **reimplemented from the recovered v0 specification** (clo
 | Phase | Focus | Status |
 |-------|--------|--------|
 | 1 | Level B protocol & population design (no execution) | **Complete on `main`** — [`AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md`](AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md) (`DESIGN`) |
-| 2 | Multi-model matrix scaffolding | **Prelive lock on `main`** — [`AIB_LEVEL_B_MODEL_MATRIX.md`](AIB_LEVEL_B_MODEL_MATRIX.md) (second target **LOCKED**; matrix still `NOT_AUTHORIZED`) |
+| 2 | Multi-model matrix scaffolding | **Descriptive live authorized on `main`** — [`AIB_LEVEL_B_MODEL_MATRIX.md`](AIB_LEVEL_B_MODEL_MATRIX.md) (second target **LOCKED**; matrix `AUTHORIZED_FOR_DESCRIPTIVE_LIVE`) |
 | 3 | Realistic harness & D2 trace coverage | **Complete (scaffolding)** — [`AIB_LEVEL_B_HARNESS_PHASE3.md`](AIB_LEVEL_B_HARNESS_PHASE3.md) |
-| 4 | Fresh immutable Level B live runs | **Prelive lock/freeze on `main`** — [`AIB_LEVEL_B_PHASE4_PRELIVE.md`](AIB_LEVEL_B_PHASE4_PRELIVE.md) (`KEY_RECEIVED_PENDING_AUTH`; Gemini **LOCKED**; population **FROZEN**; no live API) |
+| 4 | Fresh immutable Level B live runs | **Descriptive live authorized on `main`** — [`AIB_LEVEL_B_PHASE4_PRELIVE.md`](AIB_LEVEL_B_PHASE4_PRELIVE.md) (`LIVE_AUTHORIZED_DESCRIPTIVE`; operator runbook [`AIB_LEVEL_B_LIVE_RUN.md`](AIB_LEVEL_B_LIVE_RUN.md); **no scored Level B bundles yet**) |
 
-Level A runs remain the only scored research evidence until Phase 4 **live** execution completes. Prelive lock/freeze (approval JSON, frozen manifest, locked matrix, offline gate) does not add Level B evidence. Gap context: [`AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`](AIB_P2_Q1_EVIDENCE_GAP_PLAN.md).
+Level A runs remain the only scored research evidence until Phase 4 **live** execution produces immutable run IDs under `results/level_b_paired/`. Gate authorization does not add Level B evidence by itself. Gap context: [`AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`](AIB_P2_Q1_EVIDENCE_GAP_PLAN.md).
 
 **v0 harness (optional, separate from Level B):**
 

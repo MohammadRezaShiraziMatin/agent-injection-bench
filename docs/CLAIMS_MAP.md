@@ -7,10 +7,10 @@ Use this before citing numbers, writing slides, or merging results across repos.
 | Level | Allowed (examples) | Forbidden / misleading |
 |-------|-------------------|-------------------------|
 | **Level A (current on `main`)** | Sample-level ASR, Utility, FPR, paired transitions on **named immutable run IDs** (e.g. `p42-primary-d0-d2-20260921T173736Z-controlled`, P3-EXT COV-B); protocol and artifact provenance; descriptive D0 vs D2 on the same paired set; D2 integration **on the recorded path** | Defense **effectiveness**, superiority, SOTA, production readiness; significance or population generalization; implying P3-EXT alone is Level B |
-| **Level B (future)** | (Nothing yet — requires new protocol + fresh runs) | Relabeling Level A runs; pooling COV-A and COV-B without a frozen plan; efficacy or confirmatory language |
+| **Level B (descriptive path authorized; evidence pending)** | Offline protocol freeze (`DESCRIPTIVE_ONLY`), frozen population manifest, explicit operator approval, live gate PASS — **until run IDs under `results/level_b_paired/`** | Treating authorization as scored outcomes; confirmatory / SAP claims; relabeling Level A runs |
 | **Level C (future)** | (Not defined by current evidence) | Security-venue readiness claims without new frozen protocols |
 
-Gap plan: [AIB_P2_Q1_EVIDENCE_GAP_PLAN.md](./AIB_P2_Q1_EVIDENCE_GAP_PLAN.md). Q1 strengthening roadmap: [AIB_Q1_STRENGTHENING_4PHASE.md](./AIB_Q1_STRENGTHENING_4PHASE.md) · Level B protocol (DESIGN): [AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md](./AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md) · Phase 4 prelive lock/freeze (no live): [AIB_LEVEL_B_PHASE4_PRELIVE.md](./AIB_LEVEL_B_PHASE4_PRELIVE.md).
+Gap plan: [AIB_P2_Q1_EVIDENCE_GAP_PLAN.md](./AIB_P2_Q1_EVIDENCE_GAP_PLAN.md). Q1 strengthening roadmap: [AIB_Q1_STRENGTHENING_4PHASE.md](./AIB_Q1_STRENGTHENING_4PHASE.md) · Level B protocol: [AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md](./AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md) · Phase 4 gate (descriptive live authorized): [AIB_LEVEL_B_PHASE4_PRELIVE.md](./AIB_LEVEL_B_PHASE4_PRELIVE.md) · Operator runbook: [AIB_LEVEL_B_LIVE_RUN.md](./AIB_LEVEL_B_LIVE_RUN.md).
 
 ## Operational modes (v0 harness vs research runs)
 

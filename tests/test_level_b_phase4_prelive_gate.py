@@ -22,10 +22,10 @@ def test_verify_level_b_phase4_prelive_gate_passes_offline():
     assert proc.returncode == 0, proc.stdout + proc.stderr
     data = json.loads(proc.stdout)
     assert data["LEVEL_B_PHASE4_PRELIVE_GATE"] == "PASS"
-    assert data["live_inference_allowed"] is False
+    assert data["live_inference_allowed"] is True
     assert data["candidate_attack_count"] > 9
     assert data["manifest_status"] == "FROZEN"
-    assert data["mode"] == "PRELIVE_LOCKED_FROZEN_AWAITING_LIVE_APPROVAL"
+    assert data["mode"] == "LIVE_AUTHORIZED_DESCRIPTIVE"
 
 
 def test_prelive_gate_fails_on_false_authorization(tmp_path: Path):
@@ -38,13 +38,20 @@ def test_prelive_gate_fails_on_false_authorization(tmp_path: Path):
     approval["authorized"] = True
     approval["approver"] = "fake_without_full_chain"
     approval["approved_at"] = "2026-09-23T00:00:00Z"
+    approval.pop("authorization_record", None)
     bad_approval = tmp_path / "approval.json"
     bad_approval.write_text(json.dumps(approval, indent=2), encoding="utf-8")
 
     report = verify_level_b_phase4_prelive_gate(approval_path=bad_approval)
     assert report["ok"] is False
     assert report["LEVEL_B_PHASE4_PRELIVE_GATE"] == "FAIL"
-    assert any("gate_live_inference_not_enabled" in i or "population_manifest_not_frozen" in i for i in report["issues"])
+    assert report["mode"] == "PRELIVE_PARTIAL_FAIL_CLOSED"
+    assert any(
+        "gate_live_inference_not_enabled" in i
+        or "authorization_record_missing" in i
+        or "population_manifest_not_frozen" in i
+        for i in report["issues"]
+    )
 
 
 def test_prelive_gate_fails_when_authorized_true_awaiting_key(tmp_path: Path):
@@ -54,9 +61,12 @@ def test_prelive_gate_fails_when_authorized_true_awaiting_key(tmp_path: Path):
         (ROOT / "artifacts" / "level_b_phase4_execution_approval.json").read_text(encoding="utf-8")
     )
     approval["authorized"] = True
+    approval["status"] = "KEY_RECEIVED_PENDING_AUTH"
     bad_approval = tmp_path / "approval.json"
     bad_approval.write_text(json.dumps(approval, indent=2), encoding="utf-8")
 
     report = verify_level_b_phase4_prelive_gate(approval_path=bad_approval)
     assert report["ok"] is False
-    assert "approval_authorized_true" in report["issues"]
+    assert "approval_status_not_live_ready" in " ".join(report["issues"]) or any(
+        "approval_status" in i for i in report["issues"]
+    )
