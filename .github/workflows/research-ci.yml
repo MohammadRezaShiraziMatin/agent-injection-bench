@@ -80,7 +80,8 @@ jobs:
             verify_p4_2_d2_live_approval.py \
             verify_model_lock.py \
             verify_level_b_model_matrix.py \
-            verify_level_b_harness_phase3.py
+            verify_level_b_harness_phase3.py \
+            verify_level_b_phase4_prelive_gate.py
           do
             if [ -f "scripts/${script}" ]; then
               python "scripts/${script}"

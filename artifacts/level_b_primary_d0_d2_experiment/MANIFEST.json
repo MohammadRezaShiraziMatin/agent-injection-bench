@@ -1,0 +1,313 @@
+{
+  "manifest_id": "aib-level-b-primary-d0-d2-candidate-v1",
+  "status": "DRAFT_NOT_FROZEN",
+  "live_execution": false,
+  "population_label": "LEVEL_B_CANDIDATE_EXPANDED_COV_A",
+  "created_at": "2026-09-23T16:00:00+00:00",
+  "repository_commit_at_authoring": "576b20fc",
+  "dataset": {
+    "name": "P4.2",
+    "dataset_root": "data/episodes_p4_2",
+    "digest_sha256": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+    "freeze_reference": {
+      "verify_script": "scripts/verify_p4_2_freeze.py",
+      "manifest_path": "data/episodes_p4_2/MANIFEST.json"
+    }
+  },
+  "coverage": {
+    "primary_candidate_class": "COV-A",
+    "composition": "9 PRIMARY_ELIGIBLE (historical P4.2 primary pool) + 14 COV-A SECONDARY_ELIGIBLE",
+    "eligibility_artifact": "artifacts/p4_2_coverage_eligibility/ELIGIBILITY.json",
+    "alternate_pools_documented_not_selected": [
+      {
+        "label": "P3-EXT COV-B extension (42+42)",
+        "manifest": "artifacts/p3_cov_b_extension/MANIFEST.json",
+        "note": "Descriptive extension stratum; not auto-promoted to Level B primary"
+      }
+    ]
+  },
+  "researcher_decisions_required_before_freeze": [
+    "confirm_expanded_cov_a_vs_cov_b_subset_vs_hybrid",
+    "confirmatory_sap_and_sample_size_if_applicable",
+    "exclude_or_include_episodes_already_in_level_a_runs_with_new_run_ids_only"
+  ],
+  "pairing_policy": {
+    "rule": "episode.pair_id per config/p4_3_paired_eval_contract.v1.json",
+    "benign_match": "pair_matched_benign_same_pair_id",
+    "condition_order": "deterministic_D0_then_D2",
+    "conditions": [
+      "D0",
+      "D2"
+    ]
+  },
+  "primary_attack_pool": {
+    "n": 23,
+    "episode_order_policy": "sorted_ascending_by_episode_id",
+    "attack_episode_ids": [
+      "atk_p42_002",
+      "atk_p42_011",
+      "atk_p42_012",
+      "atk_p42_013",
+      "atk_p42_014",
+      "atk_p42_015",
+      "atk_p42_016",
+      "atk_p42_017",
+      "atk_p42_018",
+      "atk_p42_083",
+      "atk_p42_084",
+      "atk_p42_085",
+      "atk_p42_086",
+      "atk_p42_087",
+      "atk_p42_088",
+      "atk_p42_089",
+      "atk_p42_090",
+      "atk_p42_091",
+      "atk_p42_092",
+      "atk_p42_093",
+      "atk_p42_094",
+      "atk_p42_095",
+      "atk_p42_096"
+    ],
+    "benign_episode_ids": [
+      "ben_p42_002",
+      "ben_p42_011",
+      "ben_p42_012",
+      "ben_p42_013",
+      "ben_p42_014",
+      "ben_p42_015",
+      "ben_p42_016",
+      "ben_p42_017",
+      "ben_p42_018",
+      "ben_p42_083",
+      "ben_p42_084",
+      "ben_p42_085",
+      "ben_p42_086",
+      "ben_p42_087",
+      "ben_p42_088",
+      "ben_p42_089",
+      "ben_p42_090",
+      "ben_p42_091",
+      "ben_p42_092",
+      "ben_p42_093",
+      "ben_p42_094",
+      "ben_p42_095",
+      "ben_p42_096"
+    ],
+    "episode_count": 46,
+    "episodes": [
+      {
+        "episode_id": "atk_p42_002",
+        "pair_id": "p42_002",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_002.json",
+        "benign_pair_episode_id": "ben_p42_002",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_002.json",
+        "coverage_class": "COV-A",
+        "eligibility": "PRIMARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_011",
+        "pair_id": "p42_011",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_011.json",
+        "benign_pair_episode_id": "ben_p42_011",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_011.json",
+        "coverage_class": "COV-A",
+        "eligibility": "PRIMARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_012",
+        "pair_id": "p42_012",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_012.json",
+        "benign_pair_episode_id": "ben_p42_012",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_012.json",
+        "coverage_class": "COV-A",
+        "eligibility": "PRIMARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_013",
+        "pair_id": "p42_013",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_013.json",
+        "benign_pair_episode_id": "ben_p42_013",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_013.json",
+        "coverage_class": "COV-A",
+        "eligibility": "PRIMARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_014",
+        "pair_id": "p42_014",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_014.json",
+        "benign_pair_episode_id": "ben_p42_014",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_014.json",
+        "coverage_class": "COV-A",
+        "eligibility": "PRIMARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_015",
+        "pair_id": "p42_015",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_015.json",
+        "benign_pair_episode_id": "ben_p42_015",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_015.json",
+        "coverage_class": "COV-A",
+        "eligibility": "PRIMARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_016",
+        "pair_id": "p42_016",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_016.json",
+        "benign_pair_episode_id": "ben_p42_016",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_016.json",
+        "coverage_class": "COV-A",
+        "eligibility": "PRIMARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_017",
+        "pair_id": "p42_017",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_017.json",
+        "benign_pair_episode_id": "ben_p42_017",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_017.json",
+        "coverage_class": "COV-A",
+        "eligibility": "PRIMARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_018",
+        "pair_id": "p42_018",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_018.json",
+        "benign_pair_episode_id": "ben_p42_018",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_018.json",
+        "coverage_class": "COV-A",
+        "eligibility": "PRIMARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_083",
+        "pair_id": "p42_083",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_083.json",
+        "benign_pair_episode_id": "ben_p42_083",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_083.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_084",
+        "pair_id": "p42_084",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_084.json",
+        "benign_pair_episode_id": "ben_p42_084",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_084.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_085",
+        "pair_id": "p42_085",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_085.json",
+        "benign_pair_episode_id": "ben_p42_085",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_085.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_086",
+        "pair_id": "p42_086",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_086.json",
+        "benign_pair_episode_id": "ben_p42_086",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_086.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_087",
+        "pair_id": "p42_087",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_087.json",
+        "benign_pair_episode_id": "ben_p42_087",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_087.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_088",
+        "pair_id": "p42_088",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_088.json",
+        "benign_pair_episode_id": "ben_p42_088",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_088.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_089",
+        "pair_id": "p42_089",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_089.json",
+        "benign_pair_episode_id": "ben_p42_089",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_089.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_090",
+        "pair_id": "p42_090",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_090.json",
+        "benign_pair_episode_id": "ben_p42_090",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_090.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_091",
+        "pair_id": "p42_091",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_091.json",
+        "benign_pair_episode_id": "ben_p42_091",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_091.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_092",
+        "pair_id": "p42_092",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_092.json",
+        "benign_pair_episode_id": "ben_p42_092",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_092.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_093",
+        "pair_id": "p42_093",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_093.json",
+        "benign_pair_episode_id": "ben_p42_093",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_093.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_094",
+        "pair_id": "p42_094",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_094.json",
+        "benign_pair_episode_id": "ben_p42_094",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_094.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_095",
+        "pair_id": "p42_095",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_095.json",
+        "benign_pair_episode_id": "ben_p42_095",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_095.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      },
+      {
+        "episode_id": "atk_p42_096",
+        "pair_id": "p42_096",
+        "dataset_file": "data/episodes_p4_2/attack/atk_p42_096.json",
+        "benign_pair_episode_id": "ben_p42_096",
+        "benign_pair_file": "data/episodes_p4_2/benign/ben_p42_096.json",
+        "coverage_class": "COV-A",
+        "eligibility": "SECONDARY_ELIGIBLE"
+      }
+    ]
+  },
+  "draft_list_content_sha256": "431fd791ce8f2f563da710fc699ab06326287a616c9667c057a4470e19e6d894",
+  "explicit_non_claims": [
+    "DRAFT_NOT_FROZEN \u2014 not execution-ready",
+    "Does not supersede immutable Level A runs",
+    "Candidate list exceeds n=9 for planning only"
+  ]
+}
