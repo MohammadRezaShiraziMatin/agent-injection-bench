@@ -78,7 +78,8 @@ jobs:
           for script in \
             verify_p4_2_primary_prelive_gate.py \
             verify_p4_2_d2_live_approval.py \
-            verify_model_lock.py
+            verify_model_lock.py \
+            verify_level_b_model_matrix.py
           do
             if [ -f "scripts/${script}" ]; then
               python "scripts/${script}"

@@ -1,7 +1,7 @@
 # Q1 Strengthening — Four-Phase Program (Planning)
 
 **Document ID:** `aib-q1-strengthening-4phase-v1`  
-**Status:** **Phase 1 active (design only)** — no execution authorized by this document  
+**Status:** **Phase 2 in progress (matrix scaffolding)** — no execution authorized by this document  
 **Current evidence level on `main`:** **Level A only** (descriptive paired runs; not Q1-ready)
 
 **Honest baseline (do not relabel):**
@@ -17,6 +17,7 @@ Level A bundles above are **immutable**. Phases 1–3 produce **no new ASR numbe
 
 - Gap audit: [`AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`](./AIB_P2_Q1_EVIDENCE_GAP_PLAN.md)
 - Level B protocol (DESIGN): [`AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md`](./AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md)
+- Level B model matrix (DESIGN): [`AIB_LEVEL_B_MODEL_MATRIX.md`](./AIB_LEVEL_B_MODEL_MATRIX.md)
 - P8 skeleton: [`AIB_P8_FUTURE_EXPERIMENT_PROTOCOL_DRAFT.md`](./AIB_P8_FUTURE_EXPERIMENT_PROTOCOL_DRAFT.md)
 - Claim ladder: [`../paper/RESULTS_EVIDENCE.md`](../paper/RESULTS_EVIDENCE.md)
 
@@ -48,10 +49,12 @@ Each phase **blocks** the next until its exit criteria are met. Skipping phases 
 
 **Exit criteria:**
 
-- [ ] RQ, estimands, primary/secondary endpoints, and forbidden claims documented and cross-linked to Level A freezes
-- [ ] Explicit rule: new Level B runs use **new run IDs**; P4.2 primary and P3-EXT bundles untouched
-- [ ] Researcher decision placeholders retained (sample size, model matrix, confirmatory SAP) — **no fabricated power or model IDs**
-- [ ] `PROTOCOL FREEZE` / `SAP LOCK` gates defined in Level B doc (inactive until later phases)
+- [x] RQ, estimands, primary/secondary endpoints, and forbidden claims documented and cross-linked to Level A freezes
+- [x] Explicit rule: new Level B runs use **new run IDs**; P4.2 primary and P3-EXT bundles untouched
+- [x] Researcher decision placeholders retained (sample size, model matrix, confirmatory SAP) — **no fabricated power or model IDs**
+- [x] `PROTOCOL FREEZE` / `SAP LOCK` gates defined in Level B doc (inactive until later phases)
+
+**Phase 1 status on `main`:** **Complete** (merged PR #18, tip `d571493`).
 
 **Explicit non-claims after Phase 1:**
 
@@ -67,11 +70,25 @@ Each phase **blocks** the next until its exit criteria are met. Skipping phases 
 
 **Intent:** Close the “single model on primary” gap identified in the gap plan without re-scoring or rewriting Level A history.
 
+**Deliverables (Phase 2):**
+
+- [`AIB_LEVEL_B_MODEL_MATRIX.md`](./AIB_LEVEL_B_MODEL_MATRIX.md) + [`../config/level_b_model_matrix.v1.json`](../config/level_b_model_matrix.v1.json) (`DESIGN` / `NOT_AUTHORIZED`)
+- [`../scripts/verify_level_b_model_matrix.py`](../scripts/verify_level_b_model_matrix.py) — offline structure, fingerprint, and false-lock guards
+- Protocol freeze stub pointer: `inherits_read_only.level_b_model_matrix` in [`../config/level_b_protocol_freeze.v1.json`](../config/level_b_protocol_freeze.v1.json)
+
+**Run verifier (offline, no API):**
+
+```bash
+python3 scripts/verify_level_b_model_matrix.py
+```
+
+Research CI invokes the same script when present (`.github/workflows/research-ci.yml`).
+
 **Exit criteria:**
 
-- [ ] Model matrix documented and referenced from frozen-ready config (status may remain `DESIGN` until Phase 4 authorization)
-- [ ] Offline verifiers fail on drift from approved matrix definition
-- [ ] No execution authorization artifacts; no new directories under `results/` presented as Level B evidence
+- [x] Model matrix documented and referenced from frozen-ready config (status remains `DESIGN` until Phase 4 authorization)
+- [x] Offline verifiers fail on drift from approved matrix definition (content fingerprint + Level A gate cross-check)
+- [x] No execution authorization artifacts; no new directories under `results/` presented as Level B evidence
 
 **Explicit non-claims after Phase 2:**
 
@@ -129,14 +146,15 @@ Allowed throughout: honest Level A citations with run IDs, protocol design statu
 
 ---
 
-## Phase 1 status (tracking)
+## Program status (tracking)
 
 | Item | State |
 |------|--------|
 | Four-phase plan | **This document** |
-| Level B experimental protocol | **DESIGN** — [`AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md`](./AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md) |
-| Config freeze stub | `DESIGN_NOT_FROZEN` if present — not authorized for runs |
+| Phase 1 — Level B protocol | **Complete on `main`** — [`AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md`](./AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md) (`DESIGN`) |
+| Phase 2 — Model matrix | **In progress** — [`AIB_LEVEL_B_MODEL_MATRIX.md`](./AIB_LEVEL_B_MODEL_MATRIX.md) + verifier |
+| Config freeze stub | `DESIGN_NOT_FROZEN` — not authorized for runs |
 | Live execution | **Not authorized** |
 | Level A runs | **Immutable** |
 
-**Next engineering phase:** Phase 2 (multi-model matrix scaffolding) after Phase 1 merge and researcher review of open decisions in the Level B protocol.
+**Next engineering phase:** Phase 3 (realistic harness & D2 trace coverage) after Phase 2 merge and researcher review of open model-matrix decisions (§13).
