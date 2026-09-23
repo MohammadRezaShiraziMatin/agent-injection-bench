@@ -16,6 +16,16 @@ Indirect prompt injection exposes tool-using agents to adversarial content in re
 
 **Out of scope for this evidence:** confirmatory hypothesis tests, population-level efficacy, multi-model benchmarks, adaptive attack campaigns, or Track A/B comparisons (not evidenced in-repo).
 
+### 2.1 Evidence claim level (Level A / B / C)
+
+**Current level: Level A (descriptive).** Level A is defined by evidence **type and quality** (controlled paired design, immutable runs, frozen protocols, scorer-backed descriptive metrics, explicit limitations)—not by sample size alone. The tracked Level A package comprises: (1) **P4.2 primary COV-A** (`p42-primary-d0-d2-20260921T173736Z-controlled`; §10); and (2) **P3-EXT COV-B** (`p3-cov-b-ext-20260923T112900Z-controlled`; §10.1), a separate descriptive extension that does **not** supersede the primary layer and does **not** automatically advance the project to Level B.
+
+**Allowed at Level A:** sample-level observed ASR, Utility, FPR, and paired transitions; protocol and artifact provenance; **D2 defense integration** and **observed D0/D2 behavior** on the recorded execution path.
+
+**Excluded at Level A:** claims of robust or general defense effectiveness, superiority, state-of-the-art performance, statistical significance, broad generalization, production readiness, or comprehensive security coverage.
+
+**Level B** (future) requires a new pre-specified protocol and fresh immutable runs (e.g., multi-model coverage, richer harness/traces, optional confirmatory design)—see `docs/AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`. **Level C** denotes higher evidence maturity for security-venue preparation, not guaranteed acceptance. Venue positioning is descriptive only (Level A: workshop/findings/artifact-oriented paths; Level B: stronger empirical paths once evidenced; Level C: higher-evidence security-venue preparation).
+
 ## 3. Related Work
 
 **Indirect prompt injection and agent threat models.** Greshake et al. [1] formalize indirect prompt injection against LLM-integrated applications where retrieved data can act as adversarial instructions. Follow-on work studies automated black-box injection frameworks [6] and tool-integrated agent benchmarks [2, 3]. We cite these works only to situate the threat model and evaluation landscape—not to claim our n=9 descriptive run generalizes their findings.
@@ -48,9 +58,9 @@ P4.2 episodes encode interaction types, horizons, and success criteria (S1–S4)
 | Condition | Description |
 |-----------|-------------|
 | **D0** | No defense: middleware passthrough (`D0_no_defense`). |
-| **D2** | **Evaluated defense condition:** AdaptiGuard `CoreDefensePipeline` via AIB bridge; pinned commit `30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64` (`config/adaptiguard_version_pin.v1.json`). |
+| **D2** | **D2 defense integration:** AdaptiGuard `CoreDefensePipeline` via AIB bridge on the recorded execution path; pinned commit `30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64` (`config/adaptiguard_version_pin.v1.json`). |
 
-D2 is reported as an **evaluated mitigation condition**, not as a proven robust or state-of-the-art defense. No D1 condition appears in the primary protocol freeze.
+D2 is reported as **integrated defense execution** with **observed D0/D2 behavior** in paired runs—not as effective, robust, or superior protection. No D1 condition appears in the primary protocol freeze.
 
 ## 8. Experimental Protocol
 
@@ -162,7 +172,7 @@ Offline checks: `pytest -q`; `python scripts/verify_p4_2_freeze.py`; `verify_p4_
 
 ## 14. Conclusion
 
-AIB provides a frozen, controlled paired **descriptive** benchmark with immutable primary live evidence on COV-A (n=9+9). Reported metrics are sample observations for one model configuration; they do not prove defense effectiveness, statistical improvement, or broad generalization. Future work requires separately authorized experiments (larger n, multi-model, confirmatory design).
+AIB’s current evidence is at **Level A**: controlled paired **descriptive** evaluation with immutable artifacts for P4.2 primary COV-A (n=9+9) and the separate P3-EXT COV-B extension (§10.1). Reported metrics are sample observations for specified target–judge configurations; they do not establish confirmatory effectiveness, superiority, or broad generalization. Reaching **Level B** requires a new experimental protocol and fresh immutable runs as documented in `docs/AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`.
 
 ## Tables
 
