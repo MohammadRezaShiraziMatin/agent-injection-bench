@@ -16,7 +16,8 @@
     "p3_extension_freeze": "config/p3_experimental_protocol_freeze.v1.json",
     "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
     "paired_contract": "config/p4_3_paired_eval_contract.v1.json",
-    "adaptiguard_pin": "config/adaptiguard_version_pin.v1.json"
+    "adaptiguard_pin": "config/adaptiguard_version_pin.v1.json",
+    "level_b_model_matrix": "config/level_b_model_matrix.v1.json"
   },
   "researcher_decisions_required_before_freeze": [
     "primary_population_manifest_and_coverage_classes",

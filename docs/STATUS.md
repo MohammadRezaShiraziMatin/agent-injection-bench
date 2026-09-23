@@ -35,8 +35,8 @@ This Desktop tree was **reimplemented from the recovered v0 specification** (clo
 
 | Phase | Focus | Status |
 |-------|--------|--------|
-| 1 | Level B protocol & population design (no execution) | **In progress on `main` via PR** — [`AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md`](AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md) (`DESIGN`) |
-| 2 | Multi-model matrix scaffolding | Not started |
+| 1 | Level B protocol & population design (no execution) | **Complete on `main`** — [`AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md`](AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md) (`DESIGN`) |
+| 2 | Multi-model matrix scaffolding | **In progress** — [`AIB_LEVEL_B_MODEL_MATRIX.md`](AIB_LEVEL_B_MODEL_MATRIX.md) (`DESIGN` / `NOT_AUTHORIZED`) |
 | 3 | Realistic harness & D2 trace coverage | Not started |
 | 4 | Fresh immutable Level B live runs | Not authorized |
 
