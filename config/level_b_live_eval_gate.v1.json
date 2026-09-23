@@ -1,9 +1,10 @@
 {
   "gate_id": "aib-level-b-live-eval-gate-v1",
   "evidence_level": "Level B",
-  "program_phase": "Q1_STRENGTHENING_PHASE_4_PRELIVE",
+  "program_phase": "Q1_STRENGTHENING_PHASE_4_DESCRIPTIVE_LIVE",
   "protocol_doc": "docs/AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md",
   "prelive_doc": "docs/AIB_LEVEL_B_PHASE4_PRELIVE.md",
+  "live_runbook": "docs/AIB_LEVEL_B_LIVE_RUN.md",
   "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
   "paired_contract": "config/p4_3_paired_eval_contract.v1.json",
   "protocol_freeze_artifact": "config/level_b_protocol_freeze.v1.json",
@@ -16,7 +17,7 @@
     "allow_fallbacks_required": false,
     "provider_routing_must_be_explicit": true,
     "require_distinct_target_judge": true,
-    "live_calls_allowed_in_this_gate": false
+    "live_calls_allowed_in_this_gate": true
   },
   "target_models": {
     "primary_inherits_level_a": {
@@ -47,7 +48,7 @@
   },
   "preflight": {
     "dry_run_required_before_live": true,
-    "live_inference_allowed": false,
+    "live_inference_allowed": true,
     "live_approval_artifact": "artifacts/level_b_phase4_execution_approval.json",
     "required_env_flags_for_live": [
       "AIB_LEVEL_B_LIVE_EXECUTION=1",
@@ -55,7 +56,8 @@
     ],
     "required_approval_statuses_for_live": ["EXPLICIT", "AUTHORIZED"],
     "required_manifest_status_for_live": "FROZEN",
-    "required_protocol_freeze_status_for_live": "FROZEN"
+    "required_protocol_freeze_status_for_live": "FROZEN",
+    "required_protocol_claim_class_for_live": "DESCRIPTIVE_ONLY"
   },
   "generation": {
     "temperature": 0,
@@ -63,8 +65,8 @@
     "seed_policy": "record_and_honor_if_provider_supports"
   },
   "explicit_non_claims": [
-    "This gate does not authorize live inference while live_inference_allowed is false",
-    "Phase 4 prelive lock/freeze does not produce Level B evidence",
-    "Population manifest FROZEN and second target LOCKED are prerequisites only—not execution authorization"
+    "Live inference is authorized only for descriptive Level B paired runs under explicit operator approval",
+    "Confirmatory SAP-powered claims remain out of scope until separate freeze artifacts exist",
+    "Fresh immutable run IDs under results/level_b_paired/ are required before Level B evidence claims"
   ]
 }

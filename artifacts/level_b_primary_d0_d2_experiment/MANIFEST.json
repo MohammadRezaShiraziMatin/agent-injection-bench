@@ -314,6 +314,6 @@
   "explicit_non_claims": [
     "FROZEN population list only \u2014 not Level B scored evidence until fresh immutable run IDs exist",
     "Does not supersede immutable Level A runs",
-    "live_execution false until operator approval chain and gate enablement"
+    "live_execution remains false in manifest; operator sets AIB_LEVEL_B_LIVE_EXECUTION=1 at runtime per docs/AIB_LEVEL_B_LIVE_RUN.md"
   ]
 }

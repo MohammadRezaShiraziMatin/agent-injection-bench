@@ -15,6 +15,9 @@ P42_ELIGIBILITY_PATH = ROOT / "artifacts" / "p4_2_coverage_eligibility" / "ELIGI
 P42_PAIRED_OUT_BASE = ROOT / "results" / "p4_2_paired"
 P3_PAIRED_OUT_BASE = ROOT / "results" / "p3_paired"
 P3_COV_B_EXTENSION_MANIFEST = ROOT / "artifacts" / "p3_cov_b_extension" / "MANIFEST.json"
+LEVEL_B_PRIMARY_MANIFEST = ROOT / "artifacts" / "level_b_primary_d0_d2_experiment" / "MANIFEST.json"
+LEVEL_B_PAIRED_OUT_BASE = ROOT / "results" / "level_b_paired"
+LEVEL_B_MODEL_MATRIX = ROOT / "config" / "level_b_model_matrix.v1.json"
 P42_FROZEN_DIGEST = "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee"
 
 
@@ -138,6 +141,63 @@ def load_p42_primary_run_config() -> dict[str, Any]:
         "protocol_version": "P4.2-PRIMARY-PAIRED-1",
         "utility_fpr_benign_scope": benign_scope,
     }
+
+
+def load_level_b_primary_run_config() -> dict[str, Any]:
+    """Frozen Level B expanded COV-A population (23+23) from Phase 4 manifest."""
+    if not LEVEL_B_PRIMARY_MANIFEST.is_file():
+        raise FileNotFoundError(LEVEL_B_PRIMARY_MANIFEST)
+    design = json.loads(LEVEL_B_PRIMARY_MANIFEST.read_text(encoding="utf-8"))
+    if design.get("status") != "FROZEN":
+        raise ValueError("Level B population manifest must be FROZEN")
+    pool = design["primary_attack_pool"]
+    primary_attack_ids = sorted(pool.get("attack_episode_ids") or [])
+    utility_fpr_benign_ids = sorted(pool.get("benign_episode_ids") or [])
+    if len(primary_attack_ids) != len(utility_fpr_benign_ids):
+        raise ValueError("Level B attack/benign pool sizes must match")
+    digest = design["dataset"]["digest_sha256"]
+    if digest != P42_FROZEN_DIGEST:
+        raise ValueError("P4.2 digest mismatch in Level B manifest")
+    coverage_map: dict[str, dict[str, str]] = {}
+    for row in pool.get("episodes") or []:
+        eid = row.get("episode_id")
+        if eid in primary_attack_ids:
+            coverage_map[eid] = {
+                "coverage_class": row.get("coverage_class", "COV-A"),
+                "eligibility": row.get("eligibility", "PRIMARY_ELIGIBLE"),
+            }
+    for eid in primary_attack_ids:
+        if eid not in coverage_map:
+            coverage_map[eid] = {"coverage_class": "COV-A", "eligibility": "PRIMARY_ELIGIBLE"}
+    episode_ids = sorted(primary_attack_ids) + utility_fpr_benign_ids
+    return {
+        "dataset_root": P42_ROOT,
+        "dataset_version": "P4.2",
+        "dataset_digest": digest,
+        "episode_ids": episode_ids,
+        "primary_attack_ids": primary_attack_ids,
+        "utility_fpr_benign_episode_ids": utility_fpr_benign_ids,
+        "out_base": LEVEL_B_PAIRED_OUT_BASE,
+        "design_manifest": str(LEVEL_B_PRIMARY_MANIFEST.relative_to(ROOT)),
+        "coverage_by_episode": coverage_map,
+        "protocol_version": "LEVEL-B-PRIMARY-PAIRED-1",
+        "utility_fpr_benign_scope": {
+            "benign_episode_ids": utility_fpr_benign_ids,
+            "scope_note": "pair-matched benign controls for Level B frozen population",
+        },
+        "population_label": design.get("population_label"),
+    }
+
+
+def load_level_b_matrix_target_row(row_id: str) -> dict[str, Any]:
+    """Resolve a Level B matrix target row for OpenRouter env wiring."""
+    if not LEVEL_B_MODEL_MATRIX.is_file():
+        raise FileNotFoundError(LEVEL_B_MODEL_MATRIX)
+    matrix = json.loads(LEVEL_B_MODEL_MATRIX.read_text(encoding="utf-8"))
+    for row in matrix.get("rows") or []:
+        if row.get("row_id") == row_id and row.get("role") == "target":
+            return row
+    raise KeyError(f"matrix target row not found: {row_id}")
 
 
 def load_p3_cov_b_extension_run_config() -> dict[str, Any]:

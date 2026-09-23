@@ -1,20 +1,17 @@
 {
-  "authorization": "NOT_AUTHORIZED",
-  "content_fingerprint_sha256": "b39a941c648dd840e3046c9af67eebc4b150f730b86b6480a2cc2bda9b647359",
+  "authorization": "AUTHORIZED_FOR_DESCRIPTIVE_LIVE",
+  "content_fingerprint_sha256": "3e6417b985310432ebe57cb89d11e402a093ba6c0933609fe19489e21ee93312",
   "explicit_non_claims": [
     "This matrix does not establish cross-model ASR or generalization",
-    "LOCKED rows are design locks only until live execution approval and fresh run IDs",
-    "Phase 4 prelive lock/freeze is not Level B evidence"
+    "LOCKED rows enable descriptive live runs only under explicit approval and fresh run IDs",
+    "Confirmatory claims require separate SAP lock artifacts"
   ],
   "level_a_gate_read_only": "config/p4_3_live_eval_gate.v1.json",
   "matrix_id": "aib-level-b-model-matrix-v1",
   "model_matrix_doc": "docs/AIB_LEVEL_B_MODEL_MATRIX.md",
-  "program_phase": "Q1_STRENGTHENING_PHASE_4_PRELIVE",
+  "program_phase": "Q1_STRENGTHENING_PHASE_4_DESCRIPTIVE_LIVE",
   "protocol_doc": "docs/AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md",
-  "researcher_decisions_required_before_lock": [
-    "multiplicity_estimand_if_confirmatory",
-    "execution_authorization_artifacts"
-  ],
+  "researcher_decisions_required_before_lock": [],
   "rows": [
     {
       "cache_policy": "off_for_completions_record_in_manifest",
@@ -22,7 +19,7 @@
       "lock_status": "INHERITS_LEVEL_A",
       "max_tokens": 4096,
       "model_id": "openai/gpt-4o-mini-2024-07-18",
-      "notes": "Same target as P4.2 primary / P4.3 live gate. Level B matrix row is scaffolding only until researcher lock.",
+      "notes": "Same target as P4.2 primary / P4.3 live gate. Level B matrix row for descriptive live under operator approval.",
       "provider": "openrouter",
       "role": "target",
       "routing_notes": "Provider order frozen in Level A gate; OPENROUTER_ALLOW_FALLBACKS=false",
@@ -36,7 +33,7 @@
       "lock_status": "LOCKED",
       "max_tokens": 4096,
       "model_id": "google/gemini-2.5-flash",
-      "notes": "Second Level B target family locked at Phase 4 prelive (google/gemini-2.5-flash). Catalog fingerprint in level_b_openrouter_model_lock_evidence.json. Matrix authorization remains NOT_AUTHORIZED until live execution approval.",
+      "notes": "Second Level B target family locked (google/gemini-2.5-flash). Descriptive live authorized via artifacts/level_b_phase4_execution_approval.json.",
       "provider": "openrouter",
       "role": "target",
       "routing_notes": {
@@ -58,7 +55,7 @@
       "notes": "Inherits Level A judge lock; not a second target family.",
       "provider": "openrouter",
       "role": "judge",
-      "routing_notes": "Single operational judge across matrix unless pre-registered ablation (Level B protocol \u00a713)",
+      "routing_notes": "Single operational judge across matrix unless pre-registered ablation (Level B protocol §13)",
       "row_id": "judge-level-a-primary",
       "temperature": 0
     }

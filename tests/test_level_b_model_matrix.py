@@ -23,7 +23,7 @@ def test_verify_level_b_model_matrix_passes_offline():
     data = json.loads(proc.stdout)
     assert data["MATRIX_VERIFY_STATUS"] == "PASS"
     assert data["status"] == "DESIGN"
-    assert data["live_execution_authorized"] is False
+    assert data["live_execution_authorized"] is True
     assert data["target_families_non_candidate"] == ["google_gemini_flash", "openai_gpt4o_mini"]
 
 
@@ -49,7 +49,8 @@ def test_protocol_freeze_points_at_matrix():
     freeze = json.loads(
         (ROOT / "config" / "level_b_protocol_freeze.v1.json").read_text(encoding="utf-8")
     )
-    assert freeze.get("status") == "DESIGN_NOT_FROZEN"
+    assert freeze.get("status") == "FROZEN"
+    assert freeze.get("claim_class") == "DESCRIPTIVE_ONLY"
     assert (
         freeze.get("inherits_read_only", {}).get("level_b_model_matrix")
         == "config/level_b_model_matrix.v1.json"

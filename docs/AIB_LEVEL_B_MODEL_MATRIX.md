@@ -1,7 +1,7 @@
 # Level B model matrix (Phase 2 scaffolding → Phase 4 prelive lock)
 
 **Document ID:** `aib-level-b-model-matrix-v1`  
-**Status:** **DESIGN / NOT_AUTHORIZED** — second target **LOCKED** at prelive; live execution still blocked  
+**Status:** **DESIGN / AUTHORIZED_FOR_DESCRIPTIVE_LIVE** — second target **LOCKED**; desktop live authorized (evidence pending run IDs)  
 **Config:** [`../config/level_b_model_matrix.v1.json`](../config/level_b_model_matrix.v1.json)
 
 This document describes the Level B multi-model matrix on the Q1 strengthening path ([`AIB_Q1_STRENGTHENING_4PHASE.md`](./AIB_Q1_STRENGTHENING_4PHASE.md)). Phase 4 **prelive** locks the second target family (`google/gemini-2.5-flash`) with OpenRouter catalog evidence. That lock does **not** authorize live runs, does **not** add Level B evidence under `results/`, and does **not** support cross-model ASR or generalization claims until fresh immutable run IDs exist.
@@ -27,7 +27,7 @@ The matrix implements Level B protocol [§13 Model matrix](./AIB_LEVEL_B_EXPERIM
 - Matrix rows marked `INHERITS_LEVEL_A` must match that gate’s `exact_model_id` values; the offline verifier enforces this.
 - Level A result bundles (`p42-primary-d0-d2-20260921T173736Z-controlled`, `p3-cov-b-ext-20260923T112900Z-controlled`) stay **immutable**.
 
-[`config/level_b_protocol_freeze.v1.json`](../config/level_b_protocol_freeze.v1.json) references this matrix read-only while protocol status remains `DESIGN_NOT_FROZEN` (confirmatory SAP not locked).
+[`config/level_b_protocol_freeze.v1.json`](../config/level_b_protocol_freeze.v1.json) is **`FROZEN`** with **`DESCRIPTIVE_ONLY`** claim class (confirmatory SAP remains out of scope).
 
 ---
 

@@ -1,11 +1,25 @@
 {
-  "approval_id": "level-b-phase4-paired-d0-d2-prelive-v1",
-  "status": "KEY_RECEIVED_PENDING_AUTH",
-  "authorized": false,
-  "approver": null,
-  "approved_at": null,
-  "git_commit_at_authorization": null,
-  "note": "OpenRouter API key supplied out-of-band to the operator environment only (never committed). Live inference remains blocked: authorized false, gate live_inference_allowed false, and human operator sign-off fields below are still empty. Lock/freeze prep (second target LOCKED, population FROZEN) does not flip live execution.",
+  "approval_id": "level-b-phase4-paired-d0-d2-descriptive-live-v1",
+  "status": "EXPLICIT",
+  "authorized": true,
+  "approver": "Matin",
+  "operator_display_name": "متین",
+  "approved_at": "2026-09-23T16:45:00+00:00",
+  "approved_at_utc": "2026-09-23T16:45:00+00:00",
+  "git_commit_at_authorization": "5e4f977da8a82548bbac6481fb08843843559b1b",
+  "git_commit_pin_note": "Pinned at authorization to main tip at sign-off. Operator (Matin) must re-pin git_commit_at_authorization to the merge commit SHA after this PR lands if the branch tip moves.",
+  "note": "Explicit human authorization for descriptive Level B live execution only (fail-open for gates after complete chain). OpenRouter API key present on Matin desktop .env (out-of-band); cloud agent never saw the key value. Not confirmatory; no SAP-powered Q1 generalization claims.",
+  "claim_scope": {
+    "level": "Level B",
+    "class": "DESCRIPTIVE_ONLY",
+    "confirmatory_sap": "OUT_OF_SCOPE",
+    "forbidden_without_separate_evidence": [
+      "confirmatory hypothesis tests",
+      "SAP-powered Q1 generalization",
+      "cross-model ASR generalization",
+      "efficacy or superiority claims"
+    ]
+  },
   "preconditions": [
     "LEVEL_B_PROTOCOL_FREEZE_PASS",
     "LEVEL_B_MODEL_MATRIX_LOCKED",
@@ -30,11 +44,28 @@
       "OPENROUTER_API_KEY"
     ]
   },
+  "authorization_record": {
+    "operator": "Matin",
+    "approved_at_utc": "2026-09-23T16:45:00+00:00",
+    "model_matrix_lock_ref": "config/level_b_model_matrix.v1.json",
+    "population_manifest_path": "artifacts/level_b_primary_d0_d2_experiment/MANIFEST.json",
+    "population_manifest_status": "FROZEN",
+    "draft_list_content_sha256": "431fd791ce8f2f563da710fc699ab06326287a616c9667c057a4470e19e6d894",
+    "dataset_manifest_hash": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+    "adaptiguard_pin": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
+    "live_gate_ref": "config/level_b_live_eval_gate.v1.json",
+    "env_flags": [
+      "AIB_LEVEL_B_LIVE_EXECUTION=1",
+      "OPENROUTER_API_KEY"
+    ]
+  },
   "scope": {
     "population_label": "LEVEL_B_FROZEN_EXPANDED_COV_A",
     "population_manifest_status": "FROZEN",
     "draft_population_manifest": "artifacts/level_b_primary_d0_d2_experiment/MANIFEST.json",
     "draft_list_content_sha256": "431fd791ce8f2f563da710fc699ab06326287a616c9667c057a4470e19e6d894",
+    "dataset_manifest_hash": "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee",
+    "adaptiguard_pin": "30ddc756a07e3eae1f9afd5a3e9b9c68a7017f64",
     "candidate_attack_count": 23,
     "candidate_benign_count": 23,
     "conditions": ["D0", "D2"],
@@ -44,7 +75,8 @@
     "pairing": "episode.pair_id per config/p4_3_paired_eval_contract.v1.json",
     "metrics_contract": "config/p4_3_evaluation_metrics.v1.json",
     "paired_contract": "config/p4_3_paired_eval_contract.v1.json",
-    "harness_contract": "config/level_b_harness_contract.v1.json"
+    "harness_contract": "config/level_b_harness_contract.v1.json",
+    "claim_class": "DESCRIPTIVE_ONLY"
   },
   "excludes": {
     "immutable_level_a_runs": [

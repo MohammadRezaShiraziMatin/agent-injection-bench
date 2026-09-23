@@ -150,8 +150,13 @@ def verify_level_b_model_matrix(
             issues.append(
                 "level_b_protocol_freeze inherits_read_only.level_b_model_matrix mismatch"
             )
-        if (freeze.get("status") or "").upper() in {"FROZEN", "LOCKED"}:
-            issues.append("protocol freeze must remain DESIGN_NOT_FROZEN in Phase 2")
+        freeze_status = (freeze.get("status") or "").upper()
+        if freeze_status in {"FROZEN", "LOCKED"}:
+            claim = (freeze.get("claim_class") or freeze.get("statistics") or "").upper()
+            if claim != "DESCRIPTIVE_ONLY":
+                issues.append("protocol freeze FROZEN requires claim_class/statistics DESCRIPTIVE_ONLY")
+        elif freeze_status not in {"DESIGN_NOT_FROZEN", ""}:
+            issues.append(f"unexpected protocol freeze status: {freeze.get('status')!r}")
 
     if LEVEL_B_GATE_PATH.is_file():
         lb_gate = json.loads(LEVEL_B_GATE_PATH.read_text(encoding="utf-8"))
@@ -194,7 +199,12 @@ def verify_level_b_model_matrix(
         "n_rows": len(rows),
         "target_families_non_candidate": sorted(target_families),
         "content_fingerprint_sha256": computed,
-        "live_execution_authorized": False,
+        "live_execution_authorized": (
+            str(authorization or "").upper() == "AUTHORIZED_FOR_DESCRIPTIVE_LIVE"
+            and protocol_freeze_path.is_file()
+            and (json.loads(protocol_freeze_path.read_text(encoding="utf-8")).get("status") or "").upper()
+            == "FROZEN"
+        ),
     }
 
 

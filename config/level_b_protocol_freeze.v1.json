@@ -1,7 +1,11 @@
 {
   "freeze_id": "aib-level-b-protocol-freeze-v1",
-  "status": "DESIGN_NOT_FROZEN",
-  "authorization": "NOT_AUTHORIZED_FOR_EXECUTION",
+  "status": "FROZEN",
+  "claim_class": "DESCRIPTIVE_ONLY",
+  "statistics": "DESCRIPTIVE_ONLY",
+  "formal_hypothesis_testing": "DEFERRED",
+  "authorization": "AUTHORIZED_FOR_DESCRIPTIVE_LIVE",
+  "frozen_at": "2026-09-23T16:45:00+00:00",
   "protocol_doc": "docs/AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md",
   "program_roadmap": "docs/AIB_Q1_STRENGTHENING_4PHASE.md",
   "gap_plan": "docs/AIB_P2_Q1_EVIDENCE_GAP_PLAN.md",
@@ -23,15 +27,18 @@
     "level_b_phase4_execution_approval": "artifacts/level_b_phase4_execution_approval.json",
     "level_b_draft_population_manifest": "artifacts/level_b_primary_d0_d2_experiment/MANIFEST.json"
   },
-  "researcher_decisions_required_before_freeze": [
-    "confirmatory_sap_and_sample_size_if_applicable",
-    "execution_authorization_artifacts"
-  ],
-  "notes": "DESIGN_NOT_FROZEN retained for honesty: confirmatory SAP and execution authorization are not locked. Phase 4 prelive may freeze population manifest and model matrix rows without setting this artifact to FROZEN. Descriptive Level B runs may proceed under frozen population and locked matrix only after separate live approval; confirmatory claims still require SAP LOCK documented in the protocol doc.",
+  "confirmatory_out_of_scope": {
+    "sap_lock": "not locked — confirmatory claims require docs/AIB_LEVEL_B_SAP.v1.md (future) and separate authorization",
+    "sample_size_power_memo": "not locked for confirmatory path",
+    "note": "This freeze authorizes descriptive Level B live execution only; it does not enable confirmatory inference."
+  },
+  "researcher_decisions_required_before_freeze": [],
+  "notes": "FROZEN for descriptive Level B live path: population manifest FROZEN, model matrix second target LOCKED, explicit operator approval recorded. Confirmatory SAP remains out of scope.",
   "prelive_lock_freeze_completed": {
     "population_manifest": "artifacts/level_b_primary_d0_d2_experiment/MANIFEST.json",
     "population_status": "FROZEN",
     "model_matrix_second_target": "google/gemini-2.5-flash LOCKED in config/level_b_model_matrix.v1.json",
-    "does_not_authorize_live": true
+    "descriptive_live_authorized": true,
+    "execution_approval": "artifacts/level_b_phase4_execution_approval.json"
   }
 }
