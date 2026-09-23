@@ -1,5 +1,8 @@
 # agent-injection-bench
 
+[![Research CI](https://github.com/MohammadRezaShiraziMatin/agent-injection-bench/actions/workflows/research-ci.yml/badge.svg)](https://github.com/MohammadRezaShiraziMatin/agent-injection-bench/actions/workflows/research-ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 **Research release (main):** **Level A** evidence — controlled paired **descriptive** evaluation with immutable run artifacts, frozen protocols, and offline CI.
 
 | Layer | Run | Population |
