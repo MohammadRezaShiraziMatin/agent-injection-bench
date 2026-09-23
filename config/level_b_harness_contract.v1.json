@@ -1,0 +1,38 @@
+{
+  "contract_id": "aib-level-b-harness-contract-v1",
+  "status": "DESIGN_NOT_FROZEN",
+  "authorization": "NOT_AUTHORIZED_FOR_EXECUTION",
+  "protocol_doc": "docs/AIB_LEVEL_B_HARNESS_PHASE3.md",
+  "trace_schema_version": "aib-harness-trace-v1-phase3",
+  "paired_eval_contract": "config/p4_3_paired_eval_contract.v1.json",
+  "inherits_read_only": {
+    "level_b_protocol": "config/level_b_protocol_freeze.v1.json",
+    "level_b_model_matrix": "config/level_b_model_matrix.v1.json"
+  },
+  "hook_points": {
+    "pre_target": {
+      "tool_step_index": -1,
+      "required_for_d2_trace": true
+    },
+    "pre_tool_call": {
+      "tool_step_index_min": 1,
+      "required_for_d2_live_loop": true
+    },
+    "post_tool_call": {
+      "status": "DEFERRED",
+      "note": "AdaptiGuard tool-loop re-guard not wired"
+    }
+  },
+  "tool_surface": {
+    "search_docs": "mock_offline_deterministic",
+    "send_email": "sandbox_log_privileged"
+  },
+  "immutable_level_a_runs": [
+    "p42-primary-d0-d2-20260921T173736Z-controlled",
+    "p3-cov-b-ext-20260923T112900Z-controlled"
+  ],
+  "notes": [
+    "Phase 3 scaffolding only — no new Level B run IDs",
+    "defense_event in paired scoring remains pre_target hook"
+  ]
+}

@@ -1,7 +1,7 @@
 # Q1 Strengthening — Four-Phase Program (Planning)
 
 **Document ID:** `aib-q1-strengthening-4phase-v1`  
-**Status:** **Phase 2 in progress (matrix scaffolding)** — no execution authorized by this document  
+**Status:** **Phase 3 complete (harness scaffolding on `main` branch work)** — no execution authorized by this document  
 **Current evidence level on `main`:** **Level A only** (descriptive paired runs; not Q1-ready)
 
 **Honest baseline (do not relabel):**
@@ -101,12 +101,26 @@ Research CI invokes the same script when present (`.github/workflows/research-ci
 
 **Scope:** Controlled tool sandbox (beyond offline mocks where the protocol specifies), per-step defense traces, and D2 integration coverage aligned with [`ADAPTI_GUARD_BRIDGE.md`](./ADAPTI_GUARD_BRIDGE.md) — while **keeping the paired scoring contract** (`config/p4_3_paired_eval_contract.v1.json`, `scripts/score_p4_3_paired_metrics.py`).
 
+**Deliverables (Phase 3):**
+
+- [`AIB_LEVEL_B_HARNESS_PHASE3.md`](./AIB_LEVEL_B_HARNESS_PHASE3.md) — loop, mock vs sandbox realism, hook map, deferred gaps
+- [`../config/level_b_harness_contract.v1.json`](../config/level_b_harness_contract.v1.json) (`DESIGN_NOT_FROZEN`)
+- Tool sandbox [`../tools/tool_sandbox.py`](../tools/tool_sandbox.py) + D2 hook trace [`../agent/defense/hook_trace.py`](../agent/defense/hook_trace.py)
+- Offline tests [`../tests/test_level_b_harness_phase3.py`](../tests/test_level_b_harness_phase3.py) + [`../scripts/verify_level_b_harness_phase3.py`](../scripts/verify_level_b_harness_phase3.py)
+
+**Run verifier (offline, no API):**
+
+```bash
+python3 scripts/verify_level_b_harness_phase3.py
+pytest tests/test_level_b_harness_phase3.py -q
+```
+
 **Exit criteria:**
 
-- [ ] Harness adapter coverage documented (episode classes, tool paths, trace fields required for judgment)
-- [ ] D2 hook invocation traceable on approved execution paths in **test/sandbox** settings
-- [ ] Gap list vs Level B protocol § harness requirements closed or explicitly deferred with researcher sign-off
-- [ ] Still no Level B run IDs promoted to evidence without Phase 4
+- [x] Harness adapter coverage documented (episode classes, tool paths, trace fields required for judgment)
+- [x] D2 hook invocation traceable on approved execution paths in **test/sandbox** settings
+- [x] Gap list vs Level B protocol § harness requirements closed or explicitly deferred with researcher sign-off
+- [x] Still no Level B run IDs promoted to evidence without Phase 4
 
 **Explicit non-claims after Phase 3:**
 
@@ -152,9 +166,10 @@ Allowed throughout: honest Level A citations with run IDs, protocol design statu
 |------|--------|
 | Four-phase plan | **This document** |
 | Phase 1 — Level B protocol | **Complete on `main`** — [`AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md`](./AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md) (`DESIGN`) |
-| Phase 2 — Model matrix | **In progress** — [`AIB_LEVEL_B_MODEL_MATRIX.md`](./AIB_LEVEL_B_MODEL_MATRIX.md) + verifier |
+| Phase 2 — Model matrix | **Complete on `main`** — [`AIB_LEVEL_B_MODEL_MATRIX.md`](./AIB_LEVEL_B_MODEL_MATRIX.md) + verifier |
+| Phase 3 — Realistic harness & D2 traces | **Complete (scaffolding)** — [`AIB_LEVEL_B_HARNESS_PHASE3.md`](./AIB_LEVEL_B_HARNESS_PHASE3.md) |
 | Config freeze stub | `DESIGN_NOT_FROZEN` — not authorized for runs |
 | Live execution | **Not authorized** |
 | Level A runs | **Immutable** |
 
-**Next engineering phase:** Phase 3 (realistic harness & D2 trace coverage) after Phase 2 merge and researcher review of open model-matrix decisions (§13).
+**Next engineering phase:** Phase 4 (fresh immutable Level B live evidence) — **not authorized** until protocol freeze + execution approval.

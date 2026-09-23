@@ -11,6 +11,7 @@ from agent.harness_meta import (
 )
 from agent.tools import call_tool
 from tools.execution_recorder import clear_recorder, get_recorder
+from tools.tool_sandbox import reset_sandbox
 
 AgentHandler = Callable[[str, dict[str, Any]], dict[str, Any]]
 
@@ -62,6 +63,7 @@ def run_minimal_multi_agent(
     """
     ctx = context or {}
     clear_recorder()
+    reset_sandbox()
     handler = agent_b_handler or default_agent_b_handler
     sender = AgentIdentity(agent_id="agent_a", role="initiator")
     receiver = AgentIdentity(agent_id="agent_b", role="executor")

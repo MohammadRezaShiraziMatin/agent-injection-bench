@@ -59,9 +59,21 @@ PASS requires: import, commit pin, smoke invocation, D0 bypass, D2 routing with 
 
 Live paired benchmark remains gated separately (`live_d2_inference_allowed=false` in `config/p4_3_d2_eval_gate.v1.json`).
 
+## Hook coverage (Phase 3 scaffolding)
+
+Level B trace fields (`trace_schema_version`, `hook_coverage_map`, `tool_step_index`) are recorded in `harness_execution` via [`agent/defense/hook_trace.py`](../agent/defense/hook_trace.py). See [`AIB_LEVEL_B_HARNESS_PHASE3.md`](./AIB_LEVEL_B_HARNESS_PHASE3.md).
+
+| Hook | AdaptiGuard path | Status |
+|------|------------------|--------|
+| `pre_target` | `apply_defense` → bridge | **Wired** |
+| `pre_tool_call` | `apply_defense_at_hook` → bridge (or offline `sandbox_double`) | **Scaffold** |
+| `post_tool_call` | — | **Deferred** |
+
+Paired scoring still uses top-level **`defense_event` at pre_target** only.
+
 ## Known limitations
 
-- Pre-target hook only (first messages before target LLM); tool-loop re-guard not wired yet.
+- Full tool-loop re-guard (`post_tool_call`) not wired yet.
 - `send_email` is privileged in AdaptiGuard `PRIVILEGED_TOOLS`; AIB tool names must stay stable for scoring.
 - Phase-1 core pipeline is offline (regex detector); no target/judge API in integration smoke tests.
 

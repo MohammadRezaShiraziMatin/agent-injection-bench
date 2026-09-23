@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 import time
+from dataclasses import replace
 from typing import Any
 
 from agent.defense.adaptiguard_bridge import apply_adaptiguard, integration_status
+from agent.defense.hook_trace import HOOK_PRE_TARGET
+from agent.defense.sandbox_double import sandbox_defense_passthrough
 from agent.defense.types import DefenseAction, DefenseCondition, DefenseApplyResult, DefenseEvent
 
 
@@ -71,3 +74,56 @@ def apply_defense(
         raise RuntimeError(f"D2 AdaptiGuard not integrated: {status.get('reason')}")
 
     return apply_adaptiguard(episode=episode, messages=messages, dry_run=dry_run, t0=t0)
+
+
+def _with_hook_metadata(event: DefenseEvent, hook_point: str, tool_step_index: int) -> DefenseEvent:
+    extra = dict(event.extra)
+    extra["hook_point"] = hook_point
+    extra["tool_step_index"] = tool_step_index
+    return replace(event, extra=extra)
+
+
+def apply_defense_at_hook(
+    *,
+    condition: DefenseCondition,
+    episode: dict[str, Any],
+    messages: list[dict[str, Any]],
+    hook_point: str,
+    tool_step_index: int,
+    dry_run: bool = False,
+    allow_sandbox_double: bool = True,
+) -> DefenseApplyResult:
+    """Defense at a named harness hook (pre_target or pre_tool_call)."""
+    if condition == DefenseCondition.D0:
+        t0 = time.perf_counter()
+        ms = int((time.perf_counter() - t0) * 1000)
+        return DefenseApplyResult(
+            messages=messages,
+            event=_with_hook_metadata(_d0_event(ms), hook_point, tool_step_index),
+            skip_target_model=False,
+        )
+
+    if hook_point == HOOK_PRE_TARGET:
+        result = apply_defense(
+            condition=condition,
+            episode=episode,
+            messages=messages,
+            dry_run=dry_run,
+        )
+    elif integration_status().get("integrated"):
+        result = apply_adaptiguard(episode=episode, messages=messages, dry_run=dry_run, t0=time.perf_counter())
+    elif allow_sandbox_double:
+        result = sandbox_defense_passthrough(
+            messages=messages,
+            hook_point=hook_point,
+            tool_step_index=tool_step_index,
+        )
+    else:
+        result = apply_defense(condition=condition, episode=episode, messages=messages, dry_run=dry_run)
+
+    return DefenseApplyResult(
+        messages=result.messages,
+        event=_with_hook_metadata(result.event, hook_point, tool_step_index),
+        skip_target_model=result.skip_target_model,
+        synthetic_final_answer=result.synthetic_final_answer,
+    )

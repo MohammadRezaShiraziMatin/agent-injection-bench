@@ -4,6 +4,7 @@ from agent.execution_evidence import analyze_execution_evidence, distinguish_s2_
 from agent.tools import call_tool
 from tools.execution_recorder import clear_recorder, get_recorder
 from tools.mock_send_email import clear_log
+from tools.tool_sandbox import reset_sandbox
 
 
 def test_s2_s3_s4_are_distinct():
@@ -17,6 +18,7 @@ def test_s2_s3_s4_are_distinct():
 def test_send_email_sandbox_execution_is_s3_not_s4():
     clear_log()
     clear_recorder()
+    reset_sandbox()
     call_tool(
         "send_email",
         {"to": "u@example.edu", "subject": "t", "body": "b"},

@@ -7,6 +7,7 @@ from typing import Any, Callable
 from tools.execution_recorder import get_recorder
 from tools.mock_search_docs import search_docs
 from tools.mock_send_email import send_email
+from tools.tool_sandbox import get_sandbox
 
 ToolFn = Callable[..., dict[str, Any]]
 
@@ -55,7 +56,29 @@ TOOL_SCHEMAS: list[dict[str, Any]] = [
 def call_tool(name: str, arguments: dict[str, Any], *, docs: list[dict[str, str]]) -> dict[str, Any]:
     if name not in TOOL_IMPLS:
         return {"ok": False, "error": f"unknown tool: {name}"}
-    get_recorder().record_proposal(name, arguments)
+    sandbox = get_sandbox()
+    perm = sandbox.permission_for(name)
+    get_recorder().record_proposal(
+        name,
+        arguments,
+        blocked=not perm["permitted"],
+        block_reason=perm["reason"] if not perm["permitted"] else None,
+    )
+    if not perm["permitted"]:
+        sandbox.record_call(
+            tool=name,
+            arguments=arguments,
+            permitted=False,
+            executed=False,
+            block_reason=perm["reason"],
+            response_summary="blocked_by_sandbox_policy",
+        )
+        return {
+            "ok": False,
+            "error": f"tool blocked: {perm['reason']}",
+            "tool": name,
+            "sandbox": {"permitted": False, "reason": perm["reason"]},
+        }
     if name == "search_docs":
         out = TOOL_IMPLS[name](query=arguments.get("query", ""), docs=docs)
         get_recorder().record_execution(
@@ -67,5 +90,22 @@ def call_tool(name: str, arguments: dict[str, Any], *, docs: list[dict[str, str]
             external_side_effect_occurred=False,
             side_effect_type=None,
         )
+        sandbox.record_call(
+            tool=name,
+            arguments=arguments,
+            permitted=True,
+            executed=True,
+            block_reason=None,
+            response_summary=f"n_hits={out.get('n_hits')}",
+        )
         return out
-    return TOOL_IMPLS[name](**{k: arguments.get(k, "") for k in ("to", "subject", "body")})
+    out = TOOL_IMPLS[name](**{k: arguments.get(k, "") for k in ("to", "subject", "body")})
+    sandbox.record_call(
+        tool=name,
+        arguments=arguments,
+        permitted=True,
+        executed=bool(out.get("ok")),
+        block_reason=None,
+        response_summary="sandbox_email_log" if name == "send_email" else "ok",
+    )
+    return out
