@@ -14,6 +14,8 @@ P3-EXT does **not** automatically create Level B; larger n alone is not a level 
 
 Start here:
 
+- [`docs/START_HERE.md`](docs/START_HERE.md) — API=0 default, offline verify, claim levels
+- [`docs/CLAIMS_MAP.md`](docs/CLAIMS_MAP.md) — allowed vs forbidden claims (dry-run, Level A/B)
 - `docs/AIB_FINAL_RESEARCH_READINESS.md`
 - `docs/AIB_REPRODUCIBILITY_INDEX.md`
 - `docs/AIB_SCIENTIFIC_INTEGRITY_AUDIT.md`

@@ -71,3 +71,11 @@ Live paired benchmark remains gated separately (`live_d2_inference_allowed=false
 - [x] Real `CoreDefensePipeline` invocation
 - [ ] Full tool-loop defense on each tool step (future)
 - [ ] Paired live D2 after explicit approval artifact
+
+## Integrity rules (cross-run)
+
+- **Episode/schema pin:** do not mutate episode JSON for defense outcomes; bump `schema/episode.schema.json` only with a versioned migration. Keep tool names (`search_docs`, `send_email`) stable for ASR rules.
+- **Side-channel logs:** record defense decisions outside scorer-visible episode files (e.g. `results/audit/<run_id>/` or defense trace trees under paired run bundles) — not by hiding forbidden tool calls unless a frozen protocol defines surrogates.
+- **Paired discipline:** D0/D1/D2 comparisons require the same episode ids and pinned bench commit; live work uses Target≠Judge and cache-off per [LIVE_EVAL_GATE.md](./LIVE_EVAL_GATE.md).
+- **No table blending:** do not merge AdaptiGuard Track A/B or sibling confirmatory numbers into AIB primary tables — see [CLAIMS_MAP.md](./CLAIMS_MAP.md).
+- **Claims:** Level A allows descriptive D0/D2 on recorded runs only; efficacy and Level B require new immutable protocols — [`../paper/RESULTS_EVIDENCE.md`](../paper/RESULTS_EVIDENCE.md).
