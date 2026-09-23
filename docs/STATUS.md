@@ -45,7 +45,7 @@ Phase 4 **DESCRIPTIVE_ONLY** live paired runs (scored with `scripts/score_p4_3_p
 - `level-b-primary-d0-d2-20260923T164727Z-controlled-level_a_primary` — `openai/gpt-4o-mini-2024-07-18` · matrix `target-level-a-primary`
 - `level-b-primary-d0-d2-20260923T165457Z-controlled-candidate_family_b` — `google/gemini-2.5-flash` · matrix `target-candidate-family-b`
 
-Lean scored bundles: [`artifacts/level_b_descriptive_live/`](../artifacts/level_b_descriptive_live/) (full traces remain operator-local under `results/level_b_paired/`). **Claim class remains DESCRIPTIVE_ONLY** — gate authorization ≠ confirmatory inference; no SAP / Q1-ready claim; Level A immutable runs and `data/episodes_*` must not be mutated. Level A remains the cited primary descriptive package for manuscript evidence; Level B pilot runs are a separate layer. Gap context: [`AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`](AIB_P2_Q1_EVIDENCE_GAP_PLAN.md).
+Lean scored bundles: [`artifacts/level_b_descriptive_live/`](../artifacts/level_b_descriptive_live/) (full traces remain operator-local under `results/level_b_paired/`). **Claim class remains DESCRIPTIVE_ONLY** — gate authorization ≠ confirmatory inference; no SAP / Q1-ready claim; Level A immutable runs and `data/episodes_*` must not be mutated. Level A remains the cited primary descriptive package for manuscript evidence; Level B pilot runs are a separate layer. Operator timeline (no traces): [`OPERATOR_HISTORY_LEVEL_B_2026-09-23.md`](OPERATOR_HISTORY_LEVEL_B_2026-09-23.md) · workshop paste-in prose: [`../paper/WORKSHOP_DESCRIPTIVE_LEVEL_B.md`](../paper/WORKSHOP_DESCRIPTIVE_LEVEL_B.md). Gap context: [`AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`](AIB_P2_Q1_EVIDENCE_GAP_PLAN.md).
 
 **v0 harness (optional, separate from Level B):**
 

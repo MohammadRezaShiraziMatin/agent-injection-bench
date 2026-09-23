@@ -50,7 +50,7 @@ Protocol-authorized **descriptive** Level B paired live runs exist as **lean tra
 | `level-b-primary-d0-d2-20260923T164727Z-controlled-level_a_primary` | `openai/gpt-4o-mini-2024-07-18` | `target-level-a-primary` | D0 ASR 1/23, D2 ASR 1/23; D0 Utility 22/22, D2 Utility 23/23; FPR_D2 0/23 |
 | `level-b-primary-d0-d2-20260923T165457Z-controlled-candidate_family_b` | `google/gemini-2.5-flash` | `target-candidate-family-b` | D0 ASR 6/23, D2 ASR 1/23; D0 Utility 23/23, D2 Utility 23/23; FPR_D2 0/23 |
 
-**Claim class:** **DESCRIPTIVE_ONLY** (same exclusions as Level A for confirmatory inference, superiority, generalization, and Q1-ready positioning). Authorization and scored pilot runs **do not** establish confirmatory effectiveness or multi-model generalization. Full run traces are operator-local under `results/level_b_paired/<run_id>/` and are not committed.
+**Claim class:** **DESCRIPTIVE_ONLY** (same exclusions as Level A for confirmatory inference, superiority, generalization, and Q1-ready positioning). Authorization and scored pilot runs **do not** establish confirmatory effectiveness or multi-model generalization. Full run traces are operator-local under `results/level_b_paired/<run_id>/` and are not committed. Draft workshop wording (no new metrics): [`WORKSHOP_DESCRIPTIVE_LEVEL_B.md`](./WORKSHOP_DESCRIPTIVE_LEVEL_B.md).
 
 ### Level B — stronger experimental submission (future beyond descriptive pilot)
 
