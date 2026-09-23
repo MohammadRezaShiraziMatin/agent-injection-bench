@@ -60,7 +60,7 @@ from scripts.verify_d2_live_approval import verify_d2_live_approval  # noqa: E40
 from scripts.verify_p4_2_d2_live_approval import verify_p4_2_d2_live_approval  # noqa: E402
 from scripts.verify_p3_live_execution_approval import verify_p3_live_execution_approval  # noqa: E402
 from scripts.verify_live_approval import verify_live_approval  # noqa: E402
-from scripts.verify_model_lock import verify_model_lock  # noqa: E402
+from scripts.verify_model_lock import verify_level_b_model_lock, verify_model_lock  # noqa: E402
 from scripts.verify_level_b_phase4_prelive_gate import (  # noqa: E402
     MODE_LIVE_AUTHORIZED,
     verify_level_b_phase4_prelive_gate,
@@ -151,9 +151,11 @@ def _live_gates_ok_p3_ext() -> tuple[bool, dict[str, Any]]:
     }
 
 
-def _live_gates_ok_level_b() -> tuple[bool, dict[str, Any]]:
-    lock = verify_model_lock()
-    pre = run_preflight()
+def _live_gates_ok_level_b(*, matrix_row_id: str | None = None) -> tuple[bool, dict[str, Any]]:
+    if not matrix_row_id:
+        return False, {"error": "level_b_matrix_row_id_required"}
+    lock = verify_level_b_model_lock(matrix_row_id)
+    pre = run_preflight(level_b_matrix_row_id=matrix_row_id)
     d2 = verify_d2_integration()
     integrity = _integrity_ok()
     lb_gate = verify_level_b_phase4_prelive_gate()
@@ -203,9 +205,22 @@ def _live_gates_ok_p42_primary() -> tuple[bool, dict[str, Any]]:
     }
 
 
-def _dry_run_gates_ok() -> tuple[bool, dict[str, Any]]:
+def _dry_run_gates_ok(
+    *,
+    level_b: bool = False,
+    matrix_row_id: str | None = None,
+) -> tuple[bool, dict[str, Any]]:
     integrity = _integrity_ok()
-    lock = verify_model_lock()
+    if level_b:
+        if not matrix_row_id:
+            return False, {
+                "integrity": integrity,
+                "error": "level_b_matrix_row_id_required",
+                "mode": "dry_run",
+            }
+        lock = verify_level_b_model_lock(matrix_row_id)
+    else:
+        lock = verify_model_lock()
     ok = bool(integrity.get("ok")) and lock.get("MODEL_LOCK_STATUS") == "LOCKED"
     return ok, {"integrity": integrity, "model_lock": lock, "mode": "dry_run"}
 
@@ -326,6 +341,7 @@ def run_paired(
     p42_primary: bool = False,
     p3_ext: bool = False,
     level_b: bool = False,
+    matrix_row_id: str | None = None,
 ) -> dict[str, Any]:
     t_run = time.time()
     ds_root = dataset_root or P43_ROOT
@@ -352,12 +368,13 @@ def run_paired(
         p42_primary=p42_primary,
         p3_ext=p3_ext,
         level_b=level_b,
+        matrix_row_id=matrix_row_id,
         dataset_root=str(ds_root.relative_to(ROOT)),
         git_commit=_git_head(),
     )
 
     if dry_run:
-        ok, gate_report = _dry_run_gates_ok()
+        ok, gate_report = _dry_run_gates_ok(level_b=level_b, matrix_row_id=matrix_row_id)
         audit.emit(STAGE_PREFLIGHT, status="OK" if ok else "FAIL", gates=sanitize_for_log(gate_report))
         if not ok:
             audit.finalize(
@@ -377,7 +394,7 @@ def run_paired(
             }
     else:
         if level_b:
-            ok, gate_report = _live_gates_ok_level_b()
+            ok, gate_report = _live_gates_ok_level_b(matrix_row_id=matrix_row_id)
         elif p3_ext:
             ok, gate_report = _live_gates_ok_p3_ext()
         elif p42_primary:

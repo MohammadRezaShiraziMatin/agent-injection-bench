@@ -107,6 +107,7 @@ def main() -> int:
             primary_attack_ids=cfg["primary_attack_ids"],
             utility_fpr_benign_episode_ids=cfg["utility_fpr_benign_episode_ids"],
             level_b=True,
+            matrix_row_id=row_id,
         )
         report["matrix_row_id"] = row_id
         report["target_model"] = row.get("model_id")
