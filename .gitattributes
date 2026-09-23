@@ -1,0 +1,5 @@
+# Frozen P4.2 / P4.3 episode bundles: LF in working tree for stable digests (Windows autocrlf).
+data/episodes_p4_2/** text eol=lf
+data/episodes_p4_2/MANIFEST.json text eol=lf
+data/episodes_p4_3/** text eol=lf
+data/episodes_p4_3/MANIFEST.json text eol=lf

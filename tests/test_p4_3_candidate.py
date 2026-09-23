@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from scripts.verify_p4_3_integrity import episodes_p4_2_worktree_clean
+
 ROOT = Path(__file__).resolve().parents[1]
 P42_DIGEST = "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee"
 P43_DIR = ROOT / "data" / "episodes_p4_3"
@@ -37,6 +39,11 @@ def test_p4_3_qc_passes():
     report = json.loads(proc.stdout)
     assert report["ok"] is True
     assert report["n_episodes"] == 8
+
+
+def test_episodes_p4_2_worktree_clean_ignores_autocrlf_stderr():
+    assert episodes_p4_2_worktree_clean("", "warning: LF will be replaced by CRLF in data/episodes_p4_2/foo.json")
+    assert not episodes_p4_2_worktree_clean("diff --git a/data/episodes_p4_2/x b/data/episodes_p4_2/x\n")
 
 
 def test_p4_3_integrity_runner():

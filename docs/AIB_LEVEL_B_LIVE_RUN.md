@@ -21,6 +21,8 @@ python3 scripts/verify_d2_integration.py
 
 Expected gate mode: **`LIVE_AUTHORIZED_DESCRIPTIVE`**, `live_inference_allowed: true`, verifier exit code `0`.
 
+On Windows, if P4.2/P4.3 digest checks fail, ensure episode JSON is checked out with LF (see repo `.gitattributes` `eol=lf`) before live.
+
 Re-pin `git_commit_at_authorization` in `artifacts/level_b_phase4_execution_approval.json` to the merge commit SHA if `main` moved after sign-off.
 
 ---

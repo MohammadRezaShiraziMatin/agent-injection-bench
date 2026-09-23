@@ -13,6 +13,15 @@ P42_DIGEST = "4b2e6f592118cb9c419ed11dd9574125584ebbb325709ae5fc048543a1ba9dee"
 P43_DIR = ROOT / "data" / "episodes_p4_3"
 
 
+def episodes_p4_2_worktree_clean(git_diff_stdout: str, _git_diff_stderr: str = "") -> bool:
+    """True when `git diff -- data/episodes_p4_2` reports no content changes.
+
+    Git on Windows with core.autocrlf may print EOL warnings on stderr even when
+    stdout is empty; those must not fail integrity.
+    """
+    return not git_diff_stdout.strip()
+
+
 def main() -> int:
     p42 = subprocess.run(
         [sys.executable, "scripts/verify_p4_2_freeze.py"],
@@ -49,14 +58,15 @@ def main() -> int:
         and p43.returncode == 0
         and p42_data.get("digest_sha256") == P42_DIGEST
         and p43_data.get("ok")
-        and not (p42_diff.stdout or p42_diff.stderr).strip()
+        and episodes_p4_2_worktree_clean(p42_diff.stdout, p42_diff.stderr)
     )
+    p42_diff_clean = episodes_p4_2_worktree_clean(p42_diff.stdout, p42_diff.stderr)
     report = {
         "ok": ok,
         "p4_2": {
             "digest_sha256": p42_data.get("digest_sha256"),
             "expected_digest": P42_DIGEST,
-            "git_diff_episodes_p4_2_empty": not bool(p42_diff.stdout.strip()),
+            "git_diff_episodes_p4_2_empty": p42_diff_clean,
         },
         "p4_3": {
             "digest_sha256": p43_digest,
