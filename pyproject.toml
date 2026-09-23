@@ -22,7 +22,7 @@ dev = [
   "jsonschema>=4.20",
 ]
 figures = [
-  "matplotlib>=3.8",
+  "matplotlib>=3.10.9",
 ]
 
 [tool.setuptools.packages.find]
