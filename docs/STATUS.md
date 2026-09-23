@@ -31,6 +31,19 @@ This Desktop tree was **reimplemented from the recovered v0 specification** (clo
 
 ## Next
 
+**Q1 strengthening (Level B path):** Four-phase program — [`AIB_Q1_STRENGTHENING_4PHASE.md`](AIB_Q1_STRENGTHENING_4PHASE.md).
+
+| Phase | Focus | Status |
+|-------|--------|--------|
+| 1 | Level B protocol & population design (no execution) | **In progress on `main` via PR** — [`AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md`](AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md) (`DESIGN`) |
+| 2 | Multi-model matrix scaffolding | Not started |
+| 3 | Realistic harness & D2 trace coverage | Not started |
+| 4 | Fresh immutable Level B live runs | Not authorized |
+
+Level A runs remain the only scored research evidence until Phase 4 completes. Gap context: [`AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`](AIB_P2_Q1_EVIDENCE_GAP_PLAN.md).
+
+**v0 harness (optional, separate from Level B):**
+
 1. `origin auth login` (WSL) **or** create a GitHub remote and push
-2. Add `.env` with a key and run `run_batch.py`
+2. Add `.env` with a key and run `run_batch.py` only after [LIVE_EVAL_GATE.md](./LIVE_EVAL_GATE.md) sign-off
 3. Score with `score_asr.py` / `score_utility.py` and record rates only from that output
