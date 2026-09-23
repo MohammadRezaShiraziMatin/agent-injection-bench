@@ -7,7 +7,7 @@
 - **P4.2 primary (COV-A):** `p42-primary-d0-d2-20260921T173736Z-controlled` — 9 attack + 9 benign.
 - **P3-EXT (COV-B):** `p3-cov-b-ext-20260923T112900Z-controlled` — 42 attack + 42 benign per D0/D2 file; descriptive extension only; **not** Level B by itself.
 
-Level B needs a new experimental protocol and fresh immutable evidence. Gap plan: [`AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`](AIB_P2_Q1_EVIDENCE_GAP_PLAN.md). Evidence / claim index: [`../paper/RESULTS_EVIDENCE.md`](../paper/RESULTS_EVIDENCE.md).
+Level B needs a new experimental protocol and fresh immutable evidence. Gap plan: [`AIB_P2_Q1_EVIDENCE_GAP_PLAN.md`](AIB_P2_Q1_EVIDENCE_GAP_PLAN.md). Level B protocol **design** (not frozen): [`AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md`](AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md). Evidence / claim index: [`../paper/RESULTS_EVIDENCE.md`](../paper/RESULTS_EVIDENCE.md).
 
 ---
 
