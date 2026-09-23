@@ -12,7 +12,7 @@ requires-python = ">=3.10"
 authors = [{ name = "agent-injection-bench contributors" }]
 dependencies = [
   "jsonschema>=4.20",
-  "python-dotenv>=1.0",
+  "python-dotenv>=1.2.3",
   "openai>=1.40",
 ]
 
