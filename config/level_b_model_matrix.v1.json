@@ -1,62 +1,67 @@
 {
-  "matrix_id": "aib-level-b-model-matrix-v1",
-  "status": "DESIGN",
   "authorization": "NOT_AUTHORIZED",
-  "protocol_doc": "docs/AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md",
-  "model_matrix_doc": "docs/AIB_LEVEL_B_MODEL_MATRIX.md",
-  "program_phase": "Q1_STRENGTHENING_PHASE_2",
-  "level_a_gate_read_only": "config/p4_3_live_eval_gate.v1.json",
-  "content_fingerprint_sha256": "e914a796489197b1222f71bb34a213f64c9fc4e23bcccb23bd29263a8a248bbb",
-  "rows": [
-    {
-      "row_id": "target-level-a-primary",
-      "role": "target",
-      "family": "openai_gpt4o_mini",
-      "model_id": "openai/gpt-4o-mini-2024-07-18",
-      "lock_status": "INHERITS_LEVEL_A",
-      "provider": "openrouter",
-      "temperature": 0,
-      "max_tokens": 4096,
-      "cache_policy": "off_for_completions_record_in_manifest",
-      "routing_notes": "Provider order frozen in Level A gate; OPENROUTER_ALLOW_FALLBACKS=false",
-      "notes": "Same target as P4.2 primary / P4.3 live gate. Level B matrix row is scaffolding only until researcher lock."
-    },
-    {
-      "row_id": "target-candidate-family-b",
-      "role": "target",
-      "family": "google_gemini_flash",
-      "model_id": "CANDIDATE_NOT_LOCKED_RESEARCHER_DECISION_REQUIRED",
-      "lock_status": "CANDIDATE_NOT_LOCKED",
-      "provider": "openrouter",
-      "temperature": 0,
-      "max_tokens": 4096,
-      "cache_policy": "off_for_completions_record_in_manifest",
-      "routing_notes": "Provider order TBD at lock; no credentials or catalog snapshot in Phase 2",
-      "notes": "Placeholder second target family for Level B multi-model claim. Exact slug requires researcher sign-off and gate artifacts in Phase 4 prep—not authorized here."
-    },
-    {
-      "row_id": "judge-level-a-primary",
-      "role": "judge",
-      "family": "meta_llama_3_3_70b_instruct",
-      "model_id": "meta-llama/llama-3.3-70b-instruct",
-      "lock_status": "INHERITS_LEVEL_A",
-      "provider": "openrouter",
-      "temperature": 0,
-      "max_tokens": 2048,
-      "cache_policy": "off_for_completions_record_in_manifest",
-      "routing_notes": "Single operational judge across matrix unless pre-registered ablation (Level B protocol §13)",
-      "notes": "Inherits Level A judge lock; not a second target family."
-    }
+  "content_fingerprint_sha256": "b39a941c648dd840e3046c9af67eebc4b150f730b86b6480a2cc2bda9b647359",
+  "explicit_non_claims": [
+    "This matrix does not establish cross-model ASR or generalization",
+    "LOCKED rows are design locks only until live execution approval and fresh run IDs",
+    "Phase 4 prelive lock/freeze is not Level B evidence"
   ],
+  "level_a_gate_read_only": "config/p4_3_live_eval_gate.v1.json",
+  "matrix_id": "aib-level-b-model-matrix-v1",
+  "model_matrix_doc": "docs/AIB_LEVEL_B_MODEL_MATRIX.md",
+  "program_phase": "Q1_STRENGTHENING_PHASE_4_PRELIVE",
+  "protocol_doc": "docs/AIB_LEVEL_B_EXPERIMENTAL_PROTOCOL.md",
   "researcher_decisions_required_before_lock": [
-    "confirm_second_target_family_and_exact_model_id",
-    "per_row_catalog_snapshots_and_provider_order",
     "multiplicity_estimand_if_confirmatory",
     "execution_authorization_artifacts"
   ],
-  "explicit_non_claims": [
-    "This matrix does not establish cross-model ASR or generalization",
-    "CANDIDATE_NOT_LOCKED rows are not execution-ready",
-    "Phase 2 scaffolding is not Level B evidence"
-  ]
+  "rows": [
+    {
+      "cache_policy": "off_for_completions_record_in_manifest",
+      "family": "openai_gpt4o_mini",
+      "lock_status": "INHERITS_LEVEL_A",
+      "max_tokens": 4096,
+      "model_id": "openai/gpt-4o-mini-2024-07-18",
+      "notes": "Same target as P4.2 primary / P4.3 live gate. Level B matrix row is scaffolding only until researcher lock.",
+      "provider": "openrouter",
+      "role": "target",
+      "routing_notes": "Provider order frozen in Level A gate; OPENROUTER_ALLOW_FALLBACKS=false",
+      "row_id": "target-level-a-primary",
+      "temperature": 0
+    },
+    {
+      "cache_policy": "off_for_completions_record_in_manifest",
+      "catalog_lock_evidence": "artifacts/level_b_openrouter_model_lock_evidence.json",
+      "family": "google_gemini_flash",
+      "lock_status": "LOCKED",
+      "max_tokens": 4096,
+      "model_id": "google/gemini-2.5-flash",
+      "notes": "Second Level B target family locked at Phase 4 prelive (google/gemini-2.5-flash). Catalog fingerprint in level_b_openrouter_model_lock_evidence.json. Matrix authorization remains NOT_AUTHORIZED until live execution approval.",
+      "provider": "openrouter",
+      "role": "target",
+      "routing_notes": {
+        "allow_fallbacks": false,
+        "openrouter_allow_fallbacks_env": "false",
+        "provider_order": [
+          "Google"
+        ]
+      },
+      "row_id": "target-candidate-family-b",
+      "temperature": 0
+    },
+    {
+      "cache_policy": "off_for_completions_record_in_manifest",
+      "family": "meta_llama_3_3_70b_instruct",
+      "lock_status": "INHERITS_LEVEL_A",
+      "max_tokens": 2048,
+      "model_id": "meta-llama/llama-3.3-70b-instruct",
+      "notes": "Inherits Level A judge lock; not a second target family.",
+      "provider": "openrouter",
+      "role": "judge",
+      "routing_notes": "Single operational judge across matrix unless pre-registered ablation (Level B protocol \u00a713)",
+      "row_id": "judge-level-a-primary",
+      "temperature": 0
+    }
+  ],
+  "status": "DESIGN"
 }

@@ -1,0 +1,32 @@
+{
+  "catalog_fetched_at": "2026-09-23T16:13:20.060678+00:00",
+  "catalog_full_sha256": "a3a5e86a0f88fa4b52ebdb013f33820c966a77e3142d6dbaa6f63f5d638c6d8f",
+  "catalog_url": "https://openrouter.ai/api/v1/models",
+  "models": {
+    "google/gemini-2.5-flash": {
+      "canonical_slug": "google/gemini-2.5-flash",
+      "catalog_entry_sha256": "e14799eaa168a3b849645bb6cad1758a40cce41f31e5073ae0cda634626ee5dc",
+      "context_length": 1048576,
+      "created_unix": 1750172488,
+      "exact_model_id": "google/gemini-2.5-flash",
+      "hugging_face_id": null,
+      "snapshot_limitation": "OpenRouter catalog row fingerprint only; upstream provider weight revision is not independently attested by this repository.",
+      "supported_parameters": [
+        "include_reasoning",
+        "max_tokens",
+        "reasoning",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_p"
+      ],
+      "tool_calling_supported": true,
+      "weight_revision_provable": false
+    }
+  },
+  "purpose": "Level B second target family lock evidence (Phase 4 prelive); no live inference authorized by this file alone."
+}
