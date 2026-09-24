@@ -65,7 +65,7 @@ Gap plan: [AIB_P2_Q1_EVIDENCE_GAP_PLAN.md](./AIB_P2_Q1_EVIDENCE_GAP_PLAN.md). Q1
 
 ## Paper / external prose
 
-Allowed: v0 design, indirect injection setting, metric **definitions**, Level A sample observations with run IDs, honest gaps for Level B.
+Allowed: v0 design, indirect injection setting, metric **definitions**, Level A sample observations with run IDs, honest gaps for Level B. Workshop paste-in for Level B pilot: [`../paper/WORKSHOP_DESCRIPTIVE_LEVEL_B.md`](../paper/WORKSHOP_DESCRIPTIVE_LEVEL_B.md) — **DESCRIPTIVE_ONLY**; fractions must match [`../artifacts/level_b_descriptive_live/INDEX.json`](../artifacts/level_b_descriptive_live/INDEX.json) only.
 
 Forbidden: fabricated ASR/utility; conflating dry-run with pilot; citing sibling confirmatory outcomes as if measured on this bench without pinned cross-run; population-level efficacy from n=9 primary or descriptive extensions alone.
 
